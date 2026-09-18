@@ -121,16 +121,37 @@ if ([string]::IsNullOrWhiteSpace($ReportSourceDir)) {
 } elseif (-not (Test-Path $ReportSourceDir)) {
     Write-Warn2 "Report source does not exist; skipping: $ReportSourceDir"
 } else {
-    $files = Get-ChildItem -Path $ReportSourceDir -Filter "*-weekly-*.html" -File
-    # Also sweep the archive sub-folder if it exists (older-dated deliverables).
+    $candidates = @()
+    $candidates += Get-ChildItem -Path $ReportSourceDir -Filter "*-weekly-*.html" -File
+    # Also sweep the archive sub-folder: it holds final deliverables for older
+    # windows, AND superseded drafts of the current window.
     $arch = Join-Path $ReportSourceDir "archive"
     if (Test-Path $arch) {
-        $files += Get-ChildItem -Path $arch -Filter "*-weekly-*.html" -File -ErrorAction SilentlyContinue
+        $candidates += Get-ChildItem -Path $arch -Filter "*-weekly-*.html" -File -ErrorAction SilentlyContinue
     }
-    if (-not $files -or $files.Count -eq 0) {
+
+    if (-not $candidates -or $candidates.Count -eq 0) {
         Write-Warn2 "no *-weekly-*.html found under $ReportSourceDir"
     }
-    foreach ($f in $files) {
+
+    # One deliverable per (journal, window): group by the name with the
+    # "-deep" marker stripped, and keep the deep version when both exist.
+    $selected = @()
+    foreach ($grp in ($candidates | Group-Object { $_.Name -replace "-deep", "" })) {
+        $deep = @($grp.Group | Where-Object { $_.Name -like "*-deep.html" })
+        if ($deep.Count -gt 0) {
+            if ($deep.Count -gt 1) {
+                Write-Warn2 "duplicate -deep for $($grp.Name); keeping the newest"
+                $selected += ($deep | Sort-Object LastWriteTime -Descending | Select-Object -First 1)
+            } else {
+                $selected += $deep[0]
+            }
+        } else {
+            $selected += $grp.Group
+        }
+    }
+
+    foreach ($f in $selected) {
         $m = [regex]::Match($f.Name, "(\d{4})-(\d{2})-\d{2}")
         if (-not $m.Success) {
             Write-Warn2 "cannot parse date from $($f.Name); skipped"
@@ -141,6 +162,18 @@ if ([string]::IsNullOrWhiteSpace($ReportSourceDir)) {
         New-Item -ItemType Directory -Force -Path $destDir | Out-Null
         Copy-Item $f.FullName (Join-Path $destDir $f.Name) -Force
         Write-Ok "$($f.Name)  ->  reports/$ym/"
+
+        # Prune a superseded sibling for the SAME (journal, window) only.
+        # Scoped deliberately: never touch other windows / workspaces.
+        $key = $f.Name -replace "-deep", ""
+        $sibs = Get-ChildItem -Path $destDir -Filter "*.html" -File -ErrorAction SilentlyContinue |
+                Where-Object { (($_.Name -replace "-deep", "") -eq $key) -and ($_.Name -ne $f.Name) }
+        foreach ($s in $sibs) {
+            Remove-Item $s.FullName -Force -ErrorAction SilentlyContinue
+            if (-not (Test-Path $s.FullName)) {
+                Write-Warn2 "pruned superseded: reports/$ym/$($s.Name)"
+            }
+        }
     }
 }
 
