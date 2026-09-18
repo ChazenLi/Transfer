@@ -275,6 +275,102 @@
     height: 12px;
     border-radius: 3px;
   }
+
+  /* 配套视频课程 */
+  .video-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .video-box-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .video-box-note {
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+  .video-box-note b {
+    color: var(--accent-blue);
+    font-weight: 600;
+  }
+  .video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
+  }
+  .video-item {
+    display: block;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: all 0.25s ease;
+  }
+  .video-item:hover {
+    border-color: var(--accent-blue);
+    background: rgba(56, 189, 248, 0.06);
+    transform: translateY(-2px);
+  }
+  .video-item-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .video-item-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .video-tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .video-tag-intro {
+    color: var(--accent-green);
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.35);
+  }
+  .video-tag-deep {
+    color: var(--accent-purple);
+    background: rgba(168, 85, 247, 0.15);
+    border-color: rgba(168, 85, 247, 0.35);
+  }
+  .video-item-meta {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .video-item-desc {
+    font-size: 12.5px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+  .video-path {
+    font-size: 12px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .video-path b { color: var(--text-primary); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -357,6 +453,40 @@
     <div class="legend-item"><div class="legend-color" style="background:#a855f7;"></div><span>重复序列 (Repeat 区)</span></div>
     <div class="legend-item"><div class="legend-color" style="background:#fbbf24;"></div><span>tracrRNA 支架 / 导向 crRNA</span></div>
     <div class="legend-item"><div class="legend-color" style="background:#f43f5e;"></div><span>DSB 双链断裂位点</span></div>
+  </div>
+
+  <!-- 配套视频课程 -->
+  <div class="video-box">
+    <div class="video-box-title">🎬 配套视频课程</div>
+    <div class="video-box-note">
+      本演示止于"切割"这一步。下面两个讲解视频分别补上<b>整体框架</b>与<b>切割之后的修复结局（NHEJ / HDR）</b>
+      ——后者正是"切割"得以转化为"敲除 / 敲入"的关键环节。
+    </div>
+    <div class="video-list">
+      <a class="video-item" href="https://www.youtube.com/watch?v=IiPL5HgPehs" target="_blank" rel="noopener noreferrer">
+        <div class="video-item-head">
+          <span class="video-tag video-tag-intro">入门预热</span>
+          <span class="video-item-title">CRISPR-Cas9 Genome Editing Technology</span>
+        </div>
+        <div class="video-item-meta">Professor Dave Explains · YouTube</div>
+        <div class="video-item-desc">
+          概览型科普短片，术语密度低。先建立"这技术在干什么"的直觉，再进入本演示与配套长文会顺畅得多。
+        </div>
+      </a>
+      <a class="video-item" href="https://www.youtube.com/watch?v=cLMo6DYdJRE" target="_blank" rel="noopener noreferrer">
+        <div class="video-item-head">
+          <span class="video-tag video-tag-deep">机制全流程</span>
+          <span class="video-item-title">Understanding CRISPR-Cas9</span>
+        </div>
+        <div class="video-item-meta">Andrew Douch · YouTube</div>
+        <div class="video-item-desc">
+          与上面三个阶段逐一对齐的系统讲解。重点在结尾：DSB 之后的 NHEJ（易错，用于敲除）与 HDR（需同源模板，用于敲入）。
+        </div>
+      </a>
+    </div>
+    <div class="video-path">
+      <b>建议顺序</b>：入门预热 → 本页三阶段动画 → 机制全流程（补齐 NHEJ / HDR）→ 配套长文与原始论文
+    </div>
   </div>
 </div>
 
