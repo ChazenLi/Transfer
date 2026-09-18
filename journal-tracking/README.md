@@ -19,7 +19,8 @@ journal-tracking/
 │       ├── 01-sources.md        分层数据源登记表（含各源实测可用性）
 │       ├── 02-output-spec.md    输出规范：四层结构 / 口径声明 / 质检清单
 │       └── journals/
-│           ├── nature.md         Nature 正刊 + 子刊
+│           ├── nature.md         Nature 正刊
+│           ├── nature-sisters.md ★ Nature 系列子刊（RSS 缩写表 / EPMC 收录分档 / ISSN 白名单）
 │           ├── science.md        Science 正刊 + 子刊
 │           ├── cell.md           Cell 正刊 + Cell Press 家族
 │           └── _template.md      新增期刊照此填写
@@ -49,6 +50,25 @@ journal-tracking/
 - **机理层是解释性归纳**——基于摘要与学科常识重建的因果链，**不是论文作者原话**。
 - 统计窗口、对应卷期、数据源、口径限制：见每份报告文末的「口径与说明」。
 - 「高亮版」与「全量枚举版」口径不同，前者只是来源覆盖的条目，非该期全量目次。
+
+---
+
+## Nature 系列子刊：正刊的通道不能照搬
+
+Europe PMC 对子刊的差异是**收录范围**，不是"滞后"：
+
+| 类型 | 代表刊 | EPMC 全库 | 主干通道 |
+|---|---|---|---|
+| 生物医学类 | Nature Communications、Nature Medicine | 91597 / 14185 | EPMC（实时） |
+| 物质科学类 | **Nature Physics、Nature Catalysis** | **287 / 最新仅到 2026-03** | `nature.com/<abbr>.rss` |
+
+→ **只看 EPMC 会得出"Nature Physics 这周什么都没发"的错误结论。**
+→ 子刊 RSS 路径为 `https://www.nature.com/<abbr>.rss`（RSS 1.0/RDF），但**缩写无规律**
+（新刊 `natmachintell`、老刊 `nm`/`nphys`，俗称 `nmi` 取不到），且**会随机返回 Client Challenge 拦页**——
+必须写前判 `rdf:RDF`、节流重试。两通道互补后按 `dc:date` 归窗。
+完整缩写表、收录分档判据与 46 本 ISSN 白名单见 `skill/references/journals/nature-sisters.md`。
+
+> 子刊一周可出上百条，**必须收敛**：8–15 条四层深读 + 其余分组速览。
 
 ---
 
