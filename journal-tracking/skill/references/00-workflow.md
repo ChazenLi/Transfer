@@ -121,6 +121,41 @@ https://www.ebi.ac.uk/europepmc/webservices/rest/search
 最终版放工作区根目录，**被取代的旧版移入 `archive/`**（不删，留作口径对照），
 最后调用 `present_files`。
 
+### 6.3 同步到公开仓库（`present_files` 之后、本轮结束之前）
+
+运行结果归档到 GitHub 公开仓 **`ChazenLi/Transfer`**，路径 `journal-tracking/`。
+
+一条命令完成「镜像技能 + 归档报告 + 提交 + 推送」：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\Transfer\journal-tracking\sync.ps1 `
+    -ReportSourceDir "<本次工作区绝对路径>"
+```
+
+**单向语义（重要，别搞反）：**
+
+| 目录 | 方向 | 说明 |
+|---|---|---|
+| `journal-tracking/skill/` | 本地 → repo，**单向镜像** | 本机 `~/.workbuddy/skills/journal-paper-tracking` 是**唯一真源**；repo 是只读镜像，不要在 GitHub 上直接改 |
+| `journal-tracking/reports/YYYY-MM/` | 本地 → repo，**新增归档** | 按窗口起始月归档，**不删旧报告**（历史快照有长期价值） |
+
+**只在报告已是最终版时才推。** 被取代的中间版留在本地 `archive/`，不进 repo。
+
+**本机两个必踩的坑（已固化进脚本，但手工操作时会遇到）：**
+
+1. **代理**：环境变量 `HTTP(S)_PROXY` 指向 `127.0.0.1:9767`，该端口对 GitHub 返回 **502**（`CONNECT tunnel failed`），表现为 `git ls-remote` / `clone` / `push` 全部 fatal。可用端口是 `127.0.0.1:7897`。所有 git 网络操作都要带
+   `-c http.proxy=http://127.0.0.1:7897 -c http.version=HTTP/1.1`。
+   注意：`api.github.com` **不受影响**，所以「API 能查」不代表「git 能推」——别用它做判断依据。
+2. **GH007 私有邮箱**：账号开了「阻止暴露私有邮箱」，用 `chazenli@163.com` 提交会被远端拒绝
+   （`push declined due to email privacy restrictions`）。必须用 noreply 形式
+   `114374202+ChazenLi@users.noreply.github.com`。
+   本仓库已设**仓库局部** `user.email`，不动全局身份。
+   若某次仍被拒：确认 `git -C D:\Transfer config --local --get user.email` 正确，再
+   `git commit --amend --reset-author --no-edit`（**仅在未推送时可用**）。
+
+**不得推送的内容：** `data/` 下的原始逐字摘要文本。报告是二次加工（转述 + DOI 标注）可公开；
+批量逐字搬运摘要属版权灰区。元数据（题名/DOI/作者/页码）属事实性信息，如需另行处理。
+
 ---
 
 ## 检索式模板（直接改参数用）

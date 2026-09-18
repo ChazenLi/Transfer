@@ -29,10 +29,12 @@ param(
     [string]$ReportSourceDir,
 
     # Local clone of the Transfer repository (this directory's parent).
-    [string]$RepoDir = (Split-Path -Parent (Split-Path -Parent $PSCommandPath)),
+    # Resolved in the body when left empty ($PSCommandPath is not reliable
+    # inside a param() default expression).
+    [string]$RepoDir,
 
     # Skill source (single source of truth on this machine).
-    [string]$SkillSource = (Join-Path $env:USERPROFILE ".workbuddy\skills\journal-paper-tracking"),
+    [string]$SkillSource,
 
     # Working proxy for GitHub on this machine.
     [string]$Proxy = "http://127.0.0.1:7897",
@@ -45,6 +47,22 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+
+# --- resolve defaults -------------------------------------------------------
+if ([string]::IsNullOrWhiteSpace($RepoDir)) {
+    $here = $PSScriptRoot
+    if ([string]::IsNullOrWhiteSpace($here)) {
+        $here = Split-Path -Parent $MyInvocation.MyCommand.Path
+    }
+    if ([string]::IsNullOrWhiteSpace($here)) {
+        throw "Cannot resolve script directory; pass -RepoDir explicitly."
+    }
+    # script lives in <repo>\journal-tracking\  ->  repo is one level up
+    $RepoDir = Split-Path -Parent $here
+}
+if ([string]::IsNullOrWhiteSpace($SkillSource)) {
+    $SkillSource = Join-Path $env:USERPROFILE ".workbuddy\skills\journal-paper-tracking"
+}
 
 function Write-Step([string]$t) { Write-Host ""; Write-Host "=== $t ===" -ForegroundColor Cyan }
 function Write-Ok([string]$t)   { Write-Host "  [ok]   $t" -ForegroundColor Green }
@@ -68,11 +86,11 @@ if (-not (Test-Path (Join-Path $RepoDir ".git"))) {
 
 # Run git with the working proxy forced on the command line.
 function Invoke-Git {
-    param([Parameter(ValueFromRemainingArguments = $true)][string[]]$Args)
+    param([Parameter(ValueFromRemainingArguments = $true)][string[]]$GitArgs)
     & $git `
         -c "http.proxy=$Proxy" `
         -c "http.version=HTTP/1.1" `
-        -C $RepoDir @Args
+        -C $RepoDir @GitArgs
 }
 
 # ----------------------------------------------------------------------------

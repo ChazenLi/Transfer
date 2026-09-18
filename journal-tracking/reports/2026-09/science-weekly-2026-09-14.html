@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science 周报 · 2026年9月14日–18日（Vol 393, Issue 6817）</title>
+<style>
+  :root{
+    --ink:#12161c; --ink-2:#3d4753; --ink-3:#6b7683;
+    --line:#e3e7ec; --bg:#f6f7f9; --card:#fff;
+    --accent:#1a4d8f; --accent-soft:#e8f0fa;
+    --blue:#1d4e89; --blue-soft:#eaf1f9;
+    --rose:#9b2c47; --rose-soft:#fbecef;
+    --warm:#a8541b; --warm-soft:#fbf0e6;
+    --violet:#5b3f8f; --violet-soft:#f0ecfa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1020px;margin:0 auto;padding:44px 26px 80px;}
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:30px;}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-size:33px;line-height:1.25;margin:10px 0 12px;letter-spacing:-.4px;}
+  .sub{color:var(--ink-2);max-width:800px;}
+  .stamp{margin-top:16px;font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 20px;}
+
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(122px,1fr));gap:11px;margin:0 0 14px;}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;}
+  .metric .n{font-size:26px;font-weight:700;letter-spacing:-.5px;color:var(--accent);line-height:1.1;}
+  .metric .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+
+  .method{background:var(--blue-soft);border:1px solid #cfe0f2;border-radius:10px;padding:15px 19px;margin:0 0 38px;font-size:13.5px;color:var(--ink-2);}
+  .method b{color:var(--ink);}
+  .method code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#fff;border:1px solid #d8e4f0;border-radius:4px;padding:1px 5px;word-break:break-all;}
+  .method .warn{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed #c3d5e8;}
+
+  section{margin-bottom:44px;}
+  h2{font-size:20px;margin:0 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;}
+  h2 .num{font-size:12px;color:var(--ink-3);font-weight:600;letter-spacing:.1em;}
+  .sec-note{color:var(--ink-3);font-size:13px;margin:0 0 20px;}
+
+  h3.disc{font-size:13px;letter-spacing:.1em;margin:26px 0 12px;color:var(--ink-2);
+    display:flex;align-items:center;gap:9px;font-weight:700;}
+  h3.disc::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 20px;margin-bottom:11px;}
+  .card:hover{border-color:#c9d1da;}
+  .card .title{font-size:16px;font-weight:650;line-height:1.45;margin:0 0 3px;}
+  .card .title-en{font-size:13.5px;color:var(--ink-3);font-style:italic;margin:0 0 9px;line-height:1.5;}
+  .byline{font-size:12.5px;color:var(--ink-3);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:4px 14px;}
+  .byline .who{color:var(--ink-2);font-weight:600;}
+  ul.finds{margin:0 0 11px;padding-left:0;list-style:none;}
+  ul.finds li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-2);margin-bottom:5px;line-height:1.6;}
+  ul.finds li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  ul.finds b{color:var(--ink);font-weight:650;}
+  .doi{font-size:12px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);word-break:break-all;}
+  .doi a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6d4;}
+
+  .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:.03em;
+    background:var(--accent-soft);color:var(--accent);vertical-align:2px;margin-left:6px;}
+  .badge.cn{background:var(--blue-soft);color:var(--blue);}
+  .badge.hot{background:var(--rose-soft);color:var(--rose);}
+  .badge.rev{background:var(--violet-soft);color:var(--violet);}
+  .badge.new{background:var(--warm-soft);color:var(--warm);}
+  .pg{font-size:11.5px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
+  thead th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);background:#fafbfc;}
+  tbody td{padding:10px 14px;border-bottom:1px solid #eef1f4;vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink);font-weight:600;}
+
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:15px 19px;margin:0 0 12px;}
+  .callout h4{margin:0 0 6px;font-size:14.5px;}
+  .callout p{margin:0;font-size:13.5px;color:var(--ink-2);}
+
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.75;}
+  footer b{color:var(--ink-2);}
+  @media(max-width:640px){.wrap{padding:28px 16px 56px;}h1{font-size:24px;}.card{padding:14px 15px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Science Weekly · Issue Enumeration</div>
+  <h1>Science 周报 · 2026年9月14日–18日</h1>
+  <p class="sub">
+    本期以 <b>eTOC 官方目次</b>为背骨——Science 是强订阅制，<b>Europe PMC 本周对其返回 0 条</b>，
+    故改用官方整期目次 + Crossref + 官网单篇摘要三源拼合，覆盖<b>该期全部 37 条目</b>。
+  </p>
+  <div class="stamp">
+    <span>窗口：2026-09-14 ~ 09-18</span>
+    <span>期次：Vol 393, Issue 6817</span>
+    <span>期日：2026-09-17</span>
+    <span>生成：2026-09-18</span>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric"><div class="n">37</div><div class="l">本期目次条目</div></div>
+  <div class="metric"><div class="n">15</div><div class="l">研究论文</div></div>
+  <div class="metric"><div class="n">3</div><div class="l">中国团队主导</div></div>
+  <div class="metric"><div class="n">1</div><div class="l">在线优先（期外）</div></div>
+  <div class="metric"><div class="n">4</div><div class="l">展望 Perspective</div></div>
+  <div class="metric"><div class="n">3</div><div class="l">子刊联动</div></div>
+</div>
+
+<div class="method">
+  <b>枚举方式（可复核）</b><br>
+  主干：<code>https://www.science.org/action/showFeed?type=etoc&amp;feed=rss&amp;jc=science</code> → 返回 <b>37 个 item</b>，含 <code>dc:type</code> 栏目字段<br>
+  富化：Crossref <code>api.crossref.org/journals/0036-8075/works?filter=from-pub-date:2026-09-14,until-pub-date:2026-09-18</code> → <b>38 条</b>（多出 1 条为无期次的 First Release）<br>
+  摘要：官网单篇 DOI 页 + 本期 <code>In Science Journals</code> 栏目（p1200-1202，编辑给全期论文撰写的导读汇总）
+  <span class="warn">
+    ⚠️ <b>重要口径差异</b>：Europe PMC 对 Nature 是实时的（本周 50 条），但对 Science
+    <b>本周返回 hitCount = 0</b>；放宽到 9 月全月也只有 78 条，最新一条停在 <b>9/11</b>。
+    即 Science 尚无第 6817 期任何记录——EPMC 对 Science 存在<b>多日级索引滞后</b>。
+    因此本报告不使用 EPMC，改以官方 eTOC 为准。EPMC 仍可用于 Science 的<b>历史回溯</b>（滞后 1–2 期）。
+  </span>
+</div>
+
+<!-- ===================== 1 ===================== -->
+<section>
+  <h2><span class="num">01</span>研究论文 · 15 篇</h2>
+  <p class="sec-note">官方目次中 <code>dc:type</code> 统一标为 Research Article，未再细分 Report / Research Article；页码为该文起始页或页码区间。</p>
+
+  <h3 class="disc">生命科学与医学</h3>
+
+  <div class="card">
+    <p class="title">专家级腹部 CT 通用诊断模型 RADAR <span class="badge cn">中国团队</span> <span class="pg">p1207</span></p>
+    <p class="title-en">An expert-level generalist AI for abdominal CT diagnosis</p>
+    <div class="byline"><span class="who">Qi Zhang 等 · 浙江大学医学院附属第一医院 + 阿里巴巴 + MBZUAI（通讯：Ling Zhang）</span></div>
+    <ul class="finds">
+      <li>通用视觉–语言模型 <b>RADAR</b>，在 <b>40 万+ 例</b>增强腹部 CT 与 <b>1500 万</b>解剖级图文对上训练，<b>直接读临床报告、无需人工标注</b>。</li>
+      <li>覆盖 <b>18 个解剖结构、146 项影像征象</b>；对训练中未见过（unseen）的异常同样有效。</li>
+      <li>读者研究：AI 辅助使 <b>26 名放射科医生诊断敏感度提升约 10%</b>。</li>
+      <li>意义在于训练范式——把"人工标注"这一最贵的成本项去掉，是放射 AI 可扩展化的关键一步。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec6129">10.1126/science.aec6129</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">遗传性 T790M 突变与肺癌风险：一个 200 年前的奠基者效应 <span class="pg">p1208</span></p>
+    <p class="title-en">Germline <i>EGFR</i> T790M mutation and lung cancer risk</p>
+    <div class="byline"><span class="who">Jaclyn LoPiccolo 等 · 23andMe Research Team 等</span></div>
+    <ul class="finds">
+      <li>分析 <b>300 万人以上</b>的遗传与健康数据，发现 <i>EGFR</i> 的<b>胚系 T790M 变异</b>与肺癌风险强相关，而与其他常见癌种无关。</li>
+      <li>追溯该变异历史：约 <b>200 年前</b>经美国<b>南阿巴拉契亚地区的一次奠基者事件</b>富集。</li>
+      <li>为"个体化遗传筛查 + 肺癌早筛"提供了明确的候选靶点与人群依据（同期配 Perspective，Chanock，p1190）。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec0473">10.1126/science.aec0473</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">自闭症小鼠模型可按转录组分为两个分子亚型 <span class="pg">p1250-1257</span></p>
+    <p class="title-en">Transcriptome-based classification in mice with ASD-risk mutations</p>
+    <div class="byline"><span class="who">Junyeop Daniel Roh 等 · 韩国基础科学研究院 / KAIST（Eunjoon Kim）</span></div>
+    <ul class="finds">
+      <li>系统分析 <b>17 个</b>自闭症（ASD）风险突变小鼠模型，识别出两个稳健分子亚型：<b>突触/蛋白酶体程序</b> vs <b>染色质/mRNA 加工程序</b>。</li>
+      <li>关键在"选择性"：出生后早期给药，<b>氟西汀与锂剂各自只对其中一个亚型</b>逆转异常网络与行为表型。</li>
+      <li>给"ASD 异质性"提供了一个可预测的分层框架——也是精确治疗学急需的脚手架（配 Perspective，p1188）。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adz6688">10.1126/science.adz6688</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">脾脏是全身血小板活化状态的"过滤器" <span class="pg">p1204</span></p>
+    <p class="title-en">Splenic regulation of systemic platelet activation state</p>
+    <div class="byline"><span class="who">Lisa Laun 等 · 慕尼黑大学（Leo Nicolai, Steffen Massberg）等</span></div>
+    <ul class="finds">
+      <li>活化血小板离开血管进入<b>脾红髓</b>后，接触胞外基质信号；静息血小板靠抑制通路"抵消"信号得以再循环，<b>活化血小板则被抑制通路失衡而截留清除</b>。</li>
+      <li>血栓事件、脓毒症、心梗患者组织分析提示<b>人类脾脏可能具有同类血小板过滤功能</b>。</li>
+      <li>为抗血栓策略提供了一个此前被忽视的器官层面调控节点。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec7230">10.1126/science.aec7230</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">用"多细胞器签名"在原位测绘细胞状态 <span class="pg">p1203</span></p>
+    <p class="title-en">Multi-organelle signatures map cell-state diversity and metabolic adaptation in tissues</p>
+    <div class="byline"><span class="who">Raghabendra Adhikari 等 · HHMI Janelia（Daniel Feliciano）</span></div>
+    <ul class="finds">
+      <li>提出 <b>sOrganellomics</b>：共聚焦成像 + 自动分割 + 机器学习，从<b>多细胞器形态</b>反推细胞状态（而非只看基因表达）。</li>
+      <li>肝脏中揭示<b>"亚分区（subzonal）"异质性</b>——经典分带位置不足以解释肝细胞类型，细胞器定义的类群在分带内<b>交错混居</b>。</li>
+      <li>营养应激重塑该组织方式；活体成像把<b>禁食诱导的细胞器重塑</b>与线粒体膜电位变化直接连通。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.ady6372">10.1126/science.ady6372</a></p>
+  </div>
+
+  <h3 class="disc">古 DNA · 地球物理 · 大气化学</h3>
+
+  <div class="card">
+    <p class="title">东天山青铜—铁器时代人群的独特祖源 <span class="badge cn">中国团队</span> <span class="pg">p1205</span></p>
+    <p class="title-en">Ancient DNA unveils distinctive ancestries in the Bronze and Iron Ages of East Tianshan</p>
+    <div class="byline"><span class="who">宁超、王轲、王恬怡、马健等 · 吉林大学（崔银秋）+ 中科院古脊椎动物与古人类研究所（付巧妹）+ 北京大学 / 复旦大学 / 西北大学 / 新疆文博系统</span></div>
+    <ul class="finds">
+      <li>天山走廊 <b>11 处遗址、135 例</b>青铜—铁器时代个体全基因组数据，是目前该区域最系统的古基因组采样。</li>
+      <li>发现<b>此前未知的青铜时代混血事件</b>：黄河流域<b>粟作农业人群</b> × 切木尔切克文化<b>草原牧民</b>。</li>
+      <li>但同期中—晚青铜时代草原牧民的<b>基因贡献极少</b>——与其向东扩张的考古证据形成反差。</li>
+      <li>铁器时代人群异质性上升，提示<b>持续、多次的基因流动</b>而非单次混血，把该区域的远距离互动上推到<b>历史丝绸之路成型前约 1800 年</b>。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adv1295">10.1126/science.adv1295</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">核试验的应力余波：地下爆炸"重启"了板内断层 <span class="badge cn">中国团队</span> <span class="pg">p1209-1212</span></p>
+    <p class="title-en">Nuclear tests at Mt. Mantap have reactivated intraplate faults</p>
+    <div class="byline"><span class="who">Xingli Fan（范兴利）、Kwang-Hee Kim、Qi-Fu Chen（陈棋福）、Lian-Feng Zhao（赵连锋）等 · 中韩合作</span></div>
+    <ul class="finds">
+      <li>针对朝鲜丰溪里（Punggye-ri）<b>2006–2017 年六次地下核试验</b>，构建 <b>17 年</b>区域地震目录。</li>
+      <li>2008–2025 年间识别约 <b>1400 次</b>地方震；<b>2017 年最大一次试验后，事件数与震级显著加速</b>。</li>
+      <li>结论：反复爆炸的累积损伤<b>重新分配了地壳应力</b>，导致浅部断层延迟活化——核试验的灾害影响时间尺度远超"爆炸当时"。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adx5917">10.1126/science.adx5917</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">末次冰盛期甲烷"寿命"更短：被尘埃驱动的氯化学 <span class="pg">p1206</span></p>
+    <p class="title-en">Atmospheric methane lifetime during the Last Glacial Maximum was reduced owing to dust-mediated chlorine chemistry</p>
+    <div class="byline"><span class="who">Daphne Meidan, Alfonso Saiz-Lopez 等 · 西班牙国家研究委员会（CSIC）等</span></div>
+    <ul class="finds">
+      <li>主流解释冰期低甲烷靠"源减弱"，本文转而在<b>汇</b>上做文章。</li>
+      <li>提出<b>矿物沙尘 × 海盐气溶胶</b>反应生成的<b>氯自由基</b>加速甲烷销毁，从而缩短其大气寿命。</li>
+      <li>为冰期甲烷浓度之谜补上一条被长期低估的汇机制。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec4071">10.1126/science.aec4071</a></p>
+  </div>
+
+  <h3 class="disc">量子与物理</h3>
+
+  <div class="card">
+    <p class="title">中性原子量子比特阵列的"中途快速补料" <span class="pg">p1213-1216</span></p>
+    <p class="title-en">Fast, continuous, and coherent atom reloading in a neutral-atom qubit array</p>
+    <div class="byline"><span class="who">Yiyi Li, Jeff D. Thompson 等 · 普林斯顿大学</span></div>
+    <ul class="finds">
+      <li>中性原子平台长期受限于"初始制备的比特数固定"；本文实现 <b>Yb-171 亚稳态核自旋比特的中途（midcircuit）连续快速重装</b>。</li>
+      <li>从高密度原子库反复取原子并输送至计算区，<b>后续重装不影响已有比特的相干时间</b>。</li>
+      <li>直接指向中性原子处理器<b>电路深度</b>这一核心瓶颈。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adz9952">10.1126/science.adz9952</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">听见声的量子跃迁 <span class="pg">p1217-1220</span></p>
+    <p class="title-en">Quantum jumps of sound</p>
+    <div class="byline"><span class="who">Takuma Makihara, Amir H. Safavi-Naeini 等 · 斯坦福大学</span></div>
+    <ul class="finds">
+      <li>把铌酸锂机械谐振子与超导量子比特耦合，用<b>量子非破坏测量</b>耦合到<b>声子数</b>（而非位置），首次直接测到<b>声子数的量子跃迁</b>。</li>
+      <li>常规谐振子测量无法暴露机械能的量子化，本文把"离散性"测了出来。</li>
+      <li>除基础意义外，对<b>机械量子信息处理</b>有直接用处。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aeh7535">10.1126/science.aeh7535</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">超冷分子气体损耗的极端抑制 <span class="pg">p1226-1229</span></p>
+    <p class="title-en">Extreme loss suppression in an ultracold molecular gas with widely tunable dipolar interactions</p>
+    <div class="byline"><span class="who">Weijun Yuan 等 · 哥伦比亚大学（Sebastian Will）</span></div>
+    <ul class="finds">
+      <li>用<b>双微波缀饰</b>方案，在超冷基态 NaCs 分子气体中把二体、三体非弹性损耗分别抑制 <b>逾 10⁴ 倍与 10³ 倍</b>。</li>
+      <li>气体寿命达<b>数秒</b>；抑制在<b>很宽的偶极相互作用范围</b>内都成立。</li>
+      <li>偶极长度可连续调谐 <b>−21,000 至 +12,000 a₀</b>，为强偶极量子液体/多体态打开大门。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adz0521">10.1126/science.adz0521</a></p>
+  </div>
+
+  <h3 class="disc">复杂系统 · 生态与保护</h3>
+
+  <div class="card">
+    <p class="title">异质性反而促进稳定性——"复杂性–稳定性悖论"的解法 <span class="pg">p1241-1249</span></p>
+    <p class="title-en">Disorder-promoted stability</p>
+    <div class="byline"><span class="who">Arthur N. Montanari, Pietro Zanin, Adilson E. Motter · 美国西北大学</span></div>
+    <ul class="finds">
+      <li>传统简化模型认为"组分越均一越稳定"，本文<b>反其道而行</b>：当系统 Jacobian 矩阵为<b>非厄米</b>时，异质性反而增强稳定性。</li>
+      <li>节点与网络层面的异质性——<b>即便表现为无序</b>——都能加固集体态的稳定。</li>
+      <li>在生态学语境下<b>化解了长期悬而未决的复杂性–稳定性悖论</b>，并把"无序"重新定位为可用资源（配 Perspective，p1185）。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aeg3946">10.1126/science.aeg3946</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">保护热带森林比修复更划算 <span class="pg">p1221-1225</span></p>
+    <p class="title-en">Protecting tropical forests is more cost-effective for biodiversity and climate than restoration</p>
+    <div class="byline"><span class="who">Leonardo S. Miranda, Jos Barlow 等 · 兰卡斯特大学等（巴西）</span></div>
+    <ul class="finds">
+      <li>在巴西亚马逊"毁林前沿"用<b>反事实情景</b>比较三种干预的成本效益。</li>
+      <li><b>避免砍伐</b>对<b>碳储量</b>最有效；<b>避免扰动（火灾、伐木）</b>对<b>生物多样性</b>最有利；<b>修复</b>在两项上均最弱。</li>
+      <li>但只有三者<b>组合</b>才能实现净正效益——修复仍不可替代。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adx9928">10.1126/science.adx9928</a></p>
+  </div>
+
+  <h3 class="disc">分子生物学 · CRISPR 的起源（同期双发）</h3>
+
+  <div class="card">
+    <p class="title">CRISPR-Cas 起源：一套"非连续"的 RNA 引导识别密码 <span class="badge hot">同期双发</span> <span class="pg">p1230-1235</span></p>
+    <p class="title-en">A noncontiguous code for RNA-guided DNA recognition at the origin of CRISPR-Cas</p>
+    <div class="byline"><span class="who">Peter H. Yoon 等 · 加州大学伯克利分校（Jennifer A. Doudna）</span></div>
+    <ul class="finds">
+      <li>发现一套此前未知的防御系统 <b>VIPR</b>，其核心蛋白比 Cas 蛋白<b>更古老</b>，引导 RNA 由重复的 <b>GGYNN</b> 单元构成。</li>
+      <li>识别方式<b>不是连续配对</b>，而是用"带缺口（gapped）、非连续"的密码识别病毒序列并阻断表达。</li>
+      <li>提示 <b>CRISPR 样免疫起源于更古老的病毒间冲突</b>，并给出一件新的可编程基因表达调控工具。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aei0498">10.1126/science.aei0498</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">VIPR 的冷冻电镜结构：每隔三个碱基的几何三链 <span class="badge hot">同期双发</span> <span class="pg">p1236-1240</span></p>
+    <p class="title-en">VIPR RNA-guided DNA recognition by noncontiguous geometric triplex formation</p>
+    <div class="byline"><span class="who">Peter H. Yoon 等 · 加州大学伯克利分校（Jennifer A. Doudna）</span></div>
+    <ul class="finds">
+      <li>冷冻电镜显示 VIPR 蛋白沿 RNA 组装成<b>螺旋丝</b>，识别时<b>跳过每第三个 DNA 碱基</b>，形成不寻常的<b>三链结构</b>。</li>
+      <li>为上一篇的"非连续密码"提供了结构层面机制——<b>两篇同日、同组、互补</b>（配 Perspective，Bravo，p1187）。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aei3472">10.1126/science.aei3472</a></p>
+  </div>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section>
+  <h2><span class="num">02</span>在线优先（First Release）· 1 篇 <span class="badge new">期外</span></h2>
+  <p class="sec-note">已在线发布但尚未编入任何期次，Crossref 显示卷/期/页码为空。严格说落在本窗口内，故单列。</p>
+
+  <div class="card">
+    <p class="title">虚拟生物技术公司：治疗发现与开发的多智能体 AI 框架</p>
+    <p class="title-en">The Virtual Biotech: A multi-agent AI framework for therapeutic discovery and development</p>
+    <div class="byline"><span class="who">Harrison G. Zhang, Peter Eckmann, Jiacheng Miao, Andrew B. Mahon, James Zou · 斯坦福大学</span></div>
+    <ul class="finds">
+      <li>把药物发现与开发流程组织为<b>多智能体框架</b>，接入 Open Targets、cBioPortal、ClinicalTrials.gov、CELLxGENE 等真实数据库与 <b>MCP</b> 工具层。</li>
+      <li>作者团队延续其 <b>Virtual Lab</b> 路线（2025 年 Nature 上的 AI 智能体设计 SARS-CoV-2 纳米抗体工作）。</li>
+      <li>与本周 Nature 侧的 Paper2Agent、Delphy 等构成同期共振：<b>"论文/研发流程 → 智能体"正在成为顶刊显性议题</b>。</li>
+    </ul>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aeg6779">10.1126/science.aeg6779</a>（First Release，2026-09-17）</p>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section>
+  <h2><span class="num">03</span>子刊联动 · 3 篇</h2>
+  <p class="sec-note">本周正刊的 <code>In Science Journals</code> 栏目一并预告了三篇系列子刊论文。</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>子刊</th><th>论文</th><th>要点</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Science Immunology</td>
+          <td>锰佐剂黏膜流感疫苗<br><span class="pg">10.1126/sciimmunol.adz5242</span></td>
+          <td>锰离子 + cGAS-STING 激动剂脂质体，鼻内递送靶向肺泡上皮；<b>把老年小鼠免疫应答拉回年轻水平</b>，单剂即产生跨毒株异型免疫。</td>
+        </tr>
+        <tr>
+          <td>Science Advances</td>
+          <td>重新理解"失败的溢出"<br><span class="pg">10.1126/sciadv.aef2194</span></td>
+          <td>反复的动物源溢出若未形成人传人，<b>应下调</b>该谱系可持续传播的概率估计；大流行株可能"毫无预警"地出现。</td>
+        </tr>
+        <tr>
+          <td>Science Signaling</td>
+          <td>RAMP3–MYO6 与淋巴内皮信号<br><span class="pg">10.1126/scisignal.ady6108</span></td>
+          <td>邻近蛋白组学锁定马达蛋白 <b>MYO6</b>，为 RAMP3–CLR 受体的内体信号与淋巴内皮迁移所必需。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sec-note" style="margin-top:12px;">此外 Science Signaling 本刊当期为 <b>Vol 19, Issue 955（2026-09-15）</b>；Science Robotics 为月刊，本周无新期。</p>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section>
+  <h2><span class="num">04</span>展望与评论 · 非研究内容</h2>
+  <p class="sec-note">不计入研究论文。Science 的新闻/政策栏目质量高、影响力大，故完整保留。</p>
+
+  <h3 class="disc">展望 Perspective（4 篇）</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>标题</th><th>作者</th><th>配套论文</th></tr></thead>
+      <tbody>
+        <tr><td>In search of past genetics <span class="pg">p1190</span></td><td>Stephen Chanock</td><td>EGFR T790M（p1208）</td></tr>
+        <tr><td>Parsing heterogeneity in autism spectrum disorder <span class="pg">p1188</span></td><td>J. M. Martín, D. H. Geschwind</td><td>ASD 小鼠转录组分型（p1250）</td></tr>
+        <tr><td>Noise and diversity can boost stability <span class="pg">p1185</span></td><td>Raissa M. D’Souza</td><td>Disorder-promoted stability（p1241）</td></tr>
+        <tr><td>A viral origin for RNA-guided immunity <span class="pg">p1187</span></td><td>Jack P. K. Bravo</td><td>VIPR / CRISPR 起源（p1230, p1236）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="disc">新闻 · 深度报道 · 社论 · 读者来信</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>栏目</th><th>标题</th><th>页码</th></tr></thead>
+      <tbody>
+        <tr><td>In Depth</td><td>OpenAI 的突破在数学界引发"存在性危机"</td><td class="pg">p1172-1173</td></tr>
+        <tr><td>In Depth</td><td>AI 与生物武器的报告引发科学家分裂</td><td class="pg">p1174-1175</td></tr>
+        <tr><td>In Depth</td><td>新平台有望扩大会议海报的受众</td><td class="pg">p1175-1176</td></tr>
+        <tr><td>In Depth</td><td>社会科学研究常侵犯参与者隐私</td><td class="pg">p1178-1179</td></tr>
+        <tr><td>In Depth</td><td>加州将斥资数十亿改善鱼类栖息地</td><td class="pg">p1177-1178</td></tr>
+        <tr><td>Feature</td><td>Future forests（未来森林）</td><td class="pg">p1180-1184</td></tr>
+        <tr><td>Editorial</td><td>Biodiversity science’s missing species</td><td class="pg">p1170</td></tr>
+        <tr><td>Editorial</td><td>Ban bets on unfinished clinical trials</td><td class="pg">p1171</td></tr>
+        <tr><td>Policy Article</td><td>地缘紧张加速中国企业借力科学（中国学者研究）</td><td class="pg">p1196-1199</td></tr>
+        <tr><td>Letters</td><td>自由探索有赖于迁徙自由 / 预防无人机电子垃圾危机 / 阿尔伯塔黑熊狩猎不当</td><td class="pg">p1193-1194</td></tr>
+        <tr><td>Books et al.</td><td>Stephen Hawking 传记书评 / 气候题材小说书评</td><td class="pg">p1191-1192</td></tr>
+        <tr><td>Working Life</td><td>A seismic shift</td><td class="pg">p1262</td></tr>
+        <tr><td>Research Highlights</td><td>In Science Journals / In Other Journals（本期速览，非论文）</td><td class="pg">p1200-1202</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section>
+  <h2><span class="num">05</span>三点判断</h2>
+
+  <div class="callout">
+    <h4>1 · 计算生物学同时占据"应用"与"起源"两端</h4>
+    <p>一端是 <b>RADAR</b>（AI 读 CT，去掉人工标注）和 <b>The Virtual Biotech</b>（多智能体做药物研发）；另一端是 <b>VIPR/CRISPR 起源</b>两篇——用结构生物学 + 演化推理回答"免疫系统从哪来"。同一期里，方法学的两头发力。</p>
+  </div>
+
+  <div class="callout">
+    <h4>2 · 中国团队 3 篇，性质各不相同</h4>
+    <p>古 DNA（吉大 + 古脊椎所 + 北大/复旦/西北大学，跨机构协作的大样本队列）、地震学（中韩合作的长期观测）、医学 AI（浙大一院 + 阿里，临床与产业联合）。<b>不是同一种"中国团队"叙事</b>——分别是体系性采样、长期观测、临床转化三种模式。另有 1 篇中国学者的中美科技政策研究（p1196）。</p>
+  </div>
+
+  <div class="callout">
+    <h4>3 · 量子硬件走"能长期跑"而非"更多比特"</h4>
+    <p>本周三篇量子/物理论文有一条共同线索：原子阵列的<b>中途重装</b>、超冷分子的<b>损耗抑制</b>——都是在解决"体系能维持多久"，而不是单纯堆规模。加上<b>声子量子跃迁</b>的测量突破，方向指向可长期运行的量子平台。</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>口径与不确定声明</b></p>
+  <p>
+    <b>统计窗口：</b>2026-09-14（周一）至 2026-09-18（周五）。对应 Science <b>Vol 393, Issue 6817</b>，期日 <b>2026-09-17</b>（周四）。
+  </p>
+  <p>
+    <b>数据源优先级（本刊专属）：</b>Science 为本系列中官方通道最规整的一家——eTOC RSS 返回<b>整期 37 条目次</b>且带栏目字段，故本期为<b>整期枚举</b>，非高亮抽样。摘要取自官网单篇 DOI 页与本期 <code>In Science Journals</code>（p1200-1202）栏目。
+  </p>
+  <p>
+    <b>关键口径差异：</b>Europe PMC 对 <b>Nature 实时</b>（本周 50 条），但对 <b>Science 本周返回 0 条</b>；9 月全月仅 78 条，最新停在 9/11。<b>Science 的 EPMC 索引滞后达 1 期以上</b>，本报告因此完全未采用 EPMC 做本期枚举，仅将其列为历史回溯备用通道。
+  </p>
+  <p>
+    <b>研究论文计数口径：</b>官方 RSS 的 <code>dc:type</code> 将本期所有原创研究统一标为 <code>Research Article</code>，<b>未再细分 Report 与 Research Article</b>，故本报告统一称"研究论文 15 篇"。展望、社论、读者来信、书评、新闻、深度报道、本期速览（In Science Journals / In Other Journals）均<b>不计入</b>；本期<b>无勘误与撤稿</b>。
+  </p>
+  <p>
+    <b>待核实项：</b>① 研究论文的<b>页码区间</b>部分来自 In Science Journals 的起始页引用与 Crossref，两者对 6 篇（p1203-1208）的区间页码存在缺失，已标注起始页；② 中国团队的机构归属依据作者姓名与通讯邮箱判断（RADAR 通讯邮箱为 alibaba-inc.com），<b>个别单位归属以原文为准</b>；③ 本期封面说明未取到（官网 TOC 页受 Cloudflare 拦截），第 6817 期封面故事未收录。
+  </p>
+  <p>
+    生成时间：2026-09-18 · 追踪规范：<code>journal-paper-tracking / references/journals/science.md</code>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -44,6 +44,12 @@ agent_created: true
    - 材料不足写不下来时，标注"机理未展开（材料不足）"，**不许编**。
    - 详细规范、正反例、分层策略见 `02-output-spec.md` 第一节。
 8. **★ 周报必须含一节"贯穿本期的方法学主线"**：横向提炼 2–4 个可迁移的解题动作，而非复述各篇结论。
+9. **★ 交付后同步到公开仓库。** `present_files` 之后、本轮结束之前，把技能镜像与本次报告推到
+   `ChazenLi/Transfer`（`journal-tracking/`）。一条命令：
+   `powershell -ExecutionPolicy Bypass -File D:\Transfer\journal-tracking\sync.ps1 -ReportSourceDir "<本次工作区>"`
+   - **只推最终版**；中间版留本地 `archive/`。
+   - **`data/` 下的原始逐字摘要不推**——报告是二次加工可公开，批量搬运摘要属版权灰区。
+   - 两个必踩的坑（代理 502 / GH007 私有邮箱）及处置见 `00-workflow.md` §6.3。
 
 ## 快速决策流
 
@@ -59,8 +65,9 @@ agent_created: true
   ├─ ★ 素材落盘：data/<journal>-<窗口>/（写报告前完成，防止中断丢失）
   ├─ ★ 逐篇撰写四层：问题 → 手段 → 机理 → 结论
   ├─ ★ 横向提炼：贯穿本期的方法学主线（2–4 条可迁移动作）
-  └─ 按 02-output-spec.md 出交付物 + 口径声明（含机理层性质说明）
-     最终版留根目录，旧版移入 archive/
+  ├─ 按 02-output-spec.md 出交付物 + 口径声明（含机理层性质说明）
+  │    最终版留根目录，旧版移入 archive/
+  └─ ★ 同步：sync.ps1 推技能镜像 + 本次报告到 ChazenLi/Transfer
 ```
 
 ## 扩展位（尚未落规范）
