@@ -73,11 +73,18 @@ powershell -ExecutionPolicy Bypass -File .\sync.ps1 -NoPush
 
 脚本行为：
 1. 把 `~/.workbuddy/skills/journal-paper-tracking` 全量镜像到 `skill/`
-2. 把 `-ReportSourceDir` 下的 `*-weekly-*.html` 按文件名日期归档到 `reports/YYYY-MM/`
+2. 把 `-ReportSourceDir` 及其 `archive/` 下的 `*-weekly-*.html` 归档到 `reports/YYYY-MM/`
+   - **同刊同窗口有 `-deep` 时只取 `-deep`**（被取代的中间版不进仓库，只留在本地 `archive/`）；
+     并对仓库内同 key 的旧版做定向清理（**严格限定在该 (journal, window) 内**，不跨窗口）。
+   - 即：`reports/` 存的是**每个窗口的最终交付物**，不是每次运行的全部草稿。
 3. `git add` → `commit` → `push`
 
-> **代理注意**：本机环境变量 `HTTP(S)_PROXY` 指向 `127.0.0.1:9767`，该端口对 GitHub 返回 502。
-> 脚本与本地仓库配置已改用可用的 `127.0.0.1:7897`。
+> **代理注意**：本机环境变量 `HTTP(S)_PROXY` 指向 `127.0.0.1:9767`，该端口对 GitHub 的 git 端点返回 502
+> （`api.github.com` 反而能直连 —— 所以"API 能查"不等于"git 能推"）。
+> 脚本已强制改用可用端口 `127.0.0.1:7897`。
+>
+> **提交身份**：账号开了「阻止暴露私有邮箱」，提交必须用
+> `114374202+ChazenLi@users.noreply.github.com`（已设为本仓库局部配置）。
 
 ---
 
