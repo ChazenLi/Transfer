@@ -153,6 +153,21 @@ powershell -ExecutionPolicy Bypass -File D:\Transfer\journal-tracking\sync.ps1 `
    若某次仍被拒：确认 `git -C D:\Transfer config --local --get user.email` 正确，再
    `git commit --amend --reset-author --no-edit`（**仅在未推送时可用**）。
 
+**技能本体有变更时，同步要连带核对 repo 的 `README.md`。** 新增期刊规范（如
+`journals/nature-sisters.md`）或新增目录时，README 的「目录结构」与相关说明必须一起更新。
+真源在本地技能目录、README 在 repo 里，**两边天然会漂移**——已发生过一次：技能本体早已登记
+子刊规范，而 README 目录树仍只列三刊。同步前做两件事：
+① 逐文件哈希比对 repo 的 `journal-tracking/skill/` 与本机技能目录（`Get-FileHash -Algorithm MD5`）；
+② 人工扫一遍 README 是否把所有规范文件列全。
+
+**怀疑"没推上去"时，只看 SHA，不要看外层 shell 的报错。** 实测外层会打印无关的网络异常
+（如 `copilot.tencent.com` 连接失败 / 502），而 `git push` 其实已经成功。硬判据：
+`git -C D:\Transfer ls-remote origin refs/heads/main` 与 `git -C D:\Transfer rev-parse HEAD` 同 SHA。
+（`ls-remote` 偶发 `SSL_ERROR_SYSCALL`，退避重试 2–3 次即可。）
+
+> **输出编码坑**：`& powershell -File sync.ps1 *> log.txt` 写出的是 **UTF-16**，
+> 用读取工具会判定为二进制文件。先 `Get-Content -Raw -Encoding Unicode` 转 UTF-8 落盘再读。
+
 **不得推送的内容：** `data/` 下的原始逐字摘要文本。报告是二次加工（转述 + DOI 标注）可公开；
 批量逐字搬运摘要属版权灰区。元数据（题名/DOI/作者/页码）属事实性信息，如需另行处理。
 

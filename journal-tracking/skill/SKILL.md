@@ -54,6 +54,10 @@ agent_created: true
    `powershell -ExecutionPolicy Bypass -File D:\Transfer\journal-tracking\sync.ps1 -ReportSourceDir "<本次工作区>"`
    - **只推最终版**；中间版留本地 `archive/`。
    - **`data/` 下的原始逐字摘要不推**——报告是二次加工可公开，批量搬运摘要属版权灰区。
+   - **技能本体有变更时，连带核对 repo 的 `README.md`**（新增期刊规范要进目录树）——
+     刷新真源与公开镜像的文档会各自漂移。
+   - **同步是否成功的硬判据是"远端与本地 main 同 SHA"**（`git ls-remote origin refs/heads/main`），
+     **不要读外层 shell 的报错**——实测外层会打印无关的网络异常而 push 其实已成功。
    - 两个必踩的坑（代理 502 / GH007 私有邮箱）及处置见 `00-workflow.md` §6.3。
 
 ## 快速决策流
