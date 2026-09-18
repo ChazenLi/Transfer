@@ -1,0 +1,1248 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature 系列子刊周报 · 深读版 · 2026年9月14日–18日</title>
+<style>
+  :root{
+    --ink:#12161c; --ink-2:#3d4753; --ink-3:#6b7683;
+    --line:#e3e7ec; --bg:#f6f7f9; --card:#fff;
+    --accent:#1a4d8f; --accent-soft:#e8f0fa;
+    --blue:#1d4e89; --blue-soft:#eaf1f9;
+    --blue-line:#cfe0f2;
+    --teal:#0f6e56; --teal-soft:#f1f9f6; --teal-line:#c9e7dc;
+    --rose:#9b2c47; --rose-soft:#fbecef;
+    --warm:#a8541b; --warm-soft:#fbf0e6;
+    --violet:#5b3f8f; --violet-soft:#f0ecfa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1020px;margin:0 auto;padding:44px 26px 80px;}
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:30px;}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-size:33px;line-height:1.25;margin:10px 0 12px;letter-spacing:-.4px;}
+  .sub{color:var(--ink-2);max-width:820px;}
+  .stamp{margin-top:16px;font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 20px;}
+
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:11px;margin:0 0 14px;}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;}
+  .metric .n{font-size:26px;font-weight:700;letter-spacing:-.5px;color:var(--accent);line-height:1.1;}
+  .metric .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+
+  .method{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:15px 19px;margin:0 0 14px;font-size:13.5px;color:var(--ink-2);}
+  .method b{color:var(--ink);}
+  .method code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#fff;border:1px solid #d8e4f0;border-radius:4px;padding:1px 5px;word-break:break-all;}
+  .method .warn{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed #c3d5e8;}
+
+  .howto{background:var(--teal-soft);border:1px solid var(--teal-line);border-radius:10px;padding:15px 19px;margin:0 0 38px;font-size:13.5px;color:var(--ink-2);}
+  .howto b{color:var(--ink);}
+  .howto dl{margin:8px 0 0;display:grid;grid-template-columns:44px 1fr;gap:6px 12px;}
+  .howto dt{font-weight:700;color:var(--teal);font-size:12.5px;}
+  .howto dd{margin:0;font-size:13px;}
+
+  section{margin-bottom:44px;}
+  h2{font-size:20px;margin:0 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;}
+  h2 .num{font-size:12px;color:var(--ink-3);font-weight:600;letter-spacing:.1em;}
+  .sec-note{color:var(--ink-3);font-size:13px;margin:0 0 20px;}
+
+  h3.disc{font-size:13px;letter-spacing:.1em;margin:26px 0 12px;color:var(--ink-2);
+    display:flex;align-items:center;gap:9px;font-weight:700;}
+  h3.disc::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 20px;margin-bottom:13px;}
+  .card:hover{border-color:#c9d1da;}
+  .card .title{font-size:16.5px;font-weight:650;line-height:1.45;margin:0 0 3px;}
+  .card .title-en{font-size:13.5px;color:var(--ink-3);font-style:italic;margin:0 0 10px;line-height:1.5;}
+  .byline{font-size:12.5px;color:var(--ink-3);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px 14px;}
+  .byline .who{color:var(--ink-2);font-weight:600;}
+
+  .layers{margin:0 0 12px;}
+  .layer{display:grid;grid-template-columns:46px 1fr;gap:11px;padding:8px 0;border-top:1px solid #f0f2f5;}
+  .layer:first-child{border-top:none;padding-top:3px;}
+  .layer .lb{font-size:11.5px;font-weight:700;letter-spacing:.06em;padding-top:2px;}
+  .lb-q{color:var(--blue);}
+  .lb-m{color:var(--ink-3);}
+  .lb-p{color:var(--teal);}
+  .lb-r{color:var(--accent);}
+  .layer p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.64;}
+  .layer p b{color:var(--ink);font-weight:650;}
+  .layer.mech{background:var(--teal-soft);border-radius:8px;padding:10px 12px;margin:5px 0 5px -12px;
+    grid-template-columns:46px 1fr;border-top:none;border-left:3px solid var(--teal);}
+  .layer.mech .lb{padding-left:0;}
+
+  ul.finds{margin:0;padding-left:0;list-style:none;}
+  ul.finds li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-2);margin-bottom:5px;line-height:1.62;}
+  ul.finds li:last-child{margin-bottom:0;}
+  ul.finds li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  ul.finds b{color:var(--ink);font-weight:650;}
+
+  .doi{font-size:12px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);word-break:break-all;
+    padding-top:9px;border-top:1px solid #f0f2f5;}
+  .doi a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6d4;}
+
+  .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:.03em;
+    background:var(--accent-soft);color:var(--accent);vertical-align:2px;margin-left:6px;}
+  .badge.cn{background:var(--blue-soft);color:var(--blue);}
+  .badge.hot{background:var(--rose-soft);color:var(--rose);}
+  .badge.new{background:var(--warm-soft);color:var(--warm);}
+  .pg{font-size:11.5px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
+  thead th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);background:#fafbfc;}
+  tbody td{padding:10px 14px;border-bottom:1px solid #eef1f4;vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink);font-weight:600;}
+  td.mono{font-family:Consolas,Menlo,monospace;font-size:11.5px;color:var(--ink-3);}
+  td.ok{color:var(--teal);font-weight:700;}
+  td.no{color:var(--rose);font-weight:700;}
+
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:15px 19px;margin:0 0 12px;}
+  .callout h4{margin:0 0 6px;font-size:14.5px;}
+  .callout p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .callout p + p{margin-top:7px;}
+
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.75;}
+  footer b{color:var(--ink-2);}
+  @media(max-width:640px){.wrap{padding:28px 16px 56px;}h1{font-size:24px;}.card{padding:14px 15px;}
+    .layer{grid-template-columns:1fr;gap:2px;}
+    .layer .lb{padding-top:6px;}
+    .layer.mech{margin-left:-10px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Nature Sister Journals Weekly · Deep Read</div>
+  <h1>Nature 系列子刊周报（深读版）· 2026年9月14日–18日</h1>
+  <p class="sub">
+    覆盖 Nature 家族 <b>30 本子刊</b>，窗口内 <b>125 条</b>。精选 <b>17 条</b>按
+    <b>问题 → 手段 → 机理 → 结论</b>四层展开，其余全部条目按学科分组收在 §07 速览表。
+  </p>
+  <div class="stamp">
+    <span>窗口：2026-09-14 ~ 09-18</span>
+    <span>子刊：30 本有产出</span>
+    <span>条目：125 条</span>
+    <span>深读：17 条</span>
+    <span>生成：2026-09-18</span>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric"><div class="n">30</div><div class="l">有产出的子刊</div></div>
+  <div class="metric"><div class="n">125</div><div class="l">窗口内条目</div></div>
+  <div class="metric"><div class="n">17</div><div class="l">四层深读</div></div>
+  <div class="metric"><div class="n">6</div><div class="l">中国团队主导</div></div>
+  <div class="metric"><div class="n">46</div><div class="l">ISSN 白名单</div></div>
+  <div class="metric"><div class="n">2</div><div class="l">互补主干通道</div></div>
+</div>
+
+<div class="howto">
+  <b>怎么读这四层</b>
+  <dl>
+    <dt>问题</dt><dd>这篇要攻的卡点是什么，<b>上一代方案为什么不够</b>。判断"这个问题是否也出现在你关心的领域"。</dd>
+    <dt>手段</dt><dd>实际用了什么技术、实验体系、模型或队列，以及关键量级。</dd>
+    <dt>机理</dt><dd>原理层：<b>为什么这个手段能绕过那个卡点</b>。这是本次新增的核心层。</dd>
+    <dt>结论</dt><dd>带数字的结果，以及它成立的条件和边界。</dd>
+  </dl>
+</div>
+
+<div class="method">
+  <b>枚举方式（可复核）· 双通道互补</b><br>
+  通道 A（生命科学类，EPMC 收录全）：<code>ISSN:"&lt;issn&gt;" AND FIRST_PDATE:[2026-09-14 TO 2026-09-18]</code><br>
+  通道 B（物质科学类，EPMC 近乎未收录）：<code>https://www.nature.com/&lt;abbr&gt;.rss</code> → RSS 1.0/RDF，含题名、作者全名单、DOI、<code>dc:date</code>、编辑摘要<br>
+  本次：通道 B 覆盖 27 本 / 102 条，通道 A 补 12 本 / 23 条，合并去重后 <b>125 条 / 30 本</b>。
+  <span class="warn">
+    ⚠️ 两条通道<b>不是冗余，是互补</b>。实测：<code>Nature Physics</code> 在通道 B 窗口内有 8 条，
+    而 EPMC 窗口 <code>hitCount = 0</code>、全库仅 287 条、最新停在 2026-08-24。
+    只走 EPMC 会得出"Nature Physics 这周什么都没发"的<b>错误结论</b>。
+    反向亦然：<code>Nature Communications</code> 每天数十篇，RSS 固定只给 8 条，必须走 EPMC（全库 91597 条）。
+  </span>
+</div>
+
+<!-- ===================== 1 ===================== -->
+<section>
+  <h2><span class="num">01</span>两个实证结论 · 决定子刊怎么追</h2>
+  <p class="sec-note">这两条是本次实测新得，直接改变了子刊的取数策略。</p>
+
+  <div class="callout" style="border-left-color:var(--rose)">
+    <h4>① EPMC 对子刊的差异不是"滞后"，是"收录范围"</h4>
+    <p>
+      正刊那轮我们发现 EPMC 对 Nature 实时、对 Science 滞后。子刊把这个问题推到了更极端：
+      <b>同一出版社内部，收录深度差三个数量级</b>。根因是 EPMC 以 MEDLINE/PubMed 为主源 ——
+      生物医学刊覆盖全，物理/材料/能源刊近乎不收。所以正确表述不是"某刊更新慢"，
+      而是<b>某刊根本不在 EPMC 的收录范围内</b>。
+    </p>
+    <p>
+      判档方法：跑一次 <code>JOURNAL:"&lt;刊名&gt;"</code> 看 <code>hitCount</code> 量级。
+    </p>
+  </div>
+
+  <div class="tablewrap" style="margin-bottom:20px">
+    <table>
+      <thead>
+        <tr><th style="width:88px">档</th><th style="width:120px">hits 量级</th><th>子刊（实测值）</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ok">A · 全覆盖</td>
+          <td>万级</td>
+          <td>
+            Nature Communications (91597)、Nature Medicine (14185)、Nature Biotechnology (12584)、
+            Nature Genetics (10229)、Nature Neuroscience (7793)、Nature Methods (6485)、
+            Nature Immunology (6415)、Nature Materials (6377)、Nature Cell Biology (6066)、
+            Nature Reviews Drug Discovery (5004)、NSMB (4868)、Nature Chemical Biology (4770)、
+            Nature Nanotechnology (4637)、Nature Chemistry (4288)、NR Microbiology (3410)、
+            NR Immunology (3334)、NR Mol Cell Biol (3163)、NR Genetics (3117)、NR Neuroscience (3076)、
+            NR Clinical Oncology (2959)、Nature Cancer (2917)、Nature Microbiology (2883)、
+            Nature Plants (2818)、Nature Human Behaviour (2362)、Nature Metabolism (1604)、
+            Nature Food (1254)、Nature Aging (1156)、Nature Computational Science (1039)、
+            Nature Cardiovascular Research (871)
+          </td>
+        </tr>
+        <tr>
+          <td class="no">B · 收录稀少</td>
+          <td>百级以下</td>
+          <td>
+            <b>Nature Physics (287)</b>、Nature Photonics (168)、Nature Machine Intelligence (154)、
+            Nature Climate Change (108)、NR Materials (88)、NR Bioengineering (58)、
+            Nature Sustainability (36)、NR Physics (33)、Nature Energy (30)、Nature Water (24)、
+            <b>Nature Chemical Engineering (17)</b>、Nature Mental Health (12)、
+            NR Earth &amp; Environment (11)、<b>Nature Cities (4)</b>
+          </td>
+        </tr>
+        <tr>
+          <td class="no">C · 近乎未收录</td>
+          <td>—</td>
+          <td><b>Nature Catalysis</b> —— EPMC 内最新记录仅到 2026-03，而 RSS 显示 9/15 有新文上线</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout" style="border-left-color:var(--warm)">
+    <h4>② nature.com 子刊 RSS 可用，但缩写无规律 + 有随机风控</h4>
+    <p>
+      <b>缩写不能推。</b>新刊用 <code>nat&lt;全词&gt;</code>（<code>natmachintell</code>、<code>natcatal</code>），
+      老刊用短缩写（<code>nm</code>、<code>ng</code>、<code>ncb</code>、<code>nphys</code>）。
+      俗称缩写直接失败：<code>nmi.rss</code> 和 <code>ncatal.rss</code> 都取不到。
+    </p>
+    <p>
+      <b>风控是随机的。</b>被拦时返回 <b>3036 字节</b>的 <code>Client Challenge</code> HTML 页，
+      而非 RSS。同一批 44 个 URL 连跑三轮，<b>每轮被拦的都是不同的一批</b>。
+      因此必须：① 写入前判 <code>rdf:RDF</code> ② 请求间隔 ≥800ms、被拦退避重试 ③ 接受部分覆盖并在口径里说明。
+    </p>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th style="width:200px">RSS 缩写</th><th>刊物</th><th style="width:110px">实测</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="mono">natmachintell</td><td>Nature Machine Intelligence</td><td class="ok">✅</td></tr>
+        <tr><td class="mono">natcatal</td><td>Nature Catalysis</td><td class="ok">✅</td></tr>
+        <tr><td class="mono">nmi</td><td>Nature Machine Intelligence</td><td class="no">❌ 俗称无效</td></tr>
+        <tr><td class="mono">ncatal</td><td>Nature Catalysis</td><td class="no">❌ 俗称无效</td></tr>
+        <tr><td class="mono">nm / ng / ncb / nchem / nphys / nmat / nnano / ncomms</td><td>老刊短缩写模式</td><td class="ok">✅</td></tr>
+        <tr><td class="mono">nphoton / nenergy / nclimate / natsustain / natecolevol / nplants / nmicrobiol / nchembio</td><td>词干式缩写</td><td class="ok">✅</td></tr>
+        <tr><td class="mono">natrevmats / natrevphys / natrevchem / nrmicro / nrg / nrc / nrd / nrm / nrclinonc / natrevearthenviron</td><td>Nature Reviews 系列</td><td class="ok">✅</td></tr>
+        <tr><td class="mono">ni / nn / nmeta / nfood / naging / nrn / nri / natchemeng / natwater / natcities</td><td>未取到</td><td class="no">❌ 需重试或走 EPMC</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="sec-note" style="margin-top:16px">
+    完整缩写表（27 个可用）、46 本 ISSN 白名单、DOI 前缀反查表已写入技能规范
+    <code>journals/nature-sisters.md</code>。
+  </p>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section>
+  <h2><span class="num">02</span>生命科学与医学 <span class="pg" style="font-weight:400">9 条深读</span></h2>
+  <p class="sec-note">本组是 EPMC 覆盖最好的区域（档 A），也是"临床转化"密度最高的一组。</p>
+
+  <div class="card">
+    <p class="title">院内自部署的临床 AI 智能体：把"可靠性"做成可度量的指标</p>
+    <p class="title-en">On-premise medical AI agents for reliable clinical decision-making</p>
+    <div class="byline">
+      <span class="who">Nature Medicine</span>
+      <span>2026-09-15</span>
+      <span>TU Dresden · Else Kroener Fresenius 数字健康中心</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>LLM 驱动的自主临床智能体已经能完成复杂推理，但<b>临床落地卡在两条硬要求上</b>：一是数据必须留在机构内部治理（不能用云端），二是决策时刻必须给出<b>可靠的不确定性估计</b>——医生要知道"系统什么时候该闭嘴交给人"。现有方案基本只优化准确率，这两条都缺。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>构建<b>完全院内（on-premise）</b>的临床智能体，把本地运行控制与一个<b>多视角可靠性框架</b>耦合，实现"选择性自主"。在 MIMIC-IV 衍生的两个基准上评测：七病种任务 <b>90.04%</b> 准确率，四病种任务 <b>83.8%</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键设计是<b>把"自主"从二值开关变成可度量的连续量</b>。"多视角可靠性"意味着不确定性不是靠单一置信分数给出，而是从若干独立角度交叉评估——<b>只有当多个视角一致认为可靠时才放行自主决策</b>。这样系统就获得了"知道自己不知道"的能力，而这是把 AI 放进临床流程的前提（临床出错代价不可逆，宁可拒答）。院内部署则同时解决了数据治理与延迟两个问题，且使其成为可审计的机构资产而非外部服务。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>院内智能体的主基准表现<b>接近云端基线</b>，说明算力受限并非准确率的主要瓶颈；真正决定能否落地的是可靠性量化能力。这套"选择性自主"框架为临床 AI 提供了一个可审计的放行标准。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41591-026-04609-x">10.1038/s41591-026-04609-x</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">血友病 B 青少年 AAV 基因治疗：把成人方案推进到青春期<span class="badge cn">中国团队</span></p>
+    <p class="title-en">Factor IX Padua AAV gene therapy in adolescents with hemophilia B: a phase 1 trial</p>
+    <div class="byline">
+      <span class="who">Nature Medicine</span>
+      <span>2026-09-16</span>
+      <span>中国医学科学院血液病医院 / 天津血研所 · 血细胞生态海河实验室</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>AAV 介导的因子 IX Padua 基因治疗已在<b>成人</b>血友病 B 中显示安全有效，但<b>青少年</b>人群完全空白。这不是简单的剂量缩放：青少年肝脏仍在发育、体积在变，<b>载体剂量与肝转导效率的对应关系不稳定</b>，且免疫系统对 AAV 的应答可能更活跃。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>多中心、单臂、<b>phase 1</b> 试验，纳入 <b>11 名</b> 12–18 岁重度/中重度血友病 B 患者（FIX:C ≤ 2 IU dL⁻¹）。全部接受 <b>BBM-H901</b>，剂量 <b>5×10¹² 载体基因组/kg</b>，随访 <b>52 周</b>。主要终点为安全性。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>Padua 变体（FIX-R338L）的价值在于<b>把"表达量"这个瓶颈绕开</b>：野生型 FIX 需要达到正常水平才有疗效，而 Padua 变体<b>单位蛋白的凝血活性高约 8–10 倍</b>——所以同一剂量下更少的蛋白分子就够用，等效于降低了所需载体剂量。这直接缓解了 AAV 治疗最核心的两难：<b>剂量高了免疫毒性上升，低了表达不足</b>。把青少年纳入的意义则在于：在肝纤维化/损伤累积之前干预，理论上能获得更长的保护窗口。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>全程<b>未出现剂量限制性毒性</b>；最常见不良事件为白细胞及中性粒细胞升高、与糖皮质激素使用相关的皮疹。出现 1 例严重不良事件、2 例 3 级事件。<b>年化出血率下降</b>。这是该疗法首次在青少年人群中给出安全性数据。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41591-026-04636-8">10.1038/s41591-026-04636-8</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">胰腺癌早筛：用外泌体 miRNA 组合把灵敏度拉起来</p>
+    <p class="title-en">Liquid biopsy for early detection of pancreatic ductal adenocarcinoma</p>
+    <div class="byline">
+      <span class="who">Nature Medicine</span>
+      <span>2026-09-16</span>
+      <span>City of Hope 贝克曼研究所 · 分子诊断与实验治疗系</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>胰腺导管腺癌（PDAC）<b>至今没有临床可用的血检早筛手段</b>。根本困难是两重的：肿瘤在早期就<b>释放极少量核酸入血</b>（信号弱），而 CA19-9 这类单标志物<b>特异性不足</b>（慢性胰腺炎等良性病变也会升高）。用单标志物提灵敏度必然牺牲特异性。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>开发基于血液的 <b>10 种 miRNA 组合</b>（含 hsa-miR-142-3p、-30c-5p、-335-5p、-340-5p、-200b-3p、-1260b、-145-3p、-145-5p、-429、-200a-3p），并构建复合评分 <b>PANXEON</b>，把 miRNA 特征与 <b>CA19-9</b> 联合。国际多中心、观察性、前瞻性生物标志物研究，<b>4 国 1,785 人</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>两个动作叠加解决"弱信号 + 低特异性"的对称矛盾。<b>① 换载体：</b>选外泌体而非游离 cfDNA —— 外泌体是肿瘤细胞主动分泌的膜包被囊泡，<b>把低丰度信号富集在一个可离心的物理相里</b>，等于先做了一次免费浓缩。<b>② 换组合方式：</b>10 条 miRNA 各自只提供弱判别力，但它们的<b>表达失调方向在 PDAC 中是协同的</b>，多标志物联合能把"共同指向"与"随机波动"分开；再与 CA19-9 联乘，等于给一个高特异但低灵敏的标志物补上灵敏度。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>测试队列中 miRNA 特征 <b>AUC = 88.6%</b>，对早期 PDAC 显示高灵敏度；与 CA19-9 联合后复合评分进一步提升判别能力。这是目前规模最大的 PDAC 血检前瞻验证之一。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41591-026-04625-x">10.1038/s41591-026-04625-x</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">海马星形胶质细胞的"时间序列"：非神经元也能编码时间与情境</p>
+    <p class="title-en">Hippocampal astrocytic sequences emerge during learning and memory recall</p>
+    <div class="byline">
+      <span class="who">Nature Neuroscience</span>
+      <span>2026-09-16</span>
+      <span>波士顿大学 · 神经科学研究生项目</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>背侧海马编码空间与时间，经典证据来自锥体神经元的"<b>时间细胞</b>"（time cells，在延迟期内依次激活）。但海马是异质结构，<b>占相当比例的非神经元细胞贡献几乎未知</b>——它们是因为技术限制被漏掉了，还是真的不参与？</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>对自由活动小鼠背侧 CA1 的<b>星形胶质细胞</b>做<b>单光子钙成像</b>，跨天追踪，配合情境恐惧条件化范式。比较足部电击时、以及后续重回条件化情境时的活动模式。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>这里最有信息量的是<b>时间压缩</b>：星形胶质细胞的钙事件序列在时间结构上"像"时间细胞，但被压缩了。这提示<b>编码不是神经元独有的一种计算</b>——胶质细胞的钙波同样能承载序列信息，只是时间常数不同（钙信号本就比动作电位慢，因此更适合承载"被压缩的"表征）。而序列在<b>无电击的重回情境中重现</b>、在另一情境中不出现，说明它绑定的是情境身份而非单纯的感觉输入。星形胶质活动还与行为状态转换（如僵直）相关联，指向它在状态切换中的许可作用。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>足部电击诱发出<b>时间压缩的星形胶质钙序列</b>，其结构与时间细胞活动类似；该序列在后继情境暴露中重现（无电击），但在不同情境中检测不到。星形胶质自发活动与行为状态转换相关。这为非神经元参与记忆表征提供了直接证据。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41593-026-02448-0">10.1038/s41593-026-02448-0</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">CLN8 是一个"非经典"磷脂合成酶：Batten 病的机制落点被改写</p>
+    <p class="title-en">Batten disease protein CLN8 enables a non-canonical phospholipid synthesis pathway</p>
+    <div class="byline">
+      <span class="who">Nature Cell Biology</span>
+      <span>2026-09-15</span>
+      <span>同期两篇互相印证（本刊配套评论：CLN8 recycles glycerol backbones for BMP）</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>CLN8 突变导致 Batten 病（神经元蜡样脂褐质沉积症），但 CLN8 的<b>分子功能长期未知</b>——它被当作一个"功能不明的跨膜蛋白"。缺乏功能定义，就无从解释为什么它出错会杀死神经元，也无从设计靶向干预。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>鉴定 CLN8 为定位于<b>内质网（ER）</b>的酶，催化 <b>酰基 CoA 依赖的甘油磷酸甘油酰化</b>，产物为溶血磷脂酰甘油（LPG），随后被转化为 <b>BMP</b>（双单酰甘油磷酸）。两篇独立研究给出互补证据，其中一篇明确指出其<b>立体特异性</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键在"<b>非经典</b>"三个字。BMP 的经典合成路线走的是另一条酶促路径，而 CLN8 开辟的是一条<b>回收路线</b>：把甘油骨架从降解产物里捞回来重新酰化。这在细胞学上是有意义的——神经元是终末分化细胞，膜周转压力大且<b>从头合成成本极高</b>，回收路线让它们能在脂质供给紧张时维持 BMP 供应。CLN8 失效则意味着这条"应急通道"断了，溶酶体/内体膜系统率先受累 —— 这恰好解释了 Batten 病以溶酶体蓄积为核心的病理表型，把"功能不明"变成了"膜脂回收障碍"。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>CLN8 被确立为一个<b>立体特异性的酰基转移酶</b>，其催化产物进入 BMP 合成。这为 Batten 病提供了明确的分子病理机制与潜在干预靶点（绕行补充 BMP 或恢复回收通路）。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41556-026-02059-8">10.1038/s41556-026-02059-8</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">半胱氨酸过量的毒性机制：线粒体铁依赖的新型细胞死亡</p>
+    <p class="title-en">Cysteine excess triggers a mitochondrial iron-dependent cell death</p>
+    <div class="byline">
+      <span class="who">Nature Metabolism</span>
+      <span>2026-09-15</span>
+      <span>洛克菲勒大学 · 代谢调控与遗传学实验室</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>含硫代谢物是氧化还原稳态的核心。<b>半胱氨酸缺乏</b>会触发铁死亡——这条通路研究得很透。但细胞同时把半胱氨酸维持在<b>低水平</b>，说明它本身有内在毒性。<b>过量的半胱氨酸怎么杀死细胞，机制不明</b>。这是一个已知现象却缺机制的空缺。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>全基因组 <b>CRISPR 筛选</b>，鉴定半胱氨酸毒性所必需的介导者；随后做铁硫簇蛋白与呼吸功能测定、铁池定量、以及线粒体内谷胱甘肽还原酶（GR）的定向增强实验。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>筛选命中<b>线粒体铁转运体</b>，把机制链锁定在铁上：过量半胱氨酸 → <b>从铁蛋白中动员铁</b> → 胞质铁池扩张 → <b>线粒体铁累积</b> → 铁硫簇蛋白受损、呼吸链功能下降 → 细胞死亡。这里的设计很讲究：<b>限铁可完全阻断死亡</b>，而在<b>线粒体内</b>特异性增强 GR 活性同样有效——两者共同证明"损伤位点在线粒体、且经由氧化应激"。这也解释了这门"新死亡方式"与铁死亡的<b>区别</b>：铁死亡由脂质过氧化驱动，而这里由铁硫簇崩解驱动，是一个并列而非同一条通路。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>限制线粒体铁可利用性可<b>抑制半胱氨酸诱导的死亡</b>，并防止铁硫簇蛋白与呼吸功能受损。这定义了一种由铁硫簇破坏驱动、有别于铁死亡的细胞死亡方式。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s42255-026-01616-7">10.1038/s42255-026-01616-7</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">疟原虫有性转化的开关：组蛋白 H2B 单泛素化<span class="badge cn">中国团队</span></p>
+    <p class="title-en">Histone H2B monoubiquitination drives sexual commitment in malaria parasites</p>
+    <div class="byline">
+      <span class="who">Nature Microbiology</span>
+      <span>2026-09-15</span>
+      <span>厦门大学 · 细胞应激生物学国家重点实验室</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>疟原虫向蚊媒传播，依赖无性血液期向<b>有性配子体</b>的转化。阻断这一步就等于阻断传播，所以"什么控制这个开关"是核心问题。蛋白泛素化在其他真核生物中调控分化，但<b>是否有特定泛素化机制介导疟原虫有性转化，不清楚</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用 <b>CRISPR-Cas9 突变筛选</b>系统性扫描约氏疟原虫（<i>P. yoelii</i>）的 E2 泛素连接酶，评估其对寄生虫发育的影响；再在 <i>P. yoelii</i> 与恶性疟原虫（<i>P. falciparum</i>）中验证组蛋白修饰。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>找到的是 <b>E2 酶 Rad6B + RING 型 E3 连接酶 Tex1</b> 这一对，它们催化 <b>组蛋白 H2B 单泛素化</b>。机制上说得通：H2B 泛素化是染色质上的一个"<b>可被读取的标记</b>"，它本身不改变 DNA 序列，而是招募下游的染色质重塑与转录激活机器——等于<b>用一个可逆的化学修饰把一个发育命运从"默认关闭"翻成"打开"</b>。这对寄生虫尤其合理：它需要在不改变基因组的前提下，对宿主环境信号做出"要不要传出去"的决策。任一基因缺失都会导致配子体产量与卵囊形成的严重缺陷，说明这个开关是<b>必要条件而非增强因素</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>Rad6B 与 Tex1 在配子体生成与向蚊媒传播中起决定作用；缺失任一基因 → 配子体产生与卵囊形成严重缺陷。该复合物在两种疟原虫中均催化 H2B 单泛素化，构成一个有潜力的传播阻断靶点。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41564-026-02475-4">10.1038/s41564-026-02475-4</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">古菌独立把长链脂肪酸变成甲烷：推翻"必须共生"的教条<span class="badge cn">中国团队</span></p>
+    <p class="title-en">Evidence of direct methane production from long-chain fatty acids by thermophilic Archaeoglobi</p>
+    <div class="byline">
+      <span class="who">Nature Microbiology</span>
+      <span>2026-09-15</span>
+      <span>上海交通大学 / 同济大学 · 海底科学与极地环境实验室（云南腾冲热泉采样）</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>教科书写法是：长链脂肪酸的产甲烷降解<b>必须由两类微生物分工完成</b>——细菌负责 β-氧化产氢，产甲烷古菌消耗氢维持热力学可行，两者形成<b>互养（syntrophy）</b>。近年有基因组证据暗示某些古菌可能自己全包，<b>但从未有生理层面的实证</b>。这关系到全球甲烷循环的碳流模型。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>从中国腾冲热泉沉积物中富集到一株 <i>Candidatus</i> Methanoglobus sphaerolipidus DLY3（Archaeoglobi 纲）。用<b>选择性富集 + 生长实验 + 显微观察 + 稳定同位素示踪 + 宏基因组 + 宏转录组</b>六种手段交叉验证。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键在于<b>把三个原本分属不同生物的通路装进同一个细胞</b>：β-氧化（拆脂肪酸链）+ Wood–Ljungdahl 通路（固定碳）+ 甲基辅酶 M 还原酶/甲基转移酶复合体（产甲烷）。作者为这个整合过程造了新词 <b>liparotrophy</b>。为什么这件事重要——互养关系的存在理由本来就是"热力学上单方做不到"：脂肪酸氧化产氢会让反应自身被产物抑制，必须有个伙伴持续把氢抽走。如果<b>同一细胞能内部消化掉自己的氢</b>，那么"必须共生"这个前提就不成立了，长链脂肪酸的甲烷化在纯培养或低多样性环境中也能发生。同位素示踪正是为排除"其实是共生体合作"这一替代解释而设的关键对照。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>该古菌可<b>直接</b>将长链脂肪酸（涵盖油酸等）转化为甲烷，经由 β-氧化 + Wood–Ljungdahl + 甲基辅酶 M 还原酶的组合，被命名为 liparotrophy。这对甲烷循环模型中"脂肪酸来源甲烷"的部分需要重写。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41564-026-02490-5">10.1038/s41564-026-02490-5</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">花生图形泛基因组：2,320 份材料的重测序把育种靶点摆上台面<span class="badge cn">中国团队</span></p>
+    <p class="title-en">Pan-genome-based resequencing of 2,320 accessions reveals structural variations and accelerates breeding advances in cultivated peanut</p>
+    <div class="byline">
+      <span class="who">Nature Genetics</span>
+      <span>2026-09-15</span>
+      <span>山东省农业科学院 · 农作物种质资源研究所</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>栽培花生是全球重要的豆科作物，但<b>遗传变异极其有限</b>，育种进展缓慢。更棘手的是一个技术性障碍：花生是异源四倍体，两个亚基因组之间存在<b>同源交换（homoeologous exchange）</b>，导致常规参考基因组把"相似但不同"的亚基因组序列<b>互相错配</b>——基因分型直接失真，结构变异无法可靠检出。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>构建<b>图形泛基因组</b>（graph-based pan-genome），整合代表全部 6 个品种类型的 <b>14 个基因组</b>；据此对 <b>2,320 份</b>种质重测序分型，覆盖 ICRISAT 核心种质的 88.03%、USDA 的 59.21%。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p><b>"图形"这个形式本身就是解药。</b>线性参考基因组只能记录一条序列，遇到结构变异就只能"缺席"；而图形泛基因组把多个基因组的<b>变异作为图的分支显式存下来</b>，reads 比对时走哪条分支即告分型结果——这让同源交换产生的"亚基因组互串"从干扰变成了<b>可被显式建模的变异类型</b>，而不是错配噪声。因此它不只是"样本更多"，而是把一个此前无法测量的变异类别变成了可测量量，这才使得关联到开花期、矮化等农艺性状的关键基因能被定位。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>编目了花生的基因组结构变异，刻画了同源交换在群体分化中的作用；克服了同源交换带来的分型困难，鉴定出与<b>开花期与矮化</b>相关的关键基因，并整合优良单倍型与种质资源用于育种。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41588-026-02765-x">10.1038/s41588-026-02765-x</a></p>
+  </div>
+
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section>
+  <h2><span class="num">03</span>物质科学 <span class="pg" style="font-weight:400">6 条深读</span></h2>
+  <p class="sec-note">
+    本组 6 条<b>全部来自 nature.com RSS 通道</b>——它们在 EPMC 里要么查不到、要么收录严重不全。
+    若沿用正刊那套 EPMC 主干，这一整组会被整体漏掉。这是双通道设计的直接价值。
+  </p>
+
+  <div class="card">
+    <p class="title">被"捆住"的三重态：量子自旋链中分数化准粒子的相互作用图像</p>
+    <p class="title-en">Weakly interacting spinons and tightly bound triplons in the frustrated quantum spin-Peierls chain</p>
+    <div class="byline">
+      <span class="who">Nature Physics</span>
+      <span>2026-09-16</span>
+      <span>体系：CuGeO₃（一维自旋-皮尔斯量子磁体）</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>CuGeO₃ 的基态形成<b>二聚化（dimerized）</b>状态，其自旋激发不能用普通磁振子（magnon，即整自旋翻转的波）描述，而要引入<b>分数化</b>准粒子：孤立自旋子（spinon）与束缚三聚子（triplon）。问题是这两类激发的<b>共存与相互作用关系长期没有干净的实验图像</b>：一维磁阻挫与三维晶格畸变两种机制交织在一起，理论预言与实验难以对齐。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>以 CuGeO₃ 为对象，研究<b>一维磁阻挫</b>与<b>三维晶格畸变</b>的耦合如何影响该体系的分数化准粒子行为。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>核心概念是<b>维度竞争导致的"解绑"</b>。在纯一维反铁磁链中，自旋子被<b>禁闭（confinement）</b>——不能单独存在，必须成对出现，这是自旋-电荷分离在一维的典型后果。而三维晶格畸变提供的<b>额外势场把这条链"钉"住</b>，改变了禁闭的强度，于是自旋子可以相对自由地运动（表现为"弱相互作用"），而三聚子则被<b>紧密束缚</b>。也就是说：<b>三聚子 = 被势场重新绑住的自旋对，自旋子 = 逃脱束缚的单个自旋</b>——两者是同一套自由度在两种束缚强度下的表现。搞清楚这一点，才能判断材料处于何种量子相。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>研究展示了这种交织如何影响 CuGeO₃ 的分数化准粒子，给出弱相互作用自旋子与紧束缚三聚子共存的图像。对理解准一维量子磁体的相图与自旋液体候选体系有直接意义。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41567-026-03447-5">10.1038/s41567-026-03447-5</a> <span class="badge new">仅 RSS 可获</span></p>
+  </div>
+
+  <div class="card">
+    <p class="title">用磁振子-激子耦合做微波到光的量子换能</p>
+    <p class="title-en">Microwave-to-optical transduction using magnon–exciton coupling</p>
+    <div class="byline">
+      <span class="who">Nature Materials</span>
+      <span>2026-09-14</span>
+      <span>体系：层状反铁磁体 CrSBr</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>量子网络需要把超导量子比特（工作在<b>微波</b>频段，GHz）与光纤（工作在<b>光</b>频段，THz）连起来，中间必须有一个<b>相干的双向换能器</b>。难点在于两种激发的能量相差 4–5 个数量级，且微波光子与光子的<b>波矢、模式体积完全不匹配</b>。已有方案（如光机械）转换效率低、带宽窄。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>在<b>层状反铁磁体 CrSBr</b> 中利用<b>磁振子（magnon）与激子（exciton）的强耦合</b>，实现<b>宽带</b>微波-光转换。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>CrSBr 的价值在于它<b>同时具备两种可耦合的自由度</b>：磁振子响应微波（磁性），激子响应光（光学）。强耦合让二者形成<b>杂化态</b>——微波能量先进入磁振子，通过耦合直接传递到激子，再由激子发光输出。这条路径<b>绕开了机械中介</b>（传统方案靠振动位移做桥梁，慢且损耗大），因此带宽可以宽得多。层状结构还意味着可剥离、可堆叠，便于做成片上器件并与超导电路集成。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>在 CrSBr 中实现了<b>宽带微波-光转换</b>，提出一个可扩展的量子换能平台。对量子互连（超导-光子接口）具有直接意义。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41563-026-02748-7">10.1038/s41563-026-02748-7</a> <span class="badge new">仅 RSS 可获</span></p>
+  </div>
+
+  <div class="card">
+    <p class="title">氧空位的"电荷身份"决定电催化走哪条路：F 中心作为新描述符</p>
+    <p class="title-en">F-centre charge state and dynamism govern oxide electrocatalytic selectivity</p>
+    <div class="byline">
+      <span class="who">Nature Chemistry</span>
+      <span>2026-09-17</span>
+      <span>体系：ZrO₂</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>氧空位长期被当作氧化物电催化的关键描述符，但<b>描述得太粗</b>：多用"空位浓度"这一个数字概括。可氧空位实际上会以不同<b>电荷态</b>存在（即 F 中心：捕获不同数目电子的空位），而不同电荷态的电子结构完全不同。用浓度做描述符，就<b>无法解释为什么相同空位浓度下选择性可以完全不同</b>，也无法指导设计。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>以 ZrO₂ 为模型体系，区分不同 F 中心，考察它们如何通过各自的电子行为<b>调控氧还原反应（ORR）路径</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>F 中心本质是<b>被束缚在空位中的电子</b>，其数量决定了空位能级的<b>填充状态与位置</b>，而这直接决定中间体（如 *OOH、*OH）的吸附强度。于是问题的因果链被翻转为：<b>不是"有多少空位"，而是"空位上的电子以什么构型存在"</b>——后者才是决定反应走四电子还是二电子路径的开关。文中还强调了 F 中心的<b>动态性</b>：在反应条件下电荷态本身会变，所以描述符必须是"工作中的状态"而非静态结构。这是把描述符从静态结构量推进到电子态量的关键一步。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>不同 F 中心通过独特的电子行为调控 ZrO₂ 上的氧还原路径，<b>F 中心身份被确立为电催化选择性的关键指标</b>。这为氧化物电催化剂设计提供了新的可调旋钮。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41557-026-02256-w">10.1038/s41557-026-02256-w</a> <span class="badge new">仅 RSS 可获</span></p>
+  </div>
+
+  <div class="card">
+    <p class="title">铁光催化把烯烃加氢烷基化做到"反马氏"线性选择性</p>
+    <p class="title-en">Anti-Markovnikov alkene hydroalkylation via iron photocatalysis</p>
+    <div class="byline">
+      <span class="who">Nature Catalysis</span>
+      <span>2026-09-15</span>
+      <span>烷基供体：丙二酸类（malonic acids）· 铁光催化</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>"加氢烷基化"（把 C–H 加到烯烃双键上）是构建 <b>C(sp³)–C(sp³) 键</b>的理想手段。但<b>线性（反马氏）选择性极难控制</b>：按经典马氏规则，氢会加到取代较少的碳上，导致支链产物占优。而线性产物往往是更有价值的目标。已有方法依赖贵金属或苛刻条件。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用<b>丙二酸类化合物作烷基供体</b>，以<b>铁光催化</b>实现反马氏加成，构建 C(sp³)–C(sp³) 键。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>选择性的来源在<b>自由基加成的位阻逻辑</b>。光催化下铁配合物与丙二酸衍生物作用，生成<b>被稳定化的碳自由基</b>；这类自由基加成到烯烃时，其取代基的<b>空间位阻</b>而非电子效应成为决定因素，因而优先生成线性加成产物——这与离子型加成的马氏规则<b>逻辑相反</b>（后者由碳正离子稳定性主导）。用铁替代贵金属的意义在于：铁储量丰富、毒性低，且其氧化还原电位与配体可调范围恰好适配这类单电子过程。丙二酸作为供体的巧妙之处是<b>同时提供碳源与稳定化基团</b>，产物即为羧酸衍生物，便于后续转化。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>以丙二酸为烷基供体、铁光催化实现了烯烃的反马氏加氢烷基化，为 C(sp³)–C(sp³) 键的线性选择性构建提供了第一过渡金属路线。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41929-026-01600-0">10.1038/s41929-026-01600-0</a> <span class="badge hot">EPMC 近乎未收录</span></p>
+  </div>
+
+  <div class="card">
+    <p class="title">在 200 mm 硅片上单片集成氧化物半导体：把 3D 堆叠做进逻辑与存储之间</p>
+    <p class="title-en">Monolithic 3D integration of atomic-layer-deposited oxide semiconductors on 200-mm silicon wafers</p>
+    <div class="byline">
+      <span class="who">Nature Nanotechnology</span>
+      <span>2026-09-15</span>
+      <span>工艺：原子层沉积（ALD）氧化物半导体 · 200 mm 晶圆</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>AI 加速器受制于<b>存储墙</b>：逻辑与存储物理分离，数据搬运的能耗远高于计算本身。解法是把存储<b>垂直堆到</b>逻辑之上（单片 3D 集成）。但传统硅器件需要高温退火（>1000 °C），<b>会把下层已做好的电路毁掉</b>——这是单片 3D 集成的根本障碍。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用<b>原子层沉积（ALD）</b>制备氧化物半导体器件，在 <b>200 mm 硅片</b>上实现单片 3D 集成；演示垂直互连的逻辑与存储，并据此设计一个<b>能效型 AI 加速器</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键是<b>把"低温"变成可能</b>。氧化物半导体（如 IGZO 类）不像硅那样依赖高温柔性化退火即可获得可用的迁移率，而 <b>ALD 本身是低温、逐层自限的沉积方式</b>——这两点结合，使得第二层有源器件可以在<b>已完成的第一层电路之上</b>直接生长，而不损伤下层。因此"垂直互连"才成立：层间用高密度通孔直连，<b>把数据搬运距离从毫米级压到微米级</b>，这正是能效提升的来源。200 mm 尺度说明它已跨过单器件演示，进入可制造的晶圆级工艺。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>在 200 mm 晶圆上实现了氧化物半导体器件的单片 3D 集成，支持垂直互连的逻辑与存储，并给出能效型 AI 加速器的设计。为"存算一体"提供了一条与 CMOS 兼容的工艺路径。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41565-026-02276-0">10.1038/s41565-026-02276-0</a> <span class="badge new">仅 RSS 可获</span></p>
+  </div>
+
+  <div class="card">
+    <p class="title">250 kW 级海水直接制氢并联产淡水：用废热解掉结垢和腐蚀</p>
+    <p class="title-en">A 250-kilowatt system for co-production of hydrogen and fresh water from seawater</p>
+    <div class="byline">
+      <span class="who">Nature Energy</span>
+      <span>2026-09-15</span>
+      <span>体系：碱性电解 + 低温海水淡化耦合</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>海水是制氢最丰富的原料，但<b>直接电解会被两件事掐死</b>：一是海水中 Cl⁻ 在阳极发生竞争氧化（析氯），二是 Mg²⁺/Ca²⁺ 在阴极形成沉淀<b>结垢</b>并腐蚀电极。先淡化再电解虽然可行，但反渗透本身耗能，等于把成本转移到前段。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>把<b>碱性电解</b>与<b>低温海水淡化</b>耦合：用<b>电解槽的废热</b>蒸馏海水，得到淡水作为进料。系统规模 <b>250 kW</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>这是典型的"<b>用废热替代做功</b>"设计。反渗透靠<b>压力</b>驱动，需要消耗高品位电能；而低温蒸馏只需要<b>热量</b>——电解槽本身有大量低品位废热被白白排掉。把两者对接后，预处理这一步<b>不增加额外电能消耗</b>，同时彻底消除了 Cl⁻ 与 Ca²⁺/Mg²⁺ 进入电解槽的可能，从源头解决了析氯与结垢。系统因此获得稳定运行的能力，且产物是<b>氢 + 淡水双输出</b>——在缺水沿海地区，第二项产出本身就有价值，等效于摊薄了氢的成本。250 kW 级意味着已从实验室尺度走到可放大验证。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>耦合系统实现了稳定、可规模化的海水制氢，并<b>联产淡水</b>。该设计把电解废热变成预处理驱动力，绕开了直接海水电解的结垢与腐蚀瓶颈。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41560-026-02130-6">10.1038/s41560-026-02130-6</a> <span class="badge hot">EPMC 仅 30 条</span></p>
+  </div>
+
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section>
+  <h2><span class="num">04</span>交叉与综合 <span class="pg" style="font-weight:400">2 条深读</span></h2>
+  <p class="sec-note">Nature Communications 是子刊里产出最快的（每天数十篇），只挑两条有代表性的。</p>
+
+  <div class="card">
+    <p class="title">木质素动态网络打破热塑性弹性体的"强度–韧性"取舍<span class="badge cn">中国团队</span></p>
+    <p class="title-en">Lignin-dynamic networks break the strength–toughness trade-off in thermoplastic elastomers</p>
+    <div class="byline">
+      <span class="who">Nature Communications</span>
+      <span>2026-09-15</span>
+      <span>东北林业大学 · 木本油料资源利用国家重点实验室</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>热塑性弹性体长期存在一个<b>看似不可兼得的取舍</b>：提高强度（更硬的交联）通常意味着脆（韧性下降），反之亦然。这在聚氨酯弹性体上尤其顽固，因为传统扩链剂要么线性要么支化，<b>结构上只有"节点密度"这一个可调参数</b>——加节点就变硬变脆。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用<b>木质素多元醇</b>做动态扩链，在热塑性聚氨酯中构建三维超分子网络。木质素的刚性芳环骨架提供节点，丰富的羟基提供氢键位点。最优添加量为 <b>10 mol%</b>。手段为原位光谱 + 分子动力学模拟。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>解法的精髓是<b>换掉"节点"的性质，而不是调节点数量</b>。常规扩链剂是柔性链段，只提供拓扑连接；木质素则是<b>刚性多官能节点</b>，同时做两件事：① 刚性芳环加强微相分离（硬段域更规整 → 强度上去了）；② 表面密布的羟基形成<b>可逆的层级氢键网络</b>，受力时这些氢键<b>逐个断裂耗散能量</b>（韧性也上去了）。关键在于氢键是<b>动态的</b>——断裂后能重组，所以材料在受冲击后不会像共价交联那样永久损伤。这解释了为什么强度和韧性可以同时提升：<b>它们由同一结构特征的两个不同侧面提供，而非此消彼长。</b></p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>在 10 mol% 木质素负载下，拉伸强度 <b>127.7 ± 9.52 MPa</b>、韧性 <b>1.43 ± 0.11 GJ m⁻³</b>——作者称这是目前已报道聚氨酯弹性体中<b>该组合的最高值</b>。同时提供了生物质资源高值化利用的路径。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41467-026-77396-1">10.1038/s41467-026-77396-1</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">用网络科学量化罗马道路系统：一次"历史假说"的可计算化</p>
+    <p class="title-en">Network science reveals the structure and lasting impact of the Roman road system</p>
+    <div class="byline">
+      <span class="who">Nature Communications</span>
+      <span>2026-09-15</span>
+      <span>奥胡斯大学 · 历史与古典研究系</span>
+    </div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>"罗马道路塑造了欧洲后世的聚落与流动性"是一个流传已久的说法，但<b>几乎从未被定量检验</b>。障碍是数据形态：关于道路走向、城市 centrality 的讨论长期依赖<b>个别案例与地图直觉</b>，没有高分辨率、全帝国范围的量化数据集，因此"罗马道路更直"、"罗马是中心"这类判断无法证伪。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>构建<b>全帝国范围的高空间分辨率道路数据集</b>，用网络科学方法分析道路系统的结构特征，并检验关于<b>笔直度、持久性、城市中心性</b>的若干长期假设。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>方法论价值在于<b>把"叙事性问题"翻译成可测量的图论量</b>。例如"道路是否笔直"→ 与地形约束下的最优路径做比较；"罗马是否中心"→ 用<b>中介中心性（betweenness）</b>衡量各城市在路网中承载最短路径的比重；"是否有持久影响"→ 比较古代路网与现代聚落分布的<b>空间相关结构</b>。这样做的意义是：<b>每个假说都获得了可反驳的形式</b>，结论不再是"看起来是"，而是"在何种地形条件下、以何种量级成立"。这类"把人文命题做成可计算对象"的做法，是 AI4S 思路在历史学的一次落地。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <p>罗马道路在地形允许处倾向笔直，但<b>笔直程度不及现代道路</b>；行省首府在承载陆路流动上比其他城市更居中；被假设为主干道的路段在中间性上更重要。道路系统的结构特征与现代聚落格局存在可量化的对应。</p>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41467-026-75453-3">10.1038/s41467-026-75453-3</a></p>
+  </div>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section>
+  <h2><span class="num">05</span>综述刊 <span class="pg" style="font-weight:400">Nature Reviews 系列</span></h2>
+  <p class="sec-note">
+    ⚠️ Nature Reviews 系列<b>只发综述、Perspective 与评论，不发原创研究</b>。
+    它们与上面的研究论文<b>性质不同，不能混排统计</b>，故单列。
+    本周有产出的 9 本如下。
+  </p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th style="width:190px">刊</th><th>本周代表条目</th><th style="width:96px">日期</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NR Molecular Cell Biology</td>
+          <td>A practical guide to studying genome function using single-molecule genomics</td>
+          <td class="mono">09-14</td>
+        </tr>
+        <tr>
+          <td>NR Genetics</td>
+          <td>Gene regulatory mechanisms downstream of DNA methylation；The TWAS legacy: from biobanks and inaccessible tissues to virtual biology；The shared evolutionary capacities of plasmids and extrachromosomal DNA</td>
+          <td class="mono">09-14~17</td>
+        </tr>
+        <tr>
+          <td>NR Cancer</td>
+          <td>Viral mimicry escape as a necessary feature of malignant transformation</td>
+          <td class="mono">09-15</td>
+        </tr>
+        <tr>
+          <td>NR Immunology</td>
+          <td>Immunogenic cell death and tertiary lymphoid structures: bridging tumour cell death and immune organization</td>
+          <td class="mono">09-16</td>
+        </tr>
+        <tr>
+          <td>NR Neuroscience</td>
+          <td>Towards an integrative neuroscience of metacognition；High-performance handwriting brain-computer interfaces <span class="badge cn">浙大</span></td>
+          <td class="mono">09-14~16</td>
+        </tr>
+        <tr>
+          <td>NR Microbiology</td>
+          <td><i>Clostridioides difficile</i> rewires the infant gut；Printing microbial partners for wastewater treatment</td>
+          <td class="mono">09-15~16</td>
+        </tr>
+        <tr>
+          <td>NR Materials</td>
+          <td>热电材料专题 5 篇：Pressure as a design tool for thermoelectricity in Bi₂Te₃；Materials design and integration strategies for next-generation smart batteries；Reconciling flexibility and power generation in Bi₂Te₃；The power of confined disorder；A new funnel for thermoelectric materials discovery</td>
+          <td class="mono">09-15~17</td>
+        </tr>
+        <tr>
+          <td>NR Physics</td>
+          <td>Proton-transfer-reaction mass spectrometry for tracking trace-level volatile organic compounds；Microscale droplets for mechanical measurement and mechanotransduction</td>
+          <td class="mono">09-14~17</td>
+        </tr>
+        <tr>
+          <td>NR Earth &amp; Environment</td>
+          <td>Towards global nutrient justice via a circular bionutrient economy；Drivers, trends and impacts of nitrogen deposition in China</td>
+          <td class="mono">09-14~17</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="sec-note" style="margin-top:16px">
+    注意 NR Materials 本周是<b>热电材料的组稿</b>（5 篇同主题），NR Earth &amp; Environment 则是<b>氮沉降与养分循环</b>主题，
+    含一篇聚焦中国氮沉降驱动因素与影响的综述。组稿现象在综述刊里比研究刊更值得注意——它反映编辑部的议题优先级。
+  </p>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section>
+  <h2><span class="num">06</span>中国团队 <span class="pg" style="font-weight:400">按通讯单位判定</span></h2>
+  <p class="sec-note">
+    判定依据为论文的<b>通讯单位（affiliation）</b>，<b>不凭作者姓名拼音推断国籍</b>。
+    因此本表是<b>下界</b>——RSS 通道不含 affiliation 字段，部分中国团队条目无法据此识别，未计入。
+  </p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th style="width:170px">刊</th><th>条目</th><th style="width:210px">通讯单位</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nature Medicine</td>
+          <td>Factor IX Padua AAV gene therapy in adolescents with hemophilia B: a phase 1 trial <span class="badge">深读</span></td>
+          <td>中国医学科学院血液病医院 / 天津血研所</td>
+        </tr>
+        <tr>
+          <td>Nature Medicine</td>
+          <td>Oral KRAS G12D inhibitor GFH375 for previously treated advanced solid tumors: a phase 1 trial</td>
+          <td>上海交通大学医学院附属胸科医院</td>
+        </tr>
+        <tr>
+          <td>Nature Genetics</td>
+          <td>Pan-genome-based resequencing of 2,320 accessions ... cultivated peanut <span class="badge">深读</span></td>
+          <td>山东省农业科学院</td>
+        </tr>
+        <tr>
+          <td>Nature Microbiology</td>
+          <td>Histone H2B monoubiquitination drives sexual commitment in malaria parasites <span class="badge">深读</span></td>
+          <td>厦门大学 · 细胞应激生物学国家重点实验室</td>
+        </tr>
+        <tr>
+          <td>Nature Microbiology</td>
+          <td>Evidence of direct methane production from long-chain fatty acids by thermophilic Archaeoglobi <span class="badge">深读</span></td>
+          <td>上海交通大学 / 同济大学（腾冲热泉）</td>
+        </tr>
+        <tr>
+          <td>Nature Microbiology</td>
+          <td>Convergent use of aminopeptidase N receptor by hedgehog merbecoviruses</td>
+          <td>病毒学与生物安全国家重点实验室（武汉）</td>
+        </tr>
+        <tr>
+          <td>Nature Communications</td>
+          <td>Lignin-dynamic networks break the strength–toughness trade-off in thermoplastic elastomers <span class="badge">深读</span></td>
+          <td>东北林业大学 · 木本油料资源利用国家重点实验室</td>
+        </tr>
+        <tr>
+          <td>Nature Communications</td>
+          <td>Frequency-oriented adaptive real-time object detector for cluttered traffic scenes</td>
+          <td>长安大学 · 信息工程学院</td>
+        </tr>
+        <tr>
+          <td>NR Neuroscience</td>
+          <td>High-performance handwriting brain-computer interfaces（评论）</td>
+          <td>浙江大学</td>
+        </tr>
+        <tr>
+          <td>Nature Microbiology</td>
+          <td>Modelling air pollution impacts on infectious disease（评论）</td>
+          <td>清华大学 · 万科公共卫生与健康学院</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout" style="border-left-color:var(--rose);margin-top:14px">
+    <h4>另有 4 条中国团队通讯的"作者更正"，不计入研究论文</h4>
+    <p>
+      Nature Metabolism ×2（清华大学；西湖大学）、Nature Immunology ×1（陆军军医大学）、
+      Nature Cardiovascular Research ×1（中科院深圳先进院）。
+      按强制约束，Author Correction 一律<b>单列或剔除，绝不进研究论文段</b>。
+    </p>
+  </div>
+
+  <p class="sec-note">
+    <b>本周中国团队的两个特点</b>：① 生命科学与农业为主（血友病基因治疗、花生泛基因组、疟疾传播阻断、产甲烷古菌），
+    物质科学类本周无可确认的中国团队条目；② <b>医药类从"跟随"转向"首次人群"</b>——AAV 基因治疗首次在青少年
+    人群中给出安全性数据，KRAS G12D 抑制剂亦为 phase 1 首发。
+  </p>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section>
+  <h2><span class="num">07</span>分刊速览 <span class="pg" style="font-weight:400">窗口内全部条目</span></h2>
+  <p class="sec-note">按学科分组、按刊排列。⚠️ 本表是<b>原始速览</b>，包含更正、讣告、评论等非研究条目（更正类已在 §09 单独汇总），<b>研究论文请以 §02–§04 的深读卡与 §05 为准</b>。Nature Reviews 系列已在 §05 单列，此处不重复。</p>
+  <h3 class="disc">生命科学与医学（49 条 / 9 刊）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th style="width:178px">刊</th><th style="width:76px">日期</th><th>题名</th><th style="width:198px">DOI</th></tr></thead>
+    <tbody>
+      <tr><td>Nature Biotechnology</td><td class="mono">09-14</td><td>An engineered nanopore identifies saccharides, amino acids, peptides and ribonucleotides</td><td class="mono">10.1038/s41587-026-03308-9</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Ensuring safety and accountability in China’s biomedical translation system</td><td class="mono">10.1038/s41587-026-03314-x</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>A versatile nanopore identifies four classes of analytes simultaneously</td><td class="mono">10.1038/s41587-026-03322-x</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>FDA approves pioneering breast cancer drug that nips resistance in the bud</td><td class="mono">10.1038/s41587-026-03333-8</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Gene editing using large insertions</td><td class="mono">10.1038/s41587-026-03319-6</td></tr>
+      <tr><td>Nature Cancer</td><td class="mono">09-14</td><td>Targeting valine metabolism and ferroptosis to overcome chemoresistance in PDAC</td><td class="mono">10.1038/s43018-026-01235-x</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Circulating tumor DNA-guided de-escalation or escalation of adjuvant therapy in high-risk stage II and stage III colon cancer: the phase 2 PEGASUS trial</td><td class="mono">10.1038/s43018-026-01237-9</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Engineering botulinum neurotoxin into anti-cancer agents</td><td class="mono">10.1038/s43018-026-01245-9</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Local antibody-driven response to anti-PD-1 blockade</td><td class="mono">10.1038/s43018-026-01246-8</td></tr>
+      <tr><td>Nature Cell Biology</td><td class="mono">09-15</td><td>The Batten disease protein CLN8 is a stereospecific acyltransferase in bis(monoacylglycero)phosphate biosynthesis</td><td class="mono">10.1038/s41556-026-02061-0</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Batten disease protein CLN8 enables a non-canonical phospholipid synthesis pathway</td><td class="mono">10.1038/s41556-026-02059-8</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>DFCP1-containing ER microdomains mediate lysosomal membrane repair</td><td class="mono">10.1038/s41556-026-02062-z</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>CLN8 recycles glycerol backbones for BMP</td><td class="mono">10.1038/s41556-026-02069-6</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Immune cells go with the tissue flow</td><td class="mono">10.1038/s41556-026-02077-6</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Author Correction: Inhibiting macrophage-derived lactate transport restores cGAS–STING signalling and enhances antitumour immunity in glioblastoma</td><td class="mono">10.1038/s41556-026-02083-8</td></tr>
+      <tr><td>Nature Ecology &amp; Evolution</td><td class="mono">09-14</td><td>Ecosystem stability is shaped by resource–trait coordination under multiple interacting global change factors</td><td class="mono">10.1038/s41559-026-03190-3</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Symbiosis without codiversification</td><td class="mono">10.1038/s41559-026-03201-3</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Declining cicadas</td><td class="mono">10.1038/s41559-026-03202-2</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>The ethical costs of remotely sensing tropical forest understories</td><td class="mono">10.1038/s41559-026-03187-y</td></tr>
+      <tr><td>Nature Genetics</td><td class="mono">09-14</td><td>All of Us diversity and scale yield context-dependent improvements in polygenic prediction</td><td class="mono">10.1038/s41588-026-02734-4</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>APOE-stratified genome-wide association analyses provide insights into the genetic etiology of Alzheimers’s disease</td><td class="mono">10.1038/s41588-026-02713-9</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Type 1 interferon perturbates clonal competition by reshaping human blood development</td><td class="mono">10.1038/s41588-026-02751-3</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Pierre Chambon (1931–2026)</td><td class="mono">10.1038/s41588-026-02771-z</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Pan-genome-based resequencing of 2,320 accessions reveals structural variations and accelerates breeding advances in cultivated peanut</td><td class="mono">10.1038/s41588-026-02765-x</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Crop legacies as genetic targets for sustainable farming systems</td><td class="mono">10.1038/s41588-026-02744-2</td></tr>
+      <tr><td>Nature Medicine</td><td class="mono">09-15</td><td>Beyond the breakthrough for RAS-driven cancers</td><td class="mono">10.1038/s41591-026-04610-4</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>On-premise medical AI agents for reliable clinical decision-making</td><td class="mono">10.1038/s41591-026-04609-x</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Broadly neutralizing antibodies in adult males living with HIV undergoing analytical treatment interruption: secondary and exploratory outcomes of the phase II randomized controlled RIO trial</td><td class="mono">10.1038/s41591-026-04644-8</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Sex-specific biological aging clocks across organs and omics</td><td class="mono">10.1038/s41591-026-04662-6</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>EBV reactivation priming of the peripheral immune system in multiple sclerosis relapse</td><td class="mono">10.1038/s41591-026-04665-3</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Liquid biopsy for early detection of pancreatic ductal adenocarcinoma</td><td class="mono">10.1038/s41591-026-04625-x</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Factor IX Padua AAV gene therapy in adolescents with hemophilia B: a phase 1 trial</td><td class="mono">10.1038/s41591-026-04636-8</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Levetiracetam therapeutically targets GABAergic synapses in diffuse midline glioma</td><td class="mono">10.1038/s41591-026-04646-6</td></tr>
+      <tr><td>Nature Methods</td><td class="mono">09-14</td><td>CFM: confinement force microscopy—a dynamic, precise and stable microconfiner for traction force microscopy in spatial confinement</td><td class="mono">10.1038/s41592-026-03216-5</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>SPLENDID incorporates continuous genetic ancestry in biobank-scale data to improve polygenic risk prediction across diverse populations</td><td class="mono">10.1038/s41592-026-03235-2</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Engaging figures</td><td class="mono">10.1038/s41592-026-03241-4</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>When a laser beam hits an electron beam</td><td class="mono">10.1038/s41592-026-03239-y</td></tr>
+      <tr><td>Nature Microbiology</td><td class="mono">09-16</td><td>Aminopeptidase N is a receptor for hedgehog merbecoviruses</td><td class="mono">10.1038/s41564-026-02447-8</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Convergent use of aminopeptidase N receptor by hedgehog merbecoviruses</td><td class="mono">10.1038/s41564-026-02478-1</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Prophage-encoding engineered bacteria enable prophylactic lytic phage therapy for enteric infection in mice</td><td class="mono">10.1038/s41564-026-02484-3</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>AP2-HS and a GDV1 regulatory feedback loop mediate environmental induction of sexual conversion in Plasmodium falciparum</td><td class="mono">10.1038/s41564-026-02473-6</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Bacterial growth rate in populations and single cells</td><td class="mono">10.1038/s41564-026-02449-6</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Sequential gene loss promotes expansion of monophasic Salmonella Typhimurium ST34</td><td class="mono">10.1038/s41564-026-02483-4</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>In vivo CRISPRi screens reveal Escherichia coli functional adaptations in the mouse gut</td><td class="mono">10.1038/s41564-026-02471-8</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Functional capacities drive recruitment of bacteria into plant root microbiota</td><td class="mono">10.1038/s41564-026-02493-2</td></tr>
+      <tr><td>Nature Structural &amp; Molecular Biology</td><td class="mono">09-14</td><td>Cryo-EM structure, enzymatic activity and genome targeting of canonical PRC1</td><td class="mono">10.1038/s41594-026-01885-6</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Structure-guided discovery and engineering of miniature CRISPR–Cas12m for epigenome editing</td><td class="mono">10.1038/s41594-026-01890-9</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Capturing ATR–ATRIP in the act of activation</td><td class="mono">10.1038/s41594-026-01899-0</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Mechanistic insights into phosphorylation-driven activation and therapeutic inhibition of human ATR–ATRIP</td><td class="mono">10.1038/s41594-026-01887-4</td></tr>
+    </tbody>
+  </table></div>
+  <h3 class="disc">物质科学（27 条 / 6 刊）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th style="width:178px">刊</th><th style="width:76px">日期</th><th>题名</th><th style="width:198px">DOI</th></tr></thead>
+    <tbody>
+      <tr><td>Nature Catalysis</td><td class="mono">a</td><td>u</td><td class="mono">t</td></tr>
+      <tr><td></td><td class="mono">0</td><td>6</td><td class="mono">2</td></tr>
+      <tr><td></td><td class="mono">0</td><td>1</td><td class="mono">.</td></tr>
+      <tr><td></td><td class="mono">n</td><td>i</td><td class="mono">t</td></tr>
+      <tr><td>Nature Chemistry</td><td class="mono">09-17</td><td>F-centre charge state and dynamism govern oxide electrocatalytic selectivity</td><td class="mono">10.1038/s41557-026-02256-w</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Forging ammonia with iron and light from water and nitrogen</td><td class="mono">10.1038/s41557-026-02253-z</td></tr>
+      <tr><td>Nature Energy</td><td class="mono">09-15</td><td>A unified distillation and electrolysis system</td><td class="mono">10.1038/s41560-026-02136-0</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>A 250-kilowatt system for co-production of hydrogen and fresh water from seawater</td><td class="mono">10.1038/s41560-026-02130-6</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Exploring hydrogen pipeline costs by considering regional geographical and political characteristics</td><td class="mono">10.1038/s41560-026-02141-3</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Smart energy must address enshittification risks</td><td class="mono">10.1038/s41560-026-02138-y</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Spatially informed policies can accelerate green hydrogen demand</td><td class="mono">10.1038/s41560-026-02139-x</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Spatially informed demand-side policies for green hydrogen diffusion in Europe</td><td class="mono">10.1038/s41560-026-02126-2</td></tr>
+      <tr><td>Nature Materials</td><td class="mono">09-14</td><td>Application-driven development of metal–organic frameworks</td><td class="mono">10.1038/s41563-026-02705-4</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Microwave-to-optical transduction using magnon–exciton coupling</td><td class="mono">10.1038/s41563-026-02748-7</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Excitons driving spin dynamics in CrSBr</td><td class="mono">10.1038/s41563-026-02730-3</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Materials design for biocompatible electronics</td><td class="mono">10.1038/s41563-026-02739-8</td></tr>
+      <tr><td>Nature Nanotechnology</td><td class="mono">09-14</td><td>High-resolution intrinsically stretchable quantum-dot displays through thermally assisted intaglio transfer printing</td><td class="mono">10.1038/s41565-026-02272-4</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Single-gate, multipartite entanglement on a room-temperature quantum register</td><td class="mono">10.1038/s41565-026-02254-6</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Demonstration of on-chip all-optical switching of magnetization in integrated photonics</td><td class="mono">10.1038/s41565-026-02281-3</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Stretchable quantum dot displays achieve high definition</td><td class="mono">10.1038/s41565-026-02278-y</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Monolithic 3D integration of atomic-layer-deposited oxide semiconductors on 200-mm silicon wafers</td><td class="mono">10.1038/s41565-026-02276-0</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Two-dimensional materials for advanced back-end-of-line and wafer backside technologies</td><td class="mono">10.1038/s41565-026-02274-2</td></tr>
+      <tr><td>Nature Physics</td><td class="mono">09-14</td><td>Criticality from competition</td><td class="mono">10.1038/s41567-026-03450-w</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>An intense superthermal muonium beam</td><td class="mono">10.1038/s41567-026-03435-9</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Electrification mechanisms in sliding liquid and frozen drops</td><td class="mono">10.1038/s41567-026-03449-3</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Generation of a high-intensity, superthermal muonium beam for gravity and laser spectroscopy experiments</td><td class="mono">10.1038/s41567-026-03433-x</td></tr>
+      <tr><td></td><td class="mono">09-14</td><td>Microrotors make waves</td><td class="mono">10.1038/s41567-026-03452-8</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Mechanisms of spatial pattern transition in motile bacterial collectives</td><td class="mono">10.1038/s41567-026-03416-y</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>Weakly interacting spinons and tightly bound triplons in the frustrated quantum spin-Peierls chain</td><td class="mono">10.1038/s41567-026-03447-5</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Integrate physics education research by fixing departmental structures</td><td class="mono">10.1038/s41567-026-03451-9</td></tr>
+    </tbody>
+  </table></div>
+  <h3 class="disc">地球 · 环境 · 社会（21 条 / 4 刊）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th style="width:178px">刊</th><th style="width:76px">日期</th><th>题名</th><th style="width:198px">DOI</th></tr></thead>
+    <tbody>
+      <tr><td>Nature Climate Change</td><td class="mono">09-14</td><td>Marine carbon removal at a crossroads</td><td class="mono">10.1038/s41558-026-02740-8</td></tr>
+      <tr><td></td><td class="mono">09-16</td><td>New labour and agricultural damages improve climate cost estimates</td><td class="mono">10.1038/s41558-026-02749-z</td></tr>
+      <tr><td>Nature Human Behaviour</td><td class="mono">09-15</td><td>Loneliness and desire for thinness explain sex differences in adolescent internalizing problems</td><td class="mono">10.1038/s41562-026-02578-2</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Complexity is a unified cognitive kind</td><td class="mono">10.1038/s41562-026-02502-8</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Building health-literate artificial intelligence</td><td class="mono">10.1038/s41562-026-02595-1</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Large estimated size of the Australian Indigenous population before its extensive decline following colonial invasion</td><td class="mono">10.1038/s41562-026-02571-9</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Author Correction: Improving computational reproducibility in the social sciences</td><td class="mono">10.1038/s41562-026-02609-y</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Staying in academia after extended leave</td><td class="mono">10.1038/s41562-026-02594-2</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>The future of large-scale experiments and their challenges in the digital era</td><td class="mono">10.1038/s41562-026-02582-6</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>A research agenda for making evidence useful, usable and used in policymaking</td><td class="mono">10.1038/s41562-026-02593-3</td></tr>
+      <tr><td>Nature Plants</td><td class="mono">09-16</td><td>Vegetation overcompensation after late-spring frost is widespread across terrestrial ecosystems</td><td class="mono">10.1038/s41477-026-02406-5</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Disulfide-bond-driven neck-ring-like conformation mediates SCREW recognition in plant immunity</td><td class="mono">10.1038/s41477-026-02377-7</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>REAP1/AtSWAP70 integrates RAB5 and ROP signalling during sexual reproduction</td><td class="mono">10.1038/s41477-026-02368-8</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Engineering resilient forests</td><td class="mono">10.1038/s41477-026-02414-5</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Cross-ribbon conformation defines peptide recognition in SCREW/CTNIP–NUT/HSL3 signalling</td><td class="mono">10.1038/s41477-026-02376-8</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>How SCREW finds its NUT</td><td class="mono">10.1038/s41477-026-02405-6</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>ROP meets RAB at crossroads</td><td class="mono">10.1038/s41477-026-02372-y</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>A disulfide bond sculpts the CTNIP4 phytocytokine fold for recognition by the receptor kinase HSL3</td><td class="mono">10.1038/s41477-026-02380-y</td></tr>
+      <tr><td>Nature Sustainability</td><td class="mono">09-14</td><td>Minimizing climate change adaptation trade-offs in African rangelands</td><td class="mono">10.1038/s41893-026-01938-0</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Boosting water evaporation with clever surface design</td><td class="mono">10.1038/s41893-026-01843-6</td></tr>
+      <tr><td></td><td class="mono">09-15</td><td>Accelerating water desorption at heterostructure interfaces for high-rate solar evaporation</td><td class="mono">10.1038/s41893-026-01934-4</td></tr>
+    </tbody>
+  </table></div>
+  <h3 class="disc">交叉与综合（9 条 / 2 刊）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th style="width:178px">刊</th><th style="width:76px">日期</th><th>题名</th><th style="width:198px">DOI</th></tr></thead>
+    <tbody>
+      <tr><td>Nature Communications</td><td class="mono">09-17</td><td>Methodological Variations in Environmental Justice Screening Tools and Their Impact on Disadvantaged Community Designations</td><td class="mono">10.1038/s41467-026-77824-2</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Absence of a prolonged macrophage and B cell response inhibits heart regeneration in the Mexican cavefish</td><td class="mono">10.1038/s41467-026-77725-4</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Climate urgency enables political alignment for Latin American power integration</td><td class="mono">10.1038/s41467-026-77772-x</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Nano-wrinkle waveguides for programmable polariton channeling</td><td class="mono">10.1038/s41467-026-77593-y</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Enzyme-mimicking peripheral substituents beyond the second coordination sphere tune single-atom catalysts for periodate activation</td><td class="mono">10.1038/s41467-026-77805-5</td></tr>
+      <tr><td></td><td class="mono">09-17</td><td>Omaveloxolone functions as a molecular crowbar-like degrader of STING to alleviate aging-related inflammation</td><td class="mono">10.1038/s41467-026-77760-1</td></tr>
+      <tr><td></td><td class="mono">09-18</td><td>Large strain and high reversible dielectric tunability in Sm-modified PMN-PT ceramics</td><td class="mono">10.1038/s41467-026-77914-1</td></tr>
+      <tr><td></td><td class="mono">09-18</td><td>A ubiquitin carboxyl-terminal hydrolase facilitates H2A.Z removal in response to phosphate starvation</td><td class="mono">10.1038/s41467-026-77882-6</td></tr>
+      <tr><td>Nature Machine Intelligence</td><td class="mono">a</td><td>u</td><td class="mono">t</td></tr>
+      <tr><td></td><td class="mono">0</td><td>6</td><td class="mono">2</td></tr>
+      <tr><td></td><td class="mono">0</td><td>1</td><td class="mono">.</td></tr>
+      <tr><td></td><td class="mono">u</td><td>l</td><td class="mono">b</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sec-note" style="margin-top:14px">本节共收录 <b>106 条</b>（不含 Nature Reviews 系列）。</p>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section>
+  <h2><span class="num">08</span>贯穿本期的三个方法学动作</h2>
+  <p class="sec-note">
+    不是复述各篇结论，而是把 17 条的"机理"层横着读，看它们反复在用哪几个解题动作。
+    这三个动作在本周<b>跨 5 本以上子刊反复出现</b>，因此有迁移价值。
+  </p>
+
+  <div class="callout">
+    <h4>动作 A · 替换掉最贵或最不可靠的那一环</h4>
+    <p>
+      <b>特征</b>：不提升主过程的性能指标，而是换掉它最昂贵或最不可信的输入。
+    </p>
+    <p>
+      <b>本周实例</b>：NMed 的外泌体早筛（用膜包被囊泡<b>替代</b>低丰度游离 cfDNA 做物理浓缩）；
+      NMed 的临床智能体（用多视角交叉可靠性<b>替代</b>单一置信分数来决定是否放行）；
+      NEnergy（用电解<b>废热</b>替代电能驱动预处理）；NNano（用 ALD 低温生长<b>替代</b>高温退火，
+      从而让第二层电路可以叠在第一层之上）；NGenet 花生图形泛基因组（用图结构<b>替代</b>线性参考，
+      使同源交换从干扰变成可显式建模的变异）。
+    </p>
+    <p>
+      <b>迁移含义</b>：当主过程的指标怎么调都卡住时，先问"<b>这个流程里最贵或最不可靠的那一环是什么</b>"，
+      换掉它往往比优化它更有效。
+    </p>
+  </div>
+
+  <div class="callout">
+    <h4>动作 B · 更换观测量或表征层级</h4>
+    <p>
+      <b>特征</b>：目标现象本身没变，但换了"看它的那个量"，于是原来测不到的东西变得可测。
+    </p>
+    <p>
+      <b>本周实例</b>：NN 海马时间编码（从神经元活动<b>换到</b>星形胶质钙信号——于是"时间序列"这件事被发现不是神经元独有）；
+      NChem（从"氧空位浓度"<b>换到</b>"F 中心电荷态"，即从结构量换到电子态量）；
+      NComms 罗马道路（把"道路是否笔直/罗马是否中心"<b>换成</b>可证伪的图论量：最短路径比、中介中心性）；
+      NCB CLN8（从"CLN8 是什么结构"<b>换成</b>"它催化什么反应"，功能定义取代结构描述）。
+    </p>
+    <p>
+      <b>迁移含义</b>：若某个量无论怎么测都分辨不出目标现象，问题通常不在精度，而在<b>选错了观测量</b>。
+    </p>
+  </div>
+
+  <div class="callout">
+    <h4>动作 C · 把默认假设翻过来</h4>
+    <p>
+      <b>特征</b>：共同触发条件是"<b>按现有模型怎么调都拟合不好</b>"，于是去动那个从来没人质疑的前提。
+    </p>
+    <p>
+      <b>本周实例</b>：NMicrobiol 产甲烷古菌（推翻"长链脂肪酸甲烷化<b>必须</b>依赖细菌-古菌互养"——
+      同位素示踪正是为排除共生合作这一替代解释而设）；
+      NMetab（把"半胱氨酸<b>缺乏</b>触发铁死亡"翻成"<b>过量</b>触发一种铁依赖死亡"，且机制是铁硫簇崩解而非脂质过氧化）；
+      NCatal（反马氏选择性——让<b>位阻</b>而非碳正离子稳定性主导，与经典规则逻辑相反）；
+      NComms 罗马道路（把流传已久的"罗马道路塑造了欧洲"从叙事变成需检验的命题，结果发现笔直度<b>不及</b>现代道路）。
+    </p>
+    <p>
+      <b>迁移含义</b>：模型的系统性失配，往往指向一个被当作公理的前提。这类工作的价值不在结果新，
+      而在<b>把"不可反驳"变成了"可反驳并已部分被反驳"</b>。
+    </p>
+  </div>
+
+  <div class="callout" style="border-left-color:var(--violet)">
+    <h4>另有一条跨刊共振：AI 从"工具"变成"参与者"</h4>
+    <p>
+      本期至少 4 条指向同一件事——<b>AI 一旦进入回路，被它服务的那个系统本身会被改变</b>，而不只是效率提升。
+      NMed 的院内临床智能体讨论"选择性自主"（系统需知道自己何时该停）；
+      NComms 的"辅助算法影响运动脑机接口的神经表征"（自适应解码器<b>直接参与塑造</b>了更紧凑的神经表征）；
+      NComms 的实时交通检测器（频域自适应卷积）；
+      NR Neuroscience 的高性能手写脑机接口（浙大）。
+    </p>
+    <p>
+      这与本周正刊（Nature 的 Paper2Agent、Delphy）、Science（The Virtual Biotech）把
+      "研发流程 → 智能体"推成显性议题<b>是同一股潮流在不同刊上的投影</b>。
+      但子刊这一批更进了一步：不再问"AI 能不能做"，而是问<b>"AI 参与之后，原本的系统变成了什么"</b>。
+    </p>
+  </div>
+</section>
+
+<!-- ===================== 9 ===================== -->
+<section>
+  <h2><span class="num">09</span>更正与撤稿 <span class="pg" style="font-weight:400">11 条 · 不计入研究论文</span></h2>
+  <p class="sec-note">
+    按强制约束，Author Correction / Publisher Correction / Retraction Note 一律单列。
+    ⚠️ 子刊 RSS <b>没有类型字段</b>，这些条目只能靠题名前缀识别，所以必须显式检查。
+  </p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th style="width:196px">刊</th><th style="width:110px">类型</th><th>原论文题名</th><th style="width:78px">日期</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nature Communications</td><td class="no">Retraction Note</td><td>p53 destabilizing protein skews asymmetric division and enhances NOTCH activation to direct self-renewal of TICs</td><td class="mono">09-14</td></tr>
+        <tr><td>Nature Communications</td><td>Publisher Correction</td><td>Design, structure-based optimization and antiviral evaluation of potent inhibitors for the macrodomain Mac1 of SARS-CoV-2</td><td class="mono">09-15</td></tr>
+        <tr><td>Nature Metabolism</td><td>Author Correction</td><td>A glucose-like metabolite deficient in diabetes inhibits cellular entry of SARS-CoV-2</td><td class="mono">09-15</td></tr>
+        <tr><td>Nature Metabolism</td><td>Author Correction</td><td>Human gut microbial aromatic amino acid and related metabolites prevent obesity through intestinal immune control</td><td class="mono">09-15</td></tr>
+        <tr><td>Nature Metabolism</td><td>Author Correction</td><td>Asparagine deprivation enhances T cell antitumour response in patients via ROS-mediated metabolic and signal adaptations</td><td class="mono">09-15</td></tr>
+        <tr><td>Nature Cell Biology</td><td>Author Correction</td><td>Inhibiting macrophage-derived lactate transport restores cGAS–STING signalling and enhances antitumour immunity in glioblastoma</td><td class="mono">09-16</td></tr>
+        <tr><td>Nature Immunology</td><td>Author Correction</td><td>The transcription factor TCF-1 initiates the differentiation of T<sub>FH</sub> cells during acute viral infection</td><td class="mono">09-16</td></tr>
+        <tr><td>Nature Aging</td><td>Publisher Correction</td><td>Three-dimensional mapping of intact ovaries reveals the aging dynamics of the ovarian reserve</td><td class="mono">09-16</td></tr>
+        <tr><td>Nature Cardiovascular Research</td><td>Author Correction</td><td>CD98hc controls CNS angiogenesis and blood-brain barrier integrity through localized regulation of the systemic integrin-FAK pathway</td><td class="mono">09-16</td></tr>
+        <tr><td>NR Clinical Oncology</td><td>Publisher Correction</td><td>Antibody–drug conjugates in gynaecological cancers: opportunities and challenges</td><td class="mono">09-17</td></tr>
+        <tr><td>Nature Machine Intelligence</td><td>Publisher Correction</td><td>Quantum neural operators with implicit quadratic frame and expressivity advantages</td><td class="mono">09-14</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="sec-note" style="margin-top:14px">
+    其中 Nature Cardiovascular Research 那条曾获得过 <b>Nature 医学类期刊年度论文奖</b>（2024），
+    仍出现 Author Correction —— 这是正常工作流，不影响结论有效性，但提醒<b>引用时须核对最新版本</b>。
+  </p>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section>
+  <h2><span class="num">10</span>口径与说明</h2>
+
+  <div class="callout">
+    <p><b>统计窗口</b>：2026-09-14 至 2026-09-18（周一至周五）。子刊为月刊/半月刊/近乎日报混编，<b>无统一"期"概念</b>，故一律按<b>在线发表日期（<code>dc:date</code>）</b>归入窗口，不用期号。</p>
+
+    <p><b>数据来源</b>：① <code>nature.com/&lt;abbr&gt;.rss</code>（RSS 1.0/RDF，27 本刊 / 102 条）；
+    ② Europe PMC REST API 按 ISSN 枚举（12 本刊 / 23 条）；
+    ③ 46 本子刊的 ISSN 由 EPMC <code>journalInfo</code> 一手获取。</p>
+
+    <p><b>覆盖限制（重要）</b>：① 通道①固定只给<b>最近 8 条</b>，
+    对 Nature Communications 这类日产数十篇的刊<b>采样严重不足</b>（本节对其另走通道②）；
+    ② 通道①有<b>随机风控</b>，本轮有 10 个 RSS 缩写未能取到
+    （<code>ni</code>/<code>nn</code>/<code>nmeta</code>/<code>nfood</code>/<code>naging</code>/<code>nrn</code>/<code>nri</code>/<code>natchemeng</code>/<code>natwater</code>/<code>natcities</code>），
+    其中除 Nature Photonics 外均可由通道②覆盖，Nature Photonics 本轮<b>无数据</b>。</p>
+
+    <p><b>"机理"层的性质</b>：本报告的"机理"层是<b>基于来源摘要与学科常识重建的因果链，
+    属于解释性归纳，不等同于作者原述</b>。凡来源材料不足以支撑因果链的条目，一律标注"材料不足"而非补写。
+    引用时请以原文为准。</p>
+
+    <p><b>中国团队判定</b>：一律依据论文<b>通讯单位（affiliation）</b>，
+    <b>不凭作者姓名拼音推断国籍</b>。因 RSS 通道不含 affiliation，本表为下界。</p>
+
+    <p><b>综述刊单列</b>：Nature Reviews 系列只发综述/Perspective/评论，性质与研究论文不同，
+    已在 §05 单列，§07 速览表不含该系列。</p>
+
+    <p><b>未做交叉验证的部分</b>：本轮未取各子刊当期封面说明（官网目次页受反爬保护，
+    RSS 不含封面信息）；深读条目的作者名单来自 RSS 的 <code>dc:creator</code>，
+    未逐条回官网核对通讯作者标记。</p>
+
+    <p><b>方向性说明</b>：报告中的趋势判断与"方法学动作"归类为助手归纳，非论文作者或期刊编辑表述。</p>
+  </div>
+</section>
+
+<footer>
+  <p>
+    <b>Nature 系列子刊周报（深读版）</b> · 统计窗口 2026-09-14 ~ 09-18 ·
+    覆盖 30 本子刊 / 125 条 · 四层深读 17 条 ·
+    生成于 2026-09-18。
+  </p>
+  <p>
+    四层结构：<b>问题 → 手段 → 机理 → 结论</b>。
+    完整取数规范（RSS 缩写表、EPMC 收录分档、46 本 ISSN 白名单、风控处置）见技能
+    <code>journal-paper-tracking/references/journals/nature-sisters.md</code>。
+  </p>
+  <p>
+    ⚠️ 所有 DOI 指向官方记录，点击前请确认版本。本报告为阅读索引与解读材料，<b>不能替代原文</b>。
+  </p>
+</footer>
+
+
+
+</div>
+</body>
+</html>

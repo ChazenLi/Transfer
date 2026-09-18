@@ -17,7 +17,8 @@ agent_created: true
 
 | 用户提到 | 加载 |
 |---|---|
-| Nature、自然、正刊、Nature 子刊 | `references/journals/nature.md` |
+| Nature、自然、正刊 | `references/journals/nature.md` |
+| **Nature 子刊**、NMI / NB / NC / NM / NCS、Nature Medicine / Materials / Machine Intelligence / Reviews 系列 | `references/journals/nature-sisters.md`（+ `nature.md` 仅用于正刊部分） |
 | Science、科学、AAAS、Science Advances / 子刊 | `references/journals/science.md` |
 | Cell、细胞、Cell Press、Cell 子刊 | `references/journals/cell.md` |
 | 新增期刊（NEJM / Lancet / JAMA / BMJ / PNAS 等） | 先读 `references/journals/_template.md`，按模板落一份新规范后再执行 |
@@ -35,6 +36,10 @@ agent_created: true
 3. **勘误绝不算新论文。** Author Correction / Publisher Correction / Erratum / Corrigendum / Retraction 一律单列或剔除。
 4. **枚举优先走机器可读通道。** 首选 Europe PMC API / 期刊 eTOC RSS（见 `01-sources.md` 的 Layer 0），**不要一上来就爬官网 HTML**——三家反爬强度差别很大。
    - **EPMC 的实时性按刊而异，换刊必跑探针**：Nature ✅ 实时（当周 50 条）/ Science ❌ 滞后 ≥1 期（当周 0 条）/ Cell ⚠️ 部分实时（当周 6 条，但**不含本期主体**）。
+   - **Nature 子刊内部差异更大，且不是"滞后"而是"收录范围"**：EPMC 以 MEDLINE 为主源，
+     生物医学类子刊万级收录且实时（NMed 14185 / NComms 91597），
+     物质科学类近乎未收录（**Nature Physics 全库仅 287 条、Nature Catalysis 最新只到 2026-03**）。
+     **后者必须走 `nature.com/<abbr>.rss`**。分档判据与缩写表见 `journals/nature-sisters.md` §2/§4。
    - **并确认该刊的"AOP vs 期次"口径。** Cell 的两个口径**交集为空**：本期论文首发日可横跨两个月，而本周上线的论文全部未编期——**不写双口径就是错的**。见各刊规范 §2.1。
 5. **中文二手来源只用于补充解读，结论与数字以英文原文/官方 DOI 为准。** 中文导读存在笔误（已见过把 m_K = 19.3 写成 9.3 的案例）。
 6. **不得编造 DOI、卷期、页码、作者、机制。** 拿不到就标注"待核实"，不要猜。
@@ -80,5 +85,6 @@ Nature Reviews 系列（综述刊，节奏不同）、Science Partner Journals�
 - `references/00-workflow.md` — 通用六步工作流
 - `references/01-sources.md` — 六层数据源登记表（含已实测可用的 URL 与 API）
 - `references/02-output-spec.md` — 输出规范、口径声明模板、质检清单
-- `references/journals/{nature,science,cell}.md` — 各刊规范
+- `references/journals/{nature,science,cell}.md` — 各刊正刊规范
+- `references/journals/nature-sisters.md` — **Nature 系列子刊**（RSS 缩写表 / EPMC 收录分档 / 46 本 ISSN 白名单 / 收敛策略）
 - `references/journals/_template.md` — 新刊规范模板
