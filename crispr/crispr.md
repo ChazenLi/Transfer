@@ -348,6 +348,8 @@ crRNA:     3'-- N N N N [===== 20 nt 向导序列 =====] -  ...  |
   * **HDR（同源定向修复）**：需要人为提供同源模板（含同源臂的供体 DNA），可实现精确序列**敲入 / 替换**，但在细胞中发生频率低。
 * **建议观看方式**：读完本文第二～四章后完整观看一遍，**重点跟住结尾关于 NHEJ / HDR 的段落**——它把本文的"切割机制"接到了"编辑目的"上。
 
+* **配套文字讲稿（英文）**：[`crispr-2-mechanism-lecture.md`](crispr-2-mechanism-lecture.md) —— 与视频同源、按 **Act 1–4** 组织的讲解稿。除逐段对应视频外，还专门展开两处本文未及之处：**Act 1 的 RecBCD / Chi 位点取样路径**，以及 **Act 4 的 NHEJ / HDR 完整分子步骤**（含 Ku70/Ku80、DNA-PKcs、XRCC4–Ligase IV、MRN/CtIP、RAD51、D-loop）。
+
 **4.2 《CRISPR-Cas9 Genome Editing Technology》—— 快速入门导览**
 
 * **主讲 / 平台**：Professor Dave Explains，YouTube
