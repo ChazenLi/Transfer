@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature 周报 · 深读版 · 2026年9月14日–18日（Vol 657, Issue 8132）</title>
+<style>
+  :root{
+    --ink:#12161c; --ink-2:#3d4753; --ink-3:#6b7683;
+    --line:#e3e7ec; --bg:#f6f7f9; --card:#fff;
+    --accent:#1a4d8f; --accent-soft:#e8f0fa;
+    --blue:#1d4e89; --blue-soft:#eaf1f9;
+    --blue-line:#cfe0f2;
+    --teal:#0f6e56; --teal-soft:#f1f9f6; --teal-line:#c9e7dc;
+    --rose:#9b2c47; --rose-soft:#fbecef;
+    --warm:#a8541b; --warm-soft:#fbf0e6;
+    --violet:#5b3f8f; --violet-soft:#f0ecfa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1020px;margin:0 auto;padding:44px 26px 80px;}
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:30px;}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-size:33px;line-height:1.25;margin:10px 0 12px;letter-spacing:-.4px;}
+  .sub{color:var(--ink-2);max-width:820px;}
+  .stamp{margin-top:16px;font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 20px;}
+
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:11px;margin:0 0 14px;}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;}
+  .metric .n{font-size:26px;font-weight:700;letter-spacing:-.5px;color:var(--accent);line-height:1.1;}
+  .metric .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+
+  .method{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:15px 19px;margin:0 0 14px;font-size:13.5px;color:var(--ink-2);}
+  .method b{color:var(--ink);}
+  .method code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#fff;border:1px solid #d8e4f0;border-radius:4px;padding:1px 5px;word-break:break-all;}
+  .method .warn{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed #c3d5e8;}
+
+  .howto{background:var(--teal-soft);border:1px solid var(--teal-line);border-radius:10px;padding:15px 19px;margin:0 0 38px;font-size:13.5px;color:var(--ink-2);}
+  .howto b{color:var(--ink);}
+  .howto dl{margin:8px 0 0;display:grid;grid-template-columns:44px 1fr;gap:6px 12px;}
+  .howto dt{font-weight:700;color:var(--teal);font-size:12.5px;}
+  .howto dd{margin:0;font-size:13px;}
+
+  section{margin-bottom:44px;}
+  h2{font-size:20px;margin:0 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;}
+  h2 .num{font-size:12px;color:var(--ink-3);font-weight:600;letter-spacing:.1em;}
+  .sec-note{color:var(--ink-3);font-size:13px;margin:0 0 20px;}
+
+  h3.disc{font-size:13px;letter-spacing:.1em;margin:26px 0 12px;color:var(--ink-2);
+    display:flex;align-items:center;gap:9px;font-weight:700;}
+  h3.disc::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 20px;margin-bottom:13px;}
+  .card:hover{border-color:#c9d1da;}
+  .card .title{font-size:16.5px;font-weight:650;line-height:1.45;margin:0 0 3px;}
+  .card .title-en{font-size:13.5px;color:var(--ink-3);font-style:italic;margin:0 0 10px;line-height:1.5;}
+  .byline{font-size:12.5px;color:var(--ink-3);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px 14px;}
+  .byline .who{color:var(--ink-2);font-weight:600;}
+
+  .layers{margin:0 0 12px;}
+  .layer{display:grid;grid-template-columns:46px 1fr;gap:11px;padding:8px 0;border-top:1px solid #f0f2f5;}
+  .layer:first-child{border-top:none;padding-top:3px;}
+  .layer .lb{font-size:11.5px;font-weight:700;letter-spacing:.06em;padding-top:2px;}
+  .lb-q{color:var(--blue);}
+  .lb-m{color:var(--ink-3);}
+  .lb-p{color:var(--teal);}
+  .lb-r{color:var(--accent);}
+  .layer p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.64;}
+  .layer p b{color:var(--ink);font-weight:650;}
+  .layer.mech{background:var(--teal-soft);border-radius:8px;padding:10px 12px;margin:5px 0 5px -12px;
+    grid-template-columns:46px 1fr;border-top:none;border-left:3px solid var(--teal);}
+  .layer.mech .lb{padding-left:0;}
+
+  ul.finds{margin:0;padding-left:0;list-style:none;}
+  ul.finds li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-2);margin-bottom:5px;line-height:1.62;}
+  ul.finds li:last-child{margin-bottom:0;}
+  ul.finds li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  ul.finds b{color:var(--ink);font-weight:650;}
+
+  .doi{font-size:12px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);word-break:break-all;
+    padding-top:9px;border-top:1px solid #f0f2f5;}
+  .doi a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6d4;}
+
+  .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:.03em;
+    background:var(--accent-soft);color:var(--accent);vertical-align:2px;margin-left:6px;}
+  .badge.cn{background:var(--blue-soft);color:var(--blue);}
+  .badge.hot{background:var(--rose-soft);color:var(--rose);}
+  .badge.new{background:var(--warm-soft);color:var(--warm);}
+  .badge.rev{background:var(--violet-soft);color:var(--violet);}
+  .pg{font-size:11.5px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
+  thead th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);background:#fafbfc;}
+  tbody td{padding:10px 14px;border-bottom:1px solid #eef1f4;vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink);font-weight:600;}
+
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:15px 19px;margin:0 0 12px;}
+  .callout h4{margin:0 0 6px;font-size:14.5px;}
+  .callout p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .callout p + p{margin-top:7px;}
+
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.75;}
+  footer b{color:var(--ink-2);}
+  @media(max-width:640px){.wrap{padding:28px 16px 56px;}h1{font-size:24px;}.card{padding:14px 15px;}
+    .layer{grid-template-columns:1fr;gap:2px;}
+    .layer .lb{padding-top:6px;}
+    .layer.mech{margin-left:-10px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Nature Weekly · Deep Read</div>
+  <h1>Nature 周报（深读版）· 2026年9月14日–18日</h1>
+  <p class="sub">
+    每篇研究论文按<b>问题 → 手段 → 机理 → 结论</b>四层展开。与 Science 深读版同一套结构：
+    核心是把"机理"独立成层——不只知道发了什么，而是知道<b>它为什么必须这么做、以及为什么这么做能成立</b>。
+  </p>
+  <div class="stamp">
+    <span>窗口：2026-09-14 ~ 09-18</span>
+    <span>期次：Vol 657, Issue 8132</span>
+    <span>期日：2026-09-17</span>
+    <span>深读卡片：29 篇</span>
+    <span>生成：2026-09-18</span>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric"><div class="n">29</div><div class="l">研究内容（全部深读）</div></div>
+  <div class="metric"><div class="n">4</div><div class="l">每篇分层</div></div>
+  <div class="metric"><div class="n">2</div><div class="l">中国机构主导</div></div>
+  <div class="metric"><div class="n">19</div><div class="l">新闻评论条目</div></div>
+  <div class="metric"><div class="n">2</div><div class="l">勘误（剔除）</div></div>
+  <div class="metric"><div class="n">50</div><div class="l">窗口内索引条目</div></div>
+</div>
+
+<div class="howto">
+  <b>怎么读这四层</b>
+  <dl>
+    <dt>问题</dt><dd>这篇要攻的卡点是什么，<b>上一代方案为什么不够</b>。判断"这个问题是否也出现在你关心的领域"。</dd>
+    <dt>手段</dt><dd>实际用了什么技术、实验体系、模型或队列，以及关键量级。</dd>
+    <dt>机理</dt><dd>原理层：<b>为什么这个手段能绕过那个卡点</b>。这是本次新增的核心层。</dd>
+    <dt>结论</dt><dd>带数字的结果，以及它成立的条件和边界。</dd>
+  </dl>
+</div>
+
+<div class="method">
+  <b>枚举方式（可复核）</b><br>
+  主干：Europe PMC REST API，<code>JOURNAL:"Nature" AND FIRST_PDATE:[2026-09-14 TO 2026-09-18]</code> → 返回 <b>50 个条目</b>，含 <code>pubType</code> 字段<br>
+  富化：同接口 <code>resultType=core</code> 取回完整摘要、卷期页码、通讯机构；本地按 <code>pubType</code> 子串匹配剔除 news 与勘误<br>
+  口径：未使用中文导读——科学网《自然》一周论文导读通常延迟约 2 天，窗口末端尚未出刊，本次完全依赖机器枚举
+  <span class="warn">
+    ⚠️ 与 Science 相反，Europe PMC 对 Nature 是<b>实时</b>的（同窗口 50 条，Science 为 0）。
+    故本报告主干为 Europe PMC；eTOC RSS 未能用于交叉验证（nature.com 反爬返回浏览器校验页）。
+  </span>
+</div>
+
+<!-- ===================== 1 ===================== -->
+<section>
+  <h2><span class="num">01</span>研究论文 · 生命科学与医学 <span class="pg" style="font-weight:400">15 篇，全部深读</span></h2>
+  <p class="sec-note"><b>机理</b>层为解释性归纳——基于原文摘要 + 学科常识重建的因果链，用于理解，<b>不等于作者的表述原话</b>。页码为空的条目为在线优先（AOP），尚未编入固定期次。</p>
+
+  <div class="card">
+    <p class="title">线粒体分裂因子 MFF 感知并调控铁死亡 <span class="badge cn">中国团队</span> <span class="badge new">AOP</span></p>
+    <p class="title-en">Mitochondrial fission factor senses and governs ferroptosis</p>
+    <div class="byline"><span class="who">戴胜、戴翔、张涛 等 · 浙江大学医学院（通讯：张强，联合 王福俤、闵军霞）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>铁死亡是<b>铁依赖的脂质过氧化</b>驱动的调节性细胞死亡，牵涉神经退行、缺血再灌注、肿瘤等多种病理。学界已知线粒体等细胞器参与其中，但<b>"细胞器动态"到"死亡执行"之间缺一个统一机制</b>——即缺一个把脂质过氧化信号与细胞器碎裂耦合起来的分子节点。没有这个节点，就无法解释为什么同一刺激下不同细胞的死亡阈值差这么远。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>以<b>定量磷酸化蛋白质组学</b>做无偏筛选，锁定线粒体分裂因子 <b>MFF</b>；自建相分离型生物传感器 <b>MFF-SPARK</b> 在活细胞实时追踪 MFF 的磷酸化；再用激酶/磷酸酶筛选与体内药物实验闭环。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>链子是：脂氧合酶产物 <b>17-HETE</b> → 促进 MFF <b>Ser155 磷酸化</b> → 触发<b>线粒体与过氧化物酶协同碎裂</b> → 细胞器间串扰增强 → 氧化应激放大 → 加速铁死亡。关键在于<b>主导死亡的是这个磷酸化修饰本身，而不是 MFF 经典的"分裂"结构功能</b>——这把 MFF 从一个结构蛋白变成了"感知器 + 执行器"的耦合节点。它同时解释了为什么"线粒体碎裂"在文献里时而是因、时而是果：真正的上游开关是磷酸化状态。调控它的是 PKCβ（激酶）/ DUSP22（磷酸酶）这一对。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>确立 MFF 磷酸化是铁死亡相关细胞器重塑的<b>中心调控节点</b>。</li>
+          <li>发现 <b>阿维菌素 B1</b> 作为 PKCβ-MFF 轴的药理激活剂，可在<b>体内</b>使肿瘤对铁死亡敏感化——直接给出一条药物线索。</li>
+          <li><b>边界</b>：MFF-SPARK 依赖相分离体系的定量可靠性；激活剂的治疗窗口与人体转化未验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11020-6">10.1038/s41586-026-11020-6</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">用人类类器官在小鼠中生成"异种新皮层" <span class="pg">Stanford</span></p>
+    <p class="title-en">Developmental xenocortication using human-derived organoids in mice</p>
+    <div class="byline"><span class="who">K. Kaganovsky 等 · 斯坦福大学（通讯：Sergiu P. Pașca、Karl Deisseroth）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>人脑组织不可及，限制了人神经发育与环路功能的研究。把神经类器官植入啮齿类是主流出路，但<b>空间限制 + 与宿主环路的竞争</b>压住了移植物的整合——而整合恰恰是研究疾病的前提。此前最好的人脑类器官移植也只能占据很有限的皮层体积。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>遗传策略清除</b>小鼠新皮层与海马的谷氨酸能神经元，制造"无皮层（apallial）"空腔，再在<b>新生期</b>植入人干细胞来源皮层类器官（hCO），得到 xenocortical 小鼠；用<b>移植体全域钙成像</b>+电生理+行为学做读出。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>设计逻辑是<b>"腾出生态位换取整合空间"</b>。宿主谷氨酸能神经元被清除后，原本挤压与竞争移植物的环路被移除，人源类器官因此能<b>占据大部分皮层体积</b>并分化出多样的人皮层细胞类型（含 L5 外向投射神经元）。人神经元能与小鼠神经系统形成连接、产生类似"发育中环路"的有组织活动模式。这也说明<b>环路整合是被空间竞争限制的，而不是被人鼠物种屏障限制的</b>——这条判断本身很重要。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>hCO <b>占据大部分皮层体积</b>，生成多样人皮层细胞类型；人神经元与小鼠环路整合。</li>
+          <li>行为学：运动大体保留，但出现<b>肢体协调的选择性差异</b>与自发行为组织改变。</li>
+          <li>该平台可在发育性人皮层细胞损伤模型中读出行为 → 可用于疾病建模与药物评价。</li>
+          <li><b>边界</b>：跨物种环路的功能贡献与"人"成分比例仍需定量；行为差异的因果链未完全闭合。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11032-2">10.1038/s41586-026-11032-2</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">Cohesin 重塑复制叉接触，促进复制叉减速与反转 <span class="pg">Zurich</span></p>
+    <p class="title-en">Cohesin reshapes replication fork contacts to aid fork slowing and reversal</p>
+    <div class="byline"><span class="who">D. González-Acosta 等 · 苏黎世大学分子癌症研究所（通讯：Massimo Lopes）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>化疗药物会让 DNA 复制叉停滞、积累单链 DNA。复制叉在压力下表现出可塑性（减速、反转）以保基因组稳定，而<b>染色质的三维组织</b>（cohesin 环挤压）已知决定复制起点的定位。但"复制压力下姐妹复制叉的接触有何功能"以及"cohesin 在其中扮演什么角色"完全未知——此前只在不扰动复制时观察到过短暂的姐妹叉接触。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>生长素诱导降解（AID）</b>快速清除 cohesin + <b>分离功能突变体</b>，配合新开发的 Micro-C 衍生技术 <b>Repli-C</b>——专门捕获新生 DNA 上的染色质接触。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>环挤压型 cohesin 在<b>停滞复制叉</b>上积累，它把接触偏好<b>从"姐妹叉耦合"改向"复制子间接触"</b>。这个重排进而促进主动的复制叉减速与反转——机制是<b>阻止 PRIMPOL 聚合酶去作用于单链 DNA</b>（PRIMPOL 介入会造成单链缺口与不稳定）。核心结论因此上升到概念层：<b>复制压力响应不是一堆个体调控事件的叠加，而是通过 cohesin 环挤压在基因组尺度上"拓扑整合"的</b>。这解释了为何单看某个通路总拼不出完整应答。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>cohesin 环挤压重排新生 DNA 接触，<b>促进基因组稳定</b>。</li>
+          <li>为环挤压型 cohesin 赋予<b>新功能</b>：复制压力响应中的拓扑整合者。</li>
+          <li>肿瘤中 cohesin 高频突变 → 对<b>癌症治疗的潜在影响</b>值得跟进。</li>
+          <li><b>边界</b>：主要在特定复制压力模型（化疗/羟基脲类）中验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11034-0">10.1038/s41586-026-11034-0</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">蓝斑去甲肾上腺素神经元的拓扑结构与功能 <span class="pg">Allen Institute</span></p>
+    <p class="title-en">Topographic structure and function of locus coeruleus noradrenaline neurons</p>
+    <div class="byline"><span class="who">Z. Su 等 · 艾伦脑科学研究所（通讯：Jeremiah Y. Cohen）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>蓝斑（LC）的去甲肾上腺素神经元向几乎全中枢神经系统释放递质，教科书长期把它当作<b>均质的全局广播系统</b>。但"单个神经元的投射靶区、基因表达与电活动是否与它在 LC 中的位置相关"从未被系统解析——如果不能，就无从谈起选择性调控。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>小鼠 LC 的<b>单神经元轴突重建 + 投射图谱 + 梯度基因表达 + 行为任务中的活动记录</b>（一个需要从行动中持续学习的任务）。依托艾伦所的规模化细胞普查体系。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>单个神经元投射广泛但<b>局限于特定脑区子集</b>，且投射模式与梯度化的基因表达<b>与胞体在 LC 中的位置相关</b> → 存在拓扑组织。功能上：<b>背侧</b> LC（投射到等皮质）在小鼠<b>切换选择</b>时被激活，并由<b>奖赏预测误差信号</b>驱动（即携带学习信号）；<b>腹侧</b> LC 在动物<b>忽略潜在奖赏线索</b>时背景活动更高。同一个核团按位置分工、且部分神经元在传递学习信号——这从机制上否定了"LC = 无差别广播"的旧图景。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>揭示一个神经递质系统的<b>拓扑组织</b>：位置 ↔ 投射 ↔ 基因表达 ↔ 活动四者对应。</li>
+          <li>LC 内含支持灵活行为的<b>学习信号</b>（切换、奖赏预测误差）。</li>
+          <li><b>边界</b>：结论建立在小鼠；人类 LC 的同构性待证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11035-z">10.1038/s41586-026-11035-z</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">致死性转移性膀胱癌亚型的演化与异质性 <span class="pg">Fred Hutch</span></p>
+    <p class="title-en">Evolution and heterogeneity of lethal metastatic bladder cancer subtypes</p>
+    <div class="byline"><span class="who">P. Itagi 等 · 弗雷德·哈金森癌症中心（通讯：Gavin Ha）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>转移性尿路上皮癌的<b>组织学变异（subtypes）</b>是明确的预后特征——浆细胞样、鳞状、神经内分泌变体一眼就比常规型凶险。但<b>这种差异是起点差异，还是演化过程涌现的</b>无人知道。不弄清演化轨迹，就无法判断该在哪个时间点干预。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>建立<b>富集组织学亚型的快速尸检（rapid autopsy）计划</b>，对终末期患者做多部位取样；重建肿瘤演化史 + <b>单核转录组</b> + 微环境免疫状态 + 实验模型 + <b>cfDNA</b> 验证。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>演化重建显示<b>"转移灶→转移灶播种"（M2M seeding）才是主导播散模式</b>，而非"原发→转移"的单向树；<b>多克隆迁移预示差预后</b>——晚期疾病的演化是一张再播种的网。亚型差异来自驱动改变的时间与种类：浆细胞样/神经内分泌变体<b>早期即获驱动突变</b>，因而生存更短。浆细胞样肿瘤<b>独特地使用范可尼贫血（Fanconi anaemia）通路</b>来消解化疗诱导的基因组瘢痕——这条机制直接解释了它对铂类化疗的抵抗。微环境上，浆细胞样呈免疫炎症型、鳞状型免疫抑制。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>M2M 播种主导播散；<b>多克隆迁移</b>是差预后的新指标。</li>
+          <li>浆细胞样变体靠<b>范可尼通路</b>抵抗化疗瘢痕 → 潜在可成药方向。</li>
+          <li><b>cfDNA 可捕获亚型的基因组与转录组异质性</b> → 为无创评估肿瘤身份与侵袭性提供策略。</li>
+          <li><b>边界</b>：快速尸检队列偏向终末期患者，早期演进推论需前瞻队列验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11035-z">10.1038/s41586-026-11035-z</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">PreGame：从多发性骨髓瘤中鉴定广谱抗肿瘤 γδ TCR <span class="pg">Toronto</span></p>
+    <p class="title-en">Identification of broadly tumour-reactive γδ TCRs from multiple myeloma</p>
+    <div class="byline"><span class="who">M. St Paul 等 · 玛格丽特公主癌症中心 / UHN（通讯：Tak W. Mak、Pamela S. Ohashi）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>γδ T 细胞的抗肿瘤能力日益受重视，但与经典的 αβ T 细胞不同，<b>γδ 到底多依赖 TCR 来触发杀伤并不清楚</b>。卡点是技术性的：<b>无法把"肿瘤反应性 γδ T"与"旁观者 γδ T"分开</b>，于是既说不清生物学，也没法把它们的 TCR 做成免疫治疗品。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>机器学习算法 <b>PreGame</b>，从<b>单细胞 CITE-seq</b>（表面蛋白 + 转录组）数据中识别肿瘤反应性 γδ T；在多发性骨髓瘤与多种实体瘤患者样本中验证 TCR 特异性；并与临床治疗响应关联。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>γδ TCR 的识别逻辑与 αβ 不同——<b>不受 MHC 限制，识别应激相关配体</b>，因此没有现成的"抗原-受体"对可以反推。算法的切入点是把"肿瘤反应性"当作一个可从<b>单细胞多模态特征</b>中学习的签名，从而把反应性与旁观者分开。更关键的机制发现是<b>肿瘤选择性来自"组合信号"而非单一抗原</b>：他们找到一个位于<b>泛表达 HLA-C 蛋白</b>上的 γδ TCR 表位，并揭示一个<b>逻辑门</b>实现免疫监视——即 γδ 用组合条件来保证只打肿瘤、不打正常组织。这正是"泛表达抗原也能被安全靶向"的原理性答案。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>PreGame 可从单细胞 CITE-seq 识别肿瘤反应性 γδ T，并验证其 TCR 对肿瘤的特异性。</li>
+          <li><b>肿瘤反应性 γδ T 的扩增是 belantamab mafodotin 联合治疗响应的早期生物标志物</b>。</li>
+          <li>鉴定 HLA-C 上的 γδ TCR 表位与免疫监视逻辑门。</li>
+          <li><b>边界</b>：临床关联来自单一联合治疗队列；"通用治疗品"仍需体内安全性验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11055-9">10.1038/s41586-026-11055-9</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">RSV F 蛋白的突变约束与抗体中和 <span class="pg">Fred Hutch</span></p>
+    <p class="title-en">Mutational constraints on RSV F and its neutralization by antibodies</p>
+    <div class="byline"><span class="who">C. A. L. Simonich 等 · 弗雷德·哈金森癌症中心（通讯：Jesse D. Bloom）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>靶向 RSV F 蛋白的新抗体大幅降低了婴儿住院率，但<b>病毒抗性是现实威胁</b>：一种抗体因抗性株在临床试验中失败，最广泛使用的 nirsevimab 也检出散在抗性突变。公共卫生需要一个能<b>预测并监测</b>抗性的框架，而不只是事后报告。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>先建<b>生物物理模型</b>（二价 IgG 结合的缓冲效应 + nirsevimab 对 B 亚型较低的 Fab 效力）；再做<b>假病毒深度突变扫描（DMS）</b>，安全地测量<b>几乎全部 F 突变</b>对细胞进入功能与 IgG/Fab 形式中和的影响。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>核心是<b>"二价结合的缓冲"（avidity buffering）</b>：IgG 有两个臂，单个表位突变往往不足以让抗体脱落，所以抗性门槛被抬高。但 nirsevimab 对 <b>B 亚型的 Fab 单价效力本就较低</b> → 缓冲余量小 → 抗性在 B 型更常见。这解释了此前观察到的<b>亚型偏倚并非偶然，而是生物物理必然</b>。把 DMS 的逐突变图谱落到序列监测上，就把"抗性风险评估"从回顾变成了实时前瞻。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>抗性株已<b>散在出现但当前罕见</b>——为公共卫生提供了基线。</li>
+          <li>展示 <b>Fab 效力与表位特异性如何共同决定</b>突变对中和的影响。</li>
+          <li>可用于 RSV 序列的<b>实时抗性监测</b>，并指导设计更耐逃逸的下一代抗体。</li>
+          <li><b>边界</b>：假病毒体系 ≠ 真实感染；监测能力受序列数据库覆盖度限制。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11030-4">10.1038/s41586-026-11030-4</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">RNF213 通过直接泛素化实现糖原质量控制 <span class="pg">Cambridge</span></p>
+    <p class="title-en">Quality control of glycogen through direct ubiquitylation by RNF213</p>
+    <div class="byline"><span class="who">M. C. J. Yip 等 · 剑桥大学 MRC 分子生物学实验室（通讯：Felix Randow）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>DNA 修复与蛋白质控已研究得很透，但<b>细胞如何监控糖原这类非蛋白生物分子</b>几乎空白。分支不良的异常糖原会聚成不溶性 polyglucosan 体，导致严重疾病（如成人多聚葡萄糖体病）。缺的是"糖原质控"这一环。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>工程化细胞产生 polyglucosan + <b>RNF213 连接酶失活小鼠</b>模型 + <b>cryo-EM</b> 解析 RNF213 与糖原衍生 maltoheptaose 的结合 + 自噬受体鉴定 + epistasis 分析。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>机制是<b>"非蛋白泛素化 → 自噬"</b>：E3 连接酶 <b>RNF213 选择性泛素化异常糖原</b>；泛素化的 polyglucosan 招募自噬受体 <b>SQSTM1 / TAX1BP1 / optineurin</b>，被送入自噬体降解。选择性从何而来？cryo-EM 给出答案：RNF213 的 <b>CBM20 结构域结合线性寡糖</b>；破坏该糖结合位点会<b>让连接酶转而攻击生理糖原</b>——说明 CBM20 的作用恰恰是<b>限制</b> RNF213 对正常糖原的活性（自抑制开关）。epistasis 把 RNF213 置于 LUBAC 上游，提示是多个 E3 分层巡检糖原质量。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>发现<b>泛素化异常糖原的自噬</b>是一种此前未知的质控机制，保护大脑免于 polyglucosan 堆积。</li>
+          <li>RNF213 失活小鼠在<b>小脑、脑桥、海马</b>积累 polyglucosan。</li>
+          <li>确立"<b>非蛋白泛素化</b>"在糖原质控中的必要角色。</li>
+          <li><b>边界</b>：主要见于特定脑区；与人类成人多聚葡萄糖体病的直接对应待证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11139-6">10.1038/s41586-026-11139-6</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">遗传编码与非遗传蛋白变体扩展人类功能蛋白质组 <span class="pg">Weizmann</span></p>
+    <p class="title-en">Encoded and non-genetic protein variants expand human functional proteome</p>
+    <div class="byline"><span class="who">V. Tretyachenko 等 · 魏茨曼科学研究所（通讯：Yitzhak Pilpel）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>中心法则的每一环（杂合性、体细胞突变、转录错误、<b>翻译错误</b>）都会引入蛋白多样性，因此单个蛋白质组里 coexists 着大量变体。但<b>此前没有方法去检测、定量并评估这些变体的功能后果</b>——于是这一大块个体间差异被当成噪音忽略。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>29 个健康人组织</b>的大规模蛋白质基因组数据集，做变体鉴定与定量；对选定纯化蛋白做实验验证；在癌细胞系中做<b>氨基酸饥饿下的全蛋白质组分析</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>两条原理性发现。① <b>丰度镜像选择</b>：遗传（SNP、体细胞突变）与错译变体的丰度<b>镜像其人群等位基因频率</b>，说明这些变体并非随机噪音，而是受选择/约束塑造的。② <b>绕过遗传密码约束</b>：非遗传（翻译错误）替换提供了探索蛋白序列空间的<b>另一条通路</b>——遗传密码本身限制了哪些氨基酸替换可及，而翻译错误不受此限，于是能到达"基因型到不了"的序列点。氨基酸饥饿下出现<b>特定且可重复</b>的替换模式，说明这是可调控的应激响应，而非纯随机——且落在注释功能位点的复发变体提示有实际功能后果。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>鉴定 <b>13,910 个</b>可信定位变体、对应 <b>7,215 个</b>独特单氨基酸替换，与参考蛋白共存。</li>
+          <li>非遗传替换构成一类<b>新的功能性蛋白表型变体</b>；氨基酸饥饿下模式可重复。</li>
+          <li><b>边界</b>：29 组织健康样本；功能后果多为计算推断 + 少量蛋白实验验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11124-z">10.1038/s41586-026-11124-z</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">维甲酸自调控环决定前额–运动皮层分区 <span class="pg">Yale</span></p>
+    <p class="title-en">A retinoic acid autoregulatory loop governing prefrontal-motor arealization</p>
+    <div class="byline"><span class="who">L. Yang 等 · 耶鲁大学医学院（通讯：Nenad Sestan）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>额叶里前额叶联合皮层（PFC，管复杂认知）与运动皮层（MC，管执行）如何建立各自的区域身份？维甲酸（RA）信号已知是 PFC 发育的关键调控者，但<b>RA 信号如何在发育的 PFC 内被空间限制住、以及它下游的基因网络是什么</b>，都还是空白。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>解析发育人 PFC 的 RA 相关基因调控网络 → 锁定枢纽转录因子 <b>MEIS2</b>（已知与智力障碍、ASD 相关）；在小鼠<b>出生后有丝分裂后的皮层兴奋神经元</b>中条件敲除 Meis2，分析分子与连接特征的改变。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>敲除结果出人意料地指向<b>"出生后"环节</b>：Meis2 缺失使<b>前额联合区部分重指定为运动样</b>的分子与连接特征——说明区域身份并不只在胚胎期模式化时定死，<b>有丝分裂后神经元仍在主动维持它</b>。同时，表达 RA 合成酶 <b>ALDH1A3</b> 的兴奋神经元群（以及 RA 信号本身）在发育中内侧前额叶（mPFC）显著减少。两个观察合起来给出一个保守的<b>自调控环：RA → MEIS2 → ALDH1A3 → RA</b>，自我强化出一条 PFC 富集的 RA 梯度，进而组织 MC-PFC 轴。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>揭示一个<b>出生后有丝分裂后机制</b>：神经元身份特征反过来强化 RA 信号，定义前额与运动皮层区域。</li>
+          <li>把经典形态发生素（RA）与<b>转录身份、环路形成、行为</b>连通，并可能与神经精神疾病相关。</li>
+          <li><b>边界</b>：小鼠敲除 + 人 PFC 网络推断的跨物种拼接。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11014-4">10.1038/s41586-026-11014-4</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">无交叉的"性"模拟克隆生殖：Rhynchospora tenuis <span class="pg">MPIPZ</span></p>
+    <p class="title-en">Sex without crossovers mimics clonal reproduction in Rhynchospora tenuis</p>
+    <div class="byline"><span class="who">M. Zhang 等 · 马克斯·普朗克植物育种研究所（通讯：André Marques）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>减数分裂交叉既保证染色体正确分离、又产生遗传多样性，因此被认为是<b>有性生殖的必需品</b>。交叉可以完全缺失（achiasmy），个别谱系如此，但"<b>一个两性有性物种在两性都专性无交叉</b>"此前从未被记录——若有，就意味着有性生殖可以不产生重组。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>研究对象 <b>Rhynchospora tenuis</b>——已知染色体数最少的开花植物，且行<b>反向减数分裂（inverted meiosis）</b>；结合基因组学与分子实验追踪减数分裂与传递。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>该物种在两性减数分裂中都<b>全基因组专性无交叉</b>：早期减数分裂轴形成正常，但<b>联会失败</b>、细胞学与遗传学都检测不到交叉、MI 期持续存在单价体。染色体如何忠实分离？靠<b>转座子的单倍型特异性积累造成分离扭曲</b>，偏向传递更大、重复更丰富的染色体。它并未放弃有性：<b>只有易位兼容的配子相遇才结出可育种子</b>，等于用减数分裂后的强选择反对不兼容的纯合组合。结果是——<b>所有存活后代遗传上完全一致</b>：有性生殖被改造成了"亲本基因型恢复"的克隆样遗传。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>首次记录两性专性无交叉的有性物种；所有存活后代<b>遗传一致</b>，靠有性维持杂合性。</li>
+          <li>提出机制组合：<b>重组丢失 + 低染色体数 + 反向减数分裂 + 兼容配子选择</b>共同实现忠实分离。</li>
+          <li>模糊了"性"与"克隆"的边界，把<b>基因组结构、重组丢失与传递偏倚</b>联系起来。</li>
+          <li><b>边界</b>：单一物种的个案，普适性需在更多 achiasmatic 谱系验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11057-7">10.1038/s41586-026-11057-7</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">Prime assembly：靶向基因组整合与重排 <span class="pg">Boston Children's</span></p>
+    <p class="title-en">Targeted genomic integration and rearrangement using prime assembly</p>
+    <div class="byline"><span class="who">S. Levesque 等 · 波士顿儿童医院 / 拉瓦尔大学（通讯：Daniel E. Bauer、S. Levesque）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>治疗性基因组编辑潜力巨大，但在<b>治疗相关细胞</b>里精准安装<b>中到大型</b>基因组修饰仍很难。现有主流（同源定向修复 HDR）依赖细胞周期、依赖双链断裂（DSB）、在非分裂细胞里效率极低——而许多治疗靶细胞恰恰是不分裂的。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>Prime assembly</b>——利用 CRISPR 靶向的<b>双 flap 合成</b>，在人细胞中实现 DNA 序列组装与整合；可 RNA 编程地位点特异整合<b>单链或双链</b> DNA 片段。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>它绕过的正是 HDR 的两个死结。① <b>不依赖细胞周期</b>：在分裂与非分裂细胞中活性相当，因此可作用于静止期靶细胞。② <b>不需要 DSB、也不需要双链 DNA 供体</b>：供给的是 flap 底物，由靶向合成路径自行拼装——少了 DSB，就少了 indel、染色体易位这些主要副产物风险。这解释了为什么它能做到"中等长度整合"这个 HDR 一直做不好的区间。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>实现<b>靶向外显子重编码、转基因整合、兆碱基级重排</b>，包括原代人细胞中的治疗相关位点。</li>
+          <li>扩展了基因组工程的能力边界：不再依赖 DSB 与细胞周期。</li>
+          <li><b>边界</b>：体内递送效率与长期安全性（脱靶、免疫原性）尚未评估。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11024-2">10.1038/s41586-026-11024-2</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">xvr：X 光到三维体积的快速患者个体化配准 <span class="pg">MIT / Harvard</span></p>
+    <p class="title-en">Rapid patient-specific neural networks for X-ray to volume registration</p>
+    <div class="byline"><span class="who">V. Gopalakrishnan 等 · MIT / 哈佛医学院（通讯：Polina Golland）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>影像引导介入与手术机器人需要把 3D 术前体积（CT/MRI）快速精准地对齐到 2D 术中透视图像。现有 2D/3D 配准<b>泛化不了</b>：基于强度的优化器需逐病例调超参，深度学习方法需大量人工标注且只能用于训练过的解剖部位。结果就是"一个方法只能服务一个场景"。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>xvr</b>——自监督框架，把<b>患者个体化神经网络</b>与基于梯度的优化结合；在数千例全身扫描上预训练一个基础模型；自监督数据由<b>物理模拟</b>从患者自己的术前扫描生成。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键洞察是<b>"训练数据可以自己造"</b>：透视成像有明确的物理模型，可以把 3D 体积投影成 2D 透视，于是"标注"不再需要人——由物理模型生成，且天然覆盖任意解剖部位。这样一来，过去"每换一个解剖部位就要重新标注训练"的循环被打破：基础模型提供通用先验，患者个体化适配只需 <b>5 分钟微调</b>。这正是"用物理模型替代人工标注"这一通用动作的又一例。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>完成<b>迄今最大规模的真实透视 2D/3D 配准评估</b>；跨解剖、跨模态、跨医院在<b>秒级</b>达到高精度。</li>
+          <li>精度比现有方法<b>提升一个数量级</b>；已开源。</li>
+          <li><b>边界</b>：面向<b>刚性</b>配准（未覆盖软组织形变）；未评估对实际手术结局的影响。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11045-x">10.1038/s41586-026-11045-x</a></p>
+  </div>
+
+  <h3 class="disc">植物免疫 · 水杨酸受体（同期双发，同指 MED15A）</h3>
+
+  <div class="card">
+    <p class="title">水杨酸激活植物免疫的转录机制（三元复合物） <span class="badge hot">双发之一</span> <span class="pg">Univ. of Washington</span></p>
+    <p class="title-en">Transcriptional activation of plant immunity by salicylic acid</p>
+    <div class="byline"><span class="who">S. Zhang 等 · 华盛顿大学 / HHMI（通讯：郑宁 Ning Zheng）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>植物防御激素水杨酸（SA）通过受体 <b>NPR1</b> 触发系统获得性抗性，导致全基因组转录重编程——这是植物免疫的中枢。但<b>NPR1 感知 SA 后如何真正启动转录</b>，几十年来没有分子答案：受体有了、下游基因有了，中间那一步缺失。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>NPR1 proxiome</b>（邻近标记互作组）+ <b>AlphaFold</b> 结构预测找候选 → 重组蛋白 SA 依赖招募实验验证 → <b>cryo-EM</b> + <b>氢氘交换质谱（HDX-MS）</b>解析复合物构象。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>答案是一个<b>三元复合物</b>：SA 先稳定 NPR1 的 SA 结合域（SBD），<b>别构</b>促进它与中介体（Mediator）亚基 <b>MED15A 的 KIX 结构域</b>结合；而 MED15A 的结合又<b>反向增强</b> NPR1 对 SA 的亲和力（正反馈）。cryo-EM + HDX-MS 显示 SA 与 MED15A 通过<b>两个不同界面协同</b>稳定 NPR1-SBD 的核心，从而促成三元复合物成型。拮抗一侧也解释了：阻遏蛋白 <b>NIMIN1</b> 与 MED15A 竞争同一个 NPR1-SBD 停靠位点，并<b>别构阻断激素结合</b>——即"抑制"和"激活"是在同一个界面上互斥的。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>为"SA 如何促进植物免疫转录激活"这一长期问题给出<b>机制解答</b>：NPR1-MED15A 三元复合物。</li>
+          <li>确立 <b>MED15A 是 NPR1 与中介体之间的桥梁</b>。</li>
+          <li><b>边界</b>：以拟南芥体系为主；作物中的保守性需验证（配双发之二，见下）。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11021-5">10.1038/s41586-026-11021-5</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">水杨酸受体的转录调控机制（激活与去抑制双侧） <span class="badge cn">中国团队</span> <span class="badge hot">双发之二</span></p>
+    <p class="title-en">Mechanisms of Transcriptional Regulation by Salicylic Acid Receptors</p>
+    <div class="byline"><span class="who">彭勇、田华 等 · 四川大学生命科学学院（通讯：张跃林 等）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>拟南芥中 <b>NPR1 与 NPR3/NPR4 是双 SA 受体</b>：前者激活、后者抑制。但"SA 结合到 NPR 蛋白后如何导致防御基因被诱导"不清楚——尤其是抑制侧如何被 SA 解除，长期只有遗传学证据。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>遗传 + 结构 + 功能分析；鉴定 <b>MED15A</b>；解析 NIMIN1-NPR3/NPR4-TPL 与 <b>PRC2 / H3K27me3</b> 通路；结合组蛋白修饰测定。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>本文把开关的<b>两侧都补全了</b>。激活侧：SA 诱导 NPR1 与 MED15A 直接互作，MED15A 作为 NPR1 与中介体的桥梁，该结合对 NPR1 介导的激活<b>必需</b>。去抑制侧：<b>NIMIN1 与 NPR3/NPR4 及共阻遏物 TPL 互作，把它们连到 PRC2</b>，对 SA 响应基因施加 <b>H3K27 三甲基化</b>（抑制性标记）；SA 抑制 NPR3/NPR4-NIMIN1 互作 → H3K27me3 下降、组蛋白乙酰化上升 → 释放抑制。两侧合起来才是一个完整的"SA 转录开关"：既要点火，也要撤掉刹车。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>给出 SA 介导防御基因激活的<b>全面图景</b>（激活 + 去抑制）。</li>
+          <li>应用面明确：为设计更有效的 <b>SA 类似物农药</b>、以及通过操纵 SA 感知/信号<b>改造作物抗性</b>奠定基础。</li>
+          <li><b>边界</b>：拟南芥；作物适用性待验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11123-0">10.1038/s41586-026-11123-0</a></p>
+  </div>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section>
+  <h2><span class="num">02</span>研究论文 · 物理 · 材料 · 化学 <span class="pg" style="font-weight:400">6 篇</span></h2>
+
+  <div class="card">
+    <p class="title">钍-229 原子核的连续波激光吸收光谱 <span class="pg">p626-631</span></p>
+    <p class="title-en">Continuous-wave laser absorption spectroscopy of the thorium-229 nucleus</p>
+    <div class="byline"><span class="who">I. Morawetz 等 · 维也纳工业大学 Atominstitut（通讯：Ekkehard Peik 等）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>Th-229 的低能核跃迁已在掺钍晶体中被激光激发，指向一种<b>固态光学核钟</b>——核跃迁对电磁环境远比电子跃迁不敏感，理论上能提供更稳、更抗扰的时频基准。但所需的 <b>148 nm 激光此前只能用脉冲系统产生</b>，其中只有极少数光子与极窄的核跃迁共振：效率低，且无法做连续精密测量。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用<b>连续波（CW）、窄带宽、固态</b>激光源在<b>亚纳瓦功率</b>下激发核跃迁；检测方式从荧光改为<b>吸收</b>；在 CaF₂ 晶体中表征两个不同的钍中心并测其同质异能位移。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>两处原理突破，缺一不可。① <b>CW 窄带 → 谱重叠大增</b>：激光线宽窄到与核跃迁可比，光子利用率提高几个数量级，于是<b>亚纳瓦</b>功率就够（脉冲系统需要极高瞬时功率）。② <b>检测从荧光改为吸收</b>，绕开了核同质异能态<b>寿命长 → 荧光衰减慢</b>这个瓶颈，使快速信号采集成为可能——这正是"核钟从'能激发'跨到'能用'"的分界。附带的结构发现也有价值：其中一个钍中心的静态电场梯度极小（−2，对比此前的 ~100 V Å⁻²）→ 钍周围离子高度对称 → 核共振线<b>近乎不依赖晶格间距</b>，对抗环境扰动是重大利好。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>首次用<b>连续波激光</b>在亚纳瓦功率下激发 Th-229 核跃迁。</li>
+          <li>吸收检测使<b>快速信号采集</b>可行，是核钟实用化的关键一步。</li>
+          <li>发现<b>高对称钍中心</b>，核共振线对晶格间距不敏感。</li>
+          <li><b>边界</b>：仍为固态晶体体系；相对现有原子钟的稳定性优势尚未演示。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11011-7">10.1038/s41586-026-11011-7</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">反质子的陆路运输 <span class="pg">BASE-STEP</span></p>
+    <p class="title-en">Road transport of trapped antiprotons</p>
+    <div class="byline"><span class="who">M. Leonhardt 等 · 杜塞尔多夫大学 + RIKEN 等（通讯：Stefan Ulmer、Christian Smorra）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>超真空 Penning 阱中的低能反质子是检验 <b>CPT 不变性</b>（物质-反物质对称性）的最强手段，指向标准模型之外的新物理与宇宙物质-反物质不对称之谜。但迄今为止这类实验<b>只能在 CERN 反物质工厂做</b>，而工厂运行引起的磁场波动限制了测量灵敏度——且这个噪声源无法在工厂内消除。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>BASE-STEP</b>——低温、开放式、<b>可运输</b>的 Penning 阱系统，设计用来把反质子搬到低噪声的离线实验室；本次做实际的<b>道路运输</b>演示。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键思路不是"把工厂的噪声降下来"，而是<b>把实验搬出工厂</b>。设施磁场波动是结构性的、不可消除的；但若能把捕获的反质子完整运走，就能在安静的离线实验室里做测量，预期带来<b>至少 100 倍的 CPT 检验灵敏度提升</b>。技术难点在于运输途中维持超真空与阱内粒子不流失——本次 92 个反质子走完 7.5 km，<b>无粒子损失、无可测真空劣化</b>，说明"可搬运的量子阱"这条路走通了。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li><b>92 个反质子</b>在 7.5 km 道路运输后无损失，真空无劣化。</li>
+          <li>标志反质子精密测量进入"可在专用低噪声离线实验室进行"的新阶段。</li>
+          <li><b>边界</b>：这是<b>运输能力</b>的演示；100 倍精度提升本身尚未实现。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11019-z">10.1038/s41586-026-11019-z</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">UTe₂ 中电可控的超导记忆效应 <span class="pg">p632-637</span></p>
+    <p class="title-en">Electrically controllable superconducting memory effect in UTe₂</p>
+    <div class="byline"><span class="who">Z. Wu 等 · 剑桥大学卡文迪许实验室（通讯：F. Malte Grosche、Alexander G. Eaton）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>"多相超导体"（同时拥有两个以上不同超导相的材料）极其罕见，此前只有 CeRh₂As₂、UPt₃、URhGe 等几例。而在多相 p 波超流 <b>³He 中，A/B 相边界处会出现复杂涡旋动力学</b>——凝聚态里是否存在类似现象，一直未知。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>对 p 波超导候选 <b>UTe₂</b> 施加磁场，进入<b>横跨两个超导相的中间区</b>；用<b>直流电流脉冲</b>驱动材料在不同状态间切换，并用渐变电流退火回平衡态。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>直流脉冲可把材料推入/推出一个<b>亚稳的高临界电流密度 J_c 态</b>，且由刺激的<b>强度与持续时间</b>控制切换；系统能长时间"记住"自己处于高 J_c 还是低 J_c 态。物理解释是：扰动<b>淬灭了无序的非平衡玻璃态涡旋态</b>，该态有更强钉扎力 → 更高 J_c；渐变电流退火则让平衡涡旋晶格恢复。最重要的一点是——<b>这个记忆功能是 UTe₂ 超导序本身的固有属性</b>，不需要邻近的磁性或半导体界面。这与常规"靠界面工程实现的超导存储"是两条完全不同的路线。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>实现<b>电可控的超导记忆效应</b>：高/低 J_c 两态可长期保持、可反复切换。</li>
+          <li>记忆源于<b>超导序本身</b>，而非界面。</li>
+          <li><b>边界</b>：需磁场与低温；"玻璃态涡旋淬灭"是解释模型，等待独立验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11015-3">10.1038/s41586-026-11015-3</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">单晶纳米膜的异质光子集成 <span class="pg">p638-645</span></p>
+    <p class="title-en">Heterogeneous photonic integration of single-crystalline nanomembranes</p>
+    <div class="byline"><span class="who">Y. Meng 等 · 圣路易斯华盛顿大学 + EPFL + 韩国团队（通讯：Sang-Hoon Bae 等）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>硅（Si）与氮化硅（SiN）光子学已高度成熟，但<b>任何单一材料平台都无法满足光子集成电路日益分化的需求</b>。出路是异质集成功能材料，可<b>晶格匹配约束</b>会在异质光学衬底上严重劣化外延材料质量——这是异质外延的根本死结。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用先进外延 + <b>层剥离</b>技术制备<b>自由-standing 单晶纳米膜</b>，再以<b>光子范德华（vdW）集成</b>的方式贴到 Si/SiN 光子芯片上。演示三类器件：BTO（钛酸钡）→ Si 电光调制；CFO（钴铁氧体）纳米膜 → Si 微环磁光隔离器；GaAs/GaN 横向拼接 → 宽谱探测。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>绕过晶格匹配的办法是<b>不"生长"而"转移"</b>：先在同质衬底上外延出高质量单晶薄膜，再把它剥离成自由膜，靠 vdW 力贴合到任意光子模板上。这样<b>单晶质量与目标衬底解耦</b>——"晶格失配"这个死结被彻底移除。指标印证了质量：Pockels 系数 r₄₂ <b>>1290 pm/V</b>、3 dB 电光带宽 <b>>23 GHz</b>、Faraday 旋转系数 <b>33,800° cm⁻¹</b>。还能垂直堆叠 CFO/BTO 做多功能环共振器，说明这是可组合的框架而不只是几个孤例。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>给出一个<b>通用框架</b>，把多种功能材料并入 Si/SiN 光子平台。</li>
+          <li>示例器件指标领先（BTO 调制器、CFO 隔离器、GaAs/GaN 宽谱探测、CFO/BTO 多功能环）。</li>
+          <li><b>边界</b>：转移工艺的产能、长期稳定性与大规模制造兼容性待评估。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11000-w">10.1038/s41586-026-11000-w</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">电致发光光刻胶：把光刻缩放延伸到 OLED <span class="pg">ETH Zürich</span></p>
+    <p class="title-en">Electroluminescent photoresists extending lithographic scaling to OLEDs</p>
+    <div class="byline"><span class="who">S.-W. Lo 等 · 苏黎世联邦理工学院（通讯：Chih-Jen Shih）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>OLED 小型化是超高清显示与集成光子学的关键。但传统的<b>真空蒸镀与喷墨打印与光刻缩放工艺不兼容</b>——而后者正是硅电子学的基石。结果是 OLED 无法与 CMOS 电路单片集成，"摩尔定律"到不了有机光电子。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用 <b>原子转移自由基聚合（ATRP）</b>合成<b>电致发光光刻胶</b>，可被紫外与电子束光刻直接图案化；结构上是<b>多臂星形聚合物</b>的<b>核-壳架构</b>：TADF（热活化延迟荧光）发光体嵌在保护性壳层内，与表面的反应性光交联基团隔离。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>矛盾在于：<b>光刻要求交联，而交联反应会摧毁发光材料</b>。解法是<b>空间隔离</b>——把发光核心包进壳里，让交联只发生在外围（periphery），核心保持完好，从而既获得光刻工艺性（可缩放、可与 CMOS 单片集成），又保住高电致发光效率。这就是"核-壳"设计存在的唯一理由。成果：<b>110 nm</b> 关键尺寸的亚衍射荧光纳米图案、多层电致发光光刻胶顺序光刻的<b>工艺正交性</b>、多色紫外图案 OLED 外量子效率 <b>>13%</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>把<b>光刻缩放延伸到 OLED</b>，指向"摩尔定律扩展到有机光电子"与单片光电集成。</li>
+          <li>多色 OLED 外量子效率 <b>>13%</b>；可实现 <b>110 nm</b> 亚衍射图案。</li>
+          <li><b>边界</b>：器件寿命与量产良率未报告；TADF 体系的长时稳定性是该路线已知弱点。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11042-0">10.1038/s41586-026-11042-0</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">病毒样颗粒自组装路径的分子级观测 <span class="pg">p653-660</span></p>
+    <p class="title-en">Molecular-level observation of the self-assembly of a virus-like particle</p>
+    <div class="byline"><span class="who">R. Asor 等 · 牛津大学化学系（通讯：Philipp Kukura）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>病毒衣壳组装是<b>自组装的原型系统</b>，也是理解生物分子组装与设计新生物材料/疗法的基石。但几十年来，<b>病毒自组装路径与动力学的观察和定量始终难以实现</b>——组装太快、中间体太杂、且大多不可逆，常规系综方法只能看起点和终点。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>质量光度法（mass photometry, MP）</b> —— 通过测量单个颗粒散射光来直接称出它的质量；结合<b>单分子捕获</b>方法，实时监测<b>单个病毒样颗粒（VLP）</b>的组装，具分子分辨率。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>观测揭示：<b>弱且可逆的多价相互作用</b>控制组装，方式是从大量可能中间体里<b>随机选择有限的一组"在路径上、拓扑闭合"的中间体</b>；组装由这些中间体之间的转变速率精细调节，走一连串<b>有效不可逆的"首达事件"（first-passage）</b>。精髓在于<b>首达时间来自 VLP 的对称性</b>，从而在"第一个拓扑闭合中间体形成"与"后续延伸"之间<b>拉开了时间差</b> → 得到<b>成核-生长机制</b>，其平衡分布符合质量作用定律（尽管整体组装不可逆）。这从原理上回答了那个反直觉的问题：<b>面对上千种可用中间体，系统凭什么高保真地只收敛到一个终结构</b>——因为拓扑闭合是一个极窄的入口。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>揭示弱可逆多价相互作用 + 首达事件如何给出<b>高保真的单一终结构</b>。</li>
+          <li>提供观察<b>多聚生物机器动力学</b>的通用框架（MP + 单分子捕获）。</li>
+          <li><b>边界</b>：VLP 模型体系；推广到更复杂衣壳（如二十面体大颗粒）需验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-10948-z">10.1038/s41586-026-10948-z</a></p>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section>
+  <h2><span class="num">03</span>研究论文 · 计算与 AI 方法 <span class="pg" style="font-weight:400">4 篇</span></h2>
+  <p class="sec-note">本期最显性的一个集群：<b>把研发流程本身变成智能体或算法</b>。四篇同日上线，另有两条新闻专门跟进 Paper2Agent。</p>
+
+  <div class="card">
+    <p class="title">热力学偏好的分子计算机（DNA 支架计算） <span class="pg">p646-652</span></p>
+    <p class="title-en">A thermodynamically favoured molecular computer</p>
+    <div class="byline"><span class="who">T. Stérin 等 · 梅努斯大学 Hamilton Institute（通讯：Damien Woods）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>计算机（与生命一样）通常<b>处于非平衡态</b>，靠能量昂贵的动力学控制过程压制错误：生物聚合物的校对、计算的纠错、分子编程的冗余。<b>理论早已表明计算可以嵌入到"弛豫至热力学偏好平衡态"的系统中</b>，但物理实现需要一个可编程、可做能量景观工程的介质——一直停留在理论。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>Scaffolded DNA Computer（SDC）</b>——用 DNA 支架做能量景观工程的计算介质；演示 <b>10 个程序</b>：×3、÷2、8-bit 奇偶校验、25-bit 加法（合计 <b>100-bit 计算</b>）。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>思路是<b>把计算结果做成系统的能量最低点</b>：不靠动力学"推到"答案，而是设计一个能量景观，让答案成为唯一的热力学偏好终态，系统自然弛豫过去。于是<b>错误态在能量上不利 → 不需要纠错、不需要精确动力学控制</b>——直接取消了"用能量压制错误"这个最贵的一环。这解释了为什么它能<b>重复使用数十次、小规模实例一分钟内跑完</b>：因为它本来就不依赖精确的时序控制。这是"换掉最贵的一环"在计算层的一次彻底应用。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>SDC 是<b>热力学偏好、可编程、可扩展</b>的平衡态计算范例；10 个程序验证。</li>
+          <li>无需纠错与精确动力学控制，可复用数十次。</li>
+          <li><b>边界</b>：100-bit 规模；速度与并行性相对硅基无优势——这是<b>原理性演示</b>，不是工程替代。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-10996-5">10.1038/s41586-026-10996-5</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">Delphy：可扩展的近实时贝叶斯系统发育 <span class="pg">Broad Institute</span></p>
+    <p class="title-en">Scalable near-real-time Bayesian phylogenetics for outbreaks with Delphy</p>
+    <div class="byline"><span class="who">P. Varilly 等 · Broad Institute of Harvard and MIT（通讯：Pardis C. Sabeti）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>病原基因组分析是追踪、理解、遏制疫情的核心，但<b>最先进系统发育工具的复杂度与成本限制了全球可及性与实际影响</b>——一线实验室与资源有限地区根本用不起来。疫情期间这类分析的时延往往以天计，等结果出来，干预窗口已经过去。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>Delphy</b>——贝叶斯系统发育的<b>精确重构</b>；核心数据结构是<b>显式的突变注释树（mutation-annotated tree）</b>。重现 Ebola、Zika、SARS-CoV-2、mpox、H5N1 的关键分析；并做 10 万序列的可扩展性测试。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>常规贝叶斯系统发育的瓶颈是<b>每次树移动都要重新计算似然</b>，代价随序列数急剧上升。Delphy 利用疫情数据的一个领域先验：<b>大规模疫情序列彼此高度相似</b>（共享绝大多数位点），于是可以用"突变事件标注"来表示树的差异，而不是逐位点重算——树空间探索与收敛因此快得多。这是"<b>把领域先验塞进数据结构，换来计算加速</b>"的典型动作（与本周 Paper2Agent 是同一族解法）。它保持贝叶斯精度不变，速度提升 <b>2–3 个数量级</b>，并以客户端 Web 应用分发——数据留在本地机器，对主权与隐私敏感场景是关键设计。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>在<b>保持贝叶斯最先进精度</b>的前提下，速度提升 <b>2–3 个数量级</b>。</li>
+          <li>模拟 <b>10 万条序列</b>可在一天内完成分析；自动识别关键谱系与突变及其随时间的变化。</li>
+          <li>本地运行的 Web 应用 → 降低全球可及性门槛。</li>
+          <li><b>边界</b>：加速建立在"高序列相似性"假设上，高度分化的数据集未必同等受益。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11012-6">10.1038/s41586-026-11012-6</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">Paper2Agent：把研究论文改造成可交互的 AI 智能体 <span class="badge hot">3 条新闻跟进</span> <span class="pg">Stanford</span></p>
+    <p class="title-en">Reimagining research papers as interactive and reliable AI agents</p>
+    <div class="byline"><span class="who">J. Miao、J. R. Davis、Y. Zhang、J. K. Pritchard、J. Zou · 斯坦福大学</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>传统论文是<b>"被动产物"</b>：读者必须自己理解并适配论文的代码、数据、方法，才能用起来——这构成传播与复用的实质障碍。而"让 LLM 读论文然后回答方法问题"的常见做法有根本缺陷：<b>模型会用文本复述方法，容易失真和幻觉</b>，科研场景不可接受。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>Paper2Agent</b>——自动把论文转成 AI 智能体。用<b>多个 agent</b> 分析论文与代码库 → 构建一个 <b>MCP server</b> → <b>自动生成并运行测试</b>来精炼与提升该 MCP 的鲁棒性。生成的"论文 MCP"可接入聊天 agent（如 Claude Code），用自然语言执行复杂科学查询。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键机制是<b>"把论文的可执行部分封装成 agent 原生知识"</b>——不是把文本喂给模型，而是把论文的代码与工作流包装成 MCP 工具，让 agent 通过<b>调用真实工具</b>来回答。于是可靠性来自"背后是真代码在跑"，而不是模型对方法的复述；可组合性来自 MCP 的接口标准。它把自己定位为<b>"虚拟通讯作者"</b>：像作者一样被追问方法细节，但每次回答都有代码执行背书。最后一步"生成并运行测试"是这套设计的质量闸门——只有能复现原论文结果的 MCP 才算通过，这正是它区别于"论文问答机器人"的地方。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>案例中成功构建了基于 <b>AlphaGenome</b>、<b>Scanpy</b>、<b>TISSUE</b> 的 agent，验证其<b>能复现原论文结果</b>并执行新的用户查询。</li>
+          <li>多个 agent 协作完成了一个银屑病<b>因果基因优先级排序</b>任务。</li>
+          <li><b>边界</b>：依赖论文代码可得且可运行；MCP 生成质量受自动测试覆盖度限制。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11044-y">10.1038/s41586-026-11044-y</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">为配体优化建立随机背景 <span class="pg">UCSF</span></p>
+    <p class="title-en">Development of a random background to understand ligand optimization</p>
+    <div class="byline"><span class="who">X. Xu 等 · 加州大学旧金山分校（通讯：Brian K. Shoichet）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>配体优化是药物发现的核心：从 hit 到候选常要合成<b>数百个类似物</b>。但这个过程<b>到底有多高效其实不清楚</b>——因为缺少一个"随机背景"作对照。文献里流传"约 10% 的小改类似物能提升 10 倍以上效力"，但这个数字被<b>报告偏倚、有意改进、组间差异</b>污染，无法知道其中有多少是运气。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>对 <b>6 个靶点</b>的 <b>18 个先导分子</b>做系统性的<b>单原子改变</b>，共合成 <b>257 个化合物</b>——刻意构造一个"无理性设计意图"的随机扰动基线；同时测效力与体外 PK。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>这篇的"机理"是<b>方法论的：先建立基线，才能判断增量</b>。只有知道纯随机扰动本身能撞出多少"提升"，才能判断有意的结构设计是否真有超出运气的贡献。结果出乎意料——<b>11.3% 的随机小扰动类似物效力提升 ≥10 倍</b>，与文献流传的 10% 惊人接近，暗示那个数字<b>很可能主要是随机成分</b>。但同一批化合物<b>体外 PK 通常更差</b>，只有部分能靠效力补偿暴露与半衰期的损失。合起来揭示出配体优化的<b>"挫败景观"（frustrated landscape）</b>：体外效力与体内表现常常朝相反方向走。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>建立配体效力优化的<b>背景期望值</b>：随机单原子扰动即有 <b>11.3%</b> 提升 ≥10 倍。</li>
+          <li>同时给出一个简单、可复制的<b>基线测量策略</b>——这对整个领域的方法学是直接可用的。</li>
+          <li>开始量化领域在"<b>超越体外效力</b>"上的困难：体外优化往往以体内暴露为代价。</li>
+          <li><b>边界</b>：6 靶点 18 先导的规模；结论的普适性受所选化学空间限制。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11013-5">10.1038/s41586-026-11013-5</a></p>
+  </div>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section>
+  <h2><span class="num">04</span>研究论文 · 天文 · 地球 · 社会 <span class="pg" style="font-weight:400">2 篇</span></h2>
+
+  <div class="card">
+    <p class="title">超大质量黑洞与"小红点"在模拟中自然形成 <span class="pg">p621-625</span></p>
+    <p class="title-en">Overmassive black holes and little red dots naturally form in simulations</p>
+    <div class="byline"><span class="who">S. Chon 等 · 马克斯·普朗克天体物理研究所（通讯：Sunmyon Chon）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>超大质量黑洞的起源是长期难题。JWST 发现 <b>z > 4–6 处存在大量"超大质量"黑洞</b>，其质量远超本地标度关系，<b>现有宇宙学模型一个也重现不出来</b>；同期还观测到一批性质不明的"小红点（little red dots）"。问题在于：这些黑洞怎么可能在星系还那么年轻时就长这么大。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>完全宇宙学的辐射-流体动力学模拟</b>，自洽地跟随原星系团环境中超大质量黑洞的<b>诞生、早期增长与可观测特征</b>（不只是事后拟合质量函数）。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>答案落在<b>种子质量与吸积制度</b>上。模拟中自然形成 <b>~10⁶ M⊙ 的"重种子"</b>——比典型理论预期<b>高一个数量级</b>；这些种子迅速发展成<b>致密、光学厚的盘</b>，其强电子散射产生宽 Hα 发射，正与小红点观测相符；随后<b>持续的超爱丁顿吸积</b>驱动快速增长到 z ≈ 8 时约 <b>3×10⁷ M⊙</b>。原理要点是：用<b>"重种子 + 超爱丁顿吸积"</b>替代长期默认的"轻种子 + 慢吸积"，才能解释 JWST 看到的"过早过大"。这同时把小红点<b>统一</b>为重种子形成的<b>短命、被包裹阶段</b>——一个此前独立的观测类群被接进了同一条演化链。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>首次<b>统一</b>小红点为重种子形成的短命被包裹阶段，自然演化成 JWST 探测的超大质量类星体。</li>
+          <li>重种子质量<b>比预期高一个数量级</b>；z ≈ 8 时达 ~3×10⁷ M⊙。</li>
+          <li><b>边界</b>：结论依赖亚网格物理（种子形成机制、超爱丁顿吸积率上限）的参数化处理。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-10985-8">10.1038/s41586-026-10985-8</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">美国白人至上民族主义支持率的预测因素与流行率 <span class="pg">NYU</span></p>
+    <p class="title-en">Predictors and prevalence of support for white nationalism in the United States</p>
+    <div class="byline"><span class="who">P. J. Egan、J. Bisbee、J. A. Tucker · 纽约大学等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>白人至上民族主义（white nationalism）在美国公共生活中日益可见，但<b>我们其实不知道"明确支持"它的流行率与预测因素</b>——因为调查研究长期把它当作一个潜变量，只用间接指标去代测。间接代理测不准的东西，就无法评估它的真实分量。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>引入并验证一种<b>直接测量</b>：先向受访者告知该运动的核心信条，然后直接问是否支持；<b>2021–2025 年三次全国调查</b>（非西班牙裔白人成人），含全国概率样本。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>方法本身就是论证的核心：<b>把"支持"从间接代理升格为直接陈述</b>，测的便不再是相关性而是态度本身（但仍与组织归属区分开）。三条结果各自<b>检验或推翻一种既有解释</b>：① 与个人困境和本地社会困扰正相关 → 支持 strain 理论；② 与本地种族构成或近期人口变化<b>无关</b> → <b>复杂化</b>了流行的"地位威胁"（status threat）解释；③ 与"主要在线交友"相关 → 支持网络动员驱动极端主义。第②条尤其关键：一个被广泛接受的解释被数据挡了回来。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>全国概率样本中支持率约 <b>4.9%</b> 白人成人；其中 <b>18–29 岁白人男性为 13.5%</b>。</li>
+          <li>支持构成白人种族态度的一个<b>离散维度</b>；许多认同其核心主张的人<b>并不知道这个标签</b>。</li>
+          <li><b>边界</b>：仅覆盖非西班牙裔白人成人；测量的是"表达的支持"，不包括组织归属；横断面为主。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11018-0">10.1038/s41586-026-11018-0</a></p>
+  </div>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section>
+  <h2><span class="num">05</span>综述与观点 <span class="pg" style="font-weight:400">2 篇</span></h2>
+
+  <div class="card">
+    <p class="title">非水解型合成聚合物的生物降解：如何评估才可信 <span class="badge rev">综述</span> <span class="pg">p611-620</span></p>
+    <p class="title-en">Assessing biological degradation of non-hydrolysable synthetic polymers</p>
+    <div class="byline"><span class="who">A. A. Stepnov 等 · 挪威生命科学大学（通讯：Gustav Vaaje-Kolstad）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>能水解骨架的塑料（PET 等）已有酶解回收路线；但<b>聚烯烃这类不可水解聚合物是饱和 C–C 键</b>，生物断裂难得多。几十年研究之后，"生物催化剂能否显著解构 C–C 键聚合物"的<b>证据依然含糊</b>——而这个含糊本身是需要诊断的对象。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>系统评述非生物与生物氧化机制，并对<b>实验测定、底物与产物表征方法</b>做批判性评述；据此提出最佳实践设计原则（反应条件、对照实验、分析方法、生化测定与表征方法）。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>这篇的"机理"是<b>方法学诊断</b>：领域证据含糊的原因<b>不是生物路线不可行，而是测定本身不严</b>——低分辨的产物分析会把非特异的氧化误读成解聚，缺少对照实验，且相关酶常常未被鉴定与生化表征。所以要回答"能不能降解"，先得把"怎么测才算数"定下来。原理层面，C–C 键断裂的可行路线要么是氧化（自由基/酶促），要么是热/光；生物路线的关键变量是<b>氧化机制的特异性与可测量性</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>提出该领域的<b>最佳实践</b>：统一的对照、定量与表征标准，以提升可重复性与影响力。</li>
+          <li>明确指出"证据含糊"主要源于方法学而非生物学限制。</li>
+          <li><b>边界</b>：这是规范性综述，不含新实验数据；标准能否被领域采纳取决于后续实践。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-10918-5">10.1038/s41586-026-10918-5</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">阿尔茨海默病的"拐点"与状态转变 <span class="badge rev">综述 · Perspective</span></p>
+    <p class="title-en">Inflection points and transitions in Alzheimer's disease</p>
+    <div class="byline"><span class="who">Bart De Strooper、Eric Karran · UCL 英国痴呆症研究所（UKDRI）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>阿尔茨海默病（AD）被广泛描述为<b>从 Aβ 累积 → Tau 病理 → 神经退行的线性级联</b>。但这个模型解释不了两件事：<b>病理与症状的严重解离</b>（有人斑块满脑却认知正常），以及<b>家族性与散发性疾病为何共享同一结构</b>。一个解释不了核心现象的模型，会误导干预时机。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>提出替代框架（Perspective）：用<b>离散的分子、细胞与网络"相"</b>取代连续斜率，以<b>生物学拐点（inflection points）</b>为组织原则。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>框架的核心是<b>阈值与相变</b>：在拐点处，应激导致的稳态丧失产生细胞行为的<b>定性跃迁</b>，从而改变疾病进程。这些改变后的状态在局部组织域扩散、以<b>镶嵌（mosaic）</b>方式在全脑累积、并逐步累及控制认知的脆弱信息处理中心。<b>"Aβ 相关 Tau 磷酸化的诱导"被指认为一个关键拐点</b>——它把"Aβ 主导的组织状态"与"神经元已出现 Tau 应激响应"的域分开。这一下就同时处理了两难：镶嵌+阈值可以解释病理与症状的解离（不同脑区可能处于不同相），而统一的拐点结构解释了家族性与散发性为何同构。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>把 AD 重构为受<b>生物学阈值、时序与稳态韧性渐进侵蚀</b>塑造的疾病，而非单一连续级联。</li>
+          <li>调和病理-症状解离，并阐明家族性与散发性疾病的共享架构。</li>
+          <li><b>边界</b>：这是<b>概念框架</b>，拐点的具体分子本体与可检测性尚待实验界定。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1038/s41586-026-11110-5">10.1038/s41586-026-11110-5</a></p>
+  </div>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section>
+  <h2><span class="num">06</span>新闻与评论栏目 <span class="pg" style="font-weight:400">19 条中的重点</span></h2>
+  <p class="sec-note">Nature 的 News / News &amp; Views 是<b>独立署名的编辑部内容</b>，不计入研究论文。以下挑出与研究论文强关联、或有独立信息量的条目。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>标题（中译）</th><th>关联</th><th>为什么值得看</th></tr></thead>
+      <tbody>
+        <tr><td>把科研论文变成可交互的 AI 智能体</td><td>Paper2Agent</td><td>编辑部对这一范式给出正面定调；同期<b>两条</b>跟进同一工作，信号强度罕见。</td></tr>
+        <tr><td>AI 工具把任意论文变成能协作、回答复杂问题的"agent"</td><td>Paper2Agent</td><td>与上条互补：一条讲范式，一条讲可用性。</td></tr>
+        <tr><td>人脑细胞移植入小鼠，实现"迄今最广泛"的整合</td><td>xenocortication</td><td>把 Xenocortical 小鼠定位为该方向的里程碑。</td></tr>
+        <tr><td>移植的人脑组织在小鼠中扎根，且无需宿主皮层</td><td>xenocortication</td><td>标题直接点出关键设计：<b>清除宿主皮层是整合的前提</b>。</td></tr>
+        <tr><td>反物质：即将来到你家附近的实验室？</td><td>反质子运输</td><td>把 BASE-STEP 的 7.5 km 运输解读为整个反物质精密测量版图的重构。</td></tr>
+        <tr><td>顺能量坡下滑的分子计算</td><td>SDC 分子计算机</td><td>News &amp; Views，解释"为什么不需要纠错"这一反直觉点。</td></tr>
+        <tr><td>制药公司的保密数据正在增强 AI 蛋白模型</td><td>AI4S 产业侧</td><td>独立信息量：产业私有数据与公开模型的结合，是可追踪的政策/生态动向。</td></tr>
+        <tr><td>用于研究的消费级可穿戴设备安全吗？</td><td>方法学 / 伦理</td><td>独立议题；对做数字健康或人体队列研究的人有直接参考价值。</td></tr>
+        <tr><td>脑内"微蛋白"图谱或为阿尔茨海默病提供新线索</td><td>蛋白质组</td><td>与本周蛋白变体论文（11124-z）同一主题脉络。</td></tr>
+        <tr><td>近七分之一美国年轻白人男性支持白人至上民族主义</td><td>11018-0</td><td>把该论文最刺眼的数字单独拎出。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sec-note" style="margin-top:12px">其余条目为常规栏目（Daily briefing、Futures 科幻短篇、Career/机构压力、巴西科学慈善、海洋细菌降解藻类多糖、恒星耀发对比、肠道菌→脑免疫细胞、肿瘤微环境塑造免疫逃逸等），未逐条展开。</p>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section>
+  <h2><span class="num">07</span>勘误 <span class="pg" style="font-weight:400">2 条，已从研究论文中剔除</span></h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>条目</th><th>类型</th><th>DOI</th></tr></thead>
+      <tbody>
+        <tr><td>Author Correction: Obesity rise plateaus in developed nations and accelerates in developing nations</td><td>作者更正</td><td class="pg">10.1038/s41586-026-11135-w</td></tr>
+        <tr><td>Author Correction: Erythropoietin receptor on cDC1s dictates immune tolerance</td><td>作者更正</td><td class="pg">10.1038/s41586-026-11137-8</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section>
+  <h2><span class="num">08</span>贯穿本期的方法学主线</h2>
+  <p class="sec-note">这是把 29 篇的<b>机理层横着读</b>之后的产出物——不是内容摘要，而是从多篇论文里反复出现的<b>解题动作</b>。这一节才是这份报告真正可迁移的部分。</p>
+
+  <div class="callout">
+    <h4>动作 A · 换掉最贵的那一环（信号来源，而非模型能力）</h4>
+    <p>xvr 用<b>物理模拟</b>生成训练数据替代人工标注；Delphy 用<b>突变注释树</b>把"疫情序列高度相似"这一领域先验变成计算加速，替代逐位点重算；Paper2Agent 把论文代码封装成 MCP 工具替代"让模型复述方法"；配体优化研究先建<b>随机基线</b>替代被报告偏倚污染的文献值；白人民族主义研究用<b>直接询问</b>替代间接代理指标。</p>
+    <p><b>迁移含义</b>：这五处提升都不是"把模型做得更强"，而是<b>换掉成本最高或最不可靠的那个环节</b>。当你在自己领域遇到"怎么调都不理想"，先问：是不是<b>输入信号本身</b>错了，而不是下游方法不够强。</p>
+  </div>
+
+  <div class="callout">
+    <h4>动作 B · 把调控点上移到"细胞器 / 拓扑 / 网络"层</h4>
+    <p>MFF 铁死亡：真正的开关在<b>细胞器协同碎裂</b>，不在单个蛋白的结构功能；Cohesin：复制压力响应是<b>基因组尺度的拓扑整合</b>，不是个体事件的叠加；蓝斑：从"均质广播"变成<b>按位置分工的拓扑系统</b>；RA-MEIS2：皮层区域身份由<b>出生后的自调控环</b>维持，而非胚胎期一次定死；AD 综述：从线性级联变成<b>阈值相变序列</b>；VLP 组装：控制变量是<b>拓扑闭合入口与首达时间</b>，而非单纯分子亲和力。</p>
+    <p><b>迁移含义</b>：当分子层的解释力用尽（"敲了这个基因，表型说不通"），把层级上移一层往往会出现新的因果结构——本周六篇指向同一方向。</p>
+  </div>
+
+  <div class="callout">
+    <h4>动作 C · 推翻默认假设（以及"怎么调都拟合不好"这个信号）</h4>
+    <p>Rhynchospora 推翻"有性生殖必需交叉"；配体优化推翻"10 倍效力提升 = 理性设计的功劳"；AD 综述推翻线性级联；不可水解聚合物综述推翻"生物不能降解 C-C 键"的证据基础（问题出在测定方法）；白人民族主义研究推翻了流行的"地位威胁"解释。</p>
+    <p><b>迁移含义</b>：这几篇的共同触发条件都是<b>"现有模型怎么调都拟合不好"</b>——此时被默认忽略的那一项，往往就是缺口。这也是最容易产生新问题意识的一类论文，值得优先精读。</p>
+  </div>
+
+  <div class="callout">
+    <h4>两个集群信号</h4>
+    <p><b>① 同题双发：水杨酸植物免疫两篇</b>（华盛顿大学 + 四川大学）——两个团队各自独立补齐同一个三元复合物（NPR1-MED15A），并且都指向 MED15A。同题双发通常意味着<b>一个长期悬案被同时攻破</b>，这类论文的引用与后续影响往往超出单篇的体量。</p>
+    <p><b>② "研发流程 → 智能体"集群</b>：Paper2Agent（论文→agent）、Delphy（疫情系统发育→近实时工具）、PreGame（γδ T 细胞识别→算法）、配体优化（建立基线的方法学）四篇同日，另有两条新闻跟进 Paper2Agent。编辑部倾向明确：<b>把科研流程本身变成可执行系统</b>正在成为顶刊的显性议题（本周 Science 的 The Virtual Biotech 与之同期共振）。</p>
+  </div>
+
+  <div class="callout">
+    <h4>中国机构主导 2 篇</h4>
+    <p><b>浙江大学</b>张强团队（联合王福俤、闵军霞）：MFF 感知并调控铁死亡——机制链完整（17-HETE → MFF Ser155 → 细胞器协同碎裂），并给出可用的药理激活剂。<b>四川大学</b>：水杨酸受体的转录调控机制——与华盛顿大学同题双发，补齐了激活与去抑制两侧。另有华盛顿大学那篇（11021-5）通讯为华人学者郑宁，机构在美国。</p>
+  </div>
+</section>
+
+<footer>
+  <b>口径与说明</b><br>
+  · 统计窗口为 <b>2026-09-14 至 2026-09-18</b>。Nature 为<b>周刊</b>（周四出版），该窗口对应 <b>Vol 657, Issue 8132</b>（期日 2026-09-17，内容于 2026-09-16 上线）。<br>
+  · 数据来源：<b>Europe PMC REST API</b>（主干，按 <code style="font-family:Consolas,monospace">JOURNAL:"Nature" AND FIRST_PDATE:[...]</code> 枚举，返回 50 条），以 <code style="font-family:Consolas,monospace">resultType=core</code> 取回完整摘要、卷期页码与通讯机构。<b>未使用中文导读</b>——科学网《自然》一周导读通常延迟约 2 天，窗口末端尚未出刊。<br>
+  · <b>本条为全量枚举，不是高亮抽样</b>：50 条 = 29 条研究内容（27 篇研究论文 + 2 篇综述）+ 19 条新闻评论 + 2 条勘误。新闻与勘误已剔除，不计入研究论文。<br>
+  · <b>页码口径</b>：29 篇中仅 7 篇已编入固定期次（带页码，如 p611-620），其余 22 篇为<b>在线优先（AOP）</b>，DOI 已分配但页码待编——卡片上以「AOP」标注。<br>
+  · <b>机理层为解释性归纳</b>：基于原文摘要 + 学科常识重建的因果链，用于理解"为什么这么做能成立"，<b>不等于论文作者的表述原话</b>。凡材料不足以支撑因果链处，已直接写明"边界"。<br>
+  · <b>索引延迟</b>：Europe PMC 对 Nature 在本窗口为实时，但仍有 1–3 天索引延迟——窗口末端 9/17–9/18 若有新上线论文可能尚未入库。<br>
+  · <b>eTOC 交叉验证未能完成</b>：nature.com 除 <code style="font-family:Consolas,monospace">/nature/volumes</code> 外均返回浏览器校验页（反爬），故本期未做 RSS 与 API 的双源比对。<br>
+  · DOI 前缀判据：<code style="font-family:Consolas,monospace">s41586</code> = 研究论文 / 综述，<code style="font-family:Consolas,monospace">d41586</code> = 新闻与评论。<br>
+  · 卡片中的"中国团队"标注依据通讯机构所在国，而非作者姓名。<b>未编造任何 DOI、卷期、页码或作者</b>；拿不到的字段一律留白并说明原因。<br>
+  · 方向性说明：本报告中的趋势归纳与方法学主线为助手基于本期内容的整理判断，非期刊或作者的官方表述。
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature 论文周报 · 2026年9月7日–13日</title>
+<style>
+  :root{
+    --ink:#12161c;
+    --ink-2:#3d4753;
+    --ink-3:#6b7683;
+    --line:#e3e7ec;
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --accent:#0b6b5f;
+    --accent-soft:#e8f3f1;
+    --warm:#a8541b;
+    --warm-soft:#fbf0e6;
+    --blue:#1d4e89;
+    --blue-soft:#eaf1f9;
+    --violet:#5b3f8f;
+    --violet-soft:#f0ecfa;
+    --rose:#9b2c47;
+    --rose-soft:#fbecef;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,sans-serif;
+    font-size:15px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:44px 26px 80px;}
+
+  /* ---------- header ---------- */
+  header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:34px;}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-size:34px;line-height:1.25;margin:10px 0 12px;letter-spacing:-.4px;}
+  .sub{color:var(--ink-2);font-size:15px;max-width:760px;}
+  .stamp{margin-top:16px;font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 20px;}
+
+  /* ---------- metrics ---------- */
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:0 0 36px;}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;}
+  .metric .n{font-size:27px;font-weight:700;letter-spacing:-.5px;color:var(--accent);line-height:1.1;}
+  .metric .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+
+  /* ---------- sections ---------- */
+  section{margin-bottom:46px;}
+  h2{font-size:20px;margin:0 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;}
+  h2 .num{font-size:12px;color:var(--ink-3);font-weight:600;letter-spacing:.1em;}
+  .sec-note{color:var(--ink-3);font-size:13px;margin:0 0 20px;padding-left:0;}
+
+  h3.disc{
+    font-size:13px;letter-spacing:.1em;margin:26px 0 12px;color:var(--ink-2);
+    display:flex;align-items:center;gap:9px;font-weight:700;
+  }
+  h3.disc::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  /* ---------- cards ---------- */
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:11px;
+    padding:18px 20px;margin-bottom:12px;transition:border-color .15s;
+  }
+  .card:hover{border-color:#c9d1da;}
+  .card .title{font-size:16.5px;font-weight:650;line-height:1.45;margin:0 0 3px;}
+  .card .title-en{font-size:13.5px;color:var(--ink-3);font-style:italic;margin:0 0 10px;line-height:1.5;}
+  .byline{font-size:12.5px;color:var(--ink-3);margin-bottom:11px;display:flex;flex-wrap:wrap;gap:4px 14px;}
+  .byline .who{color:var(--ink-2);font-weight:600;}
+  .body{font-size:14px;color:var(--ink-2);margin:0 0 12px;}
+  .body b{color:var(--ink);font-weight:650;}
+
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+  .tag{font-size:11.5px;padding:2px 9px;border-radius:99px;background:var(--bg);color:var(--ink-2);border:1px solid var(--line);}
+
+  ul.finds{margin:0 0 12px;padding-left:0;list-style:none;}
+  ul.finds li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-2);margin-bottom:5px;line-height:1.6;}
+  ul.finds li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+
+  .doi{
+    font-size:12px;font-family:"Cascadia Mono",Consolas,"SF Mono",Menlo,monospace;
+    color:var(--ink-3);word-break:break-all;
+  }
+  .doi a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6d4;}
+  .doi a:hover{border-bottom-style:solid;}
+
+  .badge{
+    font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;
+    background:var(--accent-soft);color:var(--accent);letter-spacing:.03em;
+  }
+  .badge.hot{background:var(--rose-soft);color:var(--rose);}
+  .badge.verify{background:var(--warm-soft);color:var(--warm);}
+  .badge.cn{background:var(--blue-soft);color:var(--blue);}
+
+  /* ---------- table ---------- */
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:620px;}
+  thead th{
+    text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-3);font-weight:700;padding:12px 14px;border-bottom:1px solid var(--line);background:#fafbfc;
+  }
+  tbody td{padding:12px 14px;border-bottom:1px solid #eef1f4;vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink);font-weight:600;}
+
+  /* ---------- callout ---------- */
+  .callout{
+    background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:16px 20px;margin:0 0 14px;
+  }
+  .callout h4{margin:0 0 7px;font-size:14.5px;}
+  .callout p{margin:0;font-size:13.5px;color:var(--ink-2);}
+
+  footer{
+    margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--ink-3);line-height:1.75;
+  }
+  footer b{color:var(--ink-2);}
+  @media(max-width:640px){
+    .wrap{padding:28px 16px 56px;}
+    h1{font-size:25px;}
+    .card{padding:15px 16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Nature Weekly Digest</div>
+  <h1>Nature 论文周报</h1>
+  <p class="sub">
+    统计窗口：<b>2026年9月7日（周一）– 9月13日（周日）</b>。覆盖《Nature》正刊当周出版期
+    （Vol 657, Issue 8131，9月10日）、窗口内在线优先（AOP）论文，以及 Nature 系列子刊同期重点成果。
+  </p>
+  <div class="stamp">
+    <span>生成时间：2026-09-18</span>
+    <span>正刊期次：Vol 657 / Issue 8131（2026-09-10）</span>
+    <span>来源：nature.com · 科学网 · X-MOL · 高校与机构新闻</span>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric"><div class="n">6</div><div class="l">正刊本期高亮研究论文</div></div>
+  <div class="metric"><div class="n">8</div><div class="l">窗口内正刊在线优先论文</div></div>
+  <div class="metric"><div class="n">7</div><div class="l">子刊重点成果（含 1 篇封面）</div></div>
+  <div class="metric"><div class="n">9/9</div><div class="l">当周最高密度上线日</div></div>
+</div>
+
+<!-- ============ 1 ============ -->
+<section>
+  <h2><span class="num">01</span>正刊 · Volume 657, Issue 8131（9月10日）</h2>
+  <p class="sec-note">Nature 为周刊，每周四出版。上周对应第 8131 期，共 6 篇研究论文进入主流导读视野，横跨天文、物理、材料、化学、地球科学。</p>
+
+  <h3 class="disc">天文学</h3>
+  <div class="card">
+    <p class="title">发现一颗可探测人马座 A* 自旋的恒星</p>
+    <p class="title-en">Discovery of a star sensitive to the spin of Sagittarius A*</p>
+    <div class="byline"><span class="who">K. Abd El Dayem, R. Abuter, P. Amaro-Seoane, J.-P. Berger 等（GRAVITY 合作组）</span></div>
+    <div class="tags"><span class="tag">黑洞</span><span class="tag">广义相对论检验</span><span class="tag">近红外干涉</span></div>
+    <ul class="finds">
+      <li>发现暗弱主序星 <b>S301</b>（m<sub>K</sub> = 19.3），轨道周期 <b>8.7 年</b>，近心点峰值速度约 <b>25,000 km/s</b>。</li>
+      <li>其轨道运动对克尔度规量级 β³ 的修正项敏感，可直接用于测量 Sgr A* 的自旋——这是现有银心恒星中罕见的。</li>
+      <li>高偏心率提示 S301 是被希尔斯机制瓦解的双星系统所捕获的子星。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://www.nature.com/articles/s41586-026-10894-w">10.1038/s41586-026-10894-w</a></p>
+  </div>
+
+  <h3 class="disc">物理学</h3>
+  <div class="card">
+    <p class="title">单个多原子分子离子的红外吸收光谱</p>
+    <p class="title-en">Infrared absorption spectroscopy of a single polyatomic molecular ion</p>
+    <div class="byline"><span class="who">Zhenlin Wu, T. Duka, M. Isaza-Monsalve, A. Turci 等</span></div>
+    <div class="tags"><span class="tag">单光子灵敏度</span><span class="tag">离子阱</span><span class="tag">量子态检测</span></div>
+    <ul class="finds">
+      <li>用"吸收光子带来的反冲动量"作为探测信号，并以双离子晶体的<b>非经典运动态</b>放大、由原子离子读出。</li>
+      <li>实现单光子灵敏的中红外振动跃迁光谱，实测对象为单个 <b>CaOH⁺</b> 的 O–H 伸缩振动。</li>
+      <li>为复杂多原子分子的无损量子态制备与测量提供新路径。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://www.nature.com/articles/s41586-026-10915-8">10.1038/s41586-026-10915-8</a></p>
+  </div>
+
+  <h3 class="disc">材料科学</h3>
+  <div class="card">
+    <p class="title">甲脒共晶助力热蒸发钙钛矿/硅叠层电池 <span class="badge cn">工程转化看点</span></p>
+    <p class="title-en">Thermally evaporated perovskite/silicon tandems via formamidinium eutectic</p>
+    <div class="byline"><span class="who">Chao Luo, Rui He, Ran Luo, Y. Shi 等</span></div>
+    <div class="tags"><span class="tag">光伏</span><span class="tag">热蒸发</span><span class="tag">大面积放大</span></div>
+    <ul class="finds">
+      <li>核心障碍是 FAI 高温蒸发时热分解。作者合成甲脒基共晶体系，把 FAI 有效蒸发温度<b>平均降低 36℃</b>，压到分解阈值以下。</li>
+      <li>连续蒸发器件稳态效率 <b>31.5%（1 cm²）</b>；在商用半切 G12 硅片上做大面积叠层，<b>30%（200 cm²）</b>。</li>
+      <li>面积从 1 cm² 放大到 200 cm²，相对效率衰减仅 <b>3.99%</b>——作者称是目前钙钛矿基叠层放大过程中的最低损失。</li>
+      <li>2000 小时湿热老化（85℃/85%RH）后保留 95% 初始效率，户外实跑 2 个月功率衰减可忽略。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://www.nature.com/articles/s41586-026-10970-1">10.1038/s41586-026-10970-1</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">自发带电的水滴诱发腐蚀</p>
+    <p class="title-en">Spontaneously charged water drops induce corrosion</p>
+    <div class="byline"><span class="who">Zhongyuan Ni, Xiaomei Li, A. D. Ratschow, P. Bista 等</span></div>
+    <div class="tags"><span class="tag">接触起电</span><span class="tag">涂层击穿</span><span class="tag">防腐</span></div>
+    <ul class="finds">
+      <li>水滴在绝缘表面滑动后自发带电，电势可<b>超过 1 kV</b>。</li>
+      <li>这类带电水滴可使非导电涂层发生<b>电击穿</b>，进而导致底层金属腐蚀——一个此前被忽略的腐蚀通道。</li>
+      <li>影响面很广：文化遗产、建筑、船舶、汽车等金属部件；作者指出亟需抗"水滴电荷损伤"的防护材料。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://www.nature.com/articles/s41586-026-10941-6">10.1038/s41586-026-10941-6</a></p>
+  </div>
+
+  <h3 class="disc">化学</h3>
+  <div class="card">
+    <p class="title">通过硼杂环重排实现纠缠双位点迁移反应</p>
+    <p class="title-en">Entangled dual-site migration through boracycle rearrangement</p>
+    <div class="byline"><span class="who">Zheng Zhu, Peiqi Zhang, Bin Gao 等</span></div>
+    <div class="tags"><span class="tag">合成方法学</span><span class="tag">区域选择性</span><span class="tag">远端官能化</span></div>
+    <ul class="finds">
+      <li>提出"纠缠双位点迁移"概念验证，机制为<b>硼杂环己烷环沿碳骨架的"先导—跟随"运动</b>（borinane rearrangement）。</li>
+      <li>迁移可跨越最多 <b>8 个碳原子</b>，在两个迁移位点同时精确控制区域选择性与非对映选择性。</li>
+      <li>产物是通用合成子，可用于发散式合成（杂）环及 ε-双官能化，尤其适配碳链<b>中段</b>的修饰。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://www.nature.com/articles/s41586-026-10931-8">10.1038/s41586-026-10931-8</a></p>
+  </div>
+
+  <h3 class="disc">地球科学</h3>
+  <div class="card">
+    <p class="title">来自热带冰芯的全球大气甲烷记录</p>
+    <p class="title-en">A global atmospheric methane record from a tropical ice core</p>
+    <div class="byline"><span class="who">Kara A. Lamantia, Lonnie G. Thompson, M. E. Davis 等</span></div>
+    <div class="tags"><span class="tag">古气候</span><span class="tag">甲烷收支</span><span class="tag">同位素</span></div>
+    <ul class="finds">
+      <li>取自秘鲁瓦斯卡兰雪山南峰（海拔 6,768 m）峰顶 A 冰芯，建立 <b>2000 年</b>大气 CH₄ 浓度记录。</li>
+      <li>δ¹³C-CH₄ 数据（约公元 1530–1999 年）支持"热带为甲烷主要来源"的同位素判据。</li>
+      <li>四箱模型模拟表明，过去两千年<b>赤道始终主导甲烷源强度</b>；赤道排放此前被低估。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://www.nature.com/articles/s41586-026-10938-1">10.1038/s41586-026-10938-1</a></p>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section>
+  <h2><span class="num">02</span>正刊 · 窗口内在线优先（AOP）</h2>
+  <p class="sec-note">9月9日（周三）出现明显的集中上线，是本统计窗口的发文高峰。</p>
+
+  <div class="card">
+    <p class="title">古蛋白鉴定出中国西南的多种丹尼索瓦人遗骸 <span class="badge hot">本周最高热度</span> <span class="badge cn">中国团队</span></p>
+    <p class="title-en">Ancient proteins identify various Denisovan remains from Southwest China</p>
+    <div class="byline"><span class="who">通讯：付巧妹（中科院古脊椎动物与古人类研究所）</span><span>2026-09-09</span></div>
+    <div class="tags"><span class="tag">古人类学</span><span class="tag">古蛋白组学</span><span class="tag">ZooMS</span></div>
+    <ul class="finds">
+      <li>从云南鹤庆蝙蝠洞遗址筛分<b>超过 6 万块</b>骨碎片，76 块做 ZooMS，17 块做高分辨 LC-MS/MS。</li>
+      <li>在 <b>16.7 万–13.4 万年前</b>地层中鉴定出 3 块古人类骨（2 块顶骨碎片、1 块近端桡骨）及 2 颗牙齿。</li>
+      <li>近端桡骨 BFD771 被认定为首个具诊断意义的丹尼索瓦人长骨，形态呈尼人与现代人/直立人的混合特征。</li>
+      <li>早期关注度：Altmetric <b>332</b>（99 百分位），38 家新闻机构报道。</li>
+    </ul>
+    <p class="doi">Nature 657（2026，在线 09-09）· 与同期姊妹论文配套发表</p>
+  </div>
+
+  <div class="card">
+    <p class="title">中国西南的丹尼索瓦人及其生计策略 <span class="badge cn">中国团队</span></p>
+    <p class="title-en">Denisovans from southwestern China and their subsistence strategies</p>
+    <div class="byline"><span class="who">第一作者：阮齐军；通讯：李浩、邵庆丰、Bo Li、陈发虎（末位通讯）</span><span>2026-09-09</span></div>
+    <div class="tags"><span class="tag">考古学</span><span class="tag">石器技术</span><span class="tag">MIS 6 冷期</span></div>
+    <ul class="finds">
+      <li>对蝙蝠洞遗址古人类化石与考古遗存做综合分析，化石年代约 <b>16.7 万–13.4 万年前</b>。</li>
+      <li>文化序列跨度约 <b>19 万–7 万年前</b>，是迄今最简约归因于丹尼索瓦人的最长文化记录之一。</li>
+      <li>技术策略以权宜石核剥片为特征，普遍使用未修饰骨器，体现"优先利用物体可供性"的适应系统。</li>
+      <li>研究由中科院青藏高原所牵头，联合云南省文物考古研究所、中科院古脊椎所等，汇集中国、法国、西班牙、意大利、丹麦学者。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://doi.org/10.1038/s41586-026-10997-4">10.1038/s41586-026-10997-4</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">基于扰动蛋白质组学的"虚拟细胞"模型 ProteinTalks <span class="badge cn">中国团队</span></p>
+    <p class="title-en">An operational perturbation proteomics-based virtual cell model</p>
+    <div class="byline"><span class="who">通讯：郭天南、朱怡（西湖大学）、周沛劼、温翰（北大/北京科学智能研究院）</span><span>2026-09-09</span></div>
+    <div class="tags"><span class="tag">AI4S</span><span class="tag">虚拟细胞</span><span class="tag">药物响应预测</span></div>
+    <ul class="finds">
+      <li>自建大规模时间分辨扰动蛋白质组数据集：<b>3,800 万条</b>蛋白丰度测量、<b>16,311 份</b>扰动样本、约 <b>6,668 小时</b>质谱机时，覆盖 63 种 FDA 批准药物。</li>
+      <li>模型参数与训练样本量比现有静态转录组基础模型<b>少约 1000 倍</b>，却在跨细胞系、跨药物、跨癌种及 501 例临床活检等任务上普遍优于 Geneformer、GeneCompass、UCE。</li>
+      <li>从 SHAP 值挑出 AKR1C3，siRNA 敲低后确实恢复 BT20 对多西他赛的敏感性（Δln[IC₅₀] = 4.24），形成"预测—湿实验验证"闭环。</li>
+      <li>在三阴性乳腺癌临床蛋白质组队列中，预测风险与三/四药方案患者的无复发生存、总生存分层相关。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://www.nature.com/articles/s41586-026-11001-9">10.1038/s41586-026-11001-9</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">GPN-Star：用物种树先验预测全基因组功能约束</p>
+    <p class="title-en">Predicting genome-wide functional constraints with GPN-Star</p>
+    <div class="byline"><span class="who">通讯：Yun S. Song（UC Berkeley）；合作：Jackson Laboratory、DKFZ</span><span>2026-09-09</span></div>
+    <div class="tags"><span class="tag">基因组语言模型</span><span class="tag">变异效应预测</span><span class="tag">群体遗传</span></div>
+    <ul class="finds">
+      <li>把<b>物种树与多物种全基因组比对</b>直接作为先验嵌入基因组语言模型，而非把 DNA 当成一串字符。</li>
+      <li>在人类编码区与非编码区变异效应预测上达到新 SOTA，并在小鼠、鸡、果蝇、线虫、拟南芥上扩展。</li>
+      <li>临床相关评估中优于 Nucleotide Transformer、HyenaDNA：更好区分 ClinVar 致病突变与良性多态，可用于 GWAS 位点因果变异优先排序——且参数量与训练算力显著更低。</li>
+      <li>作者提示：结论来自既有数据集与预测基准，不能直接等同于临床诊断。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://doi.org/10.1038/s41586-026-11005-5">10.1038/s41586-026-11005-5</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">新皮层长程抑制促进皮层同步与睡眠</p>
+    <p class="title-en">Neocortical long-range inhibition promotes cortical synchrony and sleep</p>
+    <div class="byline"><span class="who">通讯：Renata Batista-Brito 等（爱因斯坦医学院）</span><span>2026-09-09</span></div>
+    <div class="tags"><span class="tag">神经科学</span><span class="tag">睡眠</span><span class="tag">抑制性神经元</span></div>
+    <ul class="finds">
+      <li>锁定一群不足抑制性神经元总量 <b>1%</b> 的 Sst-Chodl 细胞——它们同时表达生长抑素并投射到对侧。</li>
+      <li>将该活动扩大到整个新皮层时，小鼠更快入睡、睡眠时间增加。</li>
+      <li>提示网络中的"重要性"不取决于数量，而取决于<b>连了谁、连得多远、能否改变整体时间节律</b>。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://doi.org/10.1038/s41586-026-10876-y">10.1038/s41586-026-10876-y</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">近邻导向的图学习揭示"肿瘤相关近邻抗原"</p>
+    <p class="title-en">Proximity-guided graph learning reveals tumour-associated proximity antigens</p>
+    <div class="byline"><span>2026-09-09 · 开放获取</span></div>
+    <div class="tags"><span class="tag">靶点发现</span><span class="tag">多特异性抗体</span><span class="tag">ADC</span></div>
+    <ul class="finds">
+      <li>建立双正交光催化近邻标记 + 定量质谱流程，对 12 个受体酪氨酸激酶锚点、28 个肿瘤细胞系统生成 <b>248 张</b>膜近邻图谱。</li>
+      <li>提出 <b>TAPA</b> 概念：靶点价值来自与经典肿瘤抗原在肿瘤膜上的<b>疾病相关空间邻接</b>，而非单独表达量。</li>
+      <li>以 EGFR-CDCP1 为验证对，双靶向在 ADC 与该 T 细胞衔接器模式下均增强肿瘤杀伤。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://doi.org/10.1038/s41586-026-11003-7">10.1038/s41586-026-11003-7</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">整合突变特征定义前列腺癌的突变过程</p>
+    <p class="title-en">Integrated signatures define mutational processes in prostate cancer</p>
+    <div class="byline"><span>2026-09-09 · 开放获取 · Pan Prostate Cancer Group</span></div>
+    <div class="tags"><span class="tag">肿瘤基因组学</span><span class="tag">风险分层</span><span class="tag">HRD</span></div>
+    <ul class="finds">
+      <li>整合 <b>1,001 名</b>供体、1,209 份样本的全基因组数据（主分析 959 例原发灶，中位随访 7 年）。</li>
+      <li>把 SNV、indel、CNA 与复杂结构变异信号统一为 <b>8 种整合突变指纹（IMF）</b>，可解释 85% 原发肿瘤的突变过程。</li>
+      <li>其中 4 种 IMF 见于 37% 原发肿瘤，与更短转移时间显著相关；非经典同源重组缺陷在非洲祖源患者中更富集。</li>
+      <li>IMF 还与雄激素受体通路抑制剂敏感性相关，提示可用于治疗分层。</li>
+    </ul>
+    <p class="doi">DOI：<a href="https://doi.org/10.1038/s41586-026-10468-w">10.1038/s41586-026-10468-w</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">AI 通过三维形状比对发现"隐形"蛋白 TM184C <span class="badge verify">期次待核实</span></p>
+    <p class="title-en">AI-based structural comparison uncovers a previously unrecognised GPCR-family protein</p>
+    <div class="byline"><span class="who">迈阿密大学米勒医学院 Sylvester 综合癌症中心团队</span><span>约 09-09/09-10（中文报道 09-15）</span></div>
+    <div class="tags"><span class="tag">蛋白质发现</span><span class="tag">结构预测</span><span class="tag">自噬</span></div>
+    <ul class="finds">
+      <li>比较<b>超过 2.14 亿种</b>蛋白质的预测三维形状，而非依赖序列同源，从中挖出 GPCR 家族此前未被识别的成员 TM184C。</li>
+      <li>TM184C 主要位于细胞内囊泡，参与细胞间连接维持与自噬调控；敲低后细胞间连接减少、自噬标志物上升。</li>
+      <li>酵母同源蛋白 Hfl1 缺失导致的异常，可由人类 TM184C 回补——提示该功能历经约十亿年进化保守。</li>
+    </ul>
+    <p class="doi">注：该条来自中文媒体的"最新一期《自然》"报道，具体期次与 DOI 尚未在本次检索中确认。</p>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section>
+  <h2><span class="num">03</span>Nature 系列子刊 · 同期重点</h2>
+  <p class="sec-note">选取窗口内发表、且具代表性或中国团队主导的子刊成果。</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th style="width:23%">期刊</th><th style="width:41%">论文</th><th style="width:22%">团队</th><th style="width:14%">日期</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Nature Nanotechnology<br><span class="badge">9月刊封面</span></td>
+          <td>Computationally guided design of bioactive nanostructures for targeted clearance of amyloid-β aggregates in Alzheimer's disease</td>
+          <td>南开大学 黄兴禄、河北工业大学 王晖（共同通讯）</td>
+          <td>9月<br>21: 1316–1326</td>
+        </tr>
+        <tr>
+          <td>Nature Nanotechnology</td>
+          <td>可切换铜单原子催化剂：甲烷高选择性氧化制乙酸（选择性约 97%，活性约 221.3 mmol·g<sub>Cu</sub>⁻¹·h⁻¹，无需 CO 共反应物）</td>
+          <td>中国科学技术大学 洪勋、清华大学 李亚栋</td>
+          <td>约 09-12</td>
+        </tr>
+        <tr>
+          <td>Nature Machine Intelligence</td>
+          <td>A collaborative agent with two lightweight synergistic models for autonomous crystal materials research（MatBrain：48 小时生成 3 万候选结构，筛出 38 个重点候选）</td>
+          <td>Tongyu Shi 等（中科院深圳先进院等）</td>
+          <td>09-10</td>
+        </tr>
+        <tr>
+          <td>Nature Medicine</td>
+          <td>A clinically-oriented foundation model for intraoperative pathology（CRISP，10 家中心逾 10 万张术中冰冻切片）</td>
+          <td>多中心合作</td>
+          <td>09-10</td>
+        </tr>
+        <tr>
+          <td>Nature Medicine</td>
+          <td>Teclistamab versus lenalidomide-dexamethasone in high-risk smoldering multiple myeloma（随机 2 期：CR 77.8% vs 0%；2 年 PFS 92% vs 49%）</td>
+          <td>ImmunoPRISM 研究组</td>
+          <td>09-11</td>
+        </tr>
+        <tr>
+          <td>Nature Cancer</td>
+          <td>MMSDH 介导 ACSL4 丙酰化对抗铁死亡并削弱 PDAC 化疗疗效</td>
+          <td>—</td>
+          <td>09-11</td>
+        </tr>
+        <tr>
+          <td>Nature Communications</td>
+          <td>水波储备池计算硬件实时控制机器人（识别准确率接近满分；并以微磁模拟探索 GHz 自旋波固态方案）</td>
+          <td>牛津大学 Clarendon Laboratory + Diamond Light Source</td>
+          <td>09-10</td>
+        </tr>
+        <tr>
+          <td>Nature Communications</td>
+          <td>锡掺杂赤铁矿厘清空间电荷层宽度与内建电场对水分解的分工（存在约 2.4 nm 的 W<sub>SCL</sub> 阈值）</td>
+          <td>Li 等</td>
+          <td>09-12</td>
+        </tr>
+        <tr>
+          <td>Nature Physics</td>
+          <td>Digital quantum simulations of scattering using W states</td>
+          <td>—</td>
+          <td>约 09-12</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section>
+  <h2><span class="num">04</span>观察与趋势</h2>
+
+  <div class="callout">
+    <h4>1. AI for Science 是当周绝对主线</h4>
+    <p>正刊在线优先中的虚拟细胞 ProteinTalks、基因组语言模型 GPN-Star、AI 形状比对发现 TM184C，加上子刊的 MatBrain 材料智能体与 CRISP 病理基础模型——AI 已从"辅助分析"进入"提出可实验验证的新假说"阶段。ProteinTalks 与 GPN-Star 都强调同一件事：<b>把领域先验（时间维度的扰动、物种树）写进模型，比单纯堆参数更有效</b>。</p>
+  </div>
+
+  <div class="callout">
+    <h4>2. 中国团队在该窗口存在感很强</h4>
+    <p>覆盖面相当宽：丹尼索瓦人两篇（中科院青藏高原所陈发虎团队 + 中科院古脊椎所付巧妹团队，南京师范大学邵庆丰参与）、ProteinTalks（西湖大学 + 北大 + 深势科技 + 哈医大）、前列腺癌整合突变指纹、南开大学 Aβ 纳米结构（子刊封面）、中科大/清华甲烷制乙酸。且不少是<b>方法学或体系性工作</b>，而非单点结果。</p>
+  </div>
+
+  <div class="callout">
+    <h4>3. 两条"反常识"的物理结论值得一读</h4>
+    <p>一是<b>自发带电的水滴能击穿涂层并致腐蚀</b>——把一个日常现象重新定义为工程失效通道，影响面覆盖文化遗产到船舶汽车。二是<b>不足 1% 的抑制性神经元足以改变全脑时间节律</b>——对"网络重要性 ∝ 数量"的直觉是有力反驳。</p>
+  </div>
+
+  <div class="callout">
+    <h4>4. 工程转化色彩最浓的一篇</h4>
+    <p>热蒸发钙钛矿/硅叠层：把 FAI 蒸发温度降 36℃ 这一个化学小改动，换来了大面积（200 cm²）30% 稳态效率、3.99% 放大损失和 2000 小时湿热稳定性。这是典型"工艺可比性优于刷新效率纪录"的路线。</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>口径与说明</b></p>
+  <p>
+    · 统计窗口为 <b>2026-09-07 至 2026-09-13</b>。Nature 正刊为周刊（周四出版），上周对应 Vol 657, Issue 8131（2026-09-10）。<br>
+    · nature.com 对自动化访问有反爬限制，本次未能直接抓取完整目次。<b>第 01 节的 6 篇为科学网当周导读覆盖的高亮研究论文，非该期全量论文</b>；第 02 节的在线优先论文按官方在线发表日期归入窗口，其中个别条目的期次归属需以官网为准。<br>
+    · 第 03 节子刊条目部分来自高校与机构新闻稿、X-MOL 及科学媒体的二次报道，日期与结论以各刊官网最终版本为准。<br>
+    · 标注"期次待核实"的条目，尚未在本次检索中确认其 DOI 与正式期次。<br>
+    · 边界情况：2026-09-14 在线发表的 <i>Protein variants beyond DNA expand the human functional proteome</i>（10.1038/s41586-026-11124-z）落在<b>本周</b>，未计入上表。
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

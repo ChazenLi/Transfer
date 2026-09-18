@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science 周报 · 深读版 · 2026年9月14日–18日（Vol 393, Issue 6817）</title>
+<style>
+  :root{
+    --ink:#12161c; --ink-2:#3d4753; --ink-3:#6b7683;
+    --line:#e3e7ec; --bg:#f6f7f9; --card:#fff;
+    --accent:#1a4d8f; --accent-soft:#e8f0fa;
+    --blue:#1d4e89; --blue-soft:#eaf1f9;
+    --blue-line:#cfe0f2;
+    --teal:#0f6e56; --teal-soft:#f1f9f6; --teal-line:#c9e7dc;
+    --rose:#9b2c47; --rose-soft:#fbecef;
+    --warm:#a8541b; --warm-soft:#fbf0e6;
+    --violet:#5b3f8f; --violet-soft:#f0ecfa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1020px;margin:0 auto;padding:44px 26px 80px;}
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:30px;}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-size:33px;line-height:1.25;margin:10px 0 12px;letter-spacing:-.4px;}
+  .sub{color:var(--ink-2);max-width:820px;}
+  .stamp{margin-top:16px;font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 20px;}
+
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:11px;margin:0 0 14px;}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;}
+  .metric .n{font-size:26px;font-weight:700;letter-spacing:-.5px;color:var(--accent);line-height:1.1;}
+  .metric .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+
+  .method{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:15px 19px;margin:0 0 14px;font-size:13.5px;color:var(--ink-2);}
+  .method b{color:var(--ink);}
+  .method code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#fff;border:1px solid #d8e4f0;border-radius:4px;padding:1px 5px;word-break:break-all;}
+  .method .warn{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed #c3d5e8;}
+
+  .howto{background:var(--teal-soft);border:1px solid var(--teal-line);border-radius:10px;padding:15px 19px;margin:0 0 38px;font-size:13.5px;color:var(--ink-2);}
+  .howto b{color:var(--ink);}
+  .howto dl{margin:8px 0 0;display:grid;grid-template-columns:44px 1fr;gap:6px 12px;}
+  .howto dt{font-weight:700;color:var(--teal);font-size:12.5px;}
+  .howto dd{margin:0;font-size:13px;}
+
+  section{margin-bottom:44px;}
+  h2{font-size:20px;margin:0 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;}
+  h2 .num{font-size:12px;color:var(--ink-3);font-weight:600;letter-spacing:.1em;}
+  .sec-note{color:var(--ink-3);font-size:13px;margin:0 0 20px;}
+
+  h3.disc{font-size:13px;letter-spacing:.1em;margin:26px 0 12px;color:var(--ink-2);
+    display:flex;align-items:center;gap:9px;font-weight:700;}
+  h3.disc::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 20px;margin-bottom:13px;}
+  .card:hover{border-color:#c9d1da;}
+  .card .title{font-size:16.5px;font-weight:650;line-height:1.45;margin:0 0 3px;}
+  .card .title-en{font-size:13.5px;color:var(--ink-3);font-style:italic;margin:0 0 10px;line-height:1.5;}
+  .byline{font-size:12.5px;color:var(--ink-3);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px 14px;}
+  .byline .who{color:var(--ink-2);font-weight:600;}
+
+  .layers{margin:0 0 12px;}
+  .layer{display:grid;grid-template-columns:46px 1fr;gap:11px;padding:8px 0;border-top:1px solid #f0f2f5;}
+  .layer:first-child{border-top:none;padding-top:3px;}
+  .layer .lb{font-size:11.5px;font-weight:700;letter-spacing:.06em;padding-top:2px;}
+  .lb-q{color:var(--blue);}
+  .lb-m{color:var(--ink-3);}
+  .lb-p{color:var(--teal);}
+  .lb-r{color:var(--accent);}
+  .layer p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.64;}
+  .layer p b{color:var(--ink);font-weight:650;}
+  .layer.mech{background:var(--teal-soft);border-radius:8px;padding:10px 12px;margin:5px 0 5px -12px;
+    grid-template-columns:46px 1fr;border-top:none;border-left:3px solid var(--teal);}
+  .layer.mech .lb{padding-left:0;}
+
+  ul.finds{margin:0;padding-left:0;list-style:none;}
+  ul.finds li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-2);margin-bottom:5px;line-height:1.62;}
+  ul.finds li:last-child{margin-bottom:0;}
+  ul.finds li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  ul.finds b{color:var(--ink);font-weight:650;}
+
+  .doi{font-size:12px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);word-break:break-all;
+    padding-top:9px;border-top:1px solid #f0f2f5;}
+  .doi a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6d4;}
+
+  .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:.03em;
+    background:var(--accent-soft);color:var(--accent);vertical-align:2px;margin-left:6px;}
+  .badge.cn{background:var(--blue-soft);color:var(--blue);}
+  .badge.hot{background:var(--rose-soft);color:var(--rose);}
+  .badge.new{background:var(--warm-soft);color:var(--warm);}
+  .pg{font-size:11.5px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
+  thead th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);background:#fafbfc;}
+  tbody td{padding:10px 14px;border-bottom:1px solid #eef1f4;vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink);font-weight:600;}
+
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:15px 19px;margin:0 0 12px;}
+  .callout h4{margin:0 0 6px;font-size:14.5px;}
+  .callout p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .callout p + p{margin-top:7px;}
+
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.75;}
+  footer b{color:var(--ink-2);}
+  @media(max-width:640px){.wrap{padding:28px 16px 56px;}h1{font-size:24px;}.card{padding:14px 15px;}
+    .layer{grid-template-columns:1fr;gap:2px;}
+    .layer .lb{padding-top:6px;}
+    .layer.mech{margin-left:-10px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Science Weekly · Deep Read</div>
+  <h1>Science 周报（深读版）· 2026年9月14日–18日</h1>
+  <p class="sub">
+    每篇研究论文按<b>问题 → 手段 → 机理 → 结论</b>四层展开。核心改动是把"机理"独立成层——
+    不只知道发了什么，而是知道<b>它为什么必须这么做、以及为什么这么做能成立</b>。
+  </p>
+  <div class="stamp">
+    <span>窗口：2026-09-14 ~ 09-18</span>
+    <span>期次：Vol 393, Issue 6817</span>
+    <span>期日：2026-09-17</span>
+    <span>深读卡片：15 篇</span>
+    <span>生成：2026-09-18</span>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric"><div class="n">15</div><div class="l">研究论文（全部深读）</div></div>
+  <div class="metric"><div class="n">4</div><div class="l">每篇分层</div></div>
+  <div class="metric"><div class="n">3</div><div class="l">中国团队主导</div></div>
+  <div class="metric"><div class="n">1</div><div class="l">在线优先（期外）</div></div>
+  <div class="metric"><div class="n">3</div><div class="l">子刊联动</div></div>
+  <div class="metric"><div class="n">37</div><div class="l">本期目次条目</div></div>
+</div>
+
+<div class="howto">
+  <b>怎么读这四层</b>
+  <dl>
+    <dt>问题</dt><dd>这篇要攻的卡点是什么，<b>上一代方案为什么不够</b>。判断"这个问题是否也出现在你关心的领域"。</dd>
+    <dt>手段</dt><dd>实际用了什么技术、实验体系、模型或队列，以及关键量级。</dd>
+    <dt>机理</dt><dd>原理层：<b>为什么这个手段能绕过那个卡点</b>。这是本次新增的核心层。</dd>
+    <dt>结论</dt><dd>带数字的结果，以及它成立的条件和边界。</dd>
+  </dl>
+</div>
+
+<div class="method">
+  <b>枚举方式（可复核）</b><br>
+  主干：<code>https://www.science.org/action/showFeed?type=etoc&amp;feed=rss&amp;jc=science</code> → 返回 <b>37 个 item</b>，含 <code>dc:type</code> 栏目字段<br>
+  富化：Crossref <code>api.crossref.org/journals/0036-8075/works?filter=from-pub-date:2026-09-14,until-pub-date:2026-09-18</code> → <b>38 条</b>（多出 1 条为无期次的 First Release）<br>
+  摘要：本期 <code>In Science Journals</code> 栏目（p1200-1202，编辑全期论文导读）+ 官网单篇 DOI 页
+  <span class="warn">
+    ⚠️ Europe PMC 对 Nature 实时（本周 50 条），但对 Science <b>本周 hitCount = 0</b>（9 月全月最新仅到 9/11）。
+    故本报告主干为官方 eTOC，不使用 EPMC。
+  </span>
+</div>
+
+<!-- ===================== 1 ===================== -->
+<section>
+  <h2><span class="num">01</span>研究论文 · 15 篇 <span class="pg" style="font-weight:400">全部深读</span></h2>
+  <p class="sec-note">按学科分组。<b>机理</b>层为解释性归纳——基于编辑摘要/原文摘要 + 学科常识重建的因果链，用于理解，<b>不等于作者的表述原话</b>。</p>
+
+  <h3 class="disc">生命科学与医学</h3>
+
+  <div class="card">
+    <p class="title">专家级腹部 CT 通用诊断模型 RADAR <span class="badge cn">中国团队</span> <span class="pg">p1207</span></p>
+    <p class="title-en">An expert-level generalist AI for abdominal CT diagnosis</p>
+    <div class="byline"><span class="who">Qi Zhang 等 · 浙江大学医学院附属第一医院 + 阿里巴巴 + MBZUAI（通讯：Ling Zhang）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>放射 AI 一直走<b>有监督学习 + 人工标注</b>的路：要医生逐张框出病灶。代价是标注极贵，且模型只会认标注过的征象——<b>遇到训练集里没出现的异常就失灵</b>。腹部 CT 恰好是"结构最多、征象最细"的部位，最吃这个亏。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>通用视觉–语言模型 <b>RADAR</b>：<b>40 万+ 例</b>增强腹部 CT、<b>1500 万解剖级图文对</b>，<b>直接以临床报告作监督信号</b>，全程不人工标注；多中心内外部验证 + 26 名放射科医生读者研究。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键在<b>把"报告"当成图像的弱标签</b>。放射科报告本身就描述了图里有什么，等于一份免费、海量、且覆盖"罕见征象"的监督数据。图文对比预训练让模型学的是<b>"视觉模式 ↔ 语言描述"的通用映射</b>，而不是固定的类别列表——所以对没见过的异常也能靠语言侧的语义泛化识别。而"解剖级"配对（把整份报告拆到 18 个结构各自对应）是让它能分别定位、而不是只给一个全局诊断的原因。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>覆盖 <b>18 个解剖结构、146 项影像征象</b>，含训练中未出现的异常。</li>
+          <li>读者研究中，辅助使 <b>26 名放射科医生的诊断敏感度提升约 10%</b>。</li>
+          <li><b>边界</b>：摘要未给 AUC 等硬指标（正文内部队列约 0.913）；"通用"的边界取决于报告文本的描述粒度。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec6129">10.1126/science.aec6129</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">遗传性 T790M 突变与肺癌风险：一个 200 年前的奠基者效应 <span class="pg">p1208</span></p>
+    <p class="title-en">Germline <i>EGFR</i> T790M mutation and lung cancer risk</p>
+    <div class="byline"><span class="who">Jaclyn LoPiccolo 等 · 23andMe Research Team 等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p><i>EGFR</i> T790M 在肿瘤学界是<b>臭名昭著的"获得性耐药突变"</b>——患者用药后才出现。正因如此，它的<b>胚系（遗传）形式</b>长期被当成背景噪音，没人系统评估过它本身是不是一个肺癌易感位点。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>300 万人以上</b>的遗传 + 健康数据关联分析（23andMe 队列 + 临床队列），并对该变异做<b>单倍型溯源</b>推算传播历史。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>T790M 位于 EGFR 激酶域的<b>ATP 口袋</b>。体细胞形式之所以耐药，是因为它改变了口袋形状、把抑制剂挤出去；而换成胚系形式，<b>同一个结构改变从出生起就存在于每个细胞</b>——它不再只是"耐药"，而是给细胞一个可遗传的、朝向转化的起始优势。至于为什么只在肺癌显现、与其他常见癌无关，指向<b>EGFR 在该组织的主导地位</b>：EGFR 驱动的组织才会把这个位点的效应放大出来。奠基者效应则解释了它为何在特定地理人群被富集。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>胚系 T790M 与<b>肺癌风险强相关</b>，与其他常见癌种<b>无</b>关联。</li>
+          <li>约 <b>200 年前</b>经美国<b>南阿巴拉契亚地区的奠基者事件</b>富集。</li>
+          <li>直接指向可操作的筛查策略：该地区/家系人群的遗传检测（配 Perspective，Chanock，p1190）。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec0473">10.1126/science.aec0473</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">自闭症小鼠模型可按转录组分为两个分子亚型 <span class="pg">p1250-1257</span></p>
+    <p class="title-en">Transcriptome-based classification in mice with ASD-risk mutations</p>
+    <div class="byline"><span class="who">Junyeop Daniel Roh 等 · 韩国基础科学研究院 / KAIST（Eunjoon Kim）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>ASD 的困境是<b>异质性</b>：几百个风险基因、表型谱系极宽，按基因分型找不出共同的治疗逻辑。结果是临床试验一锅端，平均效应被稀释到看不见——<b>缺的不是药，是分层依据</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>对 <b>17 个</b> ASD 风险突变小鼠模型做<b>转录组横断面比较</b>（不求单一模型，求跨模型可重复的分层）；再用出生后早期给药（氟西汀 / 锂剂）做行为学与网络的反向验证。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>逻辑是<b>从基因层上移到网络层</b>。不同的风险基因扰动，在转录组上会<b>收敛到少数几条可分离的分子程序</b>——本文落到两条：突触/蛋白酶体 vs 染色质/mRNA 加工。一旦能这样分层，治疗就变成"按程序匹配"而不是"按基因匹配"。而药物<b>只对匹配的那一个亚型起效</b>这一现象，本身就是最强的机制证据：说明决定疗效的是<b>网络状态</b>，不是单个突变。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>两个亚型在 17 个模型中<b>稳健可分</b>。</li>
+          <li><b>氟西汀与锂剂各自只逆转一个亚型</b>的异常网络与行为表型——选择性，而不是普适改善。</li>
+          <li><b>边界</b>：小鼠模型 → 人类 ASD 的映射仍需验证；亚型划分依赖所选的 17 个模型（配 Perspective，p1188）。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adz6688">10.1126/science.adz6688</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">脾脏是全身血小板活化状态的"过滤器" <span class="pg">p1204</span></p>
+    <p class="title-en">Splenic regulation of systemic platelet activation state</p>
+    <div class="byline"><span class="who">Lisa Laun 等 · 慕尼黑大学（Leo Nicolai, Steffen Massberg）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>循环里随时有被激活的血小板，它们必须被清掉，否则血栓风险上升。但<b>在哪清、凭什么判断"该清"</b>，一直缺器官层面的答案。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>小鼠在体成像追踪血小板在<b>脾红髓</b>的行为；用<b>胞外基质（ECM）组分</b>刺激验证信号通路；再取<b>血栓事件 / 脓毒症 / 心梗患者</b>组织做人类可比性验证。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>设计非常巧：脾脏不是靠<b>识别</b>"活化标记"来筛，而是靠<b>两条对立信号的平衡</b>。血小板离开血管进入红髓后会接触到 ECM → 触发激活信号；同时静息血小板本身带着<b>抑制通路</b>把信号抵消掉，于是安然再循环。活化血小板的抑制通路已被"下调/覆盖"，<b>同样的 ECM 信号就变成了截留信号</b>。换句话说，脾脏用的是<b>阈值判别</b>——同一个刺激，读出的结果取决于细胞自身状态。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>静息血小板在脾红髓<b>再循环</b>，活化血小板被<b>截留清除</b>。</li>
+          <li>血栓、脓毒症、心梗患者组织提示<b>人类脾脏可能具有同类过滤功能</b>。</li>
+          <li>把抗血栓的调控节点从"血小板本身"扩展到<b>器官层面的清除系统</b>。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec7230">10.1126/science.aec7230</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">用"多细胞器签名"在原位测绘细胞状态 <span class="pg">p1203</span></p>
+    <p class="title-en">Multi-organelle signatures map cell-state diversity and metabolic adaptation in tissues</p>
+    <div class="byline"><span class="who">Raghabendra Adhikari 等 · HHMI Janelia（Daniel Feliciano）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>单细胞测序成了定义细胞状态的事实标准，但它<b>只读转录组</b>——把细胞打碎、丢掉空间位置，更丢掉了<b>细胞器形态</b>这个直接反映代谢与应激的物理量。而且测序细胞分类时，"同一分区里的肝细胞"永远被归成一类。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>sOrganellomics</b>：共聚焦成像 + 自动分割 + 机器学习，把每个细胞内<b>多个细胞器的形态</b>编码成"签名"用于分类与空间建图；肝脏/胰腺为验证体系；再用<b>活体（intravital）成像</b>把结构与功能连通。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>前提假设是：<b>细胞器的数量与形态是细胞代谢通量和应激状态的物理读出</b>。线粒体网络的重塑、溶酶体的量，都是功能状态的直接产物，比转录本更靠近表型。所以<b>不测表达也能分出状态</b>，而且能看到转录组看不见的维度——这正是"分区内肝细胞仍存在交错异质"这个结果能被发现的原因。活体成像则补上因果：禁食 → 细胞器重塑 → 线粒体膜电位变化，链子闭合。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>肝细胞按细胞器定义形成<b>互混的亚群</b>，经典分区位置<b>不足以</b>解释其类型。</li>
+          <li>营养应激重塑该组织方式；禁食诱导的细胞器重塑与<b>线粒体膜电位变化</b>在活体中对应。</li>
+          <li><b>边界</b>：结论目前主要建立在肝/胰两个体系，通量的定量标定仍是挑战。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.ady6372">10.1126/science.ady6372</a></p>
+  </div>
+
+  <h3 class="disc">分子生物学 · CRISPR 的起源（同期双发）</h3>
+
+  <div class="card">
+    <p class="title">CRISPR-Cas 起源：一套"非连续"的 RNA 引导识别密码 <span class="badge hot">双发之一</span> <span class="pg">p1230-1235</span></p>
+    <p class="title-en">A noncontiguous code for RNA-guided DNA recognition at the origin of CRISPR-Cas</p>
+    <div class="byline"><span class="who">Peter H. Yoon 等 · 加州大学伯克利分校（Jennifer A. Doudna）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>CRISPR-Cas 已被用作工具十几年，但<b>它自己是怎么演化出来的</b>仍是空白：Cas 蛋白和引导 RNA 从哪来？如果只能找到"现代版本"，就无法判断这套免疫的<b>最小可行原始形态</b>是什么。而这恰恰决定了我们能不能设计出更简洁的引导系统。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>从比较基因组/序列挖掘中找到一套此前未知的防御系统 <b>VIPR</b>，其核心蛋白<b>比 Cas 蛋白更古老</b>；引导 RNA 由重复的 <b>GGYNN</b> 单元构成；再做功能实验验证它能识别并阻断病毒序列表达。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>关键在<b>识别规则的改写</b>。经典 CRISPR 要求引导 RNA 与靶 DNA <b>连续碱基互补</b>，链子不能断。VIPR 用的是<b>带缺口的非连续配对</b>——不去逐位匹配，而是按周期<b>隔位识别</b>。这个改动带来两个后果：一是<b>容错模式变了</b>，不需要长而完美的互补，短重复单元就能覆盖靶标；二是由于核心蛋白更古老，说明<b>"用 RNA 引导识别 DNA"这套逻辑在 Cas 之前就存在了</b>——CRISPR 不是从零发明，而是继承。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>发现新防御系统 <b>VIPR</b>，核心蛋白早于 Cas。</li>
+          <li>提示 CRISPR 样免疫<b>起源于更古老的病毒间冲突</b>。</li>
+          <li>附带产出：一件新的<b>可编程基因表达调控工具</b>。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aei0498">10.1126/science.aei0498</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">VIPR 的冷冻电镜结构：跳过每第三个碱基的几何三链 <span class="badge hot">双发之二</span> <span class="pg">p1236-1240</span></p>
+    <p class="title-en">VIPR RNA-guided DNA recognition by noncontiguous geometric triplex formation</p>
+    <div class="byline"><span class="who">Peter H. Yoon 等 · 加州大学伯克利分校（Jennifer A. Doudna）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>"非连续识别"在序列层面讲得通，但<b>结构上如何实现</b>？蛋白质要怎样才能"跳过"碱基而不错位？不解决这个，机制就仍是一句口号——而且无法据此改造设计。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>冷冻电镜</b>解析 VIPR–RNA–DNA 复合物结构，直接观察蛋白与核酸的空间构型。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>答案是<b>把"跳跃"变成几何必然</b>。VIPR 蛋白并不逐个碱基地去读，而是<b>沿 RNA 聚合成一根螺旋丝</b>；这根丝的螺旋周期与 GGYNN 重复单元严格对应，于是当它贴到 DNA 上时，<b>每三个碱基接触一次</b>就成了结构的自然结果，不靠任何"主动跳步"。同时它形成的是<b>三链（triplex）结构</b>——第三条链绕进双螺旋的大沟，而不是把双链解开做经典配对。蛋白构型的周期，替代了序列的连续性。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>证明 VIPR 以<b>螺旋丝</b>形式装配，识别时固定跳过每第三个 DNA 碱基（配 Perspective，Bravo，p1187）。</li>
+          <li>两篇同日、同组、互补：一篇给<b>识别逻辑</b>，一篇给<b>结构机制</b>。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aei3472">10.1126/science.aei3472</a></p>
+  </div>
+
+  <h3 class="disc">量子与物理</h3>
+
+  <div class="card">
+    <p class="title">听见声的量子跃迁 <span class="pg">p1217-1220</span></p>
+    <p class="title-en">Quantum jumps of sound</p>
+    <div class="byline"><span class="who">Takuma Makihara, Amir H. Safavi-Naeini 等 · 斯坦福大学</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>量子力学说机械振动能量是离散的，但<b>你根本测不到</b>。因为常规做法是测谐振子的<b>位置</b>——而位置测量一旦发生，就会同时给系统一个反冲、打乱相位。测一次就毁一次，<b>看不到连续跳变</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>把<b>铌酸锂（LiNbO₃）机械谐振子</b>与<b>超导量子比特</b>耦合，做<b>量子非破坏（QND）测量</b>——把读出直接接到<b>声子数</b>这个可观测量上，而不是位置。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>这是"选对可观测量"的胜利。<b>位置不是 QND 量</b>：不破坏就无法重复测量同一个量，而量子跃迁恰恰需要<b>对同一系统连续监测取时间序列</b>。声子数（能量）是<b>保守量</b>——声子没有耗散通道时它就保持不动，因此可以被反复读取而不受反冲干扰。超导量子比特充当单声子分辨率的探针，把"数"翻译成可测的电信号。于是声子数只能<b>整数跳变</b>这一事实，才第一次以时间序列的形式显形。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>首次直接观测到<b>声子数的量子跃迁</b>。</li>
+          <li>意义不止基础验证：对<b>机械量子信息处理</b>（用机械模式做量子比特/存储）有直接用处。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aeh7535">10.1126/science.aeh7535</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">中性原子量子比特阵列的"中途快速补料" <span class="pg">p1213-1216</span></p>
+    <p class="title-en">Fast, continuous, and coherent atom reloading in a neutral-atom qubit array</p>
+    <div class="byline"><span class="who">Yiyi Li, Jeff D. Thompson 等 · 普林斯顿大学</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>中性原子平台有个硬天花板：<b>纠缠门和测量会不断损失原子</b>，而初始装载的原子数是固定的。跑到一半原子没了，电路就得停——<b>电路深度被原子存活率锁死</b>。中途补原子不是没人想过，但常规做法要么慢，要么补的过程中把已经跑起来的比特相干性一起毁掉。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>用 <b>Yb-171 的亚稳态核自旋</b>做比特；从<b>高密度原子库</b>反复提取原子并<b>输运</b>到计算区（而非在计算区内原位装载）；随后测量已有比特的相干时间。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>诀窍是<b>让比特的相干性对"补料"这件事不敏感</b>。选<b>亚稳态核自旋</b>而非电子自旋，是因为核自旋的相干更容易与外部光学/散射扰动解耦——重装过程带来的光场与碰撞<b>落不到它的退相干通道上</b>。再加上把原子从外部输运进来，避免在计算区做装载动作（减少对在场比特的扰动）。两个选择叠加，才做到"<b>补完之后已有比特的相干时间不受影响</b>"。这等于把"维持库存"和"做计算"解耦了。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>实现<b>快速、连续的中途重装</b>，且后续重装不损伤已有比特相干时间。</li>
+          <li>直接指向中性原子处理器的<b>电路深度</b>瓶颈，而非单纯的比特数扩展。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adz9952">10.1126/science.adz9952</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">超冷分子气体损耗的极端抑制 <span class="pg">p1226-1229</span></p>
+    <p class="title-en">Extreme loss suppression in an ultracold molecular gas with widely tunable dipolar interactions</p>
+    <div class="byline"><span class="who">Weijun Yuan 等 · 哥伦比亚大学（Sebastian Will）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>偶极分子气体是模拟<b>长程、可调相互作用</b>的理想平台（原子气体做不到这一点）。但分子有振动/转动自由度，碰撞时容易发生<b>非弹性弛豫</b>——二体、三体损耗极大，<b>越往强相互作用区走，气体消失得越快</b>。之前的抑制手段只在个别"魔角"或窄参数窗有效。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>超冷基态 <b>NaCs</b> 分子 + <b>双微波缀饰（double-microwave dressing）</b>；在不同偶极相互作用强度下扫描，测剩余寿命与损耗速率。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>微波缀饰的做法是<b>不给分子"自由选择"的机会</b>：施加微波场把分子态修饰成<b>缀饰态</b>，等于给碰撞对重新定义了一套有效相互作用。调谐微波参数，就能把碰撞推向<b>不容易进入短程损失通道</b>的构型——而在短程处才会发生非弹性弛豫。由于这是<b>场控的态修饰</b>而非依赖某个特定散射长度，抑制效应能<b>横跨很宽的偶极强度范围</b>都成立，而不是只在单点。这才让"连续调谐偶极长度"变得可用。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>二体损耗抑制 <b>&gt;10⁴ 倍</b>、三体 <b>&gt;10³ 倍</b>；气体寿命达<b>数秒</b>。</li>
+          <li>偶极长度可连续调谐 <b>−21,000 ~ +12,000 a₀</b>。</li>
+          <li>配合近期偶极分子 BEC 的实现，为<b>强偶极量子液体</b>打开通道。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adz0521">10.1126/science.adz0521</a></p>
+  </div>
+
+  <h3 class="disc">复杂系统 · 生态与保护</h3>
+
+  <div class="card">
+    <p class="title">异质性反而促进稳定性——复杂性–稳定性悖论的解法 <span class="pg">p1241-1249</span></p>
+    <p class="title-en">Disorder-promoted stability</p>
+    <div class="byline"><span class="who">Arthur N. Montanari, Pietro Zanin, Adilson E. Motter · 美国西北大学</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>生态学有个长期悖论：<b>简化模型说"组分越均一越稳"</b>，可真实系统（雨林、电网、大脑）明明<b>高度异质，却相当稳定</b>。理论预测和观测一直对不上，说明模型里少了什么。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>网络动力学的稳定性分析，专门处理<b>非厄米（non-Hermitian）Jacobian 矩阵</b>的情形；分<b>节点异质性</b>与<b>网络异质性</b>两类，且允许它们以<b>无序（disorder）</b>形式出现。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>旧结论的问题出在<b>模型假设</b>上：传统分析默认 Jacobian 是<b>厄米</b>或接近厄米、相互作用对称。但真实系统——凡涉及<b>二阶方程（有惯性）或内部自由度</b>的——其 Jacobian 天然是<b>非厄米</b>的。此时稳定与否由<b>特征值的实部</b>决定，而<b>异质性会重新分布这些特征值</b>，把它们整体推向复平面的左半（稳定）侧。也就是说，异质性在这里不再是扰动源，而是<b>一种稳定化机制</b>。无序也不例外，不必然有害。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>节点异质性与网络异质性<b>均可提升</b>集体态稳定性，<b>即便表现为无序</b>。</li>
+          <li>在生态学语境下<b>化解了复杂性–稳定性悖论</b>，并把"无序"重新定位为可用资源（配 Perspective，D'Souza，p1185）。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aeg3946">10.1126/science.aeg3946</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">保护热带森林比修复更划算 <span class="pg">p1221-1225</span></p>
+    <p class="title-en">Protecting tropical forests is more cost-effective for biodiversity and climate than restoration</p>
+    <div class="byline"><span class="who">Leonardo S. Miranda, Jos Barlow 等 · 兰卡斯特大学等（巴西）</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>面对生物多样性与气候双重危机，政策上"修复（restoration）"被当成理所当然的必要投入。但<b>三类干预（避免砍伐 / 避免退化扰动 / 修复）谁的单位投入收益更高</b>，此前一直没有可比的量化——这直接决定钱该往哪放。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>在巴西亚马逊<b>毁林前沿</b>做<b>实地评估 + 高分辨率遥感</b>；用<b>反事实情景</b>（对比实际与"假如没有该干预"）分别估算三类干预的<b>生物多样性与碳效益及其成本</b>。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>结论来自一个不对称性：<b>成熟森林的碳与物种存量是几百年积累的，而修复只能从头重走这条路，且速率受生态过程限制</b>。所以"避免退化"保住的是<b>既有存量</b>，成本主要只是机会成本；"修复"则要付出重建的时间与面积代价。单位投入下，前者自然更划算。这也解释了为何<b>两者优化的目标不同</b>——碳主要看存量（所以避免砍伐最优），生物多样性对火灾/伐木这类<b>结构性扰动</b>更敏感（所以避免扰动最优）。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li><b>避免砍伐</b>对碳储量最优；<b>避免扰动（火灾、伐木）</b>对生物多样性最优；<b>修复两项均最弱</b>。</li>
+          <li>但只有三者<b>组合</b>才能实现净正效益——修复仍不可替代。</li>
+          <li><b>边界</b>：结论基于巴西一处毁林前沿，外推需谨慎。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adx9928">10.1126/science.adx9928</a></p>
+  </div>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section>
+  <h2><span class="num">02</span>古 DNA · 地球物理 · 大气化学 · 3 篇</h2>
+  <p class="sec-note">中国团队 2 篇在本组。</p>
+
+  <div class="card">
+    <p class="title">东天山青铜—铁器时代人群的独特祖源 <span class="badge cn">中国团队</span> <span class="pg">p1205</span></p>
+    <p class="title-en">Ancient DNA unveils distinctive ancestries in the Bronze and Iron Ages of East Tianshan</p>
+    <div class="byline"><span class="who">宁超、王轲、王恬怡、马健等 · 吉林大学（崔银秋）+ 中科院古脊椎动物与古人类研究所（付巧妹）+ 北京大学 / 复旦大学 / 西北大学 / 新疆文博系统</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>天山走廊是欧亚大陆东西向的关键通道，但该区域<b>青铜—铁器时代的群体遗传史几乎空白</b>。靠考古器物只能看到"文化变了"，<b>无法区分是人换了、还是同一个人群换了器物</b>——这是考古学长期悬而未决的分歧，而这个区域恰好是丝绸之路的前身。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p><b>11 处遗址、135 例</b>青铜—铁器时代个体的<b>全基因组古 DNA</b>；配合群体遗传建模（成分比例、基因流事件拟合）。采样密度是该区域此前没有的。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>古基因组之所以能解决考古学解决不了的问题，在于它<b>直接测"人"而不是测"物"</b>。更关键的是，本文用了一个很干净的判别逻辑：<b>单次混血与反复基因流在成分上留下的形态不同</b>——单次事件是一次性的比例跳变，而持续/多次流动会留下<b>连续变化的梯度</b>。所以当看到"成分随时间渐进变化、且早期成分仍以可变比例保留"时，就可以判定是<b>反复流动而非一次混血</b>。这也解释了那个反直觉结果：草原牧民虽在考古上向东扩张，<b>基因上却几乎没进来</b>——扩张与通婚不是一回事。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>发现此前未知的青铜时代混血：<b>黄河流域粟作农业人群 × 切木尔切克文化草原牧民</b>。</li>
+          <li>同期<b>中—晚青铜时代草原牧民基因贡献极少</b>，与其东扩的考古证据形成反差。</li>
+          <li>铁器时代异质性上升，提示<b>持续、多次的基因流动</b>。</li>
+          <li>把该区域的远距离互动上推到<b>历史丝绸之路成型前约 1800 年</b>。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adv1295">10.1126/science.adv1295</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">核试验的应力余波：地下爆炸"重启"了板内断层 <span class="badge cn">中国团队</span> <span class="pg">p1209-1212</span></p>
+    <p class="title-en">Nuclear tests at Mt. Mantap have reactivated intraplate faults</p>
+    <div class="byline"><span class="who">Xingli Fan（范兴利）、Kwang-Hee Kim、Qi-Fu Chen（陈棋福）、Lian-Feng Zhao（赵连锋）等 · 中韩合作</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>核试验地震学研究几乎都聚焦<b>爆炸本身</b>——当量、震源机制、鉴别。但一个更慢的问题被忽略了：<b>地下爆炸把应力注进地壳后，会不会在几年、十几年后改变区域断层活动？</b>这需要长期的地震学观测，而大多数研究的时间窗不够长。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>针对朝鲜丰溪里 <b>2006–2017 年六次地下核试验</b>，构建跨越 <b>17 年</b>的区域地震目录（2008–2025，识别约 <b>1400 次</b>地方震），分析事件数、震级与震源的时间演化。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>不是"爆炸引发地震"这么简单，而是<b>应力重分布 + 累积损伤</b>的组合。地下核爆瞬间改变周边应力场，把浅部断层推到<b>接近失稳的临界状态</b>；随后的余震不是简单的指数衰减尾巴，而是断层在<b>新应力格局下延迟活化</b>的产物。正因为存在"损伤累积到临界"这个过程，事件才会在爆炸后<b>数年—十数年</b>才显著加速，而不是立刻消化掉。这也解释了为何 2017 年最大一次试验成为明显的拐点。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>2017 年最大试验后，地方震的<b>事件数与震级显著加速</b>。</li>
+          <li>证明板内浅部断层被<b>重启</b>，核试验的灾害时间尺度远超"爆炸当时"。</li>
+          <li><b>边界</b>：单一试验场（丰溪里）的结论，向其他地质背景外推需验证。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.adx5917">10.1126/science.adx5917</a></p>
+  </div>
+
+  <div class="card">
+    <p class="title">末次冰盛期甲烷"寿命"更短：被尘埃驱动的氯化学 <span class="pg">p1206</span></p>
+    <p class="title-en">Atmospheric methane lifetime during the Last Glacial Maximum was reduced owing to dust-mediated chlorine chemistry</p>
+    <div class="byline"><span class="who">Daphne Meidan, Alfonso Saiz-Lopez 等 · 西班牙国家研究委员会（CSIC）等</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>冰芯记录清楚显示：<b>末次冰盛期的甲烷浓度显著低于全新世</b>。但几十年来主流解释都在<b>源端</b>打转——湿地、反刍动物、生物源减弱。问题是，<b>只用源端调参始终拟合不好冰芯曲线的形态</b>，说明有东西没算进去。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>大气化学建模 + 与冰芯记录比对，在模型中引入一条此前被低估的汇通路：<b>矿物沙尘 × 海盐气溶胶</b>反应生成的<b>氯自由基</b>对甲烷的销毁。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>甲烷在大气中的浓度由<b>源与汇的平衡</b>决定，而"浓度低"既可以是源变少、也可以是<b>寿命变短</b>——后者的效应长期被算作次要项。这条通路之所以在冰期格外重要，是因为<b>冰期沙尘通量远高于间冰期</b>：沙尘表面与海盐气溶胶相遇会释放活性氯（Cl），而 Cl 是甲烷的高效汇。沙尘多 → 氯多 → 甲烷销毁加快 → <b>寿命缩短 → 稳态浓度下降</b>。它对应的是"浓度降低但源未必同步降低"，因此能补上源端模型拟合不上的那一块。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>提出<b>尘埃介导的氯化学汇</b>机制，为 LGM 甲烷低值提供汇端解释。</li>
+          <li>方法学含义：<b>解释古气候痕量气体时，汇端变化不能被默认忽略</b>。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aec4071">10.1126/science.aec4071</a></p>
+  </div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section>
+  <h2><span class="num">03</span>在线优先（First Release）· 1 篇 <span class="badge new">期外</span></h2>
+  <p class="sec-note">已在线发布但尚未编入期次（Crossref 显示卷/期/页码为空）。严格落在本窗口内。</p>
+
+  <div class="card">
+    <p class="title">虚拟生物技术公司：治疗发现与开发的多智能体 AI 框架</p>
+    <p class="title-en">The Virtual Biotech: A multi-agent AI framework for therapeutic discovery and development</p>
+    <div class="byline"><span class="who">Harrison G. Zhang, Peter Eckmann, Jiacheng Miao, Andrew B. Mahon, James Zou · 斯坦福大学</span></div>
+    <div class="layers">
+      <div class="layer">
+        <span class="lb lb-q">问题</span>
+        <p>药物研发的瓶颈早已不是"缺想法"，而是<b>证据分散在几十个数据库与文献里，且需要跨环节串联</b>：靶点从哪来、有没有遗传学支持、临床试验是否已在做、细胞层面表达如何。人做这件事极慢，而单个 LLM 又答不准——<b>它没有权威数据接口，只会编</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-m">手段</span>
+        <p>把研发流程拆成<b>多智能体</b>分工协作，并通过 <b>MCP（模型上下文协议）</b>接入真实工具层：Open Targets（靶点）、cBioPortal（肿瘤基因组）、ClinicalTrials.gov（试验）、CELLxGENE（单细胞）、PubMed 等。</p>
+      </div>
+      <div class="layer mech">
+        <span class="lb lb-p">机理</span>
+        <p>核心不是"让模型更聪明"，而是<b>把检索与推理解耦</b>。LLM 的可靠部分在<b>调度与综合</b>，不可靠部分在<b>事实记忆</b>。多智能体 + MCP 的做法是：<b>让事实全部来自被调用的权威数据库，模型只负责决定"该查什么、以及怎么把结果拼成论证"</b>。分工则让每个智能体只带一段上下文，避免长链条上的信息互相污染。这与本周 Nature 侧 Paper2Agent 的思路同源——<b>把"知道"外置给工具，把"判断"留给模型</b>。</p>
+      </div>
+      <div class="layer">
+        <span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>给出一条可复用的架构范式：<b>MCP 工具层 + 多智能体分工</b>（作者团队延续 2025 年 Nature 的 Virtual Lab 路线）。</li>
+          <li>与本周 Nature 的 Paper2Agent / Delphy 构成<b>同期共振</b>：研发流程本身正在被智能体化。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1126/science.aeg6779">10.1126/science.aeg6779</a>（First Release，2026-09-17）</p>
+  </div>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section>
+  <h2><span class="num">04</span>子刊联动 · 3 篇</h2>
+  <p class="sec-note">本周正刊 <code>In Science Journals</code> 栏目一并预告的系列子刊论文。</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>子刊</th><th>论文</th><th>问题 → 机理 → 结论</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Science Immunology</td>
+          <td>锰佐剂黏膜流感疫苗<br><span class="pg">10.1126/sciimmunol.adz5242</span></td>
+          <td><b>问题</b>：灭活流感疫苗在老年人群效力明显下降。<b>机理</b>：衰老削弱的是黏膜与先天免疫的<b>启动环节</b>，而非抗原本身；锰离子 + cGAS-STING 激动剂脂质体靶向肺泡上皮，把先天启动信号直接补进去，绕过衰老导致的启动缺陷。<b>结论</b>：鼻内单剂把老年小鼠应答拉回<b>年轻水平</b>，并产生跨毒株异型免疫。</td>
+        </tr>
+        <tr>
+          <td>Science Advances</td>
+          <td>重新理解"失败的溢出"<br><span class="pg">10.1126/sciadv.aef2194</span></td>
+          <td><b>问题</b>：反复的动物源溢出（未形成人传人）通常被当作"预警信号"。<b>机理</b>：统计上，若某谱系反复无法在人内维持传播，<b>应下调</b>其具备大流行能力的概率——除非病毒生态发生改变、打开了新的演化通路。因此"找到首例"更可能是<b>已经成功</b>而非早期预警。<b>结论</b>：监测重心应前移到<b>病毒生态变化</b>，而非等人感染。</td>
+        </tr>
+        <tr>
+          <td>Science Signaling</td>
+          <td>RAMP3–MYO6 与淋巴内皮信号<br><span class="pg">10.1126/scisignal.ady6108</span></td>
+          <td><b>问题</b>：RAMP3 调控 GPCR（如 CLR）的信号与转运，但其近邻互作网络不清。<b>机理</b>：邻近蛋白组学在<b>配体刺激条件下</b>捕捉瞬时互作，才捞出马达蛋白 MYO6——它负责把受体内化后沿细胞骨架送进内体，而内体信号正是该通路的效应来源。<b>结论</b>：MYO6 为 RAMP3–CLR 的内体信号与淋巴内皮迁移所必需。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="sec-note" style="margin-top:12px;">Science Signaling 本刊当期另有 <b>Vol 19, Issue 955（2026-09-15）</b>；Science Robotics 为月刊，本周无新期。</p>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section>
+  <h2><span class="num">05</span>展望与评论 · 非研究内容</h2>
+  <p class="sec-note">不计入研究论文。Science 的新闻/政策栏目质量高，故完整保留。</p>
+
+  <h3 class="disc">展望 Perspective（4 篇，均与本期论文配对）</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>标题</th><th>作者</th><th>配套</th></tr></thead>
+      <tbody>
+        <tr><td>In search of past genetics <span class="pg">p1190</span></td><td>Stephen Chanock</td><td>EGFR T790M（p1208）</td></tr>
+        <tr><td>Parsing heterogeneity in autism spectrum disorder <span class="pg">p1188</span></td><td>J. M. Martín, D. H. Geschwind</td><td>ASD 小鼠分型（p1250）</td></tr>
+        <tr><td>Noise and diversity can boost stability <span class="pg">p1185</span></td><td>Raissa M. D'Souza</td><td>Disorder-promoted stability（p1241）</td></tr>
+        <tr><td>A viral origin for RNA-guided immunity <span class="pg">p1187</span></td><td>Jack P. K. Bravo</td><td>VIPR / CRISPR 起源（p1230, p1236）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="disc">新闻 · 深度报道 · 社论 · 读者来信</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>栏目</th><th>标题</th><th>页码</th></tr></thead>
+      <tbody>
+        <tr><td>In Depth</td><td>OpenAI 的突破在数学界引发"存在性危机"</td><td class="pg">p1172-1173</td></tr>
+        <tr><td>In Depth</td><td>AI 与生物武器的报告引发科学家分裂</td><td class="pg">p1174-1175</td></tr>
+        <tr><td>In Depth</td><td>新平台有望扩大会议海报的受众</td><td class="pg">p1175-1176</td></tr>
+        <tr><td>In Depth</td><td>社会科学研究常侵犯参与者隐私</td><td class="pg">p1178-1179</td></tr>
+        <tr><td>In Depth</td><td>加州将斥资数十亿改善鱼类栖息地</td><td class="pg">p1177-1178</td></tr>
+        <tr><td>Feature</td><td>Future forests（未来森林）</td><td class="pg">p1180-1184</td></tr>
+        <tr><td>Editorial</td><td>Biodiversity science's missing species</td><td class="pg">p1170</td></tr>
+        <tr><td>Editorial</td><td>Ban bets on unfinished clinical trials</td><td class="pg">p1171</td></tr>
+        <tr><td>Policy Article</td><td>地缘紧张加速中国企业借力科学（中国学者）</td><td class="pg">p1196-1199</td></tr>
+        <tr><td>Letters</td><td>自由探索有赖迁徙自由 / 预防无人机电子垃圾 / 阿尔伯塔黑熊狩猎</td><td class="pg">p1193-1194</td></tr>
+        <tr><td>Books et al.</td><td>Stephen Hawking 传记书评 / 气候题材小说书评</td><td class="pg">p1191-1192</td></tr>
+        <tr><td>Working Life</td><td>A seismic shift</td><td class="pg">p1262</td></tr>
+        <tr><td>Research Highlights</td><td>In Science Journals / In Other Journals（本期速览，非论文）</td><td class="pg">p1200-1202</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section>
+  <h2><span class="num">06</span>贯穿本期的一条方法学主线</h2>
+  <p class="sec-note">把 15 篇的"机理"层横着读一遍，会发现几个反复出现的解题动作。这才是周报里最值得带走的东西。</p>
+
+  <div class="callout">
+    <h4>动作一 · 换掉一个"观测口径"，从而看见原本看不见的东西</h4>
+    <p><b>声的量子跃迁</b>把读出从"位置"换到"声子数"；<b>sOrganellomics</b>把读出从"转录本"换到"细胞器形态"；<b>ASD 分型</b>把读出从"风险基因"换到"分子程序"。三篇学科完全不同，但解法是同一个：<b>不是把原有指标测得更准，而是换一个可观测量</b>。当旧指标怎么测都测不出目标现象时，该换的是观测量，不是精度。</p>
+  </div>
+
+  <div class="callout">
+    <h4>动作二 · 把"维持"与"运算"解耦</h4>
+    <p><b>中性原子中途重装</b>（补料不损伤已运行比特）与<b>超冷分子损耗抑制</b>（用场控缀饰态把碰撞推离损失通道）走的都是这条路。共同点是把系统里那个"拖后腿的副过程"单独拎出来，用<b>一个不影响主过程的手段</b>按住它。这类"解耦式"改进往往比直接提升主过程指标更有效。</p>
+  </div>
+
+  <div class="callout">
+    <h4>动作三 · 去掉最贵的那一项监督成本</h4>
+    <p><b>RADAR</b> 用临床报告替代人工标注，本质是把<b>已有的、免费的、覆盖罕见的</b>文本数据变成监督信号；<b>Virtual Biotech</b> 用 MCP 工具层替代模型的事实记忆，本质是把"知道"外置。两者都不是让模型更强，而是<b>换掉最贵的那一环</b>。</p>
+  </div>
+
+  <div class="callout">
+    <h4>一条反向提示</h4>
+    <p>本期有两篇是<b>推翻默认假设</b>的：<b>Disorder-promoted stability</b>（异质性不必然有害，旧结论来自过强的模型假设）与<b>冰期甲烷氯汇</b>（浓度低不一定意味着源少，汇端长期被默认忽略）。共同特征是——<b>当"既有解释怎么调参都拟合不好"时，被默认忽略的那一项往往是缺口所在</b>。这是个可以直接迁移到别处的排查习惯。</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>口径与不确定声明</b></p>
+  <p>
+    <b>统计窗口：</b>2026-09-14（周一）至 2026-09-18（周五）。对应 Science <b>Vol 393, Issue 6817</b>，期日 <b>2026-09-17</b>。
+  </p>
+  <p>
+    <b>数据源：</b>官方 eTOC RSS（整期 37 条目次）作主干；Crossref 补 DOI/页码并发现 1 篇未编期 First Release；摘要取自官网单篇 DOI 页与本刊 <code>In Science Journals</code> 栏目（p1200-1202）。官方 TOC 页受 Cloudflare 拦截，<b>本期封面说明未收录</b>。
+  </p>
+  <p>
+    <b>关键口径差异：</b>Europe PMC 对 Nature 实时（本周 50 条），但对 <b>Science 本周返回 0 条</b>（9 月全月最新仅到 9/11）。故本期枚举完全不走 EPMC。
+  </p>
+  <p>
+    <b>⚠️ 关于"机理"层的性质（重要）：</b>四层中的<b>问题 / 手段 / 结论</b>三层均取自论文的编辑摘要、原文摘要或官网页面；但<b>"机理"层是解释性归纳</b>——基于上述材料与学科通用原理，由助手重建的因果链，目的是让人理解"为什么这样能成立"。<b>它不等于作者的原始表述，也不应被当作论文原文引用。</b>若需在写作中引用机制，请回原文核对。
+  </p>
+  <p>
+    <b>研究论文计数口径：</b>官方 RSS 的 <code>dc:type</code> 将本期全部原创研究统一标为 <code>Research Article</code>，<b>未细分 Report 与 Research Article</b>，故统一称"研究论文 15 篇"。展望、社论、读者来信、书评、新闻、速览栏目均不计入；本期无勘误与撤稿。
+  </p>
+  <p>
+    <b>待核实项：</b>① 页码区间对 p1203-1208 等 6 篇来自起始页引用，区间以原文为准；② 中国团队机构归属依据作者姓名与通讯邮箱判断，个别单位以原文为准；③ 子刊三篇的机理描述基于正刊栏目的编辑摘要，未展开全文核对。
+  </p>
+  <p>
+    生成时间：2026-09-18 · 追踪规范：<code>journal-paper-tracking / references/journals/science.md</code>
+  </p>
+</footer>
+
+</div>
+</body>
+</html>

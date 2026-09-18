@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cell 周报 · 深读版 · 2026年9月14日–18日（Vol 189, Issue 19）</title>
+<style>
+  :root{
+    --ink:#12161c; --ink-2:#3d4753; --ink-3:#6b7683;
+    --line:#e3e7ec; --bg:#f6f7f9; --card:#fff;
+    --accent:#1a4d8f; --accent-soft:#e8f0fa;
+    --blue:#1d4e89; --blue-soft:#eaf1f9;
+    --blue-line:#cfe0f2;
+    --teal:#0f6e56; --teal-soft:#f1f9f6; --teal-line:#c9e7dc;
+    --rose:#9b2c47; --rose-soft:#fbecef;
+    --warm:#a8541b; --warm-soft:#fbf0e6;
+    --violet:#5b3f8f; --violet-soft:#f0ecfa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Segoe UI","PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+    font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1020px;margin:0 auto;padding:44px 26px 80px;}
+
+  header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:30px;}
+  .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-size:33px;line-height:1.25;margin:10px 0 12px;letter-spacing:-.4px;}
+  .sub{color:var(--ink-2);max-width:820px;}
+  .stamp{margin-top:16px;font-size:12.5px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:6px 20px;}
+
+  .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:11px;margin:0 0 14px;}
+  .metric{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:15px 16px;}
+  .metric .n{font-size:26px;font-weight:700;letter-spacing:-.5px;color:var(--accent);line-height:1.1;}
+  .metric .l{font-size:12.5px;color:var(--ink-3);margin-top:5px;}
+
+  .method{background:var(--blue-soft);border:1px solid var(--blue-line);border-radius:10px;padding:15px 19px;margin:0 0 14px;font-size:13.5px;color:var(--ink-2);}
+  .method b{color:var(--ink);}
+  .method code{font-family:Consolas,Menlo,monospace;font-size:12.5px;background:#fff;border:1px solid #d8e4f0;border-radius:4px;padding:1px 5px;word-break:break-all;}
+  .method .warn{display:block;margin-top:9px;padding-top:9px;border-top:1px dashed #c3d5e8;}
+
+  .howto{background:var(--teal-soft);border:1px solid var(--teal-line);border-radius:10px;padding:15px 19px;margin:0 0 38px;font-size:13.5px;color:var(--ink-2);}
+  .howto b{color:var(--ink);}
+  .howto dl{margin:8px 0 0;display:grid;grid-template-columns:44px 1fr;gap:6px 12px;}
+  .howto dt{font-weight:700;color:var(--teal);font-size:12.5px;}
+  .howto dd{margin:0;font-size:13px;}
+
+  section{margin-bottom:44px;}
+  h2{font-size:20px;margin:0 0 6px;letter-spacing:-.2px;display:flex;align-items:baseline;gap:10px;}
+  h2 .num{font-size:12px;color:var(--ink-3);font-weight:600;letter-spacing:.1em;}
+  .sec-note{color:var(--ink-3);font-size:13px;margin:0 0 20px;}
+
+  h3.disc{font-size:13px;letter-spacing:.1em;margin:26px 0 12px;color:var(--ink-2);
+    display:flex;align-items:center;gap:9px;font-weight:700;}
+  h3.disc::after{content:"";flex:1;height:1px;background:var(--line);}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:17px 20px;margin-bottom:13px;}
+  .card:hover{border-color:#c9d1da;}
+  .card .title{font-size:16.5px;font-weight:650;line-height:1.45;margin:0 0 3px;}
+  .card .title-en{font-size:13.5px;color:var(--ink-3);font-style:italic;margin:0 0 10px;line-height:1.5;}
+  .byline{font-size:12.5px;color:var(--ink-3);margin-bottom:12px;display:flex;flex-wrap:wrap;gap:4px 14px;}
+  .byline .who{color:var(--ink-2);font-weight:600;}
+
+  .layers{margin:0 0 12px;}
+  .layer{display:grid;grid-template-columns:46px 1fr;gap:11px;padding:8px 0;border-top:1px solid #f0f2f5;}
+  .layer:first-child{border-top:none;padding-top:3px;}
+  .layer .lb{font-size:11.5px;font-weight:700;letter-spacing:.06em;padding-top:2px;}
+  .lb-q{color:var(--blue);}
+  .lb-m{color:var(--ink-3);}
+  .lb-p{color:var(--teal);}
+  .lb-r{color:var(--accent);}
+  .layer p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.64;}
+  .layer p b{color:var(--ink);font-weight:650;}
+  .layer.mech{background:var(--teal-soft);border-radius:8px;padding:10px 12px;margin:5px 0 5px -12px;
+    grid-template-columns:46px 1fr;border-top:none;border-left:3px solid var(--teal);}
+  .layer.mech .lb{padding-left:0;}
+
+  ul.finds{margin:0;padding-left:0;list-style:none;}
+  ul.finds li{position:relative;padding-left:16px;font-size:13.5px;color:var(--ink-2);margin-bottom:5px;line-height:1.62;}
+  ul.finds li:last-child{margin-bottom:0;}
+  ul.finds li::before{content:"";position:absolute;left:2px;top:9px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  ul.finds b{color:var(--ink);font-weight:650;}
+
+  .doi{font-size:12px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);word-break:break-all;
+    padding-top:9px;border-top:1px solid #f0f2f5;}
+  .doi a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #9db6d4;}
+
+  .badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;letter-spacing:.03em;
+    background:var(--accent-soft);color:var(--accent);vertical-align:2px;margin-left:6px;}
+  .badge.cn{background:var(--blue-soft);color:var(--blue);}
+  .badge.hot{background:var(--rose-soft);color:var(--rose);}
+  .badge.new{background:var(--warm-soft);color:var(--warm);}
+  .badge.rev{background:var(--violet-soft);color:var(--violet);}
+  .pg{font-size:11.5px;font-family:Consolas,Menlo,monospace;color:var(--ink-3);}
+
+  .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:var(--card);}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:600px;}
+  thead th{text-align:left;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+    font-weight:700;padding:11px 14px;border-bottom:1px solid var(--line);background:#fafbfc;}
+  tbody td{padding:10px 14px;border-bottom:1px solid #eef1f4;vertical-align:top;color:var(--ink-2);}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody td:first-child{color:var(--ink);font-weight:600;}
+
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+    border-radius:8px;padding:15px 19px;margin:0 0 12px;}
+  .callout h4{margin:0 0 6px;font-size:14.5px;}
+  .callout p{margin:0;font-size:13.5px;color:var(--ink-2);}
+  .callout p + p{margin-top:7px;}
+
+  footer{margin-top:50px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3);line-height:1.75;}
+  footer b{color:var(--ink-2);}
+  @media(max-width:640px){.wrap{padding:28px 16px 56px;}h1{font-size:24px;}.card{padding:14px 15px;}
+    .layer{grid-template-columns:1fr;gap:2px;}
+    .layer .lb{padding-top:6px;}
+    .layer.mech{margin-left:-10px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="kicker">Cell Press · 顶刊追踪 · 深读版</div>
+  <h1>Cell 周报：细胞生物学的 AI 转向</h1>
+  <p class="sub">2026 年 9 月 14 日 – 18 日 · <b>Vol 189, Issue 19</b>（期日 2026-09-17）·
+  本期研究论文 17 篇 + 综述 1 篇，另本周线上优先 6 篇。
+  四层深读：问题 → 手段 → 机理 → 结论。</p>
+  <div class="stamp">
+    <span>生成时间：2026-09-18</span>
+    <span>窗口：2026-09-14 ~ 2026-09-18</span>
+    <span>来源：Cell eTOC RSS（主干）+ Europe PMC + 官网单篇页</span>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="metric"><div class="n">17</div><div class="l">本期研究论文</div></div>
+  <div class="metric"><div class="n">1</div><div class="l">本期综述</div></div>
+  <div class="metric"><div class="n">6</div><div class="l">本周线上优先（AOP）</div></div>
+  <div class="metric"><div class="n">4</div><div class="l">中国团队（含 AOP）</div></div>
+  <div class="metric"><div class="n">7</div><div class="l">非研究内容</div></div>
+  <div class="metric"><div class="n">1</div><div class="l">勘误</div></div>
+</div>
+
+<div class="method">
+  <b>★ 本刊口径特殊，请先读这段。</b>Cell 是<b>双周刊</b>，且论文的<b>在线首发（AOP）提前期极长</b>——
+  本期 17 篇研究论文的首发日横跨 <b>7 月中旬至 9 月 17 日</b>，只有 3 篇是随本期上线的。
+  因此"本周 Cell 发了什么"存在两个不重叠的口径：
+  <span class="warn">
+  <b>口径 A · 期次</b>：Vol 189, Issue 19（2026-09-17 出版）= 26 条内容，其中研究论文 17 篇、综述 1 篇。
+  这是"这一期讲了什么"。<br>
+  <b>口径 B · 在线首发</b>：本周（09-14 ~ 09-18）新上线 <b>6 篇</b>，<b>全部尚未编入任何期次</b>。
+  这是"这周有什么新东西"。<br>
+  <b>两个集合的交集为空</b>——本期内容没有一篇是在本周首发的，本周首发的也没有一篇进了本期。
+  若只看其中一个口径，会得到完全不同的结论。本报告两个口径都给出。
+  </span>
+</div>
+
+<div class="howto">
+  <b>怎么读这四层</b>——每篇卡片按下面四层展开，其中「机理」是本报告新增的核心层。
+  <dl>
+    <dt>问题</dt><dd>这篇要攻的卡点，以及<b>上一代方案为什么不够</b>。这一层决定你能不能迁移联想。</dd>
+    <dt>手段</dt><dd>实际用的技术 / 体系 / 队列，带关键量级。写"用了什么"而非"研究了什么"。</dd>
+    <dt>机理</dt><dd>为什么这个手段能绕过那个卡点——<b>因果链</b>，不是背景知识。<b>此层为解释性归纳，非作者原话</b>（详见文末口径声明）。</dd>
+    <dt>结论</dt><dd>带数字的结果，同时写成立条件与边界。</dd>
+  </dl>
+</div>
+
+<section>
+  <h2><span class="num">01</span>AI 与计算方法<span class="badge hot">本期主线</span></h2>
+  <p class="sec-note">6 篇。本期 Cell 的重心所在：从数据基建、扰动响应预测，到评估基准与临床转化。</p>
+
+  <div class="card">
+    <div class="title">跨细胞上下文预测扰动响应的基础模型 State</div>
+    <div class="title-en">Predicting cellular responses to perturbation across diverse contexts with State</div>
+    <div class="byline"><span class="who">Arc Institute（美国）</span><span>Adduri / Roohani 等</span><span class="pg">p5914</span><span class="pg">首发 2026-08-31</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>机器学习预测扰动的转录组效应时，<b>难以跨细胞上下文泛化</b>：同一扰动在不同细胞类型、不同状态下效果并不相同。上一代模型把细胞当作同质群体处理，等于把"上下文"这个自变量扔掉了——所以在训练分布之外系统性失灵。</p></div>
+      <div class="layer"><span class="who lb lb-m">手段</span><p>在<b>共享嵌入空间</b>中对"细胞集合"而非单个细胞建模，用单细胞基因表达数据训练；嵌入由 <b>1.67 亿细胞</b>的观测数据习得。同时发布评估框架 <b>Cell-Eval</b>。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>把"细胞上下文"从噪声重新定义为显式表示</b>。扰动效应本质上是上下文与扰动的联合函数，不是固定映射；因此训练目标随之从"预测某个表达值"变成"预测一组细胞的效应分布"。<b>之所以能泛化到训练中从未出现扰动的上下文，正是因为上下文被编码成了可比的向量</b>——模型借的不是见过的扰动，而是见过的细胞状态。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>大数据库上效应判别力提升 <b>&gt;30%</b>；识别遗传、信号与化学扰动的差异表达基因，准确率显著优于基线</li>
+          <li>zero-shot 泛化：能在训练时未观测到扰动的细胞上下文中识别强扰动</li>
+          <li><b>边界</b>：效果依赖观测数据的上下文覆盖度；作者未声称对完全新奇的细胞类型成立</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.052">10.1016/j.cell.2026.07.052</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">scBaseCount：由 AI 智能体自主策展的单细胞数据仓库</div>
+    <div class="title-en">scBaseCount: An AI agent-curated, standardized, auto-updated single-cell data repository</div>
+    <div class="byline"><span class="who">Arc Institute（美国）</span><span>Youngblut / Roohani 等</span><span class="pg">p5932</span><span class="pg">首发 2026-09-17</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>公共单细胞数据散落在 SRA，格式、注释、处理流程各不相同。整合它们的成本几乎全落在人工策展上——<b>而要整合的数据量远超任何团队能手工处理的规模</b>，这就是该领域数据复用的真实瓶颈。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>用 <b>AI 智能体</b>自主发现、注释并统一重处理 SRA 中<b>全部 10× Genomics 数据集</b>，产出持续更新的协调化仓库。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>因果链在于<b>任务性质匹配</b>：策展工作的特征是规则明确、重复度极高、但总量巨大——这正是智能体的适用区间，而非人类研究员的能力区间。把这一环交出去之后，剩下的瓶颈就从"人力"变成了"吞吐"，而吞吐可以靠算力线性扩展。<b>这也是它敢承诺"auto-updated"的前提</b>：流程一旦规则化，增量维护就不再需要重新投入人力。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>当前最大的公共 scRNA-seq 仓库：<b>5.02 亿+ 细胞</b>，覆盖 <b>27 个物种、75 种组织</b></li>
+          <li>协调化、持续更新，可复现的重处理管线</li>
+          <li><b>边界</b>：仅覆盖 10× Genomics 平台的数据；其他平台未纳入</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.025">10.1016/j.cell.2026.08.025</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">Tahoe-100M：单细胞分辨率的药物诱导分子表型图谱</div>
+    <div class="title-en">Tahoe-100M: Mapping drug-induced molecular phenotypes at single-cell resolution</div>
+    <div class="byline"><span class="who">Arc Institute / Tahoe Therapeutics（美国）</span><span>Zhang / Yu 等</span><span class="pg">p5945</span><span class="pg">首发 2026-09-17</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>药物机制与细胞响应之间缺少<b>大规模配对数据</b>。传统药物筛选读出的是群体平均指标，把细胞间异质性平均掉了——而耐药、旁路激活这类关键现象恰恰藏在异质性里。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p><b>1 亿</b>单细胞转录组，覆盖 <b>50 个癌细胞系 × 约 1,100 种药物-剂量处理</b>，公开可得。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>这里的机理是<b>尺度即方法</b>：药物响应的异质性只有在足够大的"细胞系 × 药物 × 剂量"网格上才可解析——因为要区分"药物特异效应"与"细胞系背景效应"，必须有足够多的交叉组合来解耦。把单细胞与分子表型在同一实验内配对，使得"机制 → 响应"成为可统计的映射，而不是逐案例的叙事。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>1 亿细胞 / 50 细胞系 / ~1,100 药物-剂量组合的公开图谱</li>
+          <li>将药物机制与单细胞响应直接关联，为扰动预测模型提供训练底座</li>
+          <li><b>边界</b>：限于体外癌细胞系，未含原代或体内环境</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.035">10.1016/j.cell.2026.08.035</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">MitoSpace：用表征学习解锁线粒体的四维时空表型景观</div>
+    <div class="title-en">4D spatiotemporal landscape of mitochondrial phenotypes across cellular states unlocked through representation learning</div>
+    <div class="byline"><span class="who">UC San Diego（美国）</span><span>Agarwal / Schöneberg 等</span><span class="pg">p5962</span><span class="pg">首发 2026-09-10</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>线粒体表型本质是四维的（x, y, z, 时间），但既往分析依赖<b>人工预定义特征</b>（面积、长宽比等）。这些特征既丢掉了体积与时间信息，也预设了"什么值得测"——<b>等于用旧指标去测新现象</b>。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p><b>自监督</b>深度学习模型，在 TB 级单细胞<b>晶格光片显微镜</b>数据上训练，不做标注；配回归探针与交互式浏览器。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>两个结论互为支撑。其一，消融实验显示表征质量<b>从 2D → 3D → 4D 单调提升</b>，说明体积与时间信息是<b>必要而非冗余</b>的——这直接反驳了"用 2D 投影近似即可"的既有做法。其二，无需标注即可从形态预测膜电位（<b>R² = 0.91</b>），意味着<b>形态与功能之间存在稳定可学的映射</b>；这正是"以形态读出功能、免去功能测量"这一思路成立的依据。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>药物分类任务上，学得的潜在表征优于预定义特征</li>
+          <li>膜电位预测 <b>R² = 0.91</b>，建立单细胞尺度"形态—功能"定量映射</li>
+          <li>zero-shot 泛化到<b>未见扰动</b>与<b>人肺类器官</b></li>
+          <li><b>边界</b>：训练数据为特定显微平台；跨平台迁移未验证</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.028">10.1016/j.cell.2026.08.028</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">衰老生物学 AI 的开放基准与语言模型</div>
+    <div class="title-en">An open benchmark and language models for AI in aging biology</div>
+    <div class="byline"><span class="who">Insilico Medicine 等</span><span>Zhavoronkov / Gladyshev 等</span><span class="pg">p5980</span><span class="pg">首发 2026-09-17</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>AI 在衰老研究中的实际能力<b>缺乏标准评估</b>。此前判断"某系统是否够用"只能靠案例叙事与个案演示，<b>无法比较、也无法复盘</b>——这让该领域的 AI 进展停留在印象层面。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>三件套：<b>LongevityBench</b>（基准）、<b>Longevity-LLMs</b>（领域语言模型）、<b>Longevity Claw</b>（评估工具）。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在于<b>先建度量、再谈能力</b>。基准的作用不是提升模型分数，而是把"AI 是否已准备好主导衰老研究"这个原本不可证伪的判断，转换为<b>可比较、可复查的分数</b>。一旦度量存在，后续模型的改进方向就从"看起来更强"变成"在哪个具体任务上还差多少"。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>提供基准 + 领域模型 + 评估工具的完整开放套件</li>
+          <li>评估当前最先进 AI 系统在衰老研究中的<b>就绪度</b>（readiness）</li>
+          <li><b>边界</b>：基准的结论只对其任务集负责，不等于领域整体能力评价</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.026">10.1016/j.cell.2026.08.026</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">用常规纵向临床数据推进癌症检测与治疗<span class="badge cn">中国团队</span></div>
+    <div class="title-en">Advancing cancer detection and treatment using longitudinal routine clinical data</div>
+    <div class="byline"><span class="who">温州医科大学附属第一医院 + 中国医学科学院肿瘤医院 + 中国澳门科技大学 + 广州实验室</span><span>Liu / Zhang（张康）等</span><span class="pg">p5995</span><span class="pg">首发 2026-07-27</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>癌症管理在诊疗连续体上是<b>割裂</b>的：晚期诊断、挽救治疗、非个性化随访各管一段。既往的影像 AI 大多要求<b>额外的新检查</b>——这直接抬高了部署门槛，是落地失败的主要原因。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>多模态 transformer <b>Oncoformer</b>，训练于 COMPASS 队列（<b>367 万人 / 1,770 万次就诊</b>），融合纵向电子病历与<b>胸片</b>；外部验证含英国生物银行。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>核心在于<b>只用已经采集的数据</b>——化验单与胸片是常规诊疗的副产物，边际获取成本近零。这消除了"需要新增检测设备或流程"这一最大部署障碍。<b>同时，纵向 EHR 天然携带时间维度</b>，使任务从"判断当下是否有癌"转为"预测轨迹"，让提前一年预警在数据层面成为可能，而不需要额外的随访设计。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>泛癌诊断 <b>AUROC = 0.956</b>；提前 1 年预测 <b>AUROC = 0.869</b></li>
+          <li>肿瘤分期推断平均 <b>AUROC &gt; 0.90</b>；十种癌症的无复发生存分层（均 p &lt; 0.01）</li>
+          <li>分期预测经术后病理独立验证，并收敛于核心癌症基因组通路</li>
+          <li><b>边界</b>：主队列为中国人群，跨人群泛化虽有 UK Biobank 部分验证，仍需更广验证</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.009">10.1016/j.cell.2026.07.009</a></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">02</span>空间组学与组织图谱</h2>
+  <p class="sec-note">4 篇。共同主题是<b>把测量推到"原位"</b>——不破坏组织、不丢失空间坐标。</p>
+
+  <div class="card">
+    <div class="title">Sprox-seq：把蛋白相互作用放进测序的语法里</div>
+    <div class="title-en">Spatial proximity sequencing maps developmental dynamics in the germinal center</div>
+    <div class="byline"><span class="who">芝加哥大学（美国）</span><span>Wang / Tay 等</span><span class="pg">p6153</span><span class="pg">首发 2026-07-16</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>空间组学通常二选一：测 mRNA，或测蛋白质。但<b>蛋白-蛋白相互作用（复合物）的空间信息两者都拿不到</b>——而细胞功能（信号、免疫识别）恰恰由相互作用而非单一分子丰度决定。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>邻近连接 + 空间转录组联用。<b>32 种蛋白、528 对互作、数千种 mRNA</b>，带空间坐标，在人扁桃体与生发中心成像。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>把"邻近"这个空间事实转译成可测序的 DNA</b>。蛋白相互作用本来没有天然的测序读出，但邻近连接会在两个蛋白靠得足够近时生成一段可扩增的接头序列——于是互作被纳入测序的语法，与 mRNA 用同一套读出。因为 mRNA 与蛋白读出<b>共享同一张切片、同一坐标系</b>，才能把"蛋白互作轨迹"与"转录状态轨迹"逐点比对，而不是在两个实验间猜测对应关系。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>重现了 RNA 定义的组织架构，但在<b>亮区</b>发现更高的互作复杂度</li>
+          <li>蛋白互作轨迹揭示一个 <b>RNA 推断不出的 B 细胞状态转变</b></li>
+          <li>捕捉到 <b>VLA-4–VCAM1</b> 介导的 B 细胞–滤泡树突状细胞互作</li>
+          <li>空间富集的复合物与有丝分裂通路相关联</li>
+          <li><b>边界</b>：32 蛋白面板为定制，覆盖度受抗体/探针可用性限制</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.06.034">10.1016/j.cell.2026.06.034</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">人脑血管空间图谱揭示特化的"血管细胞集合"</div>
+    <div class="title-en">Spatial atlas of the human brain vasculature reveals specialized cell ensembles</div>
+    <div class="byline"><span class="who">UC San Francisco（美国）</span><span>Wang / Winkler 等</span><span class="pg">p6125</span><span class="pg">首发 2026-07-31</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>脑血管由多种特化细胞构成，但它们<b>如何空间组织</b>一直不清楚。用细胞类型清单描述血管，无法回答"哪一段血管负责哪项功能"。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>两级图谱：单细胞构建 <b>314,535</b> 个转录组的脑血管细胞图谱；空间转录组在颞叶皮层与海马定位 <b>1,529,740</b> 个细胞。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>核心是换了描述单位：不按<b>细胞类型</b>分类，而按沿动静脉轴反复共同出现的<b>细胞组合（vascular cell ensembles）</b>定义功能单元。理由是血管功能本身分段特异——神经血管耦合、血脑屏障转运、免疫监视各由不同节段承担，每种功能都需要内皮、壁细胞、成纤维、血管周巨噬在同一位置协同。因此<b>功能单位是"组合"而非"类型"</b>。这个换位使得遗传风险与药理反应可以落到具体节段，而不只是"某个细胞类型"。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>定义出与动静脉架构对齐的 <b>vascular cell ensembles</b>，协调分段特异功能</li>
+          <li>叠加遗传风险与药理反应后，识别出 ensemble 特异的易感性与候选靶点</li>
+          <li>覆盖小血管病、卒中等神经系统疾病</li>
+          <li><b>边界</b>：取材限于颞叶皮层与海马，其他脑区未验证</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.007">10.1016/j.cell.2026.07.007</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">组织内单细胞的全转录组尺度、isoform 分辨空间成像</div>
+    <div class="title-en">Whole-transcriptome-scale isoform-resolved spatial imaging of single cells in tissues</div>
+    <div class="byline"><span class="who">哈佛大学 / HHMI（美国，庄小威团队）</span><span>Cohen / Zhuang 等</span><span class="pg">p6189</span><span class="pg">首发 2026-07-16</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>MERFISH 已能测全转录组，但<b>分辨不了 isoform（剪接变体）</b>——因为探针靶向的序列往往太短，信号不足。而大量生物学差异恰恰在剪接层面，不在基因丰度层面。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p><b>原位 RNA 扩增</b>方法，与多重误差稳健 FISH（MERFISH）整合。在小鼠脑成像约 <b>33,000 种 RNA</b>（约 23,000 基因 + 约 10,000 isoform）。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>原位扩增把短序列"变长"</b>。isoform 检测的瓶颈是靶序列短、可杂交位点少、信号不够；在原位先把目标 RNA 扩增，等于在不移动分子的前提下提高有效信号量，于是短序列也被拉进了可成像范围。<b>既保住空间坐标，又拿到剪接分辨率</b>——这是此前二者不可兼得的地方。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>在完整组织中对单细胞实现全转录组尺度、isoform 分辨的空间检测</li>
+          <li>揭示 isoform 使用的空间多样性与细胞类型特异性，指出 isoform 特异性特别丰富的脑结构</li>
+          <li>支持区域/细胞类型特异的基因程序与配体–受体通讯分析</li>
+          <li><b>边界</b>：演示于小鼠脑组织，方法学向其他组织推广需重新验证探针体系</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.06.027">10.1016/j.cell.2026.06.027</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">空间生物学揭示免疫抑制下非黑色素瘤皮肤癌的巨噬细胞状态改变</div>
+    <div class="title-en">Spatial biology reveals altered macrophage states in immunosuppressed non-melanoma skin cancer</div>
+    <div class="byline"><span class="who">MD Anderson 癌症中心（美国）</span><span>Naara / Amit 等</span><span class="pg">p6170</span><span class="pg">首发 2026-08-05</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>接受系统性免疫抑制的患者，非黑色素瘤皮肤癌预后更差，但<b>免疫抑制究竟改变了肿瘤免疫微环境的什么</b>，此前定义不清——因此也无法针对性地干预。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>四技术联用：单细胞、空间转录组、多重免疫荧光、空间表观组，对比免疫正常与免疫抑制肿瘤；多队列跨平台验证。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>最关键的观察是<b>细胞组成基本保留，变的是空间组织</b>。这指向一个明确的机制方向：免疫抑制的作用点不在"细胞有没有"，而在"细胞能不能碰上"——抗原呈递细胞与 T 细胞的空间接触被破坏，T 细胞克隆多样性随之下降。<b>由此推出的推论（本报告归纳）是：修复策略应针对恢复空间组织结构，而非单纯补充细胞数量。</b></p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>免疫抑制肿瘤中<b>瘤内巨噬细胞密度降低</b>、T 细胞克隆多样性下降</li>
+          <li>抗原呈递细胞与 T 细胞的空间互作改变，出现独特的成纤维–巨噬相关空间龛</li>
+          <li>多队列跨平台验证了一致的天然–适应性免疫组织改变</li>
+          <li><b>边界</b>：结果为关联性描述，干预性验证（如恢复空间结构能否改善预后）未做</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.031">10.1016/j.cell.2026.07.031</a></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">03</span>细胞、发育与免疫</h2>
+  <p class="sec-note">4 篇。包含本期第二篇中国团队工作。</p>
+
+  <div class="card">
+    <div class="title">结构域重组设计的合成转录因子增强 CAR T 抗肿瘤功能</div>
+    <div class="title-en">Synthetic transcription factors designed by domain recombination enhance CAR T cell antitumor function</div>
+    <div class="byline"><span class="who">斯坦福大学（美国）</span><span>Takacsi-Nagy / Satpathy 等</span><span class="pg">p6024</span><span class="pg">首发 2026-08-19</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>改造 CAR T 功能通常基于<b>天然序列或定点突变</b>。问题在于天然蛋白是进化路径的产物，<b>进化只采样了可行解空间的极小一部分</b>，而定点突变只能在已有序列的邻域内搜索。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>跨整个蛋白家族重组结构域，生成合成转录因子 <b>DESynR</b>（domain engineered via synthesis and recombination）。在人工 T 细胞中测试 AP-1 家族，并筛 ETS 与 FOX 家族验证可推广性。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>把搜索空间从"序列邻域"换成"结构域组合空间"</b>。重组允许产生进化从未采样过的组合，因此理论上可达天然序列之外的功能区。更重要的是发现：重编程<b>主要来自对已知 AP-1 结合调控元件的差异调控，而非全新结合位点</b>——这说明新功能来自"<b>怎么用现有元件</b>"，而不是"找到新元件"。这一条决定了该方法不需要依赖新 motif 的发现，可迁移性强。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>DESynR AP-1 在体外与体内抗肿瘤试验中<b>显著优于天然 AP-1</b></li>
+          <li>诱导广泛的转录与表观重编程，建立非天然 T 细胞状态，同时优化耗竭、效应/细胞毒与持久性</li>
+          <li>有时借用来自其他细胞类型的基因模块</li>
+          <li>ETS 与 FOX 家族筛选支持跨蛋白家族的通用性</li>
+          <li><b>边界</b>：主要数据来自人工 T 细胞体系；体内长期安全性与致瘤风险未评估</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.054">10.1016/j.cell.2026.07.054</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">肠道肌肉的性别与生殖可塑性决定肠尺寸</div>
+    <div class="title-en">The sex and reproductive plasticity of intestinal muscles instruct gut size</div>
+    <div class="byline"><span class="who">Francis Crick 研究所（英国）</span><span>Mineo / Miguel-Aliaga 等</span><span class="pg">p6078</span><span class="pg">首发 2026-08-11</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>成体器官的大小变化通常归因于<b>上皮干细胞动态</b>。但这个解释只cover了"细胞数量"，<b>解释不了"器官长度"</b>——长度是机械属性，不是细胞计数的直接结果。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>果蝇与小鼠。通过改变肠肌细胞自身的<b>性别或生殖状态</b>做功能获得/缺失实验。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>核心是<b>把尺寸调控的位点从上皮层移到肌肉层</b>。肠道长度由外层内脏肌决定；肌肉内在的性别决定因子控制肌原纤维宽度与器官大小。雌性肌肉在生殖期整合<b>激素与营养</b>两类输入，延长肌节，从而降低肠道转运、进一步增大器官。<b>结论：器官尺寸受外源控制，肌肉是主动响应者而非被动包裹物</b>——这解释了为何同一器官能随生理状态可逆地伸缩。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>肠道尺寸由周围肌肉从外源控制，而非仅由上皮干细胞决定</li>
+          <li>肌肉内在性别决定因子决定基线性别差异（肌原纤维宽度与器官大小）</li>
+          <li>该重塑具适应性，且<b>在小鼠中同样存在</b>（跨物种支持）</li>
+          <li>肌肉被重新定义为响应特定信号、调节成体器官级特征的主动调控者</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.024">10.1016/j.cell.2026.07.024</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">硼桥连的 GIPC 稳定细胞壁锚定与 PIN 极性域<span class="badge cn">中国团队</span></div>
+    <div class="title-en">Boron-bridged GIPCs stabilize cell wall anchoring and PIN polar domains</div>
+    <div class="byline"><span class="who">北京大学现代农业研究院 + 山东省现代农业研究院（中国山东潍坊）</span><span>He / Jiao（焦雨铃）等</span><span class="pg">p6111</span><span class="pg">首发 2026-07-16</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>硼是必需微量元素，缺硼严重降低作物产量，但<b>硼的分子作用机制长期不清楚</b>。而 GIPC（质膜主要脂类）与 PIN 生长素转运蛋白此前被视为两套无关系统。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>证明硼交联几乎所有 GIPC 系列，形成可见的质膜–细胞壁连接（<b>Hechtian 丝</b>）；结合遗传与表型证据（硼缺乏、GIPC 合成缺陷、高阶 pin 突变体比较）。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在于<b>硼扮演的是物理交联剂，不是信号分子</b>。硼能与糖脂的顺式二醇形成酯键，把 GIPC 交联成网络，从而把质膜"钉"在细胞壁上（局限在质膜外侧，因此不破坏膜完整性）。这个锚定<b>限制了 PIN2 的侧向扩散与内吞</b>——而极性定位恰恰依赖于"限制扩散"这一力学条件。所以硼的作用是通过约束膜流动性来维持极性蛋白的域结构，<b>而非通过转录或信号通路</b>。这解释了为何缺硼会表型拟似 pin 突变体。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>硼交联 GIPC，形成质膜–细胞壁物理连续体</li>
+          <li>硼介导的交联通过直接的 GIPC–PIN2 相互作用，限制侧向扩散与内吞，稳定 PIN2 极性域</li>
+          <li>缺硼与 GIPC 合成受损<b>均表型拟似高阶 pin 突变体</b>，表现为 PIN 定位缺陷与生长素极大值下降</li>
+          <li><b>边界</b>：机制在拟南芥类体系建立；田间作物产量提升的因果链未直接验证</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.06.028">10.1016/j.cell.2026.06.028</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">心脏内在神经系统对心脏功能与生存不可或缺</div>
+    <div class="title-en">The intrinsic cardiac nervous system is essential for cardiac function and survival</div>
+    <div class="byline"><span class="who">耶鲁大学医学院（美国）</span><span>Xu / Chang 等</span><span class="pg">p6061</span><span class="pg">首发 2026-07-22</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>心脏内在神经系统（ICNS）是心脑沟通的关键节点，也是心脏治疗的新兴靶点，但<b>其生理重要性与功能组织始终不清楚</b>——因此神经调控疗法缺乏细胞层面的靶点定义。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>小鼠中整合遗传与成像方法，鉴定内在心脏神经元（ICN）的<b>两个分子上不同的亚型</b>，做消融与激活实验。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>功能分工由输入来源决定</b>：Npy⁺ ICN 优先接收<b>迷走</b>输入 → 介导副交感控制（心率、冠脉灌注）；Ddah1⁺ ICN 接收<b>交感</b>输入 → 维持电稳定性、防止极端应激下的心脏骤停。两者不是冗余备份，而是分别对应"<b>日常工作模式</b>"与"<b>应激保护模式</b>"。<b>这解释了为何单一靶点的神经调控往往效果不稳</b>——它只覆盖了两套模式中的一套。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>ICNS 对心脏性能与生存是必需的</li>
+          <li>Npy⁺ ICN 消融导致<b>致命性心力衰竭</b></li>
+          <li>Ddah1⁺ ICN 维持电稳定性、预防骤停；其<b>激活提供心脏保护</b></li>
+          <li>为细胞类型靶向的精准神经调控治疗提供框架</li>
+          <li><b>边界</b>：机制在小鼠建立，人类 ICNS 亚型对应关系未验证</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.06.040">10.1016/j.cell.2026.06.040</a></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">04</span>神经、代谢与结构生物学</h2>
+  <p class="sec-note">3 篇。学科上较分散，但都属"推翻既有默认假设"这一类。</p>
+
+  <div class="card">
+    <div class="title">肌萎缩侧索硬化中语言与执行功能衰退的差异细胞表型</div>
+    <div class="title-en">Distinct cellular phenotypes of language and executive decline in amyotrophic lateral sclerosis</div>
+    <div class="byline"><span class="who">纽约基因组中心 + 哥伦比亚大学（美国）</span><span>Petrescu / Phatnani 等</span><span class="pg">p6044</span><span class="pg">首发 2026-08-04</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>ALS 除运动症状外还常伴认知障碍（语言、执行功能），但机制不清。既往把 ALS 视为<b>单一共同疾病过程</b>——这解释不了为什么认知域受损在个体间差别如此之大。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>整合<b>空间与单核转录组</b>，在认知分层的患者队列中定位前额叶皮层区域；多重成像验证。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键发现是<b>异质性不是同一过程的程度差异，而是机制不同的两类改变</b>：执行功能障碍对应深层背外侧前额叶神经元的<b>线粒体与突触活性降低</b>（局部、细胞特异）；语言相关缺陷则对应涉及胶质与血管异常的<b>弥散性跨区域响应</b>（分布式）。<b>因此两种认知衰退需要分别对症的干预方向</b>，不能当作同一病程的不同阶段处理。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>认知障碍与按区域和认知亚型而异的神经元功能障碍、胶质–血管失调模式相关</li>
+          <li>识别出跨运动与认知表型的共同特征，包括<b>多细胞胶质增生反应</b></li>
+          <li>结论经多重成像验证</li>
+          <li><b>边界</b>：为患者组织关联研究，因果方向（认知障碍是否由这些改变导致）需模型验证</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.008">10.1016/j.cell.2026.07.008</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">膳食精氨酸驱动密码子依赖的 MHC I 翻译并改善免疫</div>
+    <div class="title-en">Dietary arginine drives codon-dependent MHC class I translation and improves immunity in colon tumorigenesis and respiratory viral infection</div>
+    <div class="byline"><span class="who">洛克菲勒大学（美国）</span><span>Wu / Tavazoie 等</span><span class="pg">p6012</span><span class="pg">首发 2026-07-30</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>氨基酸水平在肿瘤、感染等病理状态下波动，但<b>这种波动是否直接塑造病理生理</b>（即通过调控宿主基因表达起因果作用）此前未知——既往多把氨基酸当作代谢底物而非调控信号。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>细胞外精氨酸限制实验 + <b>同义密码子突变</b>实验 + 饮食干预 / 髓系特异性 <i>Arg1</i> 删除；在流感与 SARS-CoV-2 感染、结肠肿瘤模型中验证；<i>B2m</i> 缺陷小鼠做通路依赖性检验。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在一条具体的翻译层因果链：<b>细胞外精氨酸浓度 → 特定精氨酸 tRNA 丰度 → 密码子偏好性翻译</b>。MHC I 编码序列对精氨酸密码子的使用存在偏向，因此精氨酸限制会<b>选择性</b>压低 MHC I 翻译，而不影响全局蛋白合成。<b>同义密码子突变能阻断这一调控</b>，这是决定性证据——它排除了"蛋白稳定性下降"等替代解释，把机制锁定在密码子层面。这解释了为何营养状态能特异性地削弱抗原呈递。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>精氨酸限制抑制 MHC I 翻译与抗原呈递；调控具<b>密码子使用依赖性</b>（同义突变可阻断）</li>
+          <li>饮食精氨酸限制<b>削弱</b>抗流感与 SARS-CoV-2 免疫、<b>增加</b>结肠肿瘤发生</li>
+          <li>补充精氨酸或髓系 <i>Arg1</i> 删除提升 MHC I、抑制肿瘤、改善感染结局</li>
+          <li>效应在 <i>B2m</i> 缺陷小鼠中消失，证明依赖 MHC I 通路</li>
+          <li><b>边界</b>：饮食干预的人体有效剂量与长期安全性未确立</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.020">10.1016/j.cell.2026.07.020</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">"非对称二聚体的二聚体"构架定义人 CNNM4 的镁转运</div>
+    <div class="title-en">Dynamic dimer-of-dimers architecture defines Mg<sup>2+</sup> transport in human CNNM4</div>
+    <div class="byline"><span class="who">西北大学（美国）</span><span>Bai / Du 等</span><span class="pg">p6097</span><span class="pg">首发 2026-07-24</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>Mg²⁺ 对所有生物必需，但<b>其在哺乳动物膜上的转运机制长期不清楚</b>。既有工作依赖细菌同源物，并因此<b>默认真核 CNNM 也采用对称二聚体</b>——这个假设从未在哺乳动物全长蛋白上验证过。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>冷冻电镜解析<b>全长</b>人 CNNM4 在质膜上的外向态与闭合态结构（首个全长哺乳动物 Mg²⁺ 转运蛋白结构）。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>直接推翻沿用已久的对称二聚体假设：实际构架是<b>非对称二聚体的二聚体</b>（dimer of asymmetric dimers）。这个差异不是细节，它决定了调控逻辑——Mg²⁺/ATP 结合稳定胞内域并促进四聚化；胞内酸性 patch 结合额外 Mg²⁺，可能是把胞质 Mg²⁺ 水平偶联到转运活性的<b>感应器</b>。而跨膜域一个关键谷氨酸在 Na⁺ 结合后翻转、破坏外向态 Mg²⁺ 结合位点，<b>这正是 Mg²⁺/Na⁺ 交换的机械基础</b>。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>揭示非对称二聚体–二聚体组装，<b>不同于原核同源物的对称结构</b>，也与真核 CNNM 的长期假设不符</li>
+          <li>Mg²⁺/ATP 稳定胞内域并促进四聚化；酸性 patch 可能充当 Mg²⁺ 感应器</li>
+          <li>定位关键的 Na⁺ 依赖谷氨酸翻转，解释 Mg²⁺/Na⁺ 交换</li>
+          <li><b>边界</b>：为结构学证据，转运动力学的定量验证需进一步功能实验</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.06.039">10.1016/j.cell.2026.06.039</a></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">05</span>本期综述与观点<span class="badge hot">AI 专题侧写</span></h2>
+  <p class="sec-note">本期观点类文章密度异常：1 篇综述 + 4 篇 Perspective + 1 篇 Commentary + 1 篇社论 + 1 篇 Voices，
+  全部指向"AI 与细胞生物学"这一主题。<b>这不是巧合，而是编辑部的一次集中组稿。</b></p>
+
+  <div class="card">
+    <div class="title">医疗 AI 常见失效的规避<span class="badge rev">Review</span></div>
+    <div class="title-en">Avoiding common failures in AI for health and medicine</div>
+    <div class="byline"><span class="who">斯坦福大学等（美国）</span><span>Salaudeen / Ghassemi 等</span><span class="pg">p5893</span><span class="pg">首发 2026-09-17</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>医疗 AI 的可靠性失效反复出现：错误输出、<b>临床无正当理由的性能差异</b>、部署期性能退化。问题在于这些失效<b>往往不在建模阶段产生</b>，所以单靠更好的算法改不掉。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>系统综述既有失效模式，分析现有技术方案为何不足，论证"生命周期意识"（lifecycle awareness）的必要性。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>（<b>机理未展开，材料不足</b>——此处仅据摘要归纳）核心论证方向是<b>把评估视角从"模型开发"移到"全生命周期"</b>。理由是：分布漂移与部署环境差异在实际使用中才显现，属过程性风险而非模型属性，因此无法在训练阶段被证明已消除。若这一逻辑成立，则治理手段应落在持续监测而非一次性验证上。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>梳理三类常见失效：错误输出、临床无依据的性能差异、部署期退化</li>
+          <li>主张以生命周期意识重构评估与部署实践</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.07.025">10.1016/j.cell.2026.07.025</a></p>
+  </div>
+
+  <h3 class="disc">观点与评论（表格）</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>栏目 · 标题</th><th>谁写的</th><th>核心主张</th><th>页码</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Perspective<br>A world model of the virtual cell</td>
+          <td>Eric P. Xing, Le Song 等<br><span class="pg">（含中国学者，机构待核实）</span></td>
+          <td>把虚拟细胞定义为<b>多模态、多尺度、有状态的世界模型</b>，能模拟、扰动乃至编程细胞系统。目标是让细胞生物学从"试错实验"转向"模拟驱动的发现"。</td>
+          <td class="pg">p5831</td>
+        </tr>
+        <tr>
+          <td>Perspective<br>World models for biomedicine</td>
+          <td>Noori, Zitnik 等</td>
+          <td>生物过程会随干预持续适应，因此<b>静态预测模型不够</b>；需要支持"动作条件化模拟"的世界模型，用于反事实推理、干预设计与序贯决策。文中给出生物医学世界模型的关键属性定义。</td>
+          <td class="pg">p5845</td>
+        </tr>
+        <tr>
+          <td>Perspective<br>Fifteen challenges for generative AI applications to cell biology</td>
+          <td>Dupire, Califano 等（多机构）</td>
+          <td>仿希尔伯特 23 问，提出<b>15 个生成式 AI 挑战</b>以聚焦领域注意力，其中多数问题目前仍无有效解法。</td>
+          <td class="pg">p5870</td>
+        </tr>
+        <tr>
+          <td>Perspective<br>Why machines don't speak biology</td>
+          <td>Stelzer, Tanay</td>
+          <td>反对"更大模型 + 更多数据"的路线：生物学的真正复杂度是<b>涌现的、进化而来的、且本质上杂乱的</b>，因此需要让机器锚定在生物学第一性原理上，而非追求规模。</td>
+          <td class="pg">p5905</td>
+        </tr>
+        <tr>
+          <td>Commentary<br>Virtual Cell Challenge 2026</td>
+          <td>Arc Virtual Cell Initiative Team</td>
+          <td>2026 年挑战赛升级为更严格的通用性测试：<b>跨多个独立细胞上下文的 zero-shot 基因敲低响应预测</b>，数据集含未见细胞系（由 Arc 生成）。</td>
+          <td class="pg">p5827</td>
+        </tr>
+        <tr>
+          <td>Voices<br>Changing minds: How AI is transforming the life sciences</td>
+          <td>Daphne Koller, Martin Steinegger, 卢培龙 等 8 人</td>
+          <td>八位学者短评 AI 对生命科学的改变，同时提出数据质量、可复现性与方法论层面的担忧。</td>
+          <td class="pg">p5909</td>
+        </tr>
+        <tr>
+          <td>Editorial<br>Evolving Cell with evolving science</td>
+          <td>John W. Pham（主编）</td>
+          <td>回应外界对 Cell 论文"长、机制、完整"的印象：<b>发表标准不是长度和机制，而是"是否令人兴奋"</b>。可视为主编对该刊定位的一次公开表态。</td>
+          <td class="pg">p5825</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">06</span>本周线上优先（尚未编入期次）<span class="badge new">口径 B</span></h2>
+  <p class="sec-note">6 篇，全部为 09-14 ~ 09-18 期间新上线，<b>均不属于 Issue 19</b>。含中国团队 2 篇。</p>
+
+  <div class="card">
+    <div class="title">驯化过程中的三维染色质重塑定义了作物改良的新靶点<span class="badge cn">中国团队</span></div>
+    <div class="title-en">3D chromatin remodeling during domestication defines novel targets for crop improvement</div>
+    <div class="byline"><span class="who">华中农业大学 · 作物遗传改良全国重点实验室（中国武汉）</span><span>Huang / Wang 等</span><span class="pg">首发 2026-09-16</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>三维基因组折叠塑造基因调控，但<b>3D 基因组的进化如何与驯化中的表型创新挂钩</b>此前不明。常规关联研究只看序列变异，而许多纤维品质位点的序列变异<b>解释不了全部遗传力</b>。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>群体尺度 Hi-C：<b>34 个半野生 + 267 个栽培异源四倍体棉花</b>，构建泛 3D 基因组图谱；染色质互作组关联研究（chromatin interactome-wide association）。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>把 TAD 与染色质环当作可遗传的性状单位来分析</b>。序列变异与表型之间存在缺口，而构象重排填补的正是这部分"缺失的遗传力"——所以方法上必须把关联分析的变量从"碱基"换成"构象"，否则这类贡献在统计上不可见。这也是遗传力估计能被抬升的原因：不是加了新数据，而是<b>换了统计对象</b>。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>识别 <b>105 个 TAD 重构</b>与 <b>58 个染色质环重连</b>，确立为纤维品质的 3D 染色质基础</li>
+          <li>纤维强度遗传力估计<b>提升 16%</b>，纤维长度<b>提升 20%</b></li>
+          <li>揭示驯化选择塑造 3D 基因组的证据</li>
+          <li><b>边界</b>：基于四倍体棉花群体，向其他作物迁移需重新构建泛 3D 图谱</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.038">10.1016/j.cell.2026.08.038</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">铜离子诱导的 MYH9 聚合执行铜死亡<span class="badge cn">中国团队</span></div>
+    <div class="title-en">Copper ion-induced MYH9 polymerization executes cuproptosis</div>
+    <div class="byline"><span class="who">厦门大学生命科学学院 · 细胞应激生物学国家重点实验室（中国厦门）</span><span>Wu / Chen 等</span><span class="pg">首发 2026-09-14</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>铜死亡是近年确认的铜依赖细胞死亡形式，但<b>执行蛋白是谁</b>、以及<b>生理性胞内铜如何参与</b>都不清楚。既有研究多聚焦线粒体脂酰化，未给出细胞骨架层面的执行者。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>鉴定 <b>MYH9</b>（肌球蛋白重链 9）为执行者；小分子 <b>HThPA</b> 经结合核受体 Nur77 诱导铜死亡；机制链验证。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>执行环节落在<b>细胞骨架而非线粒体</b>：铜结合诱导 MYH9 聚合成纤维，破坏肌动蛋白细胞骨架，导致铜死亡。更值得注意的是它把<b>生理性铜池</b>连了进来——HThPA 结合 Nur77 → 消耗螯合铜的 GSH → 从胞内铜库释放游离铜 → 触发 MYH9 聚合。这条链解释了为何"原本被安全螯合的铜"也能致死，即<b>死亡开关不在铜的总量，而在铜的形态（螯合 vs 游离）</b>。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>MYH9 被确立为铜死亡的<b>执行蛋白</b>，通过聚合并破坏肌动蛋白骨架起效</li>
+          <li>HThPA 经 Nur77 → GSH 消耗 → 游离铜释放 的通路诱导铜死亡</li>
+          <li>把生理性胞内铜库纳入铜死亡的触发来源</li>
+          <li><b>边界</b>：主要为细胞体系证据，体内治疗窗口与正常组织铜稳态影响未评估</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.030">10.1016/j.cell.2026.08.030</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">胶质瘤"拟表型"一种先天性代谢错误以驱动神经元活动与肿瘤生长</div>
+    <div class="title-en">Gliomas phenocopy an inborn error of metabolism to drive neuronal activity and tumor growth</div>
+    <div class="byline"><span class="who">Northwell Health + 匹兹堡大学（美国）</span><span>Abdullah / McBrayer 等</span><span class="pg">首发 2026-09-15</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>高级别胶质瘤（HGG）的代谢特征此前了解不全——已知神经元活动促进肿瘤生长，但<b>肿瘤自身如何制造这种神经元过度兴奋</b>尚缺机制。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>人脑组织代谢组学 + 功能验证。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>核心是<b>"代谢拟表型"</b>：胶质瘤中肌酸合成中间体 <b>GAA 累积约 100 倍</b>（因通路酶活性失衡），而胶质瘤细胞<b>分泌 GAA 而非用它造肌酸</b>——这个"反常"是关键线索。GAA 在 GAMT 缺陷症（先天性代谢错误）中同样累积，并<b>提高神经元兴奋性</b>；而神经元兴奋性升高已知经神经元–胶质瘤互作驱动肿瘤生长。于是逻辑闭合：<b>肿瘤复现了一种遗传病的生化状态，借其下游后果（神经元过度兴奋）为自身生长服务</b>。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>HGG 组织 GAA 相对对照累积 <b>约 100 倍</b>，源于通路酶活性失衡</li>
+          <li>胶质瘤细胞分泌 GAA 而非用于合成肌酸，指向非经典功能</li>
+          <li>把肿瘤代谢与先天性代谢错误的生理学联系起来，提示可干预节点</li>
+          <li><b>边界</b>：因果链的功能验证范围需参考全文；GAA 通路干预的治疗窗口未确立</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.037">10.1016/j.cell.2026.08.037</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">程序性核糖体移码触发翻译应激以促进病毒复制</div>
+    <div class="title-en">Programmed ribosomal frameshifting triggers translational stress to promote viral replication</div>
+    <div class="byline"><span class="who">歌德大学法兰克福（德国）</span><span>Xavier / Dikic 等</span><span class="pg">首发 2026-09-14</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>程序性核糖体移码（PRF）被视为<b>结构机制</b>——病毒借此从紧凑基因组表达多聚蛋白。若仅如此，它只是病毒自己的事，<b>不该重塑宿主</b>。这个默认定位掩盖了它的另一半功能。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>最小 SARS-CoV-2 PRF 元件 + 蛋白质组与遗传筛选；在人气道类器官中验证复制依赖性。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在 PRF 同时是<b>调控信号</b>：最小 PRF 元件即足以激活整合应激反应（ISR）的 <b>GCN2 分支</b>，且<b>不依赖经典 ISR 感受器 ZAKα</b>——说明病毒用一个翻译层元件直接接入了宿主应激通路，而非经由常规感受路径。其功能是<b>时间开关</b>：感染早期关闭宿主翻译，为病毒腾出翻译资源。因为宿主翻译被关掉是病毒扩增的前提，所以该元件对复制是必需（在细胞与人气道类器官中均作此验证）。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>最小 PRF 元件足以激活 GCN2 分支的 ISR，独立于 ZAKα</li>
+          <li>该激活作为早期感染的时间开关关闭宿主翻译，且<b>为病毒传播所必需</b>（细胞与人气道类器官）</li>
+          <li>筛选鉴定 <b>DRG1</b> 与 <b>IGF2BP3</b> 为关键介导因子</li>
+          <li><b>边界</b>：以 SARS-CoV-2 元件为主，其他病毒的 PRF 是否同构未系统验证</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.031">10.1016/j.cell.2026.08.031</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">挪威云杉针叶树生殖发育的时空程序</div>
+    <div class="title-en">Norway spruce spatiotemporal programs of conifer reproductive development</div>
+    <div class="byline"><span class="who">KTH 皇家理工学院（瑞典）</span><span>Saarenpää / Giacomello 等</span><span class="pg">首发 2026-09-14</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>针叶树是森林生态系统的关键组分，但其<b>生殖发育研究严重滞后</b>。原因之一是<b>基因组极度复杂</b>（庞大、高重复），使分子遗传学工具难以建立。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>时间分辨空间转录组：<b>88 张组织切片 × 3 个时间点</b>，覆盖野生型发育中的生殖芽与营养芽，以及 <i>acrocona</i> 突变体的过渡芽。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>用空间转录组绕开基因组组装的瓶颈</b>。高质量参考基因组是常规分子遗传学的前提，但空间转录组测的是"<b>哪个位置在表达什么</b>"，而不是"哪个基因序列是什么"——因此可在缺少成熟遗传学体系的物种上直接观测发育程序。方法上，它把不可及的问题（复杂基因组的发育调控）转成了可及的问题（表达模式的时空分布），随后再对候选基因（如 MADS-box 的 <b>DAL5</b>）做实验验证。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>识别营养→生殖转换期活跃的分子过程及其<b>具体空间域</b></li>
+          <li>鉴定并实验表征 MADS-box 基因 <b>DAL5</b> 等关键因子</li>
+          <li>为针叶树（长周期、大基因组）提供可复用的时空发育研究范式</li>
+          <li><b>边界</b>：以挪威云杉单一物种为主；时间点仅 3 个，发育轨迹分辨率有限</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.033">10.1016/j.cell.2026.08.033</a></p>
+  </div>
+
+  <div class="card">
+    <div class="title">海洋内部原核浮游生物的单细胞分辨基因组图谱</div>
+    <div class="title-en">Single-cell-resolved genome atlas of prokaryoplankton inhabiting the ocean's interior</div>
+    <div class="byline"><span class="who">Bigelow 海洋科学实验室（美国）+ 亥姆霍兹海洋功能生物多样性研究所（德国）</span><span>等</span><span class="pg">首发 2026-09-15</span></div>
+    <div class="layers">
+      <div class="layer"><span class="lb lb-q">问题</span><p>海洋无光层（aphotic interior）容纳了约 <b>3/4</b> 的浮游细菌与古菌，但其组成、生态与生物技术潜力一直难以界定——<b>主要障碍是可培养性</b>，传统研究只能覆盖实验室能养的那一小部分。</p></div>
+      <div class="layer"><span class="lb lb-m">手段</span><p>对跨深度、地理位置与环境条件的<b>单个原核浮游细胞做非选择性采样</b>并测序，构建 GORG-Dark 数据集：<b>9,698 个基因组</b>。</p></div>
+      <div class="layer mech"><span class="lb lb-p">机理</span><p>关键在<b>非选择性单细胞采样绕过了培养瓶颈</b>。培养隐含一个系统性筛选——只有能在实验室条件下分裂的细胞才被发现，这等于对群落施加了强偏倚。而逐细胞分离与测序<b>不要求细胞存活增殖</b>，因此能覆盖此前被筛掉的大多数。正因为偏差被移除，垂直分层这类生态规律才得以在<b>全深度范围</b>被检测，而不是仅在可培养类群的分布内成立。</p></div>
+      <div class="layer"><span class="lb lb-r">结论</span>
+        <ul class="finds">
+          <li>9,698 个单细胞基因组，覆盖无光层广泛深度与地理范围</li>
+          <li>揭示原核浮游生物的<b>垂直分层</b>，且延伸至深渊深度</li>
+          <li>为海洋微生物生态与生物技术潜力提供数据基础</li>
+          <li><b>边界</b>：为基因组层面的分布证据；活性与代谢功能的原位验证未做</li>
+        </ul>
+      </div>
+    </div>
+    <p class="doi">DOI: <a href="https://doi.org/10.1016/j.cell.2026.08.036">10.1016/j.cell.2026.08.036</a></p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">07</span>勘误（单列，不计入研究论文）</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>类型</th><th>标题</th><th>指向</th><th>页码</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Correction</td>
+          <td>Sequencing-free whole-genome spatial transcriptomics at single-molecule resolution</td>
+          <td>原载 <i>Cell</i> <b>188</b>, 6953–6970（2025-11-26）</td>
+          <td class="pg">p6208</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">08</span>★ 贯穿本期的方法学主线</h2>
+  <p class="sec-note">把上面 23 篇内容的「机理」层横着读，反复出现的是三个解题动作。<b>这些动作可以迁移到其他领域</b>，比单篇结论更有用。</p>
+
+  <div class="callout">
+    <h4>动作 A · 换掉分析单位，而不是提高精度</h4>
+    <p>当旧指标怎么测都解释不了现象时，多数团队会去提升测量分辨率；本期多篇走的是另一条路——<b>把分析对象整个换掉</b>。</p>
+    <p>State 把「细胞」换成「细胞上下文表示」；脑血管图谱把功能单位从「细胞类型」换成「细胞组合（ensembles）」；Sprox-seq 把「蛋白丰度」换成「蛋白邻近」；棉花 3D 基因组把关联变量从「碱基」换成「构象重排」；DESynR 把搜索空间从「序列邻域」换成「结构域组合」。<b>共同征兆是"遗传力/解释力出现缺口"</b>——缺口本身就是单位选错了的信号。</p>
+  </div>
+
+  <div class="callout">
+    <h4>动作 B · 让最贵的环节消失，而不是变快</h4>
+    <p>优化一个昂贵步骤能提速，但换掉它才是量变到质变。本期至少四篇在做后者。</p>
+    <p>scBaseCount 用智能体替代人工策展（瓶颈从人力变成吞吐）；Oncoformer 只用<b>已采集</b>的常规数据，取消"新增检查"这一部署门槛；海洋原核浮游生物用单细胞采样绕过<b>培养</b>；MitoSpace 用形态预测功能，免去功能测量本身。<b>判据：若某个环节的存在只是出于历史流程而非科学必要，它就该被重新设计掉。</b></p>
+  </div>
+
+  <div class="callout">
+    <h4>动作 C · 推翻"从别的体系继承来"的默认结构假设</h4>
+    <p>本期有多篇的核心贡献就是否定一个沿用已久的假设，而且要留意这些假设的<b>共同来源</b>：几乎都是从邻近体系借用来的。</p>
+    <p>CNNM4 推翻「真核 CNNM 是对称二聚体」——该假设源自细菌同源物；ALS 推翻「单一共同疾病过程」；肠道尺寸推翻「器官大小只由上皮干细胞决定」；皮肤癌免疫抑制推翻「改变的是细胞组成」（实际改变的是空间组织）；硼的角色从信号分子改为物理交联剂。<b>触发条件高度一致：现有模型无法解释个体间、分段间或状态间的差异。遇到"怎么调参都拟合不好"时，优先怀疑那个从别处继承来的前提。</b></p>
+  </div>
+
+  <div class="callout">
+    <h4>本期最显著的集群信号：Cell 做了一期 AI 专题</h4>
+    <p>Issue 19 的组稿意图非常清楚：<b>17 篇研究论文中有 6 篇是 AI/计算方法</b>，另有 <b>4 篇 Perspective + 1 篇 Commentary + 1 篇 Voices + 1 篇该主题的 Review</b>，全部围绕"AI 与细胞生物学"，其中三篇直接讨论「虚拟细胞」世界模型。主编社论亦在同一期回应期刊定位。</p>
+    <p>把它放在更长的时间轴上看更清楚：同期 Nature 有 ProteinTalks（蛋白质组虚拟细胞），Science 有 The Virtual Biotech（多智能体药物发现）——<b>三个顶刊在同一周把"世界模型 / 智能体"推到了显性位置</b>。这不是巧合，而是编辑部判断的共振。值得注意的是，本期的 Perspective 并非一致乐观：《Why machines don't speak biology》明确反对"更大模型 + 更多数据"的路线，主张模型必须锚定生物学第一性原理。</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>口径与说明</b></p>
+  <p>· 统计窗口为 <b>2026-09-14 至 2026-09-18</b>。Cell 为<b>双周刊</b>（隔周周四出版），该窗口对应 <b>Vol 189, Issue 19</b>（期日 2026-09-17，内容 09-16/09-17 上线）。</p>
+  <p>· <b>★ 本刊存在两个不重叠的口径</b>（见报告开头）：<b>期次口径</b>为 Issue 19 的 26 条内容（研究论文 17 + 综述 1 + 非研究 7 + 勘误 1）；<b>在线首发口径</b>为本周新上线 6 篇，全部尚未编入任何期次。<b>两个集合交集为空</b>——本期论文的首发日横跨 2026-07-16 至 09-17（Cell 的 AOP 提前期可长达两个月）。本报告第 01–05 节按口径 A，第 06 节按口径 B。</p>
+  <p>· 数据来源：<b>Cell eTOC RSS</b>（主干，26 条整期目次，含栏目、卷期、页码字段）、<b>Europe PMC REST API</b>（补摘要与通讯机构、枚举线上优先论文）、<b>Cell 官网单篇页</b>（补充核实）。</p>
+  <p>· <b>Europe PMC 对本刊是"部分实时"</b>：本周窗口返回 6 条，但仅覆盖线上优先部分，<b>不含</b> Issue 19 的多数论文。故本期主干为 RSS 而非 EPMC。另有 <b>4 篇</b>（LongevityBench、scBaseCount、Tahoe-100M 及该主题 Review）尚未被 EPMC 索引，其摘要求自 RSS 的 <code>description</code> 字段，完整度略低于其余篇目。</p>
+  <p>· <b>⚠️ 关于"机理"层的性质</b>：问题 / 手段 / 结论三层取自论文摘要与编辑摘要；<b>"机理"层是解释性归纳</b>——基于上述材料与学科通用原理重建的因果链，用于理解"为什么这样能成立"，<b>不等于作者原始表述，不应作为原文引用</b>。凡材料不足以支撑因果链处已明确标注。<b>如需引用机制，请回原文核对。</b></p>
+  <p>· 中国团队判定依据为论文通讯机构（通讯作者 affiliation）出现在中国（含中国香港、中国澳门）境内机构。<b>未仅凭作者姓名拼音推断国籍。</b>其中 Oncoformer 一篇涉及温州医科大学附属第一医院、中国医学科学院肿瘤医院、中国澳门科技大学、广州实验室等多家单位。</p>
+  <p>· 观点类文章（Perspective / Commentary / Voices / Editorial）<b>已从研究论文中剔除</b>，集中于第 05 节以表格呈现。勘误 1 条单列于第 07 节，<b>未计入新论文</b>。</p>
+  <p>· 页码为该期印刷/在线页码（如 p5914）；本周线上优先的 6 篇<b>尚无页码</b>（未编期），故只标首发日。</p>
+  <p>· 本报告未使用 Altmetric 等热度指标排序。<b>窗口内引用数必然为 0，不具区分度。</b></p>
+</footer>
+
+</div>
+</body>
+</html>
