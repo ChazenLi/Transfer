@@ -14,6 +14,9 @@ claude-env-audit/
 ├── claude-env-audit.md      ★ 手册（source of truth，已脱敏）
 ├── claude-env-audit.html    手册渲染版（自包含单文件，可直接用浏览器打开）
 ├── sync.ps1                 一键同步：镜像技能 → 提交 → 推送
+├── _render/                 渲染素材（pandoc 模板 + 元数据），产物是上面的 .html
+│   ├── template.html
+│   └── meta.yaml
 └── skill/                   技能本体（本地 ~/.workbuddy/skills/claude-env-audit 的镜像）
     ├── SKILL.md
     └── scripts/
@@ -115,6 +118,32 @@ powershell -ExecutionPolicy Bypass -File .\sync.ps1 -NoPush
 > **脚本编码**：`sync.ps1` 保持**纯 ASCII**。Windows PowerShell 5.1 读取无 BOM 的 `.ps1` 时
 > 按系统 ANSI 代码页解码，一个非 ASCII 字符（**哪怕在注释里**）就会让字符串无法终止、
 > 报出一堆指向无关行的语法错误。这不是风格问题。
+
+---
+
+## 重新渲染 HTML
+
+`claude-env-audit.html` 由 `claude-env-audit.md` 渲染而来，自包含、无外部依赖、跟随系统深浅色。
+渲染素材在 `_render/`，所以下面这一条命令在任何机器上都能复现出仓库里的这一版：
+
+```powershell
+pandoc .\claude-env-audit.md `
+  -f markdown+yaml_metadata_block+pipe_tables+fenced_code_blocks-smart `
+  -t html5 -s --toc --toc-depth=2 `
+  --metadata-file=_render/meta.yaml `
+  --template=_render/template.html `
+  -o claude-env-audit.html
+```
+
+三个参数是必须的，**不要顺手"简化"**：
+
+- **`yaml_metadata_block`** —— 让 pandoc **吃掉**文首的 YAML 头。改用 `-f gfm` 就没有这个概念，
+  开头的 `---` 会被当水平线、`title: ...` 会被当 setext 二级标题直接印在正文里。
+- **`-smart`** —— 关掉引号自动弯排。reader 之间剩下的差异只在目录锚点上（`gfm` 会带上章节号前缀），无实质影响。
+- **`--template` / `--metadata-file`** —— 少了就退回 pandoc 默认样式，与仓库里这一版不一致。
+
+> **改完 `.md` 必须同步重渲染**，否则 `.md` 与 `.html` 会漂移——
+> 本仓库的约定是长文成对发布，漂移等于发布了两份互相矛盾的内容。
 
 ---
 
