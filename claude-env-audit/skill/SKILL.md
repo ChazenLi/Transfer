@@ -132,6 +132,30 @@ $null = [System.Management.Automation.Language.Parser]::ParseFile($ps1, [ref]$nu
 $pe.Count                                          # must be 0 (parses clean)
 ```
 
+## Public mirror, and what that forbids
+
+This skill is mirrored to a **public** repository:
+`https://github.com/ChazenLi/Transfer` → `claude-env-audit/skill/`, alongside a
+redacted long-form manual. The mirror is one-way (local → repo) and driven by
+`claude-env-audit/sync.ps1` in that folder.
+
+Two consequences that are easy to get wrong:
+
+1. **Never bake a real machine value into this skill or its example output.**
+   Exit IPs, ASNs, carrier names, LAN segments, hostnames, proxy ports and the
+   host timezone are all identifying. The sync script enforces this with a
+   redaction gate — it refuses to push when it finds an IPv4 literal outside the
+   documented-example allowlist (`127.0.0.1`, `0.0.0.0`, `255.255.255.255`,
+   `0.x.y.z`, bare `/24` prefixes). Treat any gate failure as a real leak, not a
+   false positive.
+2. **Reports are private artifacts.** Keep generated audit reports out of the
+   mirror; publish the *method* (checklist, thresholds, judgement criteria) and
+   let each reader generate their own numbers.
+
+When publishing a long-form write-up to that repo, follow its local convention:
+ship `.md` (source of truth) and `.html` (rendered) as a pair, and keep the topic
+folder self-contained with its own `README.md`.
+
 ## Workflow
 
 1. Run the platform script.
