@@ -1,0 +1,2261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Claude 账号环境体检与修复手册</title>
+<meta name="description" content="把两篇中文社区长文重构成一套可执行、可验收、标注证据等级的环境自查流程；已脱敏，不含任何本机实测标识。" />
+<style>
+:root{
+  --bg:#fbfaf8; --panel:#ffffff; --ink:#1c1b19; --muted:#6b6762;
+  --line:#e4e0da; --accent:#8c4a2f; --code-bg:#f4f1ec; --toc-bg:#f6f3ee;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#17181a; --panel:#1e2023; --ink:#e8e6e3; --muted:#9a958f;
+    --line:#34383d; --accent:#d9926a; --code-bg:#25282c; --toc-bg:#202326;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.75;
+}
+.wrap{max-width:1220px; margin:0 auto; padding:40px 24px 80px;
+  display:grid; grid-template-columns:268px minmax(0,1fr); gap:44px; align-items:start}
+@media (max-width:960px){ .wrap{grid-template-columns:1fr; gap:24px; padding-top:24px} }
+
+.page-head{grid-column:1/-1; border-bottom:2px solid var(--line); padding-bottom:20px; margin-bottom:4px}
+.page-head h1{margin:0 0 6px; font-size:1.72rem; letter-spacing:.01em}
+.page-head .sub{margin:0; color:var(--muted); font-size:.92rem}
+
+nav.toc{position:sticky; top:24px; background:var(--toc-bg); border:1px solid var(--line);
+  border-radius:10px; padding:16px 18px; font-size:.875rem; max-height:calc(100vh - 60px); overflow:auto}
+@media (max-width:960px){ nav.toc{position:static; max-height:none} }
+nav.toc > ul{padding-left:0}
+nav.toc ul{list-style:none; margin:0; padding-left:14px}
+nav.toc > ul > li{margin:5px 0 0}
+nav.toc a{color:var(--muted); text-decoration:none; display:block; padding:1px 0}
+nav.toc a:hover{color:var(--accent)}
+nav.toc > ul > li > a{color:var(--ink); font-weight:600}
+
+main{min-width:0}
+main h1,main h2,main h3,main h4{line-height:1.35; margin:1.9em 0 .6em}
+main h2{font-size:1.34rem; padding-bottom:8px; border-bottom:1px solid var(--line)}
+main h3{font-size:1.1rem}
+main h4{font-size:1rem; color:var(--muted)}
+main > h1:first-child{display:none}
+p,ul,ol{margin:.75em 0}
+li{margin:.3em 0}
+a{color:var(--accent)}
+hr{border:0; border-top:1px solid var(--line); margin:2.2em 0}
+blockquote{margin:1em 0; padding:.7em 1.1em; border-left:3px solid var(--accent);
+  background:var(--toc-bg); border-radius:0 8px 8px 0; color:var(--ink)}
+blockquote p{margin:.35em 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  font-size:.875em; background:var(--code-bg); padding:.12em .38em; border-radius:4px;
+  word-break:break-word}
+pre{background:var(--code-bg); border:1px solid var(--line); border-radius:8px;
+  padding:14px 16px; overflow:auto; font-size:.85rem; line-height:1.6}
+pre code{background:none; padding:0; font-size:1em}
+table{border-collapse:collapse; width:100%; margin:1.1em 0; font-size:.9rem; display:block; overflow-x:auto}
+th,td{border:1px solid var(--line); padding:8px 11px; text-align:left; vertical-align:top}
+th{background:var(--toc-bg); font-weight:600; white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb, var(--toc-bg) 45%, transparent)}
+footer{grid-column:1/-1; margin-top:56px; padding-top:20px; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.84rem}
+@media print{
+  nav.toc{display:none} .wrap{display:block; max-width:none; padding:0}
+  body{background:#fff; color:#000; font-size:11pt}
+  table{display:table} pre{white-space:pre-wrap}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page-head">
+    <h1>Claude 账号环境体检与修复手册</h1>
+    <p class="sub">客户端本地环境一致性审计 · 代理链路审计 ·
+账号资产配置审计（公开版）</p>
+  </header>
+  <nav class="toc" id="TOC"><ul>
+<li><a href="#claude-账号环境体检与修复手册"
+id="toc-claude-账号环境体检与修复手册">Claude 账号环境体检与修复手册</a>
+<ul>
+<li><a href="#0-阅读须知先读这一节" id="toc-0-阅读须知先读这一节">0.
+阅读须知（先读这一节）</a></li>
+<li><a href="#1-结论先行按优先级该做什么"
+id="toc-1-结论先行按优先级该做什么">1.
+结论先行：按优先级该做什么</a></li>
+<li><a href="#2-事实基线先把-2026-年那件事说准确"
+id="toc-2-事实基线先把-2026-年那件事说准确">2. 事实基线：先把 2026
+年那件事说准确</a></li>
+<li><a href="#3-信号面总览" id="toc-3-信号面总览">3. 信号面总览</a></li>
+<li><a href="#4-逐项检测与修复" id="toc-4-逐项检测与修复">4.
+逐项检测与修复</a></li>
+<li><a href="#5-两份原始材料的冲突点与裁定"
+id="toc-5-两份原始材料的冲突点与裁定">5.
+两份原始材料的冲突点与裁定</a></li>
+<li><a href="#6-统一自查清单" id="toc-6-统一自查清单">6.
+统一自查清单</a></li>
+<li><a href="#7-执行顺序别乱序做" id="toc-7-执行顺序别乱序做">7.
+执行顺序（别乱序做）</a></li>
+<li><a href="#8-存疑信息台账" id="toc-8-存疑信息台账">8.
+存疑信息台账</a></li>
+<li><a href="#9-工具与服务商对比含返利声明"
+id="toc-9-工具与服务商对比含返利声明">9.
+工具与服务商对比（含返利声明）</a></li>
+<li><a href="#10-附录" id="toc-10-附录">10. 附录</a></li>
+<li><a href="#附关于支持地区的一个事实澄清"
+id="toc-附关于支持地区的一个事实澄清">附：关于"支持地区"的一个事实澄清</a></li>
+<li><a href="#附录-b本机实测模板" id="toc-附录-b本机实测模板">附录
+B：本机实测模板</a></li>
+</ul></li>
+</ul></nav>
+  <main><h1 id="claude-账号环境体检与修复手册">Claude
+账号环境体检与修复手册</h1>
+<blockquote>
+<p>本手册把两篇社区长文中零散的经验，重构成一套<strong>可执行、可验收、标注证据等级</strong>的审计流程。
+每一节都回答三个问题：<strong>它在查什么 → 怎么查 → 查到之后怎么改 →
+改成什么样算过</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="0-阅读须知先读这一节">0. 阅读须知（先读这一节）</h2>
+<h3 id="01-本文的定位">0.1 本文的定位</h3>
+<p>本文是一份 <strong>环境一致性审计清单（environment consistency
+audit）</strong>，不是"绕过风控教程"。
+两者差别很大：前者的目标是<strong>让本机环境、网络出口、账号资料三者自洽，并把所有历史残留清干净</strong>；
+后者依赖伪造与对抗，且随时会因为服务端策略变更而失效。</p>
+<h3 id="02-合规边界先把官方明文摆出来">0.2
+合规边界：先把官方明文摆出来</h3>
+<p>以下是 Anthropic 官方页面与条款的<strong>逐字引用</strong>（证据等级
+A）。这些是硬边界，本文所有建议都不应越过它们：</p>
+<table>
+<thead>
+<tr class="header">
+<th>事项</th>
+<th>官方原文</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>地理限制</td>
+<td>"Only users <strong>physically located</strong> in one of our
+supported locations can create and use Claude accounts."</td>
+<td><a
+href="https://support.claude.com/en/articles/8287232-verify-your-phone-number">Verify
+your phone number</a></td>
+</tr>
+<tr class="even">
+<td>手机号来源</td>
+<td>"We also require a phone number from a <strong>supported
+location</strong> to create an account, and there isn't a way to skip
+this step."</td>
+<td>同上</td>
+</tr>
+<tr class="odd">
+<td>不可用号码类型</td>
+<td>"you cannot use <strong>VoIP numbers, Google Voice</strong>, phone
+numbers created using apps, <strong>landlines</strong>, or other numbers
+that can't receive texts to verify your account."</td>
+<td>同上</td>
+</tr>
+<tr class="even">
+<td>号码复用上限</td>
+<td>"We only allow a maximum of <strong>three</strong> Claude accounts
+to be verified with the same phone number."</td>
+<td>同上</td>
+</tr>
+<tr class="odd">
+<td>号码不可更改</td>
+<td>"There isn't a way to change your phone number associated with your
+Claude account once it has been verified."</td>
+<td>同上</td>
+</tr>
+<tr class="even">
+<td>凭证共享</td>
+<td>"You may not share your Account login information, Anthropic API
+key, or Account credentials with anyone else. You also may not make your
+Account available to anyone else."</td>
+<td><a href="https://www.anthropic.com/legal/consumer-terms">Consumer
+Terms</a> 第 2 条</td>
+</tr>
+<tr class="odd">
+<td>自动化访问</td>
+<td>禁止 "to access the Services through <strong>automated or non-human
+means</strong>, whether through a bot, script, or otherwise"（经
+Anthropic API Key 访问除外）</td>
+<td>Consumer Terms 第 3 条</td>
+</tr>
+<tr class="even">
+<td>多账号规避</td>
+<td>禁止 "<strong>Create or manage multiple accounts to evade detection
+or circumvent platform safeguards</strong>"</td>
+<td><a
+href="https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy">Using
+Agents According to Our Usage Policy</a></td>
+</tr>
+<tr class="odd">
+<td>违规终止不退款</td>
+<td>"If we terminate your access to the Services due to a violation of
+these Terms and you have a Subscription, you will not be entitled to any
+refund."</td>
+<td>Consumer Terms 第 12 条</td>
+</tr>
+<tr class="even">
+<td>闲置回收</td>
+<td>"We may also terminate your Account if you have been
+<strong>inactive for over a year</strong> and you do not have a paid
+Account."（会提前通知）</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<p><strong>需要直说的三件事</strong>：</p>
+<ol type="1">
+<li><strong>"改时区 / 换住宅 IP / 用美国号"这套做法，其本身不改变第 0.2
+节第一条的结论。</strong> 官方约束的是"物理所在位置（physically
+located）"，不是"出口 IP
+归属"。任何以隐匿实际位置为目的的配置，都处在条款灰区。本文不为此背书。</li>
+<li><strong>真正零风险的合规路径有三条</strong>：①
+使用国内可合法访问的替代模型；② 通过 Anthropic 官方
+API（Console）按其支持地区政策使用；③
+等待官方支持范围变化。本手册不替代这三条。</li>
+<li><strong>如果目的是"止损与体检"</strong>——比如你已经在用、想搞清楚为什么被关联、想把一台脏机器洗干净——那本文是对的，请往下读。</li>
+</ol>
+<h3 id="03-证据分级">0.3 证据分级</h3>
+<p>本文对每条论断标注等级，便于判断可信度：</p>
+<table>
+<thead>
+<tr class="header">
+<th>等级</th>
+<th>定义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>官方页面/条款逐字明文，或可复现的技术事实</td>
+<td>"手机号必须来自支持地区"</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td>官方人员公开承认，或多来源一致的权威报道</td>
+<td>"2.1.196 隐蔽标记机制确实存在"</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong></td>
+<td>社区广泛共识、多份独立资料互相印证，但无官方确认</td>
+<td>"阈值累积模型"</td>
+</tr>
+<tr class="even">
+<td><strong>D</strong></td>
+<td>单人经验、来源不明、或已被证伪</td>
+<td>"骂 AI 会被封号"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-结论先行按优先级该做什么">1. 结论先行：按优先级该做什么</h2>
+<p>如果你时间有限，只做这 6 件事，能覆盖绝大部分实际风险：</p>
+<table>
+<thead>
+<tr class="header">
+<th>优先级</th>
+<th>动作</th>
+<th>验收标准</th>
+<th>本文位置</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P0</strong></td>
+<td>清空所有指向非官方端点的 <code>ANTHROPIC_BASE_URL</code>
+与代理环境变量</td>
+<td>全平台 <code>env</code>/注册表/配置文件中无残留</td>
+<td>§4.5</td>
+</tr>
+<tr class="even">
+<td><strong>P0</strong></td>
+<td>代理切到 <strong>TUN 模式</strong>，系统代理设置置空</td>
+<td>系统代理查询结果全 0 / 全空</td>
+<td>§4.4</td>
+</tr>
+<tr class="odd">
+<td><strong>P0</strong></td>
+<td>代理<strong>不再自动切换节点、不允许直连（fail-closed）</strong></td>
+<td>断线测试中请求被阻断而非改走直连</td>
+<td>§4.6</td>
+</tr>
+<tr class="even">
+<td><strong>P1</strong></td>
+<td>本地 Claude 残留（ID / 遥测 / Keychain / 会话）清理</td>
+<td>追踪字段为空、Keychain 条目不存在</td>
+<td>§4.1</td>
+</tr>
+<tr class="odd">
+<td><strong>P1</strong></td>
+<td>出口 IP 做纯净度体检（Scamalytics / ping0 / IPQS 交叉验证）</td>
+<td>欺诈分 &lt; 30，无 proxy/Tor/abuse 标记</td>
+<td>§4.3</td>
+</tr>
+<tr class="even">
+<td><strong>P2</strong></td>
+<td>账号资料自洽性（手机号、邮箱、支付、套餐节奏）</td>
+<td>见 §4.8–4.11 各节验收项</td>
+<td>§4.8–4.11</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-事实基线先把-2026-年那件事说准确">2. 事实基线：先把 2026
+年那件事说准确</h2>
+<p>两篇原始材料都把"时区检测"作为核心论据。这个论据的<strong>技术细节基本准确，但结论已经过期</strong>。这是本手册最重要的勘误。</p>
+<h3 id="21-事件时间线">2.1 事件时间线</h3>
+<table>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>事件</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2026-03</td>
+<td>Anthropic 上线所称的"实验性反滥用措施"（工作人员说法）</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>2026-04-02</td>
+<td>相关代码随 Claude Code <strong>2.1.91</strong>
+版本发布，未出现在任何 changelog</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>2026-06-12</td>
+<td>美国政府针对外国公民的 AI 模型出口管制条款生效</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>2026-06-30</td>
+<td>上述出口管制被解除</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>2026-07-01</td>
+<td>开发者 Thereallo 逆向 2.1.196 发现隐蔽标记；Anthropic 工程师 Thariq
+Shihipar 在 X 上回应，称其为"3
+月上线的实验"，旨在防止未授权账号转售与蒸馏攻击</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>2026-07-02</td>
+<td>回滚版本发布，相关检测代码被删除</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td>2026-07-08</td>
+<td>工业和信息化部网络安全威胁和漏洞信息共享平台（NVDB）发布风险提示，建议排查受影响版本、卸载或升级</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-机制的真实细节这决定了我们该防什么">2.2
+机制的真实细节（这决定了我们该防什么）</h3>
+<p>根据逆向披露，该机制的行为如下：</p>
+<ul>
+<li><strong>触发条件</strong>：<strong>仅当</strong>
+<code>ANTHROPIC_BASE_URL</code> 指向<strong>非官方端点</strong>（即非
+<code>api.anthropic.com</code>）时才会执行。<strong>直连官方 API
+的流量不参与检测。</strong></li>
+<li><strong>两项检查</strong>：
+<ol type="1">
+<li>本机系统时区是否为 <code>Asia/Shanghai</code> 或
+<code>Asia/Urumqi</code>；</li>
+<li>端点域名是否命中一份约 <strong>147 条</strong>的域名清单，以及一个
+AI 实验室关键词表 （关键词包括
+<code>deepseek</code>、<code>moonshot</code>、<code>minimax</code>、<code>zhipu</code>、<code>bigmodel</code>、<code>baichuan</code>、<code>stepfun</code>、<code>01ai</code>、<code>dashscope</code>、<code>volces</code>
+等）。</li>
+</ol></li>
+<li><strong>混淆方式</strong>：域名表 Base64 编码后再以密钥
+<code>91</code> 做 XOR 加密。</li>
+<li><strong>外送方式（隐写）</strong>：不新增遥测字段，而是改写系统提示词中的两个字符级细节——
+<ul>
+<li>日期分隔符：<code>2026-06-30</code> →
+<code>2026/06/30</code>（命中中国时区时）</li>
+<li><code>Today's</code> 中的撇号替换为不同 Unicode 码点：
+<ul>
+<li><code>U+0027</code>（普通撇号）= 无命中</li>
+<li><code>U+2019</code> = 命中已知域名</li>
+<li><code>U+02BC</code> = 命中 AI 实验室关键词</li>
+<li><code>U+02B9</code> = 两者都命中</li>
+</ul></li>
+</ul></li>
+<li><strong>版本痕迹</strong>：2.1.196 中实现该逻辑的函数名为
+<code>Crt</code>、<code>Rrt(e)</code>、<code>e0t</code>、<code>Zup</code>、<code>edp</code>、<code>Vla</code>。</li>
+</ul>
+<h3 id="23-由此得出的三条判断">2.3 由此得出的三条判断</h3>
+<ol type="1">
+<li><strong>"客户端读时区"这个组件在 2026-07-02 已被移除。</strong>
+因此"必须把时区改成台北"这条建议，其<strong>原始证据基础已消失</strong>。这不等于说改时区没用（服务端侧仍可能做
+IP/时区一致性分析），但<strong>它不再是因为"客户端在扫你时区"</strong>。</li>
+<li><strong><code>ANTHROPIC_BASE_URL</code>
+是当时唯一被证实的"强信号"来源。</strong>
+也就是说，那波风控里，<strong>用第三方中转站的人比用官方 API +
+干净代理的人危险得多</strong>。这条结论至今仍有指导意义：<strong>能用官方端点就别用中转站</strong>。</li>
+<li><strong>反向也成立</strong>：该机制只在走中转时生效，说明<strong>官方端点的正常流量没有被这套东西标记</strong>。所以本手册把"清掉
+BASE_URL 残留"排在
+P0，不是因为它今天还在被扫，而是因为它是一个<strong>你无法控制的、随时可能被重新启用的信号位</strong>。</li>
+</ol>
+<hr />
+<h2 id="3-信号面总览">3. 信号面总览</h2>
+<p>综合官方条款与社区案例，风控信号可归为 8
+个维度。下表的"权重"是社区经验值（等级
+C），不要当精确数字用，它的用途是<strong>排优先级</strong>。</p>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>维度</th>
+<th>社区估计权重</th>
+<th>主要证据来源</th>
+<th>本手册章节</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>网络出口（IP 类型 / 纯净度 / 地理跳跃）</td>
+<td>高</td>
+<td>官方：不接受境外号码 + 仅限支持地区</td>
+<td>§4.3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>代理可见性（系统代理残留 / TUN / DNS 泄漏）</td>
+<td>高</td>
+<td>技术事实 + 官方自动化检测</td>
+<td>§4.4–4.7</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>凭证与行为合规性（共享、自动化、多账号规避）</td>
+<td>高</td>
+<td><strong>官方明文禁止</strong></td>
+<td>§4.11</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>支付渠道（虚拟卡 / 卡段风险 / 账单地址）</td>
+<td>中高</td>
+<td>官方反欺诈流程</td>
+<td>§4.10</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>注册资料（手机号归属地 / 邮箱稳定性）</td>
+<td>中高</td>
+<td><strong>官方明文要求</strong></td>
+<td>§4.8–4.9</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>本地设备残留（追踪 ID / Keychain / 会话）</td>
+<td>中</td>
+<td>可复现的技术事实</td>
+<td>§4.1</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>使用节奏（额度打满 / 短期暴涨）</td>
+<td>中</td>
+<td>社区案例</td>
+<td>§4.11</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>环境一致性（时区 / 语言 / WebRTC）</td>
+<td>低（★已降级）</td>
+<td>详见 §2.3</td>
+<td>§4.2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心心智模型（等级
+C）</strong>：命中信号后<strong>不立即封号</strong>，而是进风控队列累积打分，达阈值才触发。
+这解释了为什么有人裸连两年没事、有人环境干净却几天就没了——<strong>阈值是动态的，封禁潮期间会整体下调</strong>。
+实操含义：<strong>不要指望"我今天做对了某事"就不被封；要做的是把所有维度的分数都压到最低。</strong></p>
+<hr />
+<h2 id="4-逐项检测与修复">4. 逐项检测与修复</h2>
+<h3 id="41-本地设备残留">4.1 本地设备残留</h3>
+<p><strong>为什么</strong>：Claude Code
+在本地持久化了跨会话追踪标识。清除后，从服务端视角看这台机器是"新设备"。</p>
+<p><strong>追踪标识清单（等级 A，实测可复现）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>标识</th>
+<th>存储位置</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>userID</code></td>
+<td><code>~/.claude.json</code></td>
+<td>随机 64 位十六进制串，<strong>跨会话追踪主键</strong></td>
+</tr>
+<tr class="even">
+<td><code>anonymousId</code></td>
+<td><code>~/.claude.json</code></td>
+<td>格式 <code>claudecode.v1.</code> 备用 ID</td>
+</tr>
+<tr class="odd">
+<td><code>firstStartTime</code></td>
+<td><code>~/.claude.json</code></td>
+<td>首次启动时间</td>
+</tr>
+<tr class="even">
+<td><code>claudeCodeFirstTokenDate</code></td>
+<td><code>~/.claude.json</code></td>
+<td>首次取 token 时间</td>
+</tr>
+<tr class="odd">
+<td><code>oauthAccount</code></td>
+<td><code>~/.claude.json</code></td>
+<td>含
+<code>accountUuid</code>、<code>emailAddress</code>，<strong>直接绑定身份</strong></td>
+</tr>
+<tr class="even">
+<td><code>s1mAccessCache</code> / <code>groveConfigCache</code> /
+<code>passesEligibilityCache</code> / <code>clientData</code></td>
+<td><code>~/.claude.json</code></td>
+<td>各类缓存</td>
+</tr>
+<tr class="odd">
+<td>Statsig Stable ID</td>
+<td><code>~/.claude/statsig/</code></td>
+<td>特性开关系统的设备标识</td>
+</tr>
+</tbody>
+</table>
+<p><strong>需清理的目录</strong></p>
+<pre><code>~/.claude/telemetry/
+~/.claude/statsig/
+~/.claude/stats-cache.json
+~/.claude/history.jsonl
+~/.claude/paste-cache/
+~/.claude/shell-snapshots/
+~/.claude/session-env/
+~/.claude/debug/
+~/.claude/settings.json        &lt;-- 检查其中的 proxy / base_url / anthropic_ 字段
+~/.claude/credentials.json     &lt;-- 若存在</code></pre>
+<p><strong>Keychain（macOS 专属，最容易被漏掉）</strong></p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">security</span> delete-generic-password <span class="at">-s</span> <span class="st">&quot;claude-code&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">security</span> delete-generic-password <span class="at">-s</span> <span class="st">&quot;claude-code-credentials&quot;</span></span></code></pre></div>
+<p><strong>Windows 对应位置</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>macOS / Linux</th>
+<th>Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>~/.claude/</code></td>
+<td><code>%USERPROFILE%\.claude\</code></td>
+</tr>
+<tr class="even">
+<td><code>~/.claude.json</code></td>
+<td><code>%USERPROFILE%\.claude.json</code></td>
+</tr>
+<tr class="odd">
+<td>Keychain</td>
+<td>凭据管理器 → <code>cmdkey /list</code> 查找 <code>claude</code>
+相关条目</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td><code>%APPDATA%\Claude\</code>（桌面端）</td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td><code>%LOCALAPPDATA%\Claude\</code>（桌面端缓存）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>桌面端与应用支持目录</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span> ~/Library/Application\ Support/Claude/</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-la</span> ~/Library/Logs/Claude/</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 若知道旧账号 org_id，可用它作为关键字搜索残留</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-rl</span> <span class="st">&quot;&lt;org_id&gt;&quot;</span> ~/Library/Application\ Support/Claude/ <span class="dv">2</span><span class="op">&gt;</span>/dev/null</span></code></pre></div>
+<p><strong>浏览器侧</strong></p>
+<ul>
+<li>清除 <code>claude.ai</code> / <code>anthropic.com</code> 的 Cookie
+与站点数据（全部时间范围）。</li>
+<li>若要隔离多账号登录态：使用<strong>浏览器独立配置文件</strong>（Chrome
+Profile / Firefox Container），无需上指纹浏览器。</li>
+<li><strong>不要</strong>把不同账号的登录态混在同一个默认 profile
+里。</li>
+</ul>
+<p><strong>⚠️ 三条重要提醒</strong></p>
+<ol type="1">
+<li><strong>清理本地 ≠ 服务端记录消失。</strong> 删掉
+<code>userID</code> 只是让新会话无法与旧记录关联，不会删除 Anthropic
+侧的账号历史。</li>
+<li><strong>不要无脑 <code>rm -rf ~/.claude</code>。</strong>
+这个目录里同时含有你的设置、会话历史、自定义命令。<strong>先备份，再选择性清理</strong>：
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-a</span> ~/.claude ~/.claude.bak.<span class="va">$(</span><span class="fu">date</span> +%Y%m%d<span class="va">)</span></span></code></pre></div></li>
+<li><strong>Windows 上删除文件可能报
+<code>[safe-delete] trash-failed</code>
+但文件实际已删除</strong>（本机已知噪声）。复核时以<strong>列目录结果</strong>为准，不要被报错误导。</li>
+</ol>
+<p><strong>验收</strong>：<code>~/.claude.json</code>
+中上述字段全部不存在；下一次启动 Claude Code 会生成新的
+<code>userID</code>。</p>
+<hr />
+<h3 id="42-时区与环境一致性">4.2 时区与环境一致性</h3>
+<p><strong>这一节的结论与两篇原文都不同，请注意。</strong></p>
+<p><strong>两份原始材料的冲突</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>材料</th>
+<th>主张</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>材料一（配置全流程）</td>
+<td>手机和电脑都改成 <strong>Asia/Taipei</strong>，"台北在 Claude
+允许的范围，和北京时间完全一样，日常使用零感知"</td>
+</tr>
+<tr class="even">
+<td>材料二（团队经验）</td>
+<td><strong>不建议改</strong>。"东八区也有 Claude
+支持的地区，单凭时区不能判断一个人能不能使用服务……没有明确证据，我不想先给自己增加这些麻烦"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>裁定（本手册立场）</strong></p>
+<ul>
+<li><strong>不要再把"改时区"当成防封的核心动作。</strong> 理由是 §2.3 第
+1 条：<strong>触发时区检测的那个客户端组件已于 2026-07-02
+被移除</strong>。材料一写于 7
+月，它的论证在当时成立，现在证据基础已失效。</li>
+<li><strong>也不要为了防封去改时区。</strong>
+理由与材料二一致：改了时区，日历、会议、文件时间戳、Git commit
+时间全要跟着适应，而收益从"确定有效"降级为"可能有点用"。这是一笔明显不划算的交易。</li>
+<li><strong>唯一值得做的一致性检查</strong>（等级
+C）：<strong>不要出现"美国出口 IP + <code>zh-CN</code> 系统语言 + UTC+8
+时区"这种极端组合</strong>。这不是要你伪装，而是提醒——如果你已经在用美国出口，那本机语言/时区与出口的错位本身就是个弱信号。</li>
+</ul>
+<p><strong>如果你决定改（仅在你自己的权衡下）</strong></p>
+<p>macOS：</p>
+<ol type="1">
+<li>系统设置 → 通用 → 日期与时间 → 关掉「自动设置时区」→ 手动选
+Taipei</li>
+<li>隐私与安全性 → 定位服务 → 系统服务 →
+<strong>关掉「设定时区」</strong>（否则 Apple 会依据 Wi-Fi
+定位改回）</li>
+</ol>
+<p>iPhone：同上两步（防止 iCloud 把时区偏好同步回 Mac）</p>
+<p>Windows（本机）：</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 查看当前时区</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Get-TimeZone</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 列出候选（台北对应 &quot;Taipei Standard Time&quot;）</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tzutil <span class="op">/</span>l <span class="op">|</span> <span class="fu">Select-String</span> <span class="st">&quot;Taipei&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 设置（需要管理员权限）</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>tzutil <span class="op">/</span>s <span class="st">&quot;Taipei Standard Time&quot;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 关闭自动时区</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">Set-Service</span> w32time <span class="op">-</span>StartupType Manual   <span class="co"># 停止 Windows 时间服务自动校时</span></span></code></pre></div>
+<p><strong>通用验收命令（跨平台，也是 Claude Code 内部读时区用的同一个
+API）</strong></p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">-e</span> <span class="st">&quot;console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)&quot;</span></span></code></pre></div>
+<hr />
+<h3 id="43-网络出口ip-类型与纯净度">4.3 网络出口：IP 类型与纯净度</h3>
+<p><strong>为什么</strong>：这是社区案例中占比最高的维度。"住宅 / 静态 /
+独享"是<strong>三个不同概念</strong>，购买时务必分清：</p>
+<table>
+<thead>
+<tr class="header">
+<th>术语</th>
+<th>含义</th>
+<th>常见误区</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>住宅 IP</strong></td>
+<td>网络<strong>类型</strong>属于 ISP 家宽，非机房</td>
+<td>买了住宅 ≠ 别人没用过</td>
+</tr>
+<tr class="even">
+<td><strong>静态 IP</strong></td>
+<td>IP <strong>地址固定</strong>不变</td>
+<td>静态 ≠ 独享</td>
+</tr>
+<tr class="odd">
+<td><strong>独享 IP</strong></td>
+<td><strong>没有其他人</strong>共用</td>
+<td>机场的"独享"多为营销话术</td>
+</tr>
+</tbody>
+</table>
+<p><strong>检测工具与判读标准（等级 C，多来源一致）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>工具</th>
+<th>看什么</th>
+<th>判读</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://scamalytics.com/">scamalytics.com</a></td>
+<td>欺诈分（0–100）</td>
+<td><strong>&lt; 15 优秀；&lt; 30 可用；&gt; 30 有不良记录；&gt; 75
+基本废掉</strong>。真家宽通常 5–25</td>
+</tr>
+<tr class="even">
+<td><a href="https://ipdata.co/">ipdata.co</a></td>
+<td>Threats 模块</td>
+<td>Tor / Proxy / Abuser 三项<strong>不能有红色告警</strong></td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.ip2location.com/">ip2location.com</a></td>
+<td><code>Usage Type</code></td>
+<td>显示 <code>ISP</code> = 住宅；<code>Hosting</code> /
+<code>Business</code> = 机房</td>
+</tr>
+<tr class="even">
+<td><a href="https://db-ip.com/">db-ip.com</a></td>
+<td>ASN / 归属</td>
+<td>归属地须与商家标注一致，避免"广播 IP"</td>
+</tr>
+<tr class="odd">
+<td><a href="https://ping0.cc/">ping0.cc</a></td>
+<td>原生 vs 广播、风控值</td>
+<td>国内访问友好；但只有「家宽 / IDC」两档，中间地带易误判</td>
+</tr>
+<tr class="even">
+<td><a
+href="https://radar.cloudflare.com/">radar.cloudflare.com</a></td>
+<td>ASN 的 bot 流量占比</td>
+<td>机器人流量越低越好，直接关联"跳盾"频率</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.abuseipdb.com/">abuseipdb.com</a></td>
+<td>近 90 天滥用举报</td>
+<td>目标为 <strong>0%</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>重要方法论</strong>：不同工具的判定经常互相矛盾（同一 IP 在
+Scamalytics 标红、ping0 标绿很常见）。
+<strong>至少用两个不同数据源交叉验证，不要只信一个。</strong></p>
+</blockquote>
+<p><strong>两条路线（源自材料一，已核实）</strong></p>
+<p><strong>路线 A：自建 VPS</strong>（适合愿意动手）</p>
+<table>
+<thead>
+<tr class="header">
+<th>类别</th>
+<th>建议</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>优先</td>
+<td>DMIT、搬瓦工（BandwagonHost）</td>
+<td>长期验证过的 CN2 GIA 线路，贵但质量稳定；DMIT 常断货</td>
+</tr>
+<tr class="even">
+<td>次选</td>
+<td>CloudCone、Vultr、Linode、Hostinger</td>
+<td>独立域名 hostname，不与国内厂商域名关联</td>
+</tr>
+<tr class="odd">
+<td>大厂云</td>
+<td>AWS / GCP / Azure 的<strong>美国区域</strong></td>
+<td>机房 IP，但域名不在风险清单内</td>
+</tr>
+<tr class="even">
+<td><strong>避开</strong></td>
+<td>任何名字含 <code>alibaba</code> / <code>aliyun</code> /
+<code>tencent</code> / <code>qcloud</code> / <code>huawei</code> /
+<code>volces</code> / <code>bytedance</code> 的服务商</td>
+<td>无论标"海外版"还是"国际版"。"美国出口 +
+国内大厂域名"是<strong>极强的关联信号</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>路线 B：住宅 IP 服务商</strong>（省事） 材料一推荐
+IPEqual（EqualVPN），材料二另有一份工具横评。这些服务商<strong>均在原文中附带邀请码/返利链接</strong>，见
+§9 的说明与风险提示。</p>
+<p><strong>验收</strong></p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出口 IP 归属（终端侧！浏览器查到的 IP 不代表终端也走代理）</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://ipinfo.io <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">&#39;&quot;ip&quot;|&quot;country&quot;|&quot;org&quot;|&quot;timezone&quot;&#39;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://ipinfo.io/country   <span class="co"># 期望：US 或你选择的支持地区</span></span></code></pre></div>
+<blockquote>
+<p><strong>⚠️
+材料二强调的关键点，务必记住</strong>：<strong>"浏览器走了代理，不代表
+Claude Code 也走了。"</strong>
+系统代理需要应用主动支持才生效；终端、桌面端、APP 各有自己的配置路径。
+<strong>浏览器里查到的 IP 只代表浏览器这一次请求的出口。</strong>
+必须在<strong>终端里</strong>用 <code>curl</code> 单独验证一次。</p>
+</blockquote>
+<hr />
+<h3 id="44-代理模式tun-优于系统代理">4.4 代理模式：TUN 优于系统代理</h3>
+<p><strong>两种模式的差异（等级 A，技术事实）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>模式</th>
+<th>机制</th>
+<th>检测可见性</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>系统代理模式</strong></td>
+<td>客户端把系统的 HTTP/HTTPS proxy 改成 <code>127.0.0.1:7890</code>
+之类</td>
+<td>系统代理查询会直接暴露；任何读系统配置的程序都能看到</td>
+</tr>
+<tr class="even">
+<td><strong>TUN 模式</strong></td>
+<td>内核层创建虚拟网卡（macOS 为 <code>utun0</code>，Windows 为 Wintun
+适配器），接管全系统 IP 流量；<strong>系统代理配置保持为空</strong></td>
+<td>系统层面看不到任何 proxy 记录，表现为"直连"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：<strong>用 TUN 模式，不用系统代理。</strong>
+这是材料一和材料二<strong>一致</strong>的建议（少有的不冲突之处）。</p>
+<blockquote>
+<h3 id="️-tun-覆盖不到的那一半环境变量代理">⚠️ TUN
+覆盖不到的那一半：环境变量代理</h3>
+<p><strong>这是本手册在实测中发现、而两份原始材料都低估的一个盲区。</strong></p>
+<p>TUN
+模式让<strong>系统代理设置</strong>变空。但"代理"在这台机器上其实有<strong>两条完全独立的通道</strong>：</p>
+<table>
+<thead>
+<tr class="header">
+<th>通道</th>
+<th>表现形式</th>
+<th>TUN 能否覆盖</th>
+<th>谁会读它</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>① 系统代理设置</strong></td>
+<td>WinINET/WinHTTP 注册表、macOS network preferences</td>
+<td>✅ 能（TUN 就是为此而生）</td>
+<td>使用系统网络栈的应用</td>
+</tr>
+<tr class="even">
+<td><strong>② 代理环境变量</strong></td>
+<td><code>HTTP_PROXY</code> / <code>HTTPS_PROXY</code> /
+<code>http_proxy</code> / <code>https_proxy</code> /
+<code>ALL_PROXY</code></td>
+<td>❌ <strong>完全不能</strong></td>
+<td><strong>所有基于 libcurl / Node / Python / Go 的子进程</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Claude Code 是 Node 程序。它读的是第 ② 条通道。</strong></p>
+<p>而材料一的检查清单第 2
+条（<code>env | grep -iE "proxy"</code>）恰恰是罗列中最容易被当成"顺手一查"、实际却是<strong>最关键</strong>的一条。
+如果你在
+<code>~/.zshrc</code>、<code>~/.bashrc</code>、<code>$PROFILE</code> 里
+<code>export HTTPS_PROXY=http://127.0.0.1:7890</code>， <strong>TUN
+开得再干净也没用</strong>——进程环境里那条记录照样被读走。</p>
+<p><strong>自查（三平台）</strong></p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS / Linux</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-iE</span> <span class="st">&quot;proxy&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows —— 注意：必须查&quot;当前进程&quot;，不能只查持久化作用域</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ChildItem</span> env<span class="op">:</span> <span class="op">|</span> <span class="fu">Where-Object</span> <span class="op">{</span> <span class="va">$_</span><span class="op">.</span><span class="fu">Name</span> <span class="op">-match</span> <span class="st">&quot;(?i)proxy&quot;</span> <span class="op">}</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>Environment<span class="op">]::</span>GetEnvironmentVariables<span class="op">(</span><span class="st">&quot;Process&quot;</span><span class="op">).</span><span class="fu">GetEnumerator</span><span class="op">()</span> <span class="op">|</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Where-Object</span> <span class="op">{</span> <span class="va">$_</span><span class="op">.</span><span class="fu">Name</span> <span class="op">-match</span> <span class="st">&quot;(?i)proxy&quot;</span> <span class="op">}</span></span></code></pre></div>
+<p><strong>判读要点</strong>：作用域决定性质。</p>
+<ul>
+<li>命中 <strong>User / Machine（持久化）</strong> →
+是<strong>真残留</strong>，你开的每个终端都有，必须清。</li>
+<li>只命中 <strong>Process（进程级）</strong> →
+由<strong>父进程传入</strong>，未必是你机器上的问题。先在<strong>你自己的终端</strong>里复核再动手。</li>
+</ul>
+<p>本节 §4.5 的检查清单，请把这条当作第一优先级。</p>
+</blockquote>
+<p><strong>macOS 验证</strong></p>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 期望：HTTPEnable / HTTPSEnable / SOCKSEnable 全为 0</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">scutil</span> <span class="at">--proxy</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">&quot;HTTPEnable|HTTPSEnable|SOCKSEnable&quot;</span></span></code></pre></div>
+<p><strong>Windows 验证</strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. WinINET（IE/系统设置里的代理）—— 期望 ProxyEnable = 0</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ItemProperty</span> <span class="st">&quot;HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot;</span> <span class="op">|</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Select-Object</span> ProxyEnable<span class="op">,</span> ProxyServer<span class="op">,</span> AutoConfigURL</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. WinHTTP（服务/部分应用的代理）—— 期望 &quot;Direct access (no proxy server)&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>netsh winhttp show proxy</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. .NET 默认代理</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>System<span class="op">.</span><span class="fu">Net</span><span class="op">.</span><span class="fu">WebRequest</span><span class="op">]::</span>DefaultWebProxy</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. 是否有 TUN 虚拟网卡（期望能看到 Wintun / TUN 适配器，且为默认路由）</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>Get-NetAdapter <span class="op">|</span> <span class="fu">Where-Object</span> <span class="op">{</span> <span class="va">$_</span><span class="op">.</span><span class="fu">InterfaceDescription</span> <span class="op">-match</span> <span class="st">&quot;Wintun|TAP|TUN&quot;</span> <span class="op">}</span> <span class="op">|</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Select-Object</span> Name<span class="op">,</span> InterfaceDescription<span class="op">,</span> Status</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>Get-NetRoute <span class="op">-</span>DestinationPrefix <span class="st">&quot;0.0.0.0/0&quot;</span> <span class="op">|</span> <span class="fu">Select-Object</span> ifIndex<span class="op">,</span> NextHop<span class="op">,</span> RouteMetric</span></code></pre></div>
+<p><strong>⚠️ 一个常被忽略的事实（材料二原文，等级 A）</strong></p>
+<blockquote>
+<p>"开 TUN 不等于所有流量都必须走代理，也 <strong>不等于 Claude
+一定不会直连</strong>。 <strong>TUN
+管的是流量有没有被接管，分流规则管的是接管以后走哪条线路，这两个设置要一起看。</strong>"</p>
+</blockquote>
+<p>也就是说，开 TUN
+只解决了一半问题。<strong>必须同时检查分流规则</strong>——见下一节。</p>
+<hr />
+<h3 id="45-代理与端点残留清理p0">4.5 代理与端点残留清理（P0）</h3>
+<p><strong>为什么</strong>：这是 <strong>P0 级别</strong>。理由在 §2.3
+第 2–3 条——<code>ANTHROPIC_BASE_URL</code>
+是已被证实的强信号来源，且是"你无法控制、随时可能被重新启用"的信号位。</p>
+<p><strong>检查清单（macOS / Linux
+原始命令，逐条来自材料一）</strong></p>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. 系统代理（应该全 0）</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ex">scutil</span> <span class="at">--proxy</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">&quot;HTTPEnable|HTTPSEnable|SOCKSEnable&quot;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 当前 shell 环境变量</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-iE</span> <span class="st">&quot;proxy&quot;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. shell 启动文件里有没有硬编码 proxy</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-iE</span> <span class="st">&quot;proxy&quot;</span> ~/.zshrc ~/.bashrc ~/.profile ~/.zshenv <span class="dv">2</span><span class="op">&gt;</span>/dev/null</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. npm / yarn / pnpm 配置</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> config get proxy</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> config get https-proxy</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.npmrc <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-i</span> proxy</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Git 配置</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--get</span> http.proxy</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--get</span> https.proxy</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Claude Code 自己的 settings.json</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.claude/settings.json <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-iE</span> <span class="st">&quot;proxy|base_url|anthropic_&quot;</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. 所有 anthropic / claude 相关环境变量（重点：ANTHROPIC_BASE_URL）</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-iE</span> <span class="st">&quot;anthropic|claude&quot;</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Homebrew</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> config <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-i</span> proxy</span></code></pre></div>
+<blockquote>
+<p><strong>判读规则</strong>：任何一处<strong>不是空、不是 0、不是
+null</strong>，就手动清掉。 第 6、7
+条是重中之重。用过第三方中转（各种镜像站 / aihubmix / 各类
+<code>claude-code-hub</code>）或跑过 Claude Code Router
+的，<strong>几乎一定留下了指向非 <code>anthropic.com</code> 的 base
+URL</strong>。</p>
+</blockquote>
+<p><strong>Windows 等效检查（本机适用，对应上表 1–8）</strong></p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 1. 系统代理 ---</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>netsh winhttp show proxy</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ItemProperty</span> <span class="st">&quot;HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings&quot;</span> <span class="op">|</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Select-Object</span> ProxyEnable<span class="op">,</span> ProxyServer<span class="op">,</span> AutoConfigURL</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 2. 当前进程环境变量 ---</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ChildItem</span> env<span class="op">:</span> <span class="op">|</span> <span class="fu">Where-Object</span> <span class="op">{</span> <span class="va">$_</span><span class="op">.</span><span class="fu">Name</span> <span class="op">-match</span> <span class="st">&quot;(?i)proxy&quot;</span> <span class="op">}</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 3. 持久化环境变量（User + Machine）---</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">foreach</span> <span class="op">(</span><span class="va">$scope</span> <span class="kw">in</span> <span class="st">&quot;User&quot;</span><span class="op">,</span><span class="st">&quot;Machine&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">foreach</span> <span class="op">(</span><span class="va">$n</span> <span class="kw">in</span> <span class="st">&quot;HTTP_PROXY&quot;</span><span class="op">,</span><span class="st">&quot;HTTPS_PROXY&quot;</span><span class="op">,</span><span class="st">&quot;ALL_PROXY&quot;</span><span class="op">,</span><span class="st">&quot;NO_PROXY&quot;</span><span class="op">,</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>                   <span class="st">&quot;http_proxy&quot;</span><span class="op">,</span><span class="st">&quot;https_proxy&quot;</span><span class="op">,</span><span class="st">&quot;all_proxy&quot;</span><span class="op">,</span><span class="st">&quot;no_proxy&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">$v</span> <span class="op">=</span> <span class="op">[</span>Environment<span class="op">]::</span>GetEnvironmentVariable<span class="op">(</span><span class="va">$n</span><span class="op">,</span> <span class="va">$scope</span><span class="op">)</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="op">(</span><span class="va">$v</span><span class="op">)</span> <span class="op">{</span> <span class="st">&quot;HIT  </span><span class="va">$scope</span><span class="st"> </span><span class="va">$n</span><span class="st"> = </span><span class="va">$v</span><span class="st">&quot;</span> <span class="op">}</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 4. npm / yarn / pnpm ---</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>npm config get proxy</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>npm config get https-proxy</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Content</span> <span class="st">&quot;</span><span class="va">$env</span><span class="op">:</span><span class="va">USERPROFILE</span><span class="st">\.npmrc&quot;</span> <span class="op">-</span>ErrorAction SilentlyContinue <span class="op">|</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Select-String</span> <span class="op">-</span>Pattern <span class="st">&quot;proxy&quot;</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Content</span> <span class="st">&quot;</span><span class="va">$env</span><span class="op">:</span><span class="va">USERPROFILE</span><span class="st">\.yarnrc&quot;</span> <span class="op">-</span>ErrorAction SilentlyContinue <span class="op">|</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Select-String</span> <span class="op">-</span>Pattern <span class="st">&quot;proxy&quot;</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 5. Git ---</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global <span class="op">--</span>get http<span class="op">.</span><span class="fu">proxy</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global <span class="op">--</span>get https<span class="op">.</span><span class="fu">proxy</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global <span class="op">--</span>list <span class="op">|</span> <span class="fu">Select-String</span> <span class="op">-</span>Pattern <span class="st">&quot;(?i)proxy&quot;</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 6. Claude Code settings.json ---</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-Content</span> <span class="st">&quot;</span><span class="va">$env</span><span class="op">:</span><span class="va">USERPROFILE</span><span class="st">\.claude\settings.json&quot;</span> <span class="op">-</span>ErrorAction SilentlyContinue <span class="op">|</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Select-String</span> <span class="op">-</span>Pattern <span class="st">&quot;(?i)proxy|base_url|anthropic_&quot;</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 7. 所有 anthropic / claude 环境变量（重点）---</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a><span class="cf">foreach</span> <span class="op">(</span><span class="va">$scope</span> <span class="kw">in</span> <span class="st">&quot;User&quot;</span><span class="op">,</span><span class="st">&quot;Machine&quot;</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">[</span>Environment<span class="op">]::</span>GetEnvironmentVariables<span class="op">(</span><span class="va">$scope</span><span class="op">).</span><span class="fu">GetEnumerator</span><span class="op">()</span> <span class="op">|</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Where-Object</span> <span class="op">{</span> <span class="va">$_</span><span class="op">.</span><span class="fu">Name</span> <span class="op">-match</span> <span class="st">&quot;(?i)anthropic|claude&quot;</span> <span class="op">}</span> <span class="op">|</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ForEach-Object</span> <span class="op">{</span> <span class="st">&quot;HIT  </span><span class="va">$scope</span><span class="st"> </span><span class="op">$(</span><span class="va">$_</span><span class="op">.</span><span class="fu">Name</span><span class="op">)</span><span class="st"> = </span><span class="op">$(</span><span class="va">$_</span><span class="op">.</span><span class="fu">Value</span><span class="op">)</span><span class="st">&quot;</span> <span class="op">}</span></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a><span class="co"># 再查当前进程</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a><span class="fu">Get-ChildItem</span> env<span class="op">:</span> <span class="op">|</span> <span class="fu">Where-Object</span> <span class="op">{</span> <span class="va">$_</span><span class="op">.</span><span class="fu">Name</span> <span class="op">-match</span> <span class="st">&quot;(?i)anthropic|claude&quot;</span> <span class="op">}</span></span></code></pre></div>
+<p><strong>清除方法（Windows）</strong></p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 删除持久化环境变量（对每个命中的变量执行）</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>Environment<span class="op">]::</span>SetEnvironmentVariable<span class="op">(</span><span class="st">&quot;ANTHROPIC_BASE_URL&quot;</span><span class="op">,</span> <span class="va">$null</span><span class="op">,</span> <span class="st">&quot;User&quot;</span><span class="op">)</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="op">[</span>Environment<span class="op">]::</span>SetEnvironmentVariable<span class="op">(</span><span class="st">&quot;HTTPS_PROXY&quot;</span><span class="op">,</span> <span class="va">$null</span><span class="op">,</span> <span class="st">&quot;User&quot;</span><span class="op">)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 清除 npm 残留</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>npm config delete proxy</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>npm config delete https-proxy</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 清除 git 残留</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global <span class="op">--</span>unset http<span class="op">.</span><span class="fu">proxy</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>git config <span class="op">--</span>global <span class="op">--</span>unset https<span class="op">.</span><span class="fu">proxy</span></span></code></pre></div>
+<blockquote>
+<p><strong>改完必须开一个新的终端窗口再验证</strong>——已存在的进程仍持有旧的环境变量副本。</p>
+</blockquote>
+<p><strong>自查参考基线（对照用）</strong></p>
+<p>下表是<strong>一份干净环境应当得到的理想结果</strong>。跑完脚本后逐行对照；
+任何一行出现具体代理端点，都要按本节步骤追到来源。</p>
+<table>
+<thead>
+<tr class="header">
+<th>项目</th>
+<th>期望结果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>npm proxy / https-proxy</td>
+<td><code>none</code></td>
+</tr>
+<tr class="even">
+<td>git <code>http.proxy</code> /
+<code>https.proxy</code>（<strong>全作用域</strong>：system / global /
+local 均查）</td>
+<td>无</td>
+</tr>
+<tr class="odd">
+<td>User / Machine 持久化代理环境变量</td>
+<td>无</td>
+</tr>
+<tr class="even">
+<td>Process 进程级代理环境变量</td>
+<td><strong>通常应为空</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么单独盯 Process 作用域</strong>：它不在注册表的 User /
+Machine 里，若命中，说明是<strong>由启动这个 shell
+的父进程注入</strong>的—— 可能来自 shell
+启动文件，也可能来自某个上层工具。<strong>必须自己复核一次</strong>，因为如果它其实来自你的
+shell profile， Claude Code 作为 Node 程序就会读到一条显式代理记录。</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 在你自己的终端里跑（不是任何工具代跑的终端）</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set</span> <span class="op">|</span> findstr <span class="op">/</span>i proxy</span></code></pre></div>
+<blockquote>
+<p><strong>注意</strong>：这与"git
+代理"是两件事，不要混为一谈——两者是独立的配置面，各自都要单独查一遍。</p>
+</blockquote>
+<p><strong>验收</strong>：上表全部返回空 / 0 / null。</p>
+<hr />
+<h3 id="46-fail-closed断线必须阻断不许自动换线p0">4.6
+fail-closed：断线必须阻断，不许自动换线（P0）</h3>
+<p><strong>为什么</strong>：这是最容易被忽略、后果最严重的一项。</p>
+<p><strong>失效场景</strong>：你平时走代理用 Claude，某天节点断了 →
+代理客户端<strong>自动切到直连</strong> → Claude 那边看到的是你的 IP
+<strong>从美国瞬移回国内</strong>。这种"地理跳跃"是教科书级的异常信号。</p>
+<p><strong>期望行为（术语：fail-closed）</strong>：线路失败时<strong>拒绝连接并报错</strong>，而不是替你换线路。</p>
+<p><strong>检查要点（来自材料二，逐条）</strong></p>
+<ol type="1">
+<li><p><strong>代理客户端侧</strong></p>
+<ul>
+<li>Claude 是否有<strong>单独指定线路</strong>？</li>
+<li>它是否被放进了<strong>自动切换节点的策略组</strong>？</li>
+<li>节点失败后的兜底是否会选到 <code>DIRECT</code>（直连）？</li>
+<li>⚠️ <strong>只选中一个节点，不等于断线保护已配好。</strong></li>
+</ul></li>
+<li><p><strong>域名识别是否真的生效</strong></p>
+<ul>
+<li>分流规则应按域名匹配，起点是
+<code>claude.ai</code>、<code>api.anthropic.com</code>
+等<strong>实际使用的域名</strong>，再通过连接记录补齐遗漏。</li>
+<li>⚠️ <strong>如果客户端只拿到目标
+IP、没拿到域名，域名规则就匹配不到，请求会落到默认规则</strong>；默认规则若为直连，前面所有设置全部作废。</li>
+<li>可能需要开启 <strong><code>sniff</code>（协议嗅探）</strong>
+来从连接信息中识别域名。</li>
+<li>⚠️ <strong>开 sniff
+不等于检查结束</strong>——它不保证每次都能识别成功。</li>
+</ul></li>
+<li><p><strong>如果中间还有一台自建 VPS（双端检查）</strong></p>
+<ul>
+<li>架构：设备 → VPS → 住宅代理 → Claude。Claude
+最终看到的是住宅代理出口，VPS 负责转发。</li>
+<li>⚠️ <strong>设备到 VPS 还连着，不代表 VPS 到住宅代理也正常。</strong>
+住宅代理坏掉时，VPS 若改用<strong>自己的公网 IP</strong> 访问
+Claude，出口同样变了。</li>
+<li>因此：<strong>设备端要阻止本地直连，VPS
+端也要阻止改用服务器自身出口。</strong></li>
+<li>两端按域名分流时，<strong>要分别检查两端是否都取得了域名</strong>，别假定设备识别到的信息一定传给了
+VPS。</li>
+<li>对专门承接 Claude
+流量的入口，<strong>无法识别或不符合允许规则的连接应当
+<code>reject</code>（拒绝）</strong>。⚠️
+该规则要限定在专用入口范围，别把服务器其他业务一起断掉。</li>
+<li><strong>没有用 VPS 中转的，不要为了这一步专门去买。</strong></li>
+</ul></li>
+<li><p><strong>测试方法（关键）</strong></p>
+<ul>
+<li>✅ 正常线路下：网页版 / 桌面端 / Claude Code
+<strong>三者分别</strong>确认可连接。</li>
+<li>✅
+<strong>让线路暂时不可用</strong>（保留设备其他网络）：新的请求应当被<strong>阻断</strong>，<strong>不能</strong>改走直连或其他节点。</li>
+<li>✅
+<strong>只看页面报错不够</strong>，要结合<strong>代理客户端的实际连接记录</strong>确认。</li>
+<li>✅ 恢复线路后，确认能重新连接。</li>
+<li>⚠️ <strong>"节点断了"和"代理软件整个退出了"要分开测。</strong>
+有些配置只能处理前者；软件退出后系统会恢复直连。要连后者也保护住，需要客户端支持<strong>系统断网保护（kill
+switch）</strong>，或另外配置系统层网络限制。</li>
+</ul></li>
+</ol>
+<p><strong>可直接交给 Agent 的提示词（材料二原文）</strong></p>
+<blockquote>
+<p>「请先检查 Claude 各个客户端的实际联网路径。我希望 Claude
+只走指定线路，线路失效时停止连接，不自动直连，也不换节点。如果经过中转服务器，两端都要检查。请先说明现有配置是否满足要求，再给出修改方案和恢复方法，并分别验证节点失效、代理软件退出两种情况。」</p>
+</blockquote>
+<p><strong>验收</strong>：断线测试中，三个客户端的<strong>新增请求全部被阻断</strong>，且连接记录中无直连命中。</p>
+<hr />
+<h3 id="47-dns--webrtc--ipv6-泄漏">4.7 DNS / WebRTC / IPv6 泄漏</h3>
+<p><strong>两个概念必须先分清（材料二原文，等级 A）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>概念</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>DNS 泄漏</strong></td>
+<td>查询<strong>没有经过</strong>你指定的通道</td>
+</tr>
+<tr class="even">
+<td><strong>DNS 污染</strong></td>
+<td>收到的解析结果<strong>被伪造或篡改</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>查到本地运营商 DNS，还不能直接证明 DNS 污染。</strong>
+<strong>解析器所在国家与代理出口不同，也不能只凭这一点下结论。</strong></p>
+</blockquote>
+<p><strong>检测</strong></p>
+<ul>
+<li><a href="https://www.dnsleaktest.com/">dnsleaktest.com</a> → 点击
+<strong>Extended test</strong>，看出现了哪些解析器。</li>
+<li><a
+href="https://browserleaks.com/dns">browserleaks.com/dns</a>（备用）。</li>
+<li>若设备支持 <strong>IPv6</strong>，一并检查——IPv6 常绕过 IPv4
+的代理规则。</li>
+</ul>
+<p><strong>排查顺序（材料二给的路径）</strong></p>
+<ol type="1">
+<li>浏览器自己的**安全 DNS（DoH）**设置</li>
+<li><strong>系统</strong> DNS 设置</li>
+<li><strong>代理客户端</strong>的 DNS 配置</li>
+</ol>
+<p>以上三处任一都可能影响结果。</p>
+<p><strong>WebRTC</strong>：浏览器侧的 WebRTC 可能暴露真实本地
+IP，与代理出口不一致时会被判为"试图隐藏真实地址"。 检测：<a
+href="https://browserleaks.com/webrtc">browserleaks.com/webrtc</a>。若做多账号隔离，在浏览器独立配置文件中禁用
+WebRTC 或使用不含 WebRTC 的容器。</p>
+<hr />
+<h3 id="48-手机号">4.8 手机号</h3>
+<p><strong>官方硬约束（全部等级 A，逐字见 §0.2）</strong></p>
+<ul>
+<li>必须验证，<strong>无法跳过</strong></li>
+<li>号码必须来自<strong>支持地区</strong></li>
+<li><strong>不接受</strong> VoIP、Google
+Voice、应用生成的号码、固定电话</li>
+<li>同一号码最多验证 <strong>3 个</strong>账号</li>
+<li>验证后<strong>无法更改</strong></li>
+</ul>
+<p><strong>结论</strong>：<strong>接码平台的号能过注册这关，但属于高风险操作</strong>——既可能违反"非
+VoIP"要求，又可能因为号码被多人复用而触发关联。材料一和材料二在这一点上完全一致：<strong>要一个长期属于你自己的号码。</strong></p>
+<p><strong>RedPocket 方案核实结果（等级 C）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>项目</th>
+<th>实情</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>价格</td>
+<td>eBay 购年费套餐约 <strong>$30/年</strong>；官网约 $45+/年。建议走
+eBay 续费</td>
+</tr>
+<tr class="even">
+<td>网络</td>
+<td>GSMA = AT&amp;T 线路，<strong>真实美国移动号码</strong>（非
+VoIP）</td>
+</tr>
+<tr class="odd">
+<td>在中国大陆</td>
+<td><strong>接收短信正常，无需
+VPN</strong>；拨打/接听电话<strong>需要美国 IP</strong></td>
+</tr>
+<tr class="even">
+<td>漫游流量</td>
+<td>套餐标注含 1GB
+国际漫游流量（属附赠项，建议自行在后台确认，勿当保证规格）</td>
+</tr>
+<tr class="odd">
+<td>保号</td>
+<td>每年按时续费即可长期保留</td>
+</tr>
+<tr class="even">
+<td>设备要求</td>
+<td>需支持 eSIM 的机型（iPhone XS 及以上、Pixel 3+、三星
+S20+）。<strong>国行手机不支持 eSIM 时，需借助 estk 之类的实体 eSIM
+写入方案</strong></td>
+</tr>
+<tr class="odd">
+<td>激活</td>
+<td>需在<strong>美国网络</strong>下完成激活（激活码 + 设备
+IMEI/EID）</td>
+</tr>
+<tr class="even">
+<td>注意事项</td>
+<td>激活流程有已知 bug，需要客服协助；Wi-Fi Calling 建议在连着美国 IP
+时开启</td>
+</tr>
+</tbody>
+</table>
+<p><strong>验收</strong>：有一个你能<strong>长期控制</strong>、归属支持地区、非
+VoIP 的号码；且该号码未被用于超过 3 个账号。</p>
+<hr />
+<h3 id="49-邮箱">4.9 邮箱</h3>
+<p><strong>要点（材料一 + 材料二一致，等级 C）</strong></p>
+<ol type="1">
+<li><strong>新注册一个干净的 Gmail</strong>
+是最省事的做法（材料一做法）。</li>
+<li><strong>不要用买来的成品邮箱</strong>——"临时买来的邮箱，如果卖家还掌握恢复权限，账号就没有完全在你手里"（材料二原文）。</li>
+<li>如果你有<strong>从未被封过</strong>的 Gmail，可以直接用。</li>
+<li><strong>注册和重新登录都从官方入口操作</strong>，按页面完成验证。</li>
+<li>⚠️
+<strong>一个容易忽略的细节</strong>：点击邮件里的登录链接会打开<strong>哪个浏览器</strong>？如果你专门建了
+Claude
+浏览器环境，要确认登录流程最后回到了这个环境，<strong>别在默认浏览器里又登录了另一个账号</strong>。</li>
+<li><strong>不要把凭据内容复制到聊天里</strong>给 Agent 检查——让 Agent
+检查"认证配置是否存在、来自哪里"就够了。</li>
+</ol>
+<hr />
+<h3 id="410-支付渠道">4.10 支付渠道</h3>
+<p><strong>风控逻辑</strong>：支付信息异常是独立的高权维度。核心风险点是<strong>账单地址与登录
+IP /
+账号地区严重不符</strong>，以及<strong>卡段本身已被标记</strong>。</p>
+<p><strong>方案梯度（材料一给出，按风控友好度排序）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>梯度</th>
+<th>方案</th>
+<th>门槛</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1（最优）</td>
+<td>美国个人银行卡；或注册美国海外公司后申美卡</td>
+<td>高</td>
+<td>风控视角最正常。材料二提到 Mercury（需美国公司）、Capital One（需
+ITIN）、HSBC US</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>美区 PayPal → 绑国内全币种卡或港卡，再绑到美区 Apple ID</td>
+<td>中</td>
+<td>材料二补充：美区 PayPal 也可绑中国大陆的 Visa/Mastercard</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Starryblu（新加坡实体 Mastercard）</td>
+<td>低</td>
+<td>材料一的推荐，附邀请码。<strong>见下方风险提示</strong></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>礼品卡</td>
+<td>低</td>
+<td>⚠️
+<strong>被封号后通常不退款</strong>，材料二明确不推荐来源不明的礼品卡</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Starryblu 核实结果（等级 B/C 混合）</strong></p>
+<ul>
+<li>主体：由**熊猫速汇（Panda Remit）**运营，持新加坡 MAS
+牌照，资金由新加坡华侨银行（OCBC）托管；官网自称受 MAS 监管。</li>
+<li>产品：虚拟 + 实体 Mastercard，多币种账户，可用于 ChatGPT / Claude /
+Cursor 等订阅。</li>
+<li>材料一称"零开卡费、国内身份证不到 10 分钟下卡"，实测可绑 Claude Pro
+与 Cursor。</li>
+<li>⚠️ <strong>代价</strong>：新加坡卡订阅 Claude 走新加坡定价，以 Max
+20x 计每月约贵 <strong>100 RMB</strong>。</li>
+</ul>
+<p><strong>⚠️ 红线（以下方案本手册明确不建议）</strong></p>
+<ul>
+<li><strong>黑卡、来源不明的礼品卡、利用漏洞的代充</strong></li>
+<li><strong>任何要求你交出账号密码、验证码或登录令牌的渠道</strong>——"订阅还没开通，账号控制权先交出去了，这个代价不值得"（材料二原文）</li>
+<li><strong>信用卡拒付（chargeback）</strong>：材料二与第三方资料一致指出，<strong>在穷尽官方申诉渠道前发起拒付，几乎必然导致该支付方式被永久拉黑，并可能牵连你的身份</strong>。有资料明确指出这会让此后的账号创建变得不可能。</li>
+</ul>
+<p><strong>验证渠道的检查点</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>购买方式</th>
+<th>在哪里确认订阅状态</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>App Store / Google Play</td>
+<td>对应<strong>商店</strong>的订阅管理页</td>
+</tr>
+<tr class="even">
+<td>网页购买</td>
+<td>网页内的<strong>账单与订阅</strong>页</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>两个常见混淆</strong>：<code>Google Pay</code>
+是<strong>付款方式</strong>，<code>Google Play</code>
+是<strong>应用商店</strong>，不是一回事； <strong>礼品卡充值成功 ≠
+Claude
+订阅已开通</strong>，还要确认订阅绑定的是<strong>正在使用的那一个</strong>
+Claude 账号。</p>
+</blockquote>
+<p><strong>低价区/优惠活动的正确算法</strong>：<strong>把续费一起算进去</strong>。如果只有首付能这么付，之后每次续费都要换渠道、换资料，那省下的首付不值这个麻烦。</p>
+<hr />
+<h3 id="411-使用行为与套餐节奏">4.11 使用行为与套餐节奏</h3>
+<p><strong>官方明文的红线（等级 A）</strong></p>
+<ul>
+<li>禁止<strong>共享账号与凭证</strong>（Consumer Terms 第 2 条）</li>
+<li>禁止<strong>自动化 / 非人类方式访问</strong>（Consumer Terms 第 3
+条；经 API Key 访问除外）</li>
+<li>禁止<strong>创建或管理多个账号以逃避检测或绕开平台保障措施</strong>（Agent
+Policy）</li>
+<li>禁止利用自动化<strong>批量注册</strong></li>
+</ul>
+<blockquote>
+<p><strong>判读</strong>：这几条是"写着就一定会被执行"的。<strong>多账号轮换、给同事共用
+Max 号、把订阅 token 拿去做后台 agent，都直接踩在上面。</strong>
+如果需要自动化、定时任务、多步自主执行 —— <strong>正确的做法是走
+Anthropic API（Console），而不是消费级订阅 token。</strong></p>
+</blockquote>
+<p><strong>社区经验（等级 C，非官方）</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>建议</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>套餐节奏</td>
+<td>先买低档用一段，按需逐级升（材料一：Pro → 3 天后 Max 5x → 约 10 天后
+Max 20x）</td>
+</tr>
+<tr class="even">
+<td>额度</td>
+<td><strong>不要把额度打满</strong>，尤其避免<strong>每周额度都用到极满</strong></td>
+</tr>
+<tr class="odd">
+<td>经济学</td>
+<td>订阅比 API 亏，<strong>20x 最亏，次之
+10x</strong>；"每次都蹬满"是材料二点名的"太多人踩过的坑"</td>
+</tr>
+<tr class="even">
+<td>闲置</td>
+<td><strong>账号不要长时间闲置</strong>。材料二记录了一个<strong>从未登录过、注册后就放着</strong>的账号被封的案例；官方条款也写明<strong>超过一年不活跃且非付费</strong>可被终止</td>
+</tr>
+<tr class="odd">
+<td>频繁失败重试</td>
+<td>出现"account
+disabled"后<strong>不要反复重试</strong>——多次失败尝试可能加重风控</td>
+</tr>
+<tr class="even">
+<td>行为记录</td>
+<td><strong>不要反复让它做已经明确拒绝的事</strong>。换角色、编场景绕过去，风险远大于收益</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关于正常的开发需求</strong></p>
+<p>如果你的工作是<strong>正常开发、代码审查或有授权的安全测试</strong>，被拒时的正确做法是<strong>把真实目的、授权范围和具体任务讲清楚</strong>——而不是编造授权场景。
+材料二原文：<strong>"不要编造授权，也不用因为一次拒绝，就认定账号已经被标记。"</strong></p>
+<hr />
+<h2 id="5-两份原始材料的冲突点与裁定">5. 两份原始材料的冲突点与裁定</h2>
+<p>两份材料在若干处直接矛盾。逐条列出并给出裁定，避免你按其中一份做却被另一份否定：</p>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>争议点</th>
+<th>材料一主张</th>
+<th>材料二主张</th>
+<th>本手册裁定</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><strong>是否改时区</strong></td>
+<td><strong>改</strong>为 Asia/Taipei</td>
+<td><strong>不改</strong>，无明确证据</td>
+<td><strong>倾向材料二</strong>。理由见
+§4.2：触发时区检测的客户端组件已于 2026-07-02
+移除，材料一论证的证据基础已失效</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>设备<strong>物理标记</strong>（序列号级）</td>
+<td>提到"@suyuan1711 做了清设备指纹记录的 Skill"</td>
+<td>"仅凭先后发生登录和封号，判断不了具体原因"；材料一自己也说"我虽然被封过两次但中间换过设备……不乱说了"</td>
+<td><strong>证据不足（D）</strong>。技术上 Claude Code <strong>不采集
+MAC 地址、CPU 型号、内存、GPU
+信息</strong>。<strong>不要为此重装系统或改序列号</strong></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><strong>骂 AI 会被封</strong></td>
+<td>未提及</td>
+<td>网友提及，作者<strong>明确表示本人与团队未遇到</strong></td>
+<td><strong>D，不要采信</strong>。但"保持情绪稳定"本身没坏处</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>Codex 调用 Claude 被封</strong></td>
+<td>未提及</td>
+<td>作者<strong>明确持怀疑态度</strong>，自己常用 Codex 调 Claude Code
+做审查</td>
+<td><strong>D</strong>。但这仍落在"自动化访问"条款灰区内，见 §4.11</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><strong>指纹浏览器是否必需</strong></td>
+<td>未提及</td>
+<td><strong>不是必需品</strong>。只想分离登录态 →
+浏览器独立配置文件即可</td>
+<td><strong>采纳材料二</strong>。指纹浏览器是另一项需求，普通 profile
+不替代它，但也不是防封必需品</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><strong>礼品卡</strong></td>
+<td>列为第 4 方案，注明"被封好像不退款"</td>
+<td>不建议来源不明的礼品卡</td>
+<td><strong>采纳材料二</strong>。官方渠道 + 可续费性 &gt;
+首次省下的钱</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>支付最优解</td>
+<td>Starryblu（新加坡卡）</td>
+<td>美卡 / 美区 PayPal</td>
+<td><strong>不矛盾，是梯度</strong>。按 §4.10 的 1→4
+梯度选，能上美卡就上美卡</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>代理工具结论</td>
+<td>推荐 IPEqual，<strong>批评 Astrill 分流糟糕</strong></td>
+<td>未横评 Astrill，但强调"分流规则与 TUN 要一起看"</td>
+<td><strong>两者其实是同一结论</strong>：Astrill
+的短板正是分流，而分流恰恰是 §4.6 的核心</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>中转站风险</td>
+<td>未展开</td>
+<td>未展开</td>
+<td><strong>本手册新增</strong>：§2.2
+证明<strong>走中转站是当时唯一被证实的强信号</strong>。能用官方端点就别用中转</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-统一自查清单">6. 统一自查清单</h2>
+<h3 id="61-网络层">6.1 网络层</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />系统代理已置空（macOS
+<code>scutil --proxy</code> 全 0 / Windows
+<code>netsh winhttp show proxy</code> = Direct）</label></li>
+<li><label><input type="checkbox" />使用 <strong>TUN
+模式</strong>，且分流规则与 TUN <strong>一起</strong>检查过</label></li>
+<li><label><input type="checkbox" />Claude
+有<strong>单独的线路</strong>，未加入自动切换策略组</label></li>
+<li><label><input type="checkbox" />兜底规则<strong>不是</strong>
+DIRECT</label></li>
+<li><label><input
+type="checkbox" />已开启域名嗅探（sniff），且<strong>验证过</strong>实际识别成功</label></li>
+<li><label><input type="checkbox" />若经 VPS
+中转：<strong>两端</strong>都已阻止直连 /
+已阻止改用服务器自身出口</label></li>
+<li><label><input
+type="checkbox" /><strong>断线测试通过</strong>：线路失效时请求被阻断，未改走直连或其他节点</label></li>
+<li><label><input
+type="checkbox" /><strong>软件退出测试通过</strong>（或已知此场景不设防，并接受该风险）</label></li>
+<li><label><input type="checkbox" />终端侧 <code>curl</code> 验证出口 IP
+归属正确（不只看浏览器）</label></li>
+<li><label><input type="checkbox" />DNS Extended test
+无本地运营商泄漏；IPv6 已检查</label></li>
+<li><label><input type="checkbox" />出口 IP 纯净度：Scamalytics &lt;
+30，ipdata 无 Tor/Proxy/Abuser 告警，AbuseIPDB = 0%</label></li>
+<li><label><input type="checkbox" />出口 IP
+归属地、时区、与账号资料<strong>无严重错位</strong></label></li>
+</ul>
+<h3 id="62-端点与残留">6.2 端点与残留</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" /><code>ANTHROPIC_BASE_URL</code>
+已清空（所有 shell / 注册表 / 配置文件）</label></li>
+<li><label><input type="checkbox" />所有 <code>ANTHROPIC_*</code> /
+<code>CLAUDE_*</code> 环境变量已过一遍</label></li>
+<li><label><input type="checkbox" /><code>~/.claude/settings.json</code>
+无 proxy / base_url / anthropic_ 字段</label></li>
+<li><label><input type="checkbox" />npm / yarn / pnpm
+代理配置已清</label></li>
+<li><label><input type="checkbox" />git 全局代理配置已过一遍（system /
+global / local 三个作用域都要查）</label></li>
+<li><label><input type="checkbox" />shell 启动文件（<code>.zshrc</code>
+/ <code>.bashrc</code> / <code>.profile</code> / PowerShell
+<code>$PROFILE</code>）无硬编码 proxy</label></li>
+</ul>
+<h3 id="63-设备本地">6.3 设备本地</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" /><code>~/.claude.json</code>
+中追踪字段已清（<code>userID</code> / <code>anonymousId</code> /
+<code>firstStartTime</code> / <code>claudeCodeFirstTokenDate</code> /
+<code>oauthAccount</code> 等）</label></li>
+<li><label><input type="checkbox" /><code>~/.claude/</code>
+下遥测与缓存目录已清</label></li>
+<li><label><input type="checkbox" />macOS Keychain 条目已删；Windows
+凭据管理器已查</label></li>
+<li><label><input type="checkbox" />桌面端
+<code>Application Support</code> / <code>%APPDATA%</code> /
+<code>%LOCALAPPDATA%</code> 残留已清</label></li>
+<li><label><input type="checkbox" />浏览器 claude.ai / anthropic.com 的
+Cookie 与站点数据已清</label></li>
+<li><label><input type="checkbox" />多账号使用<strong>独立浏览器
+profile</strong>，未混用默认 profile</label></li>
+<li><label><input
+type="checkbox" /><strong>清理前已备份</strong>（<code>~/.claude</code>
+含设置与会话历史，不要无脑删）</label></li>
+</ul>
+<h3 id="64-账号资料">6.4 账号资料</h3>
+<ul class="task-list">
+<li><label><input
+type="checkbox" />手机号：长期可控、归属支持地区、<strong>非
+VoIP</strong></label></li>
+<li><label><input type="checkbox" />手机号<strong>使用次数 ≤
+3</strong></label></li>
+<li><label><input type="checkbox" />邮箱：干净的
+Gmail，或从未被封过的自有邮箱；<strong>不是买来的成品邮箱</strong></label></li>
+<li><label><input
+type="checkbox" />登录链接最终落在<strong>你预期的那个浏览器环境</strong></label></li>
+<li><label><input type="checkbox" />支付：在 §4.10 梯度的 1–3
+档之间；<strong>未使用黑卡/不明礼品卡/代充</strong></label></li>
+<li><label><input
+type="checkbox" />账单地址与账号地区<strong>不严重冲突</strong></label></li>
+<li><label><input type="checkbox" />未与他人共享账号或凭证</label></li>
+<li><label><input type="checkbox" />未使用消费级订阅 token 承接自动化 /
+后台任务</label></li>
+<li><label><input
+type="checkbox" />没有多账号轮换以规避限额或检测</label></li>
+<li><label><input
+type="checkbox" />未长时间闲置（或已确认是付费账号）</label></li>
+<li><label><input type="checkbox" />额度未长期打满</label></li>
+<li><label><input
+type="checkbox" />未被拒后反复重试同一请求</label></li>
+</ul>
+<hr />
+<h2 id="7-执行顺序别乱序做">7. 执行顺序（别乱序做）</h2>
+<p>顺序错了会白干。按这个顺序：</p>
+<pre><code>第 0 步  备份
+         cp -a ~/.claude ~/.claude.bak.$(date +%Y%m%d)   # macOS/Linux
+         # Windows: PowerPoint 无关，用 robocopy
+         robocopy &quot;%USERPROFILE%\.claude&quot; &quot;D:\backup\.claude&quot; /E /COPYALL
+
+第 1 步  网络（P0）——先把管子接对
+         §4.4 TUN 模式  -&gt;  §4.5 清端点残留  -&gt;  §4.6 fail-closed  -&gt;  §4.7 DNS
+
+第 2 步  出口验证（P0）——管子接对了没有
+         §4.3 终端 curl + IP 纯净度交叉验证
+
+第 3 步  设备清理（P1）——把本机洗干净
+         §4.1 按顺序：追踪 ID -&gt; 遥测/缓存 -&gt; Keychain/凭据 -&gt; 桌面端 -&gt; 浏览器
+
+第 4 步  账号资料（P2）——只有前三步都通过了再动
+         §4.8 手机号  §4.9 邮箱  §4.10 支付
+
+第 5 步  行为约束（P2，长期）
+         §4.11
+
+第 6 步  复检
+         §6 全清单跑一遍；跑 skill/scripts/ 下的自查脚本留档</code></pre>
+<p><strong>为什么必须这个顺序</strong>：网络没修好就去注册新账号，等于<strong>用脏环境开新号</strong>——这是最典型的"一出生就带标签"。
+材料一的原文写得很直白：<strong>"如果你的设备上被封过很多次账号，那这台设备本身可能已经被标记了。你在上面注册的新号，可能一出生就带着标签。"</strong></p>
+<hr />
+<h2 id="8-存疑信息台账">8. 存疑信息台账</h2>
+<p>严格区分"已知"和"听说"。以下条目<strong>不要</strong>当作行动依据：</p>
+<table>
+<thead>
+<tr class="header">
+<th>说法</th>
+<th>证据等级</th>
+<th>本手册判断</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>客户端读时区（Layer 1 检测）</td>
+<td><strong>B，但已失效</strong></td>
+<td>2026-07-02 已移除。不要基于此改时区</td>
+</tr>
+<tr class="even">
+<td>147 条域名清单 + AI 实验室关键词</td>
+<td>B</td>
+<td>已被逆向披露，属事实。但同样随 7/2 版本移除</td>
+</tr>
+<tr class="odd">
+<td>阈值累积模型</td>
+<td>C</td>
+<td>与观测一致，可作为工作假设</td>
+</tr>
+<tr class="even">
+<td>"封号占比 60% 来自 IP"</td>
+<td>C（来源存疑）</td>
+<td>数字不可考，方向可信。<strong>别拿它当精确值</strong></td>
+</tr>
+<tr class="odd">
+<td>Claude 采集硬件指纹</td>
+<td><strong>D（已证伪）</strong></td>
+<td>Claude Code <strong>不采集</strong> MAC / CPU / 内存 /
+GPU。不需要换机器或改序列号</td>
+</tr>
+<tr class="even">
+<td>骂 AI 会被封</td>
+<td>D</td>
+<td>无可靠证据，材料二作者明确表示未遇到</td>
+</tr>
+<tr class="odd">
+<td>Codex 调用 Claude 被封</td>
+<td>D</td>
+<td>材料二作者明确存疑，本人常用</td>
+</tr>
+<tr class="even">
+<td>账号长期闲置会被封</td>
+<td>C</td>
+<td>官方条款确有"超一年不活跃且非付费可终止"，<strong>且有社区案例</strong>。可采信</td>
+</tr>
+<tr class="odd">
+<td>第三方工具模拟 Claude Code 被封</td>
+<td>C</td>
+<td>2026 年 1 月确有一批 OpenCode 类工具账号被处理</td>
+</tr>
+<tr class="even">
+<td>Astrill 部分节点被 Gemini 识别限制</td>
+<td>D</td>
+<td>单人观察，无法验证</td>
+</tr>
+<tr class="odd">
+<td>EqualVPN 的住宅 IP 是"套壳假住宅"</td>
+<td>D</td>
+<td>材料一自己也转述了这个质疑，但称"未遇到安全问题"。<strong>无法验证</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-工具与服务商对比含返利声明">9.
+工具与服务商对比（含返利声明）</h2>
+<blockquote>
+<p>⚠️
+<strong>重要</strong>：两篇原文中提及的多个服务<strong>均附带邀请码/返利链接</strong>（云梯子、EqualVPN、Starryblu、RedPocket
+的 eBay 链接等）。
+这<strong>不意味着</strong>信息不实，但意味着<strong>推荐存在利益关联</strong>。请独立验证后再决定。</p>
+</blockquote>
+<h3 id="91-代理工具材料一横评">9.1 代理工具（材料一横评）</h3>
+<table>
+<thead>
+<tr class="header">
+<th>工具</th>
+<th>类型</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>云梯子</strong></td>
+<td>机场</td>
+<td>稳定、便宜（20–30/月）、流量近乎不限、7–8 年未跑路</td>
+<td><strong>主要是动态机房 IP</strong>，对 IP 敏感场景不够用</td>
+</tr>
+<tr class="even">
+<td><strong>EqualVPN / IPEqual</strong></td>
+<td>住宅 IP 二合一</td>
+<td><strong>IP 纯净度最高</strong>（材料一称 &lt; 8%）、对 AI
+平台友好、基于 Clash 可分流</td>
+<td><strong>流量少（120G/月）</strong>、贵（70–90/月）、国内访问地址常变、偶发断线卡顿</td>
+</tr>
+<tr class="odd">
+<td><strong>voyracloud</strong></td>
+<td>VPS（住宅 IP 服务器）</td>
+<td>便宜（$4–12）、流量充足（1T/2T）、自主可控</td>
+<td>纯净度次之（10–15%）、需手动搭节点、单 IP 风险、低配偶发不可用</td>
+</tr>
+<tr class="even">
+<td><strong>Astrill</strong></td>
+<td>商业 VPN</td>
+<td>稳定性强、中国市场友好、使用简单、节点多</td>
+<td><strong>非常贵</strong>（180u/年，邀请
+126/年）、<strong>分流极差</strong>、国内网站体验差、APP 端体验差</td>
+</tr>
+<tr class="odd">
+<td><strong>vvcloud</strong></td>
+<td>机场</td>
+<td>便宜、速度尚可、标称住宅 IP</td>
+<td><strong>多人共用</strong>、节点常挂、对 AI 平台实际不好用</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-支付">9.2 支付</h3>
+<table>
+<thead>
+<tr class="header">
+<th>方案</th>
+<th>门槛</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>美国个人银行卡 / 美企申美卡</td>
+<td>高</td>
+<td>风控最友好</td>
+</tr>
+<tr class="even">
+<td>美区 PayPal + 全币种卡/港卡</td>
+<td>中</td>
+<td>可绑到美区 Apple ID</td>
+</tr>
+<tr class="odd">
+<td>Starryblu（新加坡 Mastercard）</td>
+<td>低</td>
+<td>熊猫速汇运营，MAS 牌照；<strong>新加坡定价更贵约 100
+RMB/月</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="93-手机号">9.3 手机号</h3>
+<table>
+<thead>
+<tr class="header">
+<th>方案</th>
+<th>成本</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RedPocket eSIM</td>
+<td>~$30/年</td>
+<td>真美国号，大陆收发短信正常；<strong>需支持 eSIM 的机型</strong></td>
+</tr>
+<tr class="even">
+<td>Ultra PayGo 紫卡 / Tello</td>
+<td>略高</td>
+<td>材料一称 RedPocket 更划算</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>接码平台</strong>：能过注册，但属高风险。见 §4.8。</p>
+</blockquote>
+<hr />
+<h2 id="10-附录">10. 附录</h2>
+<h3 id="101-状态核验命令速查">10.1 状态核验命令速查</h3>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 我是谁 / 我在哪 ---</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ex">node</span> <span class="at">-e</span> <span class="st">&quot;console.log(Intl.DateTimeFormat().resolvedOptions().timeZone)&quot;</span>   <span class="co"># 时区</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ex">scutil</span> <span class="at">--proxy</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">&quot;HTTPEnable|HTTPSEnable|SOCKSEnable&quot;</span>             <span class="co"># macOS 系统代理</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://ipinfo.io <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">&#39;&quot;ip&quot;|&quot;country&quot;|&quot;org&quot;|&quot;timezone&quot;&#39;</span>      <span class="co"># 终端出口 IP</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-s</span> https://ipinfo.io/country                                          <span class="co"># 只要国家</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- 端点 ---</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-iE</span> <span class="st">&quot;anthropic|claude&quot;</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/.claude/settings.json <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-iE</span> <span class="st">&quot;proxy|base_url|anthropic_&quot;</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Claude Code 账号状态 ---</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 在 Claude Code 内执行：</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="ex">/status</span>    <span class="co"># 查看当前账号与组织</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="ex">/logout</span>    <span class="co"># 退出</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="ex">/login</span>     <span class="co"># 重新登录</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 然后重新跑 /status 核对</span></span></code></pre></div>
+<h3 id="102-交给-agent-的标准提示词">10.2 交给 Agent 的标准提示词</h3>
+<p><strong>设备残留清理</strong></p>
+<blockquote>
+<p>「帮我清理这台电脑上 Claude 的本地残留，包括 <code>.claude</code>
+目录、Keychain 里的 Claude
+凭据、应用支持目录里的历史会话文件。<strong>清理前先列出来给我确认</strong>，并先做一次备份。」</p>
+</blockquote>
+<p><strong>代理残留检查</strong></p>
+<blockquote>
+<p>「帮我全面检查这台电脑的代理残留，包括系统代理、环境变量里的
+proxy、shell 启动文件、npm 和 git 的代理配置、claude 的
+<code>settings.json</code>，以及所有 <code>ANTHROPIC</code>
+开头的环境变量。<strong>把不干净的列出来给我，先不要改。</strong>」</p>
+</blockquote>
+<p><strong>联网路径审计（材料二原文）</strong></p>
+<blockquote>
+<p>「请先检查 Claude 各个客户端的实际联网路径。我希望 Claude
+只走指定线路，线路失效时停止连接，不自动直连，也不换节点。如果经过中转服务器，两端都要检查。请先说明现有配置是否满足要求，再给出修改方案和恢复方法，并分别验证节点失效、代理软件退出两种情况。」</p>
+</blockquote>
+<h3 id="103-参考来源">10.3 参考来源</h3>
+<p><strong>官方（等级 A/B）</strong></p>
+<ul>
+<li><a
+href="https://support.claude.com/en/articles/8287232-verify-your-phone-number">Verify
+your phone number</a> — 手机号硬约束</li>
+<li><a
+href="https://support.claude.com/en/articles/8461763-where-can-i-access-claude">Where
+can I access Claude?</a> — 支持地区清单（160 个）</li>
+<li><a href="https://www.anthropic.com/legal/consumer-terms">Anthropic
+Consumer Terms</a> — 账号共享 / 自动化 / 终止</li>
+<li><a
+href="https://support.claude.com/en/articles/12005017-using-agents-according-to-our-usage-policy">Using
+Agents According to Our Usage Policy</a> — 多账号规避</li>
+<li><a
+href="https://www.anthropic.com/legal/archive/7197103a-5e27-4ee4-93b1-f2d4c39ba1e7">Usage
+Policy</a></li>
+</ul>
+<p><strong>2.1.196 事件（等级 B）</strong></p>
+<ul>
+<li>Thereallo 逆向披露；Thariq Shihipar（Anthropic）2026-07-01 X
+回应</li>
+<li><a
+href="https://www.gblock.app/articles/claude-code-hidden-tracker-unicode-2026">Gblock:
+Claude Code's Hidden Tracker Used Unicode Steganography</a></li>
+<li><a
+href="https://cybersecuritybeat.com/2026/07/07/anthropic-removes-hidden-data-marker-from-claude-code-after-researcher-discovery">CyberSecurityBeat:
+Anthropic Removes Hidden Data Marker</a></li>
+<li><a
+href="https://unwire.hk/2026/07/03/claude-code-china-marker/ai/">unwire.hk
+报道</a></li>
+<li>工业和信息化部 NVDB 风险提示（2026-07-08）</li>
+</ul>
+<p><strong>社区（等级 C/D，需自行判断）</strong></p>
+<ul>
+<li><a
+href="https://youmind.com/zh-CN/landing/x-viral-articles/claude-code-anti-ban-guide">Claude
+Code 终极防封指南（@app_sail）</a> — 材料二的主要来源之一</li>
+<li><a
+href="https://github.com/win4r/cc-notebook/blob/main/清除Claude_Code追踪数据指南.md">清除
+Claude Code 追踪数据指南</a> — 本地追踪字段清单</li>
+<li><a
+href="https://github.com/BellyBook/claude-local-cleanup">claude-local-cleanup</a>
+— 清理脚本</li>
+<li><a
+href="https://skillsmp.com/creators/suyuan2022/suyuan-skill/claude-cleanup">suyuan2022/suyuan-skill
+· claude-cleanup</a> — 材料一提到的 Skill（<strong>注意：该 Skill
+自称"不用于规避封禁或平台风控"</strong>）</li>
+</ul>
+<p><strong>IP 纯净度检测</strong></p>
+<ul>
+<li><a href="https://scamalytics.com/">scamalytics.com</a> · <a
+href="https://ipdata.co/">ipdata.co</a> · <a
+href="https://www.ip2location.com/">ip2location.com</a> · <a
+href="https://db-ip.com/">db-ip.com</a> · <a
+href="https://ping0.cc/">ping0.cc</a> · <a
+href="https://radar.cloudflare.com/">radar.cloudflare.com</a> · <a
+href="https://www.abuseipdb.com/">abuseipdb.com</a> · <a
+href="https://www.dnsleaktest.com/">dnsleaktest.com</a> · <a
+href="https://browserleaks.com/">browserleaks.com</a></li>
+</ul>
+<hr />
+<h2
+id="附关于支持地区的一个事实澄清">附：关于"支持地区"的一个事实澄清</h2>
+<p>Anthropic 官方支持地区清单共 <strong>160
+个国家和地区</strong>。其中亚洲区域包含
+<strong>中国台湾地区</strong>（列表中的 Taiwan）。</p>
+<p><strong>中国香港</strong>与<strong>中国澳门</strong>均<strong>不在</strong>该清单中。</p>
+<p>这不改变本手册 §0.2
+的核心结论：官方约束的是<strong>用户物理所在位置</strong>，而非出口 IP
+归属。</p>
+<hr />
+<h2 id="附录-b本机实测模板">附录 B：本机实测模板</h2>
+<blockquote>
+<p><strong>公开版本说明</strong>：本附录在本地私有版本中填入真实实测值；公开版本只保留<strong>表格结构与判定标准</strong>，
+所有本机标识（出口
+IP、ASN、运营商、内网网段、主机名、代理端口、系统时区）均已移除。
+自查时请用 <code>skill/scripts/check-claude-env.ps1</code>（Windows）或
+<code>skill/scripts/check-claude-env.sh</code>（macOS / Linux）
+跑出你自己的一份结果，再按下表逐行填写。</p>
+</blockquote>
+<h3 id="b1-逐项结果">B.1 逐项结果</h3>
+<table>
+<thead>
+<tr class="header">
+<th>维度</th>
+<th>你的实测</th>
+<th>判定标准</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>系统时区</td>
+<td></td>
+<td>⚪ 中性 —— 只要与出口地区不自相矛盾即可</td>
+</tr>
+<tr class="even">
+<td>Locale</td>
+<td></td>
+<td>⚪ 中性</td>
+</tr>
+<tr class="odd">
+<td>WinINET 系统代理</td>
+<td></td>
+<td>✅ 期望 <code>ProxyEnable = 0</code>，ProxyServer 与 AutoConfigURL
+均为空</td>
+</tr>
+<tr class="even">
+<td>WinHTTP 代理</td>
+<td></td>
+<td>✅ 期望 direct access（无代理端点）</td>
+</tr>
+<tr class="odd">
+<td>.NET 默认代理</td>
+<td></td>
+<td>✅ 期望 none in effect</td>
+</tr>
+<tr class="even">
+<td><strong>进程级代理环境变量</strong></td>
+<td></td>
+<td>⚠️ <strong>期望无</strong>。这是唯一会被 Node 程序（含 Claude
+Code）直接读到的代理配置，<strong>TUN 覆盖不到它</strong></td>
+</tr>
+<tr class="odd">
+<td>User / Machine 持久化代理变量</td>
+<td></td>
+<td>✅ 期望无</td>
+</tr>
+<tr class="even">
+<td><code>ANTHROPIC_*</code> 环境变量</td>
+<td></td>
+<td>✅ 期望无</td>
+</tr>
+<tr class="odd">
+<td><code>ANTHROPIC_BASE_URL</code></td>
+<td></td>
+<td>✅ 期望<strong>未设置</strong> ——
+指向第三方中转端点会显著提高风险</td>
+</tr>
+<tr class="even">
+<td>npm / npm https-proxy</td>
+<td></td>
+<td>✅ 期望 none</td>
+</tr>
+<tr class="odd">
+<td>git 代理（system + global + local）</td>
+<td></td>
+<td>✅ 期望 none</td>
+</tr>
+<tr class="even">
+<td>系统凭据管理器</td>
+<td></td>
+<td>✅ 期望无 claude / anthropic 条目</td>
+</tr>
+<tr class="odd">
+<td><code>~/.claude</code></td>
+<td></td>
+<td>⚪ 记录体积即可</td>
+</tr>
+<tr class="even">
+<td>└ <code>shell-snapshots/</code></td>
+<td></td>
+<td>⚠️ 可清理</td>
+</tr>
+<tr class="odd">
+<td>└ <code>session-env/</code></td>
+<td></td>
+<td>⚠️ 可清理</td>
+</tr>
+<tr class="even">
+<td><code>~/.claude.json</code></td>
+<td></td>
+<td>⚪ 记录体积即可</td>
+</tr>
+<tr class="odd">
+<td>└ <code>userID</code></td>
+<td></td>
+<td>⚠️ 存在即为跨会话追踪主键</td>
+</tr>
+<tr class="even">
+<td>└ <code>firstStartTime</code></td>
+<td></td>
+<td>⚠️ 存在即记录首次使用时间</td>
+</tr>
+<tr class="odd">
+<td>└ <code>oauthAccount</code></td>
+<td></td>
+<td>✅ 不存在更干净</td>
+</tr>
+<tr class="even">
+<td><code>~/.claude/settings.json</code></td>
+<td></td>
+<td>✅ 期望无 proxy / base_url / anthropic_ 条目</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b2-网络链路">B.2 网络链路</h3>
+<table>
+<thead>
+<tr class="header">
+<th>项目</th>
+<th>你的实测</th>
+<th>判定标准</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>TUN 网卡</td>
+<td></td>
+<td>✅ 期望存在且状态 Up</td>
+</tr>
+<tr class="even">
+<td>IPv4 默认路由</td>
+<td></td>
+<td>✅ 期望 <code>0.0.0.0/0</code> 指向 TUN 网卡，nexthop 落在 TUN 的
+fake-ip 网段内</td>
+</tr>
+<tr class="odd">
+<td>并行默认路由</td>
+<td></td>
+<td>⚠️ 若物理网卡上还挂着一条同 metric 的
+<code>0.0.0.0/0</code>，需确认它不会抢路由</td>
+</tr>
+<tr class="even">
+<td>DNS</td>
+<td></td>
+<td>✅ 期望解析走 TUN 的 fake-ip 网关</td>
+</tr>
+<tr class="odd">
+<td><strong>出口 IP（走环境变量代理）</strong></td>
+<td></td>
+<td>✅ 期望国家 / 地区与「绕过代理」那一行一致</td>
+</tr>
+<tr class="even">
+<td><strong>出口 IP（绕过环境变量代理）</strong></td>
+<td></td>
+<td>⚠️ 与上一行<strong>不一致即说明存在旁路</strong></td>
+</tr>
+<tr class="odd">
+<td><strong>IPv6 出口</strong></td>
+<td></td>
+<td>✅ 期望<strong>无可用路径</strong>，或与 IPv4 出口国家一致</td>
+</tr>
+<tr class="even">
+<td>IPv6 全局地址</td>
+<td></td>
+<td>⚪ 记录是否存在</td>
+</tr>
+<tr class="odd">
+<td>IPv6 默认路由</td>
+<td></td>
+<td>⚠️ 期望 <code>::/0</code> 指向 TUN，而不是只挂在物理网卡上</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b3-三条典型结论模式">B.3 三条典型结论模式</h3>
+<p><strong>1. 出口与本地环境是否自洽。</strong> 把出口 IP 的国家 /
+地区、系统时区、<code>ipinfo</code> 报的 timezone 三者对一遍。
+三者一致最好；"美国 IP + 中国时区"这类错位是典型特征。</p>
+<p><strong>2. IPv6 的两种"安全"要分清。</strong> 「v6 不可达」与「v6
+被代理接管」在结论上都表现为不泄漏，但<strong>稳健性完全不同</strong>：
+前者依赖上游网络状态，一旦 IPv6 恢复可达就会直接走物理网卡出网。 →
+建议二选一：<strong>在代理客户端里显式接管
+IPv6</strong>，或<strong>在物理网卡上禁用 IPv6</strong>。</p>
+<p><strong>3. IP 类型通常比配置更容易成为缺口。</strong> 住宅 IP 与机房
+IP 的差异，在配置全部做对之后，往往才是唯一剩下的可改进项。
+用下表交叉验证，不要只看一家的结论：</p>
+<table>
+<thead>
+<tr class="header">
+<th>检测项</th>
+<th>参考站点</th>
+<th>期望</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>欺诈分</td>
+<td>scamalytics.com</td>
+<td>&lt; 30</td>
+</tr>
+<tr class="even">
+<td>代理 / Tor / 滥用标记</td>
+<td>ipdata.co</td>
+<td>均无</td>
+</tr>
+<tr class="odd">
+<td>滥用举报率</td>
+<td>abuseipdb.com</td>
+<td>0%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b4-待执行动作按优先级">B.4 待执行动作（按优先级）</h3>
+<table>
+<thead>
+<tr class="header">
+<th>优先级</th>
+<th>动作</th>
+<th>怎么验</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>P0</strong></td>
+<td>在<strong>你自己的终端</strong>里复核代理环境变量</td>
+<td>Windows：<code>set | findstr /i proxy</code>；macOS /
+Linux：<code>env | grep -i proxy</code>。若命中且来自你的 shell 启动文件
+→ 清掉</td>
+</tr>
+<tr class="even">
+<td><strong>P0</strong></td>
+<td>验证 fail-closed（脚本无法自动测）</td>
+<td>断开代理节点，确认各客户端的<strong>新请求被阻断</strong>，而不是改走直连或自动换线</td>
+</tr>
+<tr class="odd">
+<td><strong>P0</strong></td>
+<td>验证分流规则覆盖 <code>claude.ai</code> /
+<code>api.anthropic.com</code></td>
+<td>在代理客户端的连接记录里看这两个域名命中了哪条规则、走了哪个节点</td>
+</tr>
+<tr class="even">
+<td><strong>P1</strong></td>
+<td>对出口 IP 做纯净度交叉验证</td>
+<td>见 B.3 第三张表</td>
+</tr>
+<tr class="odd">
+<td><strong>P1</strong></td>
+<td>清理 <code>~/.claude.json</code> 的 <code>userID</code> /
+<code>firstStartTime</code> 与
+<code>shell-snapshots/</code>、<code>session-env/</code></td>
+<td><strong>先备份</strong>，再按 §4.1 选择性清理</td>
+</tr>
+<tr class="even">
+<td><strong>P2</strong></td>
+<td>处理 IPv6（接管或禁用）</td>
+<td><code>curl -6 -s https://ipinfo.io</code> 应失败、或返回与 IPv4
+相同的出口国家</td>
+</tr>
+<tr class="odd">
+<td><strong>P2</strong></td>
+<td>浏览器侧清 <code>claude.ai</code> / <code>anthropic.com</code>
+站点数据；多账号用独立 profile</td>
+<td>手动</td>
+</tr>
+</tbody>
+</table>
+<h3 id="b5-审计脚本自身的缺陷记录已修复">B.5
+审计脚本自身的缺陷记录（已修复）</h3>
+<p>诚实记录：这次脚本第一版有 4
+个问题，都是实跑之后才暴露的。列出来是提醒你——<strong>能跑通不等于结论对</strong>。</p>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>症状</th>
+<th>根因</th>
+<th>修法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>脚本完全跑不起来（25 个语法错误，报"字符串缺少终止符"）</td>
+<td>脚本里写了<strong>中文字符串字面量</strong>，而 Windows PowerShell
+5.1 读取<strong>无 BOM 的 <code>.ps1</code> 时按 ANSI / GBK
+解码</strong>，中文字节被扭曲</td>
+<td>脚本改为<strong>纯 ASCII</strong>（已校验
+<code>non-ascii-bytes=0</code>），本地化匹配改用语言无关的启发式</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><code>WinHTTP proxy</code> 误报
+<code>[HIT] CONFIGURED</code>，但实际是"无代理"</td>
+<td><code>netsh</code>
+输出被本地化成中文（<code>直接访问(没有代理服务器)</code>），而脚本只匹配英文
+<code>direct access</code></td>
+<td>不再匹配语种：<strong>出现 <code>ip:port</code> /
+<code>host:port</code> / <code>http(s)://</code>
+才算有代理</strong></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>.NET default proxy</code> 误报
+<code>[WARN] https://api.anthropic.com/</code></td>
+<td>无代理时 <code>GetProxy()</code> 会<strong>原样返回请求
+URI</strong>，被当成了代理地址</td>
+<td>比较返回值的 Host 与请求 Host，相同即判定"无代理"</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><strong>漏检</strong>了进程级代理环境变量</td>
+<td>只遍历了 <code>User</code> / <code>Machine</code>
+两个持久化作用域，没查 <code>Process</code></td>
+<td>三个作用域全查，并分别标注来源</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>第 4 条最严重——它漏掉的恰恰是<strong>唯一真正会被 Claude Code
+读到的那个作用域</strong>。 这正是 §4.4 那个"TUN
+覆盖不到的另一半"的由来。</p>
+</blockquote>
+<hr />
+<p><em>本手册基于 2026-09-23 的公开信息整理。Anthropic
+的服务条款、支持地区与检测策略会持续变化，请以官方页面为准。</em></p></main>
+  <footer>Source of truth: claude-env-audit.md in this folder. Compiled
+2026-09-23; Anthropic terms, supported locations and detection practices
+change — always defer to the official pages.</footer>
+</div>
+</body>
+</html>

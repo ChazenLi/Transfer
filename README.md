@@ -12,6 +12,7 @@ A personal bank of long-form, AI-assisted study documents and the tooling that p
 |---|---|
 | [`crispr/`](crispr/) | CRISPR-Cas 天然机制、演化与生化全景解析：[`crispr.md`](crispr/crispr.md) 中文长文（含专著 / 原始论文 / 综述书单与配套视频课程）+ [`crispr-2-mechanism-lecture.md`](crispr/crispr-2-mechanism-lecture.md) 英文讲解稿（Act 1–4，含 NHEJ / HDR 修复机制）+ [`crispr-1.html`](crispr/crispr-1.html) 交互式分子流程动态演示 |
 | [`journal-tracking/`](journal-tracking/) | 顶级期刊追踪：**技能本体**（Nature / Science / Cell 规范）+ **每周运行结果**归档 |
+| [`claude-env-audit/`](claude-env-audit/) | LLM 客户端**环境一致性审计**：手册（端点 / 代理双通道 / 出口身份 / 地址族泄漏 / 失效模式 / 本地标识）+ **技能本体**（Windows + POSIX 两套只读审计脚本） |
 
 ---
 
