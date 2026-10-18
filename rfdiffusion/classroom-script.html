@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RFdiffusion 课堂汇报：深入讲解与备讲稿</title>
+<style>
+body{max-width:960px;margin:40px auto;padding:0 24px;color:#1e293b;background:#fff;font:17px/1.85 system-ui,"Microsoft YaHei",sans-serif}
+h1,h2,h3,h4{line-height:1.4;color:#115e59} h2{margin-top:2.5em;border-bottom:1px solid #cbd5e1;padding-bottom:.4em}
+a{color:#0f766e}table{border-collapse:collapse;display:block;overflow:auto;font-size:.9em}td,th{border:1px solid #cbd5e1;padding:8px 12px;text-align:left}
+blockquote{border-left:4px solid #0d9488;margin:1em 0;padding:.2em 1em;background:#f0fdfa}pre{overflow:auto;background:#f1f5f9;padding:16px} mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden}
+@media print{body{max-width:none;margin:0;font-size:11pt}h2,h3{break-after:avoid}a{color:inherit}}
+</style>
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head><body>
+<h1>RFdiffusion 课堂汇报：深入讲解与备讲稿</h1>
+<p>对应现有 15 页 PPT。主讲对象为生物相关专业、兼有部分 AI 基础的听众，现场时长仍按 15–20 分钟安排。本稿的长篇解释用于理解、备课和问答，不宜在课堂上全文照读。</p>
+<p>核心文献：Watson, J. L. et al. <strong>De novo design of protein structure and function with RFdiffusion.</strong> <em>Nature</em> <strong>620</strong>, 1089–1100 (2023). <a href="https://www.nature.com/articles/s41586-023-06415-8">DOI: 10.1038/s41586-023-06415-8</a>。</p>
+<p>本次深化重新核对了出版方正文、六张主图及图注，并定向阅读补充材料中与几何表示、扩散原理、自条件、损失函数和计算评价有关的章节。补充材料共 129 个 PDF 页面，本稿只使用注明的章节；没有逐项审计全部补充实验，没有运行论文代码或独立复现。本文讨论的能力边界指 2023 年这篇论文的版本。</p>
+<p>为便于分辨证据，文中采用三种标记：<strong>论文报告</strong>表示作者实际提出的方法或报告的结果，<strong>教学解释</strong>表示对概念和数学关系的重述或推导，<strong>阅读判断</strong>表示根据读出、对照与选择过程作出的评价。教学示例中的假设数字均单独标明，不作为论文数据。</p>
+<h2>阅读路线与现场节奏</h2>
+<p>先建立四个区分：骨架与序列、当前带噪状态与干净结构预测、计算结构一致性与实验实现、单个成功实例与总体成功比例。后面的技术细节都围绕这些区分展开。</p>
+<table>
+<thead>
+<tr>
+<th>页码</th>
+<th>页面主题</th>
+<th>现场建议</th>
+<th>本稿重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#slide-01">1</a></td>
+<td>RFdiffusion：扩散模型驱动的蛋白质设计</td>
+<td>0:30</td>
+<td>明确论文究竟设计什么</td>
+</tr>
+<tr>
+<td><a href="#slide-02">2</a></td>
+<td>蛋白质设计问题</td>
+<td>1:00</td>
+<td>多解性、可设计性与功能约束</td>
+</tr>
+<tr>
+<td><a href="#slide-03">3</a></td>
+<td>RoseTTAFold 作为去噪网络</td>
+<td>1:15</td>
+<td>结构先验如何转成生成能力</td>
+</tr>
+<tr>
+<td><a href="#slide-04">4</a></td>
+<td>训练时加噪，生成时逐步去噪</td>
+<td>1:30</td>
+<td>前向分布、反向生成和多步的意义</td>
+</tr>
+<tr>
+<td><a href="#slide-05">5</a></td>
+<td>残基几何与连续去噪</td>
+<td>1:30</td>
+<td>刚体框架、等变性、MSE 与自条件</td>
+</tr>
+<tr>
+<td><a href="#slide-06">6</a></td>
+<td>完整的设计与验证流程</td>
+<td>1:15</td>
+<td>三个模型的分工与验证的独立性</td>
+</tr>
+<tr>
+<td><a href="#slide-07">7</a></td>
+<td>设计条件如何控制生成</td>
+<td>1:00</td>
+<td>条件分布、几何约束和任务适配</td>
+</tr>
+<tr>
+<td><a href="#slide-08">8</a></td>
+<td>关键组件的消融证据</td>
+<td>1:15</td>
+<td>消融究竟识别了什么</td>
+</tr>
+<tr>
+<td><a href="#slide-09">9</a></td>
+<td>单体骨架的可设计性</td>
+<td>1:15</td>
+<td>长度、新颖性与 CD 的证据范围</td>
+</tr>
+<tr>
+<td><a href="#slide-10">10</a></td>
+<td>对称组装体的实验结构验证</td>
+<td>1:15</td>
+<td>SEC、电镜与组装层次</td>
+</tr>
+<tr>
+<td><a href="#slide-11">11</a></td>
+<td>功能基序的支架设计</td>
+<td>1:15</td>
+<td>局部几何如何约束完整支架</td>
+</tr>
+<tr>
+<td><a href="#slide-12">12</a></td>
+<td>金属结合的结构与功能证据</td>
+<td>1:15</td>
+<td>结合、化学计量与突变对照</td>
+</tr>
+<tr>
+<td><a href="#slide-13">13</a></td>
+<td>结合蛋白的功能与结构验证</td>
+<td>1:45</td>
+<td>筛选后的命中、亲和力与结构精度</td>
+</tr>
+<tr>
+<td><a href="#slide-14">14</a></td>
+<td>能力边界</td>
+<td>1:00</td>
+<td>证据依赖、功能层次与外推条件</td>
+</tr>
+<tr>
+<td><a href="#slide-15">15</a></td>
+<td>RFdiffusion 的研究意义</td>
+<td>0:45</td>
+<td>论文改变了什么可构造能力</td>
+</tr>
+</tbody>
+</table>
+<p>以上合计约 17 分 45 秒，是讲述配额，不是对逐字讲稿的语速测定。排练时优先缩减备用推导，保留方法分工、关键读图和数字限定。</p>
+<h2>贯穿全文的研究主线</h2>
+<p>设计蛋白质时，我们常常只知道局部要求，例如一个功能片段的空间几何，或者组装体应有的对称关系，却不知道完整骨架和序列。结构预测网络已经学到大量序列与三维几何之间的规律，但直接预测一个确定结构，无法充分表达这种欠约束问题中的多种可行答案。</p>
+<p>RFdiffusion 的核心动作，是把预训练 RoseTTAFold 微调成去噪网络，以随机初态和多轮更新来生成不同骨架，并在生成过程中保留设计条件。论文随后通过序列设计、计算检查、结构测量和功能测量，判断这些骨架是否能转化为真实蛋白质。贡献的成立依赖这条完整证据链。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M1</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a></p>
+<hr />
+<p><a id="slide-01"></a></p>
+<h2>第 1 页｜RFdiffusion：扩散模型驱动的蛋白质设计</h2>
+<h3>开场需要建立的对象</h3>
+<p>“蛋白质设计”可能指序列优化、骨架构建、结合界面设计或实验筛选。本文首先建立的是<strong>满足条件的蛋白质骨架生成能力</strong>。骨架规定残基在三维空间中的组织方式，序列则要使真实分子愿意采用这种结构。两者之间仍有一道需要验证的映射。</p>
+<p>封面上的结构叠合显示设计模型与 AF2 预测结构接近。这为方法提供直观入口，但它属于计算结果。真正的实验结构证据出现在后面的组装体与选定结合复合物中。开场先区分这两类图，能避免观众把彩色结构渲染都理解成实验测定。</p>
+<h3>如何介绍论文的研究问题</h3>
+<p>可以把问题表述为：“如果先给定一个希望保留的几何要求，模型能否构造出此前没有明确给出的完整蛋白质？”这个问题同时包含三个要求：模型需要提出候选，候选需要存在可实现它的序列，真实分子还需要具有相应结构或功能。</p>
+<p><strong>阅读判断：</strong>本文的价值在于把这些环节接起来，并在多个任务上取得实验支持。它没有证明任意功能描述都能自动转化为可靠蛋白质。</p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>今天介绍的是 2023 年 Nature 上的 RFdiffusion。它解决的起点是骨架生成：给定某些结构要求，怎样提出多种新的三维蛋白质方案。我的汇报会先解释它如何把结构预测网络改造成生成模型，再看论文用什么证据证明这些设计能够实现。大家可以一直带着一个问题：当前这张图证明的是计算结构合理、真实组装形成，还是具体功能发生？</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8">论文题名、摘要与 Main</a>；封面图来自 <a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">Fig. 2a</a>。</p>
+<p><a id="slide-02"></a></p>
+<h2>第 2 页｜蛋白质设计问题</h2>
+<h3>为什么设计具有多解性</h3>
+<p>结构预测通常从给定序列出发，估计其可能形成的结构。现实中蛋白质可能有多个构象，环境也影响构象分布，所以“序列唯一决定一个静态结构”只是有限的入门近似。</p>
+<p>设计时，我们往往先给定要求 $c$，需要寻找结构 $X$ 与序列 $s$。用概率记号作教学表达，可以写成：</p>
+<p>$$
+X\sim p_\theta(X\mid c),\qquad s\sim p_\phi(s\mid X).
+$$</p>
+<p>第一项对应条件骨架生成，第二项对应为骨架寻找序列。这是对本文主要分工的简化表示，不是作者声称已精确求得的真实生物物理概率。</p>
+<p>同一段功能片段可以嵌入不同整体拓扑。指定一种对称性，也没有同时指定每个亚基的折叠和全部接触。因此设计要求通常只限制了可行集合的一部分。模型需要在剩余自由度中产生多个合理解。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M1</a></p>
+<h3>外形合理为何仍不足以保证成功</h3>
+<p>一个骨架图形只描述一个候选构象。真实序列还可能更偏好其他构象、聚集状态或寡聚状态。即便目标构象能够形成，功能也可能受到局部几何、动态变化、溶剂环境或结合伙伴状态的影响。</p>
+<p>因此，“可设计性”在这里应理解为：能否找到使骨架获得合理实现的序列，并由相应读出支持它。论文常用的计算回折叠是一种代理检查，实验表达、结构和功能则提供不同层面的检验。生成模型没有在每次输出时直接求解完整自由能景观。</p>
+<h3>如何解释 RFdiffusion、Inpainting 和 Hallucination 的差别</h3>
+<table>
+<thead>
+<tr>
+<th>路线</th>
+<th>在本文历史背景中的主要思路</th>
+<th>与欠约束问题的关系</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RF joint Inpainting</td>
+<td>根据已知结构片段补全其余部分</td>
+<td>当局部描述很少时，整体结构难以由一次补全确定</td>
+</tr>
+<tr>
+<td>RF Hallucination</td>
+<td>搜索使预测网络给出高置信结构的候选</td>
+<td>可以探索设计空间，但需要反复评价与搜索</td>
+</tr>
+<tr>
+<td>RFdiffusion</td>
+<td>学习多噪声水平下的恢复，再迭代生成骨架</td>
+<td>随机初态与多步构建支持多个候选解</td>
+</tr>
+</tbody>
+</table>
+<p>这是作者在 2023 年讨论的相对位置，不能当作后续所有方法版本的固定排名。Hallucination 也可以具有随机性，不能把它简化为“没有多样性”。本文针对确定性补全的多样性限制，主要是在讨论当时的 RF joint Inpainting。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M1</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec2">M3</a></p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>设计和预测的输入方向不同。预测时序列已经给出，设计时我们先知道希望得到什么，例如某种形态或一个功能位点，却不知道完整骨架。一个要求通常有许多解，所以模型既要满足要求，也要探索多种结构。随后还要检查：有没有序列能够实现它，真实分子是否折叠，以及目标功能是否出现。RFdiffusion主要解决前面的骨架构建问题。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">Main，研究背景与方法动机</a>。自由能与概率表述属于教学解释。</p>
+<p><a id="slide-03"></a></p>
+<h2>第 3 页｜RoseTTAFold 作为去噪网络</h2>
+<h3>复用的究竟是什么知识</h3>
+<p><strong>论文报告：</strong>作者认为结构预测网络内部包含有用的蛋白质结构先验，例如哪些局部几何和远程接触更容易形成合理折叠。这里的“先验”是模型参数中学到的规律，并不是一张显式写出的能量函数表。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M1</a></p>
+<p>本文使用的是更新后的 RoseTTAFold 架构。补充材料明确说明，这些相对于最初 RF 的架构更新本身并非本工作的贡献，不能把所有三轨网络改进都归到 RFdiffusion。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=37">S-arch</a></p>
+<h3>三轨架构如何帮助理解条件生成</h3>
+<p>可以把三轨信息理解为：</p>
+<table>
+<thead>
+<tr>
+<th>信息轨道</th>
+<th>保存的关系</th>
+<th>对设计的帮助</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1D 序列/残基特征</td>
+<td>每个位置的身份或状态信息</td>
+<td>指明哪些位置已知、哪些需要生成</td>
+</tr>
+<tr>
+<td>2D 残基对特征</td>
+<td>两个位置之间的距离、朝向或接触关系</td>
+<td>使远距离残基能够共同决定折叠</td>
+</tr>
+<tr>
+<td>3D 结构特征</td>
+<td>残基在空间中的位置与朝向</td>
+<td>直接构建和更新几何</td>
+</tr>
+</tbody>
+</table>
+<p>这三个轨道相互交换信息。它们并非三个互不相干的模型，也不代表“依次先算序列、再算距离、最后算结构”的简单流水线。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=37">S-arch</a></p>
+<h3>改变任务后，输入与监督怎样变化</h3>
+<p>RF 预测任务以序列为主要信息来源，输出结构。RFdiffusion 把<strong>带噪残基框架</strong>变成主要输入，让网络预测其对应的干净结构；设计条件作为额外信息进入。可以把一次调用写为：</p>
+<p>$$
+\widehat X_0^{(t)}=f_\theta\bigl(X_t,t,c,\widehat X_0^{(t+1)}\bigr).
+$$</p>
+<p>其中 $X_t$ 是当前带噪状态，$t$ 表示噪声阶段，$c$ 表示条件，最后一项是上一轮的干净结构估计。这个记号用于解释各输入的角色，不是模型接口或运行命令。</p>
+<p>网络仍擅长输出完整三维结构，但训练任务已经改变。原始 RF 权重未经去噪微调，直接充当 denoiser 的效果较差，这在消融中有单独比较。因此“预训练有效”与“预训练模型可以直接使用”是两条不同主张。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">F2</a></p>
+<h3>为什么选择预测干净结构</h3>
+<p>图像扩散常介绍为预测噪声，而本文的网络预测 $X_0$。补充材料给出的理由是，这种输出形式更符合 RF 原本用于结构预测的归纳偏置，便于复用其形成合理结构的能力。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">S-loss</a></p>
+<p><strong>教学解释：</strong>对平移的高斯加噪，如果已知噪声水平，干净坐标预测与噪声预测可以通过公式相互转换。因此“预测什么”是参数化选择，不能仅凭这一点判定某方法不属于扩散。旋转部分需要额外几何处理，不能把同一欧氏转换公式直接套到整个残基框架。</p>
+<h3>本页读图顺序</h3>
+<p>先看左边 RF 的主要输入是序列。再看右边 RFdiffusion 的带噪坐标与自条件信息。最后指出：两侧都输出完整结构，但这个结构在右侧只是当前阶段的估计，还要参与下一轮更新。不要把两个 RF 方块理解为不同功能的两个独立生成模型。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/1">F1</a></p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>作者没有从零开始教一个网络理解蛋白质几何，而是复用 RoseTTAFold 已经学到的结构规律，再用去噪任务微调。网络主要输入从序列变成了带噪的位置与朝向，输出仍然是完整结构。这样既保留了结构预测网络的能力，也让它能在不同噪声阶段工作。消融还告诉我们，预训练和去噪微调都重要，原始预测网络直接充当去噪器并不充分。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">Main 方法</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/1">Fig. 1a</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=37">Supplementary Methods §1.1–1.2</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">§2.5</a>。</p>
+<p><a id="slide-04"></a></p>
+<h2>第 4 页｜训练时加噪，生成时逐步去噪</h2>
+<h3>前向过程把什么变成了可学习问题</h3>
+<p>训练时有已知结构 $X_0$。人为定义一个随机扰动过程，得到不同噪声阶段的 $X_t$，于是每次都能构造输入与正确目标的对应。这里的“正确”指这次训练抽到的原结构，不表示每个带噪状态只可能来自它。</p>
+<p>只看 Cα 平移部分，补充材料使用高斯前向过程。将原文记号改写为常见形式：</p>
+<p>$$
+\mathbf z_t=\sqrt{\bar\alpha_t}\,\mathbf z_0+
+\sqrt{1-\bar\alpha_t}\,\boldsymbol\epsilon,
+\qquad \boldsymbol\epsilon\sim\mathcal N(\mathbf0,I),
+$$</p>
+<p>$$
+\bar\alpha_t=\prod_{s=1}^{t}(1-\beta_s).
+$$</p>
+<p>$\bar\alpha_t$ 控制原结构信号保留多少；第二项增加随机扰动。随着 $t$ 增大，输入对具体原结构的依赖逐渐减弱，最终接近容易采样的参考分布。这解释了训练完成后为什么可以从随机初态生成。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=47">S-forward</a></p>
+<p>这条公式只描述平移。旋转的取值空间是 $SO(3)$，采用相应流形上的扩散，不能给旋转矩阵的九个元素分别加普通噪声来代替。</p>
+<h3>训练不要求每次都执行完整 200 步</h3>
+<p>补充材料中，训练会抽取时间步和结构，再构造该噪声水平下的样本。平移部分可以直接从边缘分布采样，不必从第一步逐步加噪到第 $t$ 步。这是利用已知随机过程形成监督，不是为每个样本记录真实蛋白质折叠轨迹。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=47">S-forward</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">S-loss</a></p>
+<h3>反向过程恢复的是分布关系</h3>
+<p>教学上可以写成：</p>
+<p>$$
+p_\theta(X_0\mid c)=\int p(X_T)
+\prod_{t=1}^{T}p_\theta(X_{t-1}\mid X_t,c)\,
+dX_1\cdots dX_T.
+$$</p>
+<p>它表达“从参考分布出发，通过反向转移生成最终结构”。加入自条件后，可把历史预测视为额外状态；上式只是未显式展开该状态的基本扩散图景。</p>
+<p>每一步先得到 $\widehat X_0^{(t)}$，再结合当前 $X_t$ 与预定转移规则得到 $X_{t-1}$。不能把更新说成随意朝预测坐标走一小步：步长与噪声分布需要与前向过程的定义相联系。本文的旋转更新还涉及由预测干净朝向构造的 score 近似。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=47">S-forward</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=49">S-rotation</a></p>
+<h3>已经预测完整结构，为什么还要多步</h3>
+<p>高噪声下，同一输入可能对应许多合理结构。一个预测只能利用当前信息作估计。对普通欧氏变量，平方损失下的最优点预测是条件均值；如果有两个差异很大的可能结构，它们的平均值可能不像任何一个真实蛋白质。这是理解 Fig. 1c 早期预测不够“像蛋白质”的一种教学解释，不是对其中某个具体输出的机制测定。</p>
+<p>随后模型在逐渐改变的状态下反复预测，结构选择逐步具体化，局部与全局关系得到协调。因此 $\widehat X_0$ 中的下标 0 表示它预测最终干净状态，并不表示该预测在任意噪声阶段都已经准确。</p>
+<h3>Fig. 1c 应该怎样讲</h3>
+<p>图的上排是实际输入 $X_t$，下排是同一阶段预测的 $\widehat X_0^{(t)}$。从左到右，时间步由高噪声向低噪声推进。下排很早就画出链状结构，是因为网络每次都输出完整结构，并非因为算法已经提前完成。最后两排才逐渐形成相互一致的几何。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/1">F1</a></p>
+<p><strong>重要边界：</strong>整个过程没有给定某条真实序列在溶液中的势能函数，也没有将算法时间步标定为物理时间，因此不能把图称为真实折叠路径。</p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>训练时，作者把已知结构扰乱，让模型学习从不同噪声程度下预测原结构。生成时则从随机状态开始，反复预测一个完整结构，再依据它更新当前状态。图中上排是当前输入，下排是对最终结构的估计。早期估计还不确定，多步更新才逐渐形成连贯骨架。这里的时间步属于生成算法，不代表蛋白质在溶液里的真实折叠时间。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">Main 的加噪与采样说明</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/1">Fig. 1c</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=47">Supplementary Methods §2.1–2.3</a>。条件均值解释为数学背景。
+<a id="slide-05"></a></p>
+<h2>第 5 页｜残基几何与连续去噪</h2>
+<h3>一个残基为何需要“位置＋朝向”</h3>
+<p>只知道 Cα 坐标，可以画出残基中心的轨迹，却不能完整确定 N–Cα–C 三个原子的朝向。本文将第 $i$ 个残基写成局部刚体框架：</p>
+<p>$$
+x_i=(R_i,\mathbf z_i),\qquad
+\mathbf z_i\in\mathbb R^3,\quad R_i\in SO(3).
+$$</p>
+<p>$\mathbf z_i$ 是 Cα 位置，$R_i$ 描述局部骨架朝向。给定理想化的局部原子坐标 $\mathbf a_k^*$，就可以用旋转与平移恢复该局部原子的位置：</p>
+<p>$$
+\mathbf a_{i,k}=R_i\mathbf a_k^*+\mathbf z_i.
+$$</p>
+<p>此处采用列向量约定解释刚体变换，不复刻具体软件的矩阵存储方式。补充材料用 N、Cα、C 的坐标构造正交框架，并以理想键长与键角表示局部几何。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=37">S-arch</a></p>
+<p><strong>教学解释：</strong>这种表示减少了对同一局部几何的重复建模。它并不自动保证不同残基之间的全部连接、接触和堆积都正确，这些跨残基关系仍需网络学到。</p>
+<h3>旋转为什么不能像坐标一样直接加噪</h3>
+<p>合法旋转矩阵必须满足：</p>
+<p>$$
+R^\top R=I,\qquad \det R=1.
+$$</p>
+<p>如果把九个元素分别加上任意高斯噪声，结果通常不再满足这些条件。本文因此在 $SO(3)$ 上定义朝向扰动，使用旋转流形上的布朗运动及其分布，而平移使用三维高斯扰动。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=49">S-rotation</a></p>
+<p>“流形”在这里可以理解为：合法朝向构成一个有约束的空间，在其中移动要保持朝向仍然合法。课堂无需推导 IGSO(3) 密度的级数表达，关键是理解不同几何对象需要不同扰动规则。</p>
+<h3>等变性、不变性和镜像的区别</h3>
+<p>若将结构整体作旋转 $Q$ 与平移 $\mathbf b$，一个几何等变的网络应满足：</p>
+<p>$$
+f_\theta(g\cdot X,g\cdot c)=g\cdot f_\theta(X,c),
+\qquad g=(Q,\mathbf b).
+$$</p>
+<p>所有结构条件和自条件输入也必须一同变换。它表达的是坐标输出随输入共同变换。若讨论的是一个结构的概率，作者希望同一结构旋转后概率保持相同，这属于分布的不变性。网络的等变性与分布的不变性是相互关联的两层性质。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=58">S-geometry</a></p>
+<p>还要避免说成“对任意空间变换都等价”。$SO(3)$ 包括保持手性的旋转，不包括镜像反射。蛋白质的手性使这一区分具有物理意义。</p>
+<p><strong>进阶限定：</strong>补充材料把训练结构中心化，消除整体平移自由度，再讨论归一化分布的旋转不变性。对整个无限空间，处处相同的平移不变密度无法归一化。因此，“网络继承 SE(3) 等变性质”不能直接改写成“在所有整体位置上有一个均匀概率分布”。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=58">S-geometry</a></p>
+<h3>MSE 为什么有助于坐标连续</h3>
+<p>去噪更新需要当前状态与预测结构处在可比较的坐标框架中。如果预测结构形状正确，但相对于当前状态任意转动或平移，直接据此更新就会出现不必要的整体运动。</p>
+<p>补充材料首先定义框架误差，核心由位置差和朝向差组成：</p>
+<p>$$
+d_{\mathrm{frame}}^2(X_0,\widehat X_0)
+=\frac1L\sum_{i=1}^{L}
+\left[
+\|\mathbf z_{0,i}-\widehat{\mathbf z}_{0,i}\|_2^2+
+\|I-\widehat R_{0,i}^{\top}R_{0,i}\|_F^2
+\right].
+$$</p>
+<p>训练目标再对结构、时间步和扰动取平均。实际训练使用加权、部分距离截断和中间层监督等稳定化修改，并包含残基对距离与朝向的辅助损失。因此以上是核心解释式，不是全部训练目标。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">S-loss</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=70">S-training-loss</a></p>
+<p>FAPE 将原子位置放入局部框架比较，对预测结构额外的整体刚体变换不敏感。这对评价结构形状很自然，但不能同样约束预测相对于输入所用的全局坐标。本文使用不先独立对齐预测与目标的坐标误差，鼓励模型保持这一对应关系。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a></p>
+<p>这里有一个容易误说的数学细节：将预测和目标<strong>共同</strong>旋转或平移，欧氏距离不变；仅将预测单独转动，损失一般会变。作者所说 MSE 不具备 FAPE 的全局参考框架不变性，应结合这一比较对象来理解。它与网络等变性没有直接矛盾。</p>
+<p><strong>进一步的证据：</strong>Extended Data Fig. 1 的图注报告，有基序提供坐标锚点时，FAPE 与 MSE 表现接近。这支持“全局坐标锚定影响结果”的解释，也使“平方误差在任何任务中都优于其他损失”的说法失去依据。该证据来自图注，本稿没有将其记录为新增面板视觉审计。<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a></p>
+<h3>自条件保存了什么信息</h3>
+<p>当前 $X_t$ 是生成过程中需要继续更新的带噪状态；上一轮 $\widehat X_0^{(t+1)}$ 则保存模型对完整结构的已有估计。二者信息角色不同。自条件把后者提供给下一次调用，使网络能够参考此前已经形成的全局关系。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=54">S-self</a></p>
+<p>补充材料中，带噪坐标进入 3D 结构轨道，前一轮结构估计通过模板结构特征进入。训练也包含有无前轮预测的情形，前轮估计来自模型自身而非直接提供真实答案，且不通过该估计反传梯度。它既要学会从初始状态起步，也要学会利用已有估计。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=54">S-self</a></p>
+<p>不能把自条件说成“再次输入真实结构”，也不宜与网络内部 recycling 完全等同。两者都复用先前输出，但所处的更新层次不同。</p>
+<h3>理论为何仍有近似</h3>
+<p>对高斯平移扰动，最优去噪预测与反向分布或 score 的关系有相应推导。补充材料明确指出，同样的平方误差等价关系不能直接保证在 IGSO(3) 旋转扰动上成立；旋转 score 的构造使用了近似，在低噪声、预测接近真实朝向时有较强直觉支持。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=49">S-rotation</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">S-loss</a></p>
+<p>因此，本文同时包含几何上合理的建模、可解释的近似和经验验证。不能把它讲成所有组件都由一个严格定理保证达到真实蛋白质分布。</p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>每个残基不只有一个中心位置，还需要一个局部朝向，所以作者分别处理位置和旋转的噪声。网络保持几何等变性，分子整体转动时输出也相应转动。连续生成还要求每一步使用协调的坐标，因此作者采用不先独立对齐的误差训练，并把上一轮的完整结构预测作为自条件输入。消融支持这些选择，但旋转部分仍含近似，最后还需要计算与实验检验。</p>
+</blockquote>
+<p>来源：<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=37">Supplementary Methods §1.1</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=49">§2.3</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=54">§2.4</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">§2.5</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=58">§2.6</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=70">§4.1</a>；<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">Extended Data Fig. 1 图注</a>。</p>
+<p><a id="slide-06"></a></p>
+<h2>第 6 页｜完整的设计与验证流程</h2>
+<h3>三个模型分别回答不同问题</h3>
+<table>
+<thead>
+<tr>
+<th>环节</th>
+<th>主要问题</th>
+<th>不能直接由该环节回答的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RFdiffusion</td>
+<td>在条件下，可以提出哪些三维骨架？</td>
+<td>哪条序列一定实现它？</td>
+</tr>
+<tr>
+<td>ProteinMPNN</td>
+<td>对给定骨架，哪些序列与其几何相容？</td>
+<td>该序列在真实环境中一定折叠到此骨架吗？</td>
+</tr>
+<tr>
+<td>AF2</td>
+<td>这条序列在所用预测设置下形成怎样的结构？</td>
+<td>真实样品是否具有同样结构与功能？</td>
+</tr>
+<tr>
+<td>实验</td>
+<td>受测分子能否表达、组装、结合或形成预期结构？</td>
+<td>未测试候选和其他条件是否也成立？</td>
+</tr>
+</tbody>
+</table>
+<p>用教学记号，可以把计算检查写成“骨架 $X$、为其设计的序列 $s$、从 $s$ 预测的结构 $\widehat X(s)$ 之间是否一致”。这里的“回折叠”是计算流程的称呼，不是实际将蛋白质变性后再复性的实验。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a></p>
+<h3>RMSD、pLDDT 与 pAE 各读出什么</h3>
+<p>RMSD 比较两套坐标。用于结构比较时，通常先按指定原子集合进行刚体叠合：</p>
+<p>$$
+\mathrm{RMSD}(A,B)=
+\min_{Q,\mathbf t}\sqrt{\frac1N
+\sum_{i=1}^{N}\|Q\mathbf a_i+\mathbf t-\mathbf b_i\|_2^2}.
+$$</p>
+<p>这里 $\mathbf t$ 是平移向量，$\mathbf a_i$ 与 $\mathbf b_i$ 是两套结构的对应原子坐标。RMSD 依赖比较哪些原子、怎样对齐以及是否只选局部。它是模型间差异，不自动等于某一结构相对于真实分子的误差。</p>
+<p>pLDDT 是模型对局部结构可靠性的预测置信指标。pAE 则描述在某部分对齐的条件下，另一部分相对位置的预计误差。一个长螺旋可以局部看起来可靠，却没有形成目标所需的整体折叠，因此局部置信度高并不足以保证全局关系正确。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=80">S-validation</a></p>
+<h3>不同任务的“计算成功”并非同一口径</h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>本文报告的主要评价条件</th>
+<th>解释重点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单体与一般基序支架</td>
+<td>AF2 全局骨架 RMSD 小于 2 Å，pAE 小于 5；有基序时基序骨架 RMSD 小于 1 Å</td>
+<td>同时检查整体与局部</td>
+</tr>
+<tr>
+<td>对称组装体基准</td>
+<td>组装体骨架 RMSD 小于 2 Å，pLDDT 大于 80</td>
+<td>需要比较链间相对关系</td>
+</tr>
+<tr>
+<td>酶活性位点支架</td>
+<td>在相应骨架与置信判据外，检查侧链几何</td>
+<td>侧链位置仍是计算读出</td>
+</tr>
+<tr>
+<td>结合蛋白</td>
+<td>单体结构、界面 pAE 与结构一致性等组合判据</td>
+<td>还需关注链间接触，而非只看一条链</td>
+</tr>
+</tbody>
+</table>
+<p>上述为评价含义概览，不是复现实验或设计任务的参数指南。具体数值与设置应随图注和任务解释，不能把正文开头的总括表述无差别套用全部实验。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=80">S-validation</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig11">ED5</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig14">ED8</a></p>
+<h3>多条序列如何影响“成功”的统计单位</h3>
+<p>补充材料说明，多个基准为每个骨架设计多条序列，并使用其中表现最佳的序列评价该骨架。因此骨架层面的成功表示“在所尝试序列中找到了满足判据的一条”，不是随机抽一条序列的成功概率。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=82">S-benchmark</a></p>
+<p><strong>教学假设：</strong>若每条序列独立成功的概率为 $p$，尝试 $m$ 条后至少一条成功的概率是 $1-(1-p)^m$。真实序列之间通常相关，不能用这个式子反算本文的真实概率；它只说明为什么比较不同序列采样预算时必须保持统计单位一致。</p>
+<h3>AF2 为何只是部分独立的验证</h3>
+<p>补充材料 §5.1 明确讨论：RF 与 AF2 共享部分架构特点，RF 还使用 AF2 预测结构作为蒸馏训练来源。ESMFold 也并非完全没有类似依赖。因此换一个网络检查，可以提供有价值的计算佐证，但不能等同于完全独立的物理证据。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=80">S-validation</a></p>
+<p>还有一层设置差别：单体和一般基序任务的 AF2 评价不提供模板；部分组装体与结合蛋白任务使用设计坐标作为 initial guess，结合任务还利用目标结构信息。这些做法可以服务于筛选，但“从零独立预测并一致”的强表述不适用于所有任务。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=80">S-validation</a></p>
+<p><strong>阅读判断：</strong>这没有使计算验证失去价值。它改变的是证据强度：计算一致性提高候选可信度，真实样品的功能和结构测量再检验该信号是否转化为现实。</p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>RFdiffusion提出骨架，ProteinMPNN为骨架设计序列，AF2检查序列预测结构是否与设计相容。RMSD看结构差异，置信指标看模型是否相信自己的预测。不同任务还需要不同判据。AF2提供了有用的计算检查，但它与 RF 并非完全独立，某些复合物任务还使用设计初始信息。所以最终要看实验是否得到预期的分子、组装体和功能。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">Main</a>；<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=80">Supplementary Methods §5.1–5.3</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=82">§5.4–5.5</a>。</p>
+<p><a id="slide-07"></a></p>
+<h2>第 7 页｜设计条件如何控制生成</h2>
+<h3>条件使哪些自由度保留、哪些自由度收缩</h3>
+<p>无条件生成近似描述“提出合理骨架”；条件生成则提出“在满足给定信息时的合理骨架”。条件可以给出固定局部几何，也可以给出整体对称关系。这些限制会排除一部分结构，同时让模型探索剩余自由度。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a></p>
+<p>“无条件”也有范围：通常仍然给定长度，并受训练分布和网络表示约束。它并非不依赖任何信息。</p>
+<h3>三种条件的作用方式不同</h3>
+<p><strong>功能基序。</strong>将已知基序与其余支架分开，目标可写为 $p(X_S\mid X_M)$。$M$ 表示功能基序，$S$ 表示周围支架。已知基序作为几何锚点，模型需要构造能够支持它的整体结构。基序可由不连续序列位置组成，关键是空间关系。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=64">S-motif</a></p>
+<p><strong>对称关系。</strong>多个亚基不再完全自由。若用一组点群旋转 $\{Q_k\}$ 表示对称性，则亚基集合可以写为 $\{Q_kX_{\rm subunit}\}$。旋转等变性与链重标记的近似等变性有助于保持该关系，作者还显式施加对称约束。因此不能说对称性只靠模型“自发理解”。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=61">S-symmetry</a></p>
+<p><strong>目标蛋白结构。</strong>它给出相互作用对象的几何环境，使候选结构在目标存在的条件下形成。本文部分任务使用专门微调的模型，不能把它描述为一套未经适配的权重自动处理所有设计问题。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a></p>
+<h3>固定约束、学习条件与外部引导</h3>
+<p>这三者应区分。固定坐标或显式对称关系限制当前状态；条件训练教网络利用额外输入；外部势则在生成过程中偏向某类几何性质。本文框架可以组合这些方式，所以“生成模型”不意味着完全不需要约束或几何引导。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec3">M4</a></p>
+<p><strong>阅读判断：</strong>同一生成思想能够复用，是方法的统一性。不同任务的信息、微调与评价仍然不同，是应用边界。两者可以同时成立。</p>
+<h3>读图与现场讲述</h3>
+<p>本页三行分别比较“指定什么”和“生成什么”。先指对称噪声到组装体，再指固定功能片段到完整支架，最后指目标结构到结合候选。图示显示信息角色，不代表这些任务的成功率相同。</p>
+<blockquote>
+<p>条件生成的作用，是把已知要求保留在构建过程中，而不是先随意生成，再到末尾碰运气。功能基序固定局部几何，对称条件限制亚基之间的关系，目标结构提供相互作用环境。共享的是逐步生成框架，具体条件和模型适配则随任务变化。本文的条件主要是分子结构信息，不能简单称为自然语言提示词设计。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/1">Fig. 1b</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">Main</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=61">Supplementary Methods §3.1–3.2</a>。</p>
+<p><a id="slide-08"></a></p>
+<h2>第 8 页｜关键组件的消融证据</h2>
+<h3>消融回答的是必要性还是普遍真理</h3>
+<p>消融改变模型的一项选择，再比较同一评价流程下的结果。它能够支持“该选择在受测设置中有贡献”，却不能证明“所有别的训练预算、架构或损失都不可能成功”。完整模型与各消融组之间的差异还可能包含组件交互，不能把所有差值直接相加。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">F2</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a></p>
+<h3>Fig. 2e 的四类比较</h3>
+<table>
+<thead>
+<tr>
+<th>改动</th>
+<th>检验的问题</th>
+<th>主要解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>从未训练权重起步</td>
+<td>预训练的结构知识是否有帮助？</td>
+<td>在相同后续训练预算下，预训练显著提高表现</td>
+</tr>
+<tr>
+<td>使用原始 RF 权重作去噪器</td>
+<td>去噪微调是否有必要？</td>
+<td>结构预测能力需要适应带噪输入与生成任务</td>
+</tr>
+<tr>
+<td>去掉自条件</td>
+<td>前轮完整结构估计是否有用？</td>
+<td>受测生成质量与轨迹连贯性受到影响</td>
+</tr>
+<tr>
+<td>改用 FAPE</td>
+<td>坐标锚定的损失选择是否重要？</td>
+<td>无条件生成表现下降，条件任务的情况不同</td>
+</tr>
+</tbody>
+</table>
+<p>图中主要展示 300 残基无条件生成的 RMSD 分布。横轴越小，AF2 预测与设计越接近。纵轴是概率密度，曲线峰值不是成功率，曲线总面积才经归一化；不能把最高峰的数值读成“成功百分比”。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">F2</a></p>
+<h3>怎样从图中形成有分寸的结论</h3>
+<p>先定位完整模型在低偏差区域的集中程度，再看移除预训练的明显右移，最后比较去掉自条件后的宽分布。不要只说“粉色更好”，而要说清好在哪里：相同评价下，更多样本集中于设计与预测一致的区域。</p>
+<p>正文报告自条件提高多个计算任务的表现。更连贯的预测轨迹是作者提出并给出相关分析的解释，但不能据此说已经严格证明全部提升由“减少轨迹跳动”造成。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a></p>
+<h3>值得补充的反面限定</h3>
+<p>一张组件消融图仍无法直接证明功能提高。结果经过序列设计和 AF2 评价，所以反映的是该计算体系中的表现。若要主张某组件提高实验功能，需要相应实验比较；本文并没有为每一项消融都提供同规模的功能实验。</p>
+<p>另外，“相同后续训练时间”未必意味着两条路线包含相同历史总计算成本。预训练权重已经吸收前期投入。比较支持的是复用预训练的效果，不是凭空获得知识。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=37">S-arch</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a></p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>这张图把完整模型与几种改动逐一比较。横轴是 AF2 预测与设计的偏差，完整模型更集中在低偏差区域。移除预训练、去噪微调或自条件都会影响结果，损失函数也很重要。不过，预训练的比较有相同后续训练预算的限定，图中的曲线高度也不是实验成功率。它证明的是这些组件对本文受测计算任务的贡献。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">Fig. 2e</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">Main 的消融段落</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">Extended Data Fig. 1 图注</a>。
+<a id="slide-09"></a></p>
+<h2>第 9 页｜单体骨架的可设计性</h2>
+<h3>无条件单体为何是基础检验</h3>
+<p>如果不给一个较完整的结构模板，模型仍然能提出被序列实现的骨架，才说明它具有较强的整体构建能力。本文的无条件生成覆盖 α、β 和混合拓扑，后续用 ProteinMPNN 与预测模型检查其可设计性。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec2">M3</a></p>
+<h3>“新结构”需要拆成几层</h3>
+<p>Fig. 2b 用设计与 PDB 中最接近结构的 TM-score 表征整体相似性。最高相似度仍较低，支持设计在全局拓扑上不同于已知结构。它不能说明每一段局部几何都未曾出现，也不能排除模型组合已知结构片段。使用常见局部规律构成新的整体结构，本身可以是有意义的泛化。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">F2</a></p>
+<p><strong>阅读判断：</strong>“全局不同于 PDB”与“具备真实功能”是独立问题。结构新颖性还取决于比较数据库和相似性度量，不能被升级为“证明在所有可能蛋白质中从未存在”。</p>
+<h3>600 残基实例与整体长度趋势</h3>
+<p>Fig. 2a 展示 600 残基的良好计算叠合实例，但 Fig. 2c 的总体分布表明，长度增加时预测与设计的一致性下降。图注对常见良好回预测范围的描述约到 400 残基，较长链中仍有成功实例。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec2">M3</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">F2</a></p>
+<p>因此需要同时保留两个事实：存在复杂长链的成功候选；它不意味着所有同长度候选都可靠。展示最好的结构图无法替代分布或总体成功比例。</p>
+<p>作者提出，较长骨架也可能超出单序列 AF2 或 ESMFold 的可靠预测范围。这是对验证瓶颈的合理解释，但现有数据不能完全区分：骨架本身难以实现，序列设计没有找到合适序列，还是验证网络无法正确预测。不能把所有失败都归到生成器，也不能全部归到预测器。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec2">M3</a></p>
+<h3>CD 光谱和热变性曲线如何读</h3>
+<p>圆二色谱提供整体二级结构的信息。谱形与 α/β 设计相容，可以支持样品具有相应结构特征，但不能逐个定位全部原子。不同三维折叠也可能具有近似的二级结构组成。</p>
+<p>PPT 使用 Fig. 2f 的热变性曲线。横轴是温度，纵轴是特定波长的 CD 信号。信号在测量范围内没有出现明显转变，支持相关样品保留较强结构信号与高热稳定性。没有观察到完整转变时，不宜仅由这张图给出一个精确熔解温度，也不能直接证明加热后完全可逆复性。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">F2</a></p>
+<h3>成功样品的分母需要补足</h3>
+<p>Supplementary Methods §5.4 与 Extended Data Fig. 3 图注说明，共测试 18 个无条件单体设计，其中 9 个达到表达筛选并进入相应结构与稳定性表征。正文提到的六个 300 残基和三个 200 残基样品，是这些成功表征的子集构成，不能据此说所有受测设计都成功。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=82">S-benchmark</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig9">ED3</a></p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>无条件生成先检验模型能否在缺少完整模板时构建整体骨架。左边展示不同拓扑的计算实例，论文也有 600 残基的成功候选，但总体表现随长度增加而下降。右边是部分成功表达样品的热变性结果，支持高热稳定性。CD提供二级结构和稳定性的证据，尚不足以证明完整原子结构与设计一致。这里需要把成功实例、总体分布和实验子集放在一起理解。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">Fig. 2a–c,f</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec2">Unconditional protein monomer generation</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=82">Supplementary Methods §5.4</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig9">Extended Data Fig. 3 图注</a>。</p>
+<p><a id="slide-10"></a></p>
+<h2>第 10 页｜对称组装体的实验结构验证</h2>
+<h3>难点从单链扩展到了链间关系</h3>
+<p>对称组装体要求每条链能够形成相应折叠，还要求亚基在空间中采用正确的相对位置和接触。一个单体预测得很好，并不能排除它在实验中不组装、形成其他寡聚状态或发生不规则聚集。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec3">M4</a></p>
+<p>点群符号也需要解释。$C_n$ 表示围绕主轴的 $n$ 重循环对称；$D_n$ 还包含与主轴垂直的二重旋转轴，通常具有 $2n$ 个相同亚基。对称性指定重复关系，没有同时指定亚基的全部折叠细节。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=61">S-symmetry</a></p>
+<h3>为什么几何等变性对对称设计有帮助</h3>
+<p>对称结构可以在某个空间旋转后，通过交换相同亚基的标签恢复为原来的整体。如果网络同时尊重旋转与链重标记，对这样的输入就应产生相应对称输出。本文的链重标记等变性有近似性质，因此仍显式施加对称约束。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=61">S-symmetry</a></p>
+<p>这是几何归纳偏置带来控制能力的具体例子。等变性本身不保证亚基之间具有足够稳定的物理相互作用，后续结构与功能读出仍然必要。</p>
+<h3>Fig. 3b 从左到右各增加了什么证据</h3>
+<table>
+<thead>
+<tr>
+<th>图中列</th>
+<th>观察对象</th>
+<th>增加的认识</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RFdiffusion design</td>
+<td>设计方案</td>
+<td>规定希望得到的形态</td>
+</tr>
+<tr>
+<td>AF2</td>
+<td>从设计序列预测的结构</td>
+<td>检查计算相容性</td>
+</tr>
+<tr>
+<td>2D class averages</td>
+<td>电镜颗粒图像的分类平均</td>
+<td>检查实际颗粒是否出现对应投影</td>
+</tr>
+<tr>
+<td>3D reconstruction</td>
+<td>由不同视角重建的密度及模型拟合</td>
+<td>检查整体三维形态与对称关系</td>
+</tr>
+</tbody>
+</table>
+<p>PPT 的 C3 与 C6 两行可以先比较顶视，再比较侧视。只看顶视的环状轮廓还不能充分排除其他形态，多角度对应更有信息。原图比例尺提供尺寸信息，不能只比较“看起来都像环”。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/3">F3</a></p>
+<h3>SEC 的角色与局限</h3>
+<p>尺寸排阻色谱按样品的水动力学行为进行分离，校准后可以推断是否接近预期寡聚状态。形状、非理想相互作用与聚集也会影响洗脱，因此 SEC 不是直接数亚基的原子级测量。它适合初步检查，电镜提供另一种形态证据。</p>
+<p>作者选取 608 个设计进行表征，至少 87 个的 SEC 推断与预期接近，采用的是相应校准的 95% 区间；电镜只测其中子集。这里的 95% 属于校准区间口径，不能说成“每个样品有 95% 的概率结构正确”，也不能把 87/608 称为电镜高分辨率结构成功率。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec3">M4</a></p>
+<h3>成功图像之外还有什么信息</h3>
+<p>48 个被选作实验验证的二十面体设计中，正文报告一个形成均一颗粒并得到匹配的电镜结构。这个实例证明该复杂架构可以实现，也表明不同设计任务仍有明显难度差异。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec3">M4</a></p>
+<p>负染电镜主要支持整体形态与组装，不足以逐个验证金属位点或结合界面的侧链。后面出现的 2.9 Å 冷冻电镜结果，应当作为另一层精度的证据来理解。</p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>组装体设计比单体多了一道要求：不同链必须按预期关系结合。图中从设计、AF2，到二维电镜分类和三维密度，逐步增加实际结构证据。C3和C6的顶视、侧视都与设计接近，支持整体形态和寡聚关系。电镜测的是筛选子集，不同对称类型的成功情况也不同，所以这些结构图展示了能力成立的实例，不能代替全部设计的总体成功率。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/3">Fig. 3</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec3">Design of higher-order oligomers</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=61">Supplementary Methods §3.1</a>。</p>
+<p><a id="slide-11"></a></p>
+<h2>第 11 页｜功能基序的支架设计</h2>
+<h3>基序与支架的关系</h3>
+<p>功能基序是与某项功能有关的局部结构描述，可以是一段连续片段，也可以是多个不连续残基的空间组合。支架的作用是在完整分子中保持其几何、可及性和相互作用环境。只把关键残基摆到一张图上，没有建立能维持这些关系的完整蛋白质。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec4">M5</a></p>
+<p>因此，局部位置准确与整体折叠相容都重要。一个支架可以在设计图里完美包含基序，实际序列却折叠到其他结构；也可能全局结构合理，但关键片段在预测中偏离目标。本文同时检查全局和基序 RMSD。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/4">F4</a></p>
+<h3>23/25 怎样得到、怎样理解</h3>
+<p>基准包含来自六篇此前研究的 25 个任务。Fig. 4a 图注说明每个问题生成 100 个设计，后续按相应计算判据检查。补充材料还说明，比较中为各方法使用 ProteinMPNN 重新设计序列，并在所尝试的序列中取最佳结果，以减少序列设计流程差异的影响。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec4">M5</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=82">S-benchmark</a></p>
+<p>设第 $j$ 个问题有 $n_j$ 个候选，$k_j$ 个满足判据，则该问题的计算成功比例是 $k_j/n_j$。任务覆盖可以写成：</p>
+<p>$$
+N_{\mathrm{solved}}=\sum_{j=1}^{25}\mathbf1(k_j&gt;0).
+$$</p>
+<p>PPT 的 23、19、15 描述的是被解决的问题数。它把“至少一个成功”和“多数成功”都记为解决一个问题，因此信息压缩很强。原 Fig. 4a 还展示各问题成功比例，能看到某些问题对所有方法仍然困难。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/4">F4</a></p>
+<p><strong>教学假设：</strong>一个方法在某任务中有 1/100 个成功，与另一个任务中有 90/100 个成功，都增加一个已解决任务。这说明覆盖广度与单次可靠性需要一起看。它不是本文具体某两项任务的数据。</p>
+<h3>基准能支持多广的结论</h3>
+<p>结果支持 RFdiffusion 在这组任务中具有更好的覆盖与较高的计算表现。25 个任务来自既有文献，并非从所有可能蛋白质功能中随机抽样，不能据此给出“未来任意新功能”的成功概率。任务是否被解决也依赖所允许的候选数量与评价流程。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec4">M5</a></p>
+<h3>为什么几何重建还没有证明催化</h3>
+<p>酶活性取决于化学反应路径，包含侧链状态、底物进入、过渡态稳定、溶剂和动态变化等关系。把几个关键原子放到相近位置，可以是必要进展，但不是催化充分条件。Fig. 4f,g 的核心读出是 AF2 与设计的几何及置信判据，没有给出对应新酶的通用催化性能结论。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec5">M6</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/4">F4</a></p>
+<p>与之区分，p53 基序支架的部分设计具有实际 MDM2 结合结果，其中两个实例的亲和力为 0.5 和 0.7 nM。这是特定结合功能的实验证据，不能移用于证明酶催化。该实验正文写 96 个设计，Fig. 4e 图注写 95 个，结合措辞也不同，本稿不计算其总体命中率。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec4">M5</a></p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>基序支架设计要求保留局部功能几何，同时构建支持它的完整蛋白质。RFdiffusion在25个计算任务中解决23个，比较方法分别为19个和15个。但这里统计的是任务覆盖：一个任务找到至少一个合格候选就计入，不能说成92%的实验设计成功率。酶位点结果主要是几何重建；部分结合基序另有实验结合证据，这两类结论需要分开。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/4">Fig. 4</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec4">Functional-motif scaffolding</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec5">Scaffolding enzyme active sites</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=82">Supplementary Methods §5.5</a>。</p>
+<p><a id="slide-12"></a></p>
+<h2>第 12 页｜金属结合的结构与功能证据</h2>
+<h3>这组结果为何比单纯结构重合更有说服力</h3>
+<p>设计要求把局部结合位点与整体对称组装联系起来。实验若同时支持预期组装、结合发生、化学计量相容，以及关键位点对功能的重要性，就能从不同方向检验设计。这些证据回答不同问题，因此互相补充。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec6">M6b</a></p>
+<h3>四组数字分别以谁为分母</h3>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>对应对象</th>
+<th>可以说什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>44</td>
+<td>表达与纯化的设计</td>
+<td>作者开展了这批样品表征</td>
+</tr>
+<tr>
+<td>37/44</td>
+<td>SEC 与预期寡聚状态相容</td>
+<td>支持这部分样品的组装状态</td>
+</tr>
+<tr>
+<td>18/36</td>
+<td>进入 Ni²⁺ 结合测试且检测到结合的设计</td>
+<td>描述受测结合子集的结果</td>
+</tr>
+<tr>
+<td>17/17</td>
+<td>成功表达的对应关键位点突变体，结合消失或明显下降</td>
+<td>支持该位点参与功能</td>
+</tr>
+</tbody>
+</table>
+<p>另有一个对应突变体未表达。它不能被当作“无结合，所以位点机制得到验证”的成功对照，因为无法区分没有样品与没有功能。不同分母也不能拼成一个未经报告的全流程成功率。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec6">M6b</a></p>
+<h3>Fig. 5c 的 ITC 曲线读法</h3>
+<p>ITC 通过结合伴随的热变化形成滴定等温线。PPT 图中横轴是金属与蛋白质的摩尔比，纵轴是对应热量读出。蓝色参考设计有明显的结合转变，粉色突变体失去相应曲线特征。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/5">F5</a></p>
+<p>转变位置还与化学计量有关。以单体为计量单位，一个金属对应四个单体时，比例为 1:4，即约 0.25。这个与设计相容的关系，比“曲线有变化”多提供了一层信息，但具体解释仍依赖浓度、活性比例和结合模型等条件。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec6">M6b</a></p>
+<p>图中 $K_D&lt;20\,\mathrm{nM}$ 是上界表达，不能改写成精确等于 20 nM。WT 在这里是设计序列的未突变参考，不能由“wild type”一词推断它是自然进化得到的天然蛋白。</p>
+<h3>突变对照区分了哪些解释</h3>
+<p>仅检测到结合，仍可能包含非预定位点的贡献。关键位点改变后，结合消失或下降，支持设计位点参与。Extended Data Fig. 7 图注还报告相关突变体保持可溶及预期寡聚状态的 SEC 特征，这有助于削弱“功能丧失完全由整体不表达或解聚引起”的解释。<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig13">ED7</a></p>
+<p>不过，SEC 无法证明局部原子结构完全不变。突变也可能改变局部稳定性或可及性，因此最稳健的结论是“该残基对受测结合有重要作用，且与设计机理相容”，并不等同于全部配位键都已被原子级实验直接确认。</p>
+<h3>不能遗漏的热力学与重复性限定</h3>
+<p>结合可以放热，也可以吸热；自由能满足 $\Delta G=\Delta H-T\Delta S$。因此热量正负不能简单读成“结合”和“不结合”，应结合整条滴定形状和相应模型判断。Fig. 5d 中就有不同热效应的实例。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/5">F5</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec6">M6b</a></p>
+<p>图注说明 ITC 图中的点代表单次测量，不是每个点的独立重复均值。17 个不同突变体是跨设计的配对干预，也不能称为同一个设计的 17 次重复实验。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/5">F5</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig13">ED7</a></p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>这组实验把结构要求和功能联系起来。36个接受结合测试的设计中，18个检测到镍结合；曲线转变的计量也与预期相容。更关键的是，17个成功表达的对应位点突变体都出现结合消失或明显下降。结合与突变对照支持预定位点参与功能，电镜则支持部分样品的整体组装。两者共同增强可信度，但没有逐个直接测定全部配位原子。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/5">Fig. 5b–d</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec6">Symmetric functional-motif scaffolding 的金属部分</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig13">Extended Data Fig. 7 图注</a>。
+<a id="slide-13"></a></p>
+<h2>第 13 页｜结合蛋白的功能与结构验证</h2>
+<h3>这组任务相对于基序支架增加了什么</h3>
+<p>基序支架通常已有一段希望保留的功能几何。这里要在给定目标结构的环境下，提出新的结合蛋白方案。候选既要自身形成合理折叠，也要与目标具有相容的空间及化学关系。模型生成骨架后，仍需序列设计和计算筛选，再进入实验。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a></p>
+<p>本页重点是理解论文证据，不展开针对具体目标的设计或实验操作。</p>
+<h3>19% 的条件概率解释</h3>
+<p>令 $G$ 表示生成的候选总体，$S$ 表示经过筛选并进入实验的候选，$B$ 表示达到本次实验命中标准。论文报告的 19% 接近于：</p>
+<p>$$
+P(B\mid S),
+$$</p>
+<p>而所有生成候选的命中概率需要同时考虑：</p>
+<p>$$
+P(B)=P(B\mid S)P(S)+P(B\mid\neg S)P(\neg S).
+$$</p>
+<p>未进入实验的候选没有相同覆盖的功能观测，不能直接从 19% 得到全体生成输出的功能成功率。筛选提高进入实验样品的命中比例，本来就是流程的价值之一，但筛选成本和未选中候选的信息不能被隐藏。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a></p>
+<p>作者名义上为五个目标各选 95 个候选，并说明部分样品材料不足、测定条件受限，19% 是按论文口径得到的保守总体估计。不能把四舍五入后的百分数乘以名义总数，伪造一个准确命中个数。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a></p>
+<h3>Fig. 6b 的双轴与比较对象</h3>
+<p>粉色柱对应 RFdiffusion 加 AF2 筛选后的流程，灰色柱对应此前 Rosetta 流程。原图两侧纵轴分别标有 BLI 与 YSD 成功率，提示两条流程的读出和历史条件并不完全相同。不能将全部柱形差异解释为唯一变化“换了一个骨架生成网络”。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/6">F6</a></p>
+<p>图注把大约两个数量级的流程改善分别归因于生成方法和 AF2 筛选，并提供此前候选若采用 AF2 筛选的估计。这是一种作者的归因分析，不能说成完成了所有因素严格匹配的单一模型因果实验。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/6">F6</a></p>
+<p>五个目标均获得命中支持跨目标可用性，但目标不是从整个蛋白质组随机抽样。Discussion 特别限定了本文靶点表面类型，并提出更极性位点及缺少天然结合伙伴的位点仍需研究。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec8">M8</a></p>
+<h3>命中、亲和力和特异性分别是什么</h3>
+<p><strong>命中</strong>是跨过某项筛选标准。本实验按 BLI 相对于阳性对照的响应定义命中，并不等于每个样品都具有同一亲和力阈值。</p>
+<p><strong>亲和力</strong>描述平衡结合倾向。对简单的一对一模型：</p>
+<p>$$
+K_D=\frac{[P][L]}{[PL]},\qquad
+K_D=\frac{k_{\rm off}}{k_{\rm on}}.
+$$</p>
+<p>后一个关系还依赖所采用的动力学模型。$K_D$ 越低通常表示平衡亲和力越强，但曲线拟合还受模型与测量条件影响。单点响应高不能独立确定 $K_D$，因为响应也可能受活性样品比例、表面负载或非特异作用影响。</p>
+<p><strong>特异性</strong>描述相对于其他对象是否有选择性。某个目标上亲和力高，并不说明不结合其他分子。竞争实验可以支持位点重叠或空间竞争，不能替代全蛋白质组范围的特异性测量。作者也明确保留这一边界。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a></p>
+<h3>2.9 Å 与 0.63 Å 为何可以同时成立</h3>
+<p>2.9 Å 是选定复合物冷冻电镜重构的分辨率，描述密度图可分辨细节的尺度。0.63 Å 则是图示结构与设计模型比较的 RMSD，描述选定坐标集合在所用对齐口径下的平均差异。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/6">F6</a></p>
+<p>分辨率不是“每个原子都存在 2.9 Å 的位置误差”；RMSD 也不是独立于模型构建与原子选择的绝对真值。因此两者数值大小不矛盾，不能用其中一个替换另一个。</p>
+<p>Fig. 6g 还检查结合时的结构关系，Fig. 6h 单独比较结合蛋白的内部折叠。只比较结合蛋白自身，可以发现它折叠正确，却可能漏掉整个蛋白在目标上摆放错误；在复合物环境下比较能提供相对位置的信息。报告 RMSD 时仍应说明原文比较口径，不能自行扩写为全部原子的统一精度。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/6">F6</a></p>
+<h3>功能与结构为何互补</h3>
+<p>仅有结合信号，不知道分子是否采用预期结合方式；仅有模型重合，不知道真实样品是否结合。实验结合与选定复合物高分辨率结构，分别提供功能发生与空间实现的支持。它们使作者关于精准设计的论证更强。</p>
+<p>但高分辨率实例来自成功候选中的进一步选择。它证明“能够得到这样的设计”，不估计“每一个成功命中都达到相同精度”的比例，也不直接证明细胞调控、治疗有效性或安全性。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a></p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>五个目标上都获得了结合命中，筛选后总体命中率约19%。这个数字针对进入实验的候选，包含计算筛选的贡献。命中标准是相对 BLI 响应，不是所有设计都达到同一纳摩尔亲和力。右边则是一个选定复合物的结构验证：2.9埃表示重构分辨率，0.63埃表示与设计的结构偏差。功能与结构共同支持这个实例，但不能推广为全部候选都有同样精度。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/6">Fig. 6b–h</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">Design of protein-binding proteins</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec8">Discussion</a>。条件概率与结合模型为教学解释。</p>
+<p><a id="slide-14"></a></p>
+<h2>第 14 页｜能力边界</h2>
+<h3>评价时先问“目标命题是什么”</h3>
+<p>不能把所有限制混成一句“还需要更多实验”。应当明确希望证明的是骨架可设计、真实折叠、目标结合、催化反应，还是生物学效应，再判断相应证据是否对准该命题。</p>
+<table>
+<thead>
+<tr>
+<th>目标命题</th>
+<th>本文提供的相关依据</th>
+<th>尚不能由此推出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>生成骨架有序列相容性</td>
+<td>ProteinMPNN 后的结构预测一致性</td>
+<td>每条设计序列都真实采用该骨架</td>
+</tr>
+<tr>
+<td>样品有二级结构及高稳定性</td>
+<td>CD 光谱与热变性</td>
+<td>完整原子折叠逐点正确</td>
+</tr>
+<tr>
+<td>形成预期组装体</td>
+<td>SEC、电镜分类与三维重构</td>
+<td>全部侧链及位点都达到原子级精度</td>
+</tr>
+<tr>
+<td>发生预定结合功能</td>
+<td>结合读出、部分突变或竞争对照</td>
+<td>广泛特异性、细胞效应及临床有效性</td>
+</tr>
+<tr>
+<td>几何方案能够精确实现</td>
+<td>选定复合物的高分辨率结构</td>
+<td>所有设计都具有相同精度</td>
+</tr>
+<tr>
+<td>酶活性位点得到支架支持</td>
+<td>计算几何与侧链重建</td>
+<td>对应催化效率、选择性或普遍酶设计能力</td>
+</tr>
+</tbody>
+</table>
+<p>这些证据并非在一个简单阶梯上完全互相替代。高分辨率结构未必回答功能，功能信号也未必回答结构；多个读出是围绕不同命题形成互补关系。</p>
+<h3>证据数量与独立性</h3>
+<p>多个相似预测网络有共享训练来源，多个图也可能展示同一批样本。Extended Data 图注明确说明某些完整模型数据和 CD 实例重复展示。因此不能按图数计算独立重复次数。<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig9">ED3</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=80">S-validation</a></p>
+<p>计算生成、序列选择、AF2 过滤与实验选择还形成连续筛选链。最后一个漂亮结构来自多级选择，最适合证明能力可实现。若要估计平均可靠性，还需要从明确候选总体与选择规则出发。</p>
+<h3>学到结构分布，与学到任意功能之间的距离</h3>
+<p>训练数据主要提供结构实例。网络可以学到几何规律，再通过局部条件与任务适配构建有用结构，但功能往往依赖训练表征没有完全涵盖的化学、动力学或环境信息。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M1</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec8">M8</a></p>
+<p>例如酶位点几何保留，并不意味着正确的质子化状态、底物结合、过渡态稳定或反应周转已经建立。这是目标变量的信息缺口，不能靠把结构图画得更清楚来弥补。</p>
+<p>作者也明确指出本文版本尚不能显式建模结合的小分子。用外部几何引导留下一个空间，与联合表示配体原子及其化学相互作用，是不同能力。这一限制应限定在 2023 年论文，不能延伸为对后续 RFdiffusion 版本的结论。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec5">M6</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec8">M8</a></p>
+<h3>如何公平看待限制</h3>
+<p><strong>阅读判断：</strong>限制不会抹去已经得到的构造能力。一个能够以条件生成方式提出多种骨架，并在多个受测系统中实现结构与功能的框架，本身构成实质进展。公平评价需要同时保留成功的具体范围，以及尚未被测量的更强命题。</p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>本文的边界可以按证据对象来理解。计算预测支持结构相容性，CD支持二级结构和稳定性，电镜支持实际组装，结合实验支持受测功能，选定高分辨率结构支持精确实现。它们互相补充，但不能互相替代。尤其是酶位点几何与催化、目标结合与生物学效应，都还隔着明确的验证问题。这里说的是2023年本文的能力范围。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec8">全文结果与 Discussion</a>；评价表为依据原始读出作出的阅读判断。</p>
+<p><a id="slide-15"></a></p>
+<h2>第 15 页｜RFdiffusion 的研究意义</h2>
+<h3>从“识别合理结构”到“构造合理结构”</h3>
+<p>结构预测模型学到的知识，不只可以用来评价某条序列会形成什么，还能在重新设计训练任务后帮助提出新骨架。RFdiffusion 的关键并非简单倒转预测输入输出，而是改变主要输入、监督目标与迭代过程，使结构知识服务于欠约束生成。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M1</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a></p>
+<h3>随机性怎样成为设计能力的一部分</h3>
+<p>设计要求通常有多个解。随机初态使模型能够提出不同候选，多步更新使条件在构建过程中逐渐与整体结构协调。多样性因此与问题的多解性相联系，而非只为了让图片看起来不同。</p>
+<p>不过多样性需要与质量一起评价。扩大结构差异却大量产生不可实现骨架，不是有用的探索；只重复一个可靠骨架，也限制了可构造空间。论文的计算评价与不同任务实例，使这两个维度都有相应证据，而未建立任意任务上的最优平衡。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec2">M3</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec4">M5</a></p>
+<h3>一个有依据的总体判断</h3>
+<p><strong>阅读判断：</strong>这篇研究把“局部几何或整体对称要求”与“可通过序列和实验实现的完整结构”更有效地联系起来。最强支持来自方法构造、组件消融、多任务计算评价以及具体实验功能和结构之间的对应。</p>
+<p>这条判断不需要宣称模型已经理解全部蛋白质物理，也不需要用任意功能成功率包装它。可以构造过去难以直接提出的候选，并在实际样品上验证其中一部分，已经改变了研究者可以探索的结构空间。</p>
+<h3>可直接讲述</h3>
+<blockquote>
+<p>RFdiffusion展示的研究路线，是把结构预测中学到的规律转成多步、可控的骨架生成能力。它让局部功能几何和整体对称要求能够进入完整结构的构建。论文的说服力来自生成骨架、设计序列与实验观察的对应。今后更复杂功能的问题，也需要继续明确：模型表示了什么，目标功能依赖什么，以及哪种测量能够检验两者的联系。</p>
+</blockquote>
+<p>来源：<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">Main 与 Discussion</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec8">M8</a>。总体评价为阅读判断，不代表截至 2026 年的领域排名。</p>
+<hr />
+<h2>讲者进阶问答</h2>
+<h3>1. 扩散模型是不是在把训练结构记住后再恢复出来？</h3>
+<p>训练任务确实用已知结构形成带噪输入与恢复目标，但生成时没有为随机初态指定一个待恢复的训练样本。模型学习的是许多结构在不同扰动水平下的恢复规律。Fig. 2 的 PDB 相似性分析支持一定程度的整体结构泛化。仅凭低全局相似性仍无法证明没有记忆任何局部片段，也不是对全部数据泄漏风险的完整审计。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec2">M3</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/2">F2</a></p>
+<h3>2. 点预测用 MSE，会不会把所有结构平均成一团？</h3>
+<p>对欧氏变量，固定输入下平方误差的最优解是条件均值。这确实解释了为什么高噪声下的单次预测可能不具蛋白质形态。但扩散依赖分阶段转移，不要求第一次点预测就是最终样本。后续状态变化使条件信息不断不同，最终产生具体结构。旋转空间不允许简单套用九个矩阵元素的平均，因此不能把这段欧氏解释当作完整旋转证明。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=47">S-forward</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">S-loss</a></p>
+<h3>3. 预测 $X_0$ 与预测噪声有什么关系？</h3>
+<p>对平移的高斯公式，在噪声水平已知时可以写成：</p>
+<p>$$
+\widehat{\boldsymbol\epsilon}_t=
+\frac{\mathbf z_t-\sqrt{\bar\alpha_t}\widehat{\mathbf z}_0}
+{\sqrt{1-\bar\alpha_t}}.
+$$</p>
+<p>这说明两种输出在该条件下可转换，但实际训练的权重、数值性质和网络归纳偏置仍可能不同。本文选择干净结构预测，以便复用 RF。不要将“形式上可转换”写成“任何设置下性能完全相同”。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=47">S-forward</a>、<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=56">S-loss</a></p>
+<h3>4. “不先对齐”的 MSE 是否强迫蛋白质永远朝某个方向？</h3>
+<p>它要求预测与本次目标处于一致坐标关系，不要求所有蛋白质具有同一个固定朝向。共同旋转输入与目标，等变网络应共同旋转输出。它惩罚的是预测相对于当前参照的额外错位，而非分子选择哪一种实验室坐标方向。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=58">S-geometry</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a></p>
+<h3>5. 自条件会不会把模型早期错误一直强化？</h3>
+<p>这是合理担忧，但自条件仍与当前带噪输入共同进入模型，前轮估计可以更新，并非必须原样执行。训练也让模型接触有无前轮估计的情形。消融说明它在本文受测设置中总体有利，不能据此推断每条轨迹都不会被早期错误影响。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=54">S-self</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec1">M2</a></p>
+<h3>6. 质量提高是否一定意味着多样性提高？</h3>
+<p>两者需要分别测量。Extended Data Fig. 1 图注报告，减少生成过程中新增噪声可以改善某些计算成功率，同时降低结构聚类所反映的多样性。这个结果说明推断选择会改变探索与可靠性的平衡，不能声称存在对所有任务都最佳的单一采样方式。本稿不据此提供具体任务的调参方案。<a href="https://www.nature.com/articles/s41586-023-06415-8#Fig7">ED1</a></p>
+<h3>7. “独立序列验证”是否足够排除预测器偏差？</h3>
+<p>先用 ProteinMPNN 重新设计序列，再用不同预测网络检查，能降低简单复用同一预测输出的风险。作者援引先前工作支持其预测实验成功的价值。但共享训练来源与某些任务的初始结构信息仍使独立性有限，所以实验结构与功能测量依然关键。<a href="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-023-06415-8/MediaObjects/41586_2023_6415_MOESM1_ESM.pdf#page=80">S-validation</a></p>
+<h3>8. 结构比较的 RMSD 很低，是否代表每个原子都准确？</h3>
+<p>RMSD 是所选坐标差的均方根，会受到原子集合和对齐方式影响。局部错误可以被大量一致区域稀释。骨架 RMSD 不能自动代表侧链 RMSD，整体叠合也不等于关键位点全部正确。解释数值时需要同时给出比较对象和用途。<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/4">F4</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8/figures/6">F6</a></p>
+<h3>9. 若一个样品没有表达，能否判定骨架设计错了？</h3>
+<p>不能单独判定。表达失败可能涉及序列、表达环境、溶解性、降解或构象问题。它确实是该流程在所用条件下未实现预期产物的失败，但无法唯一定位到 RFdiffusion 骨架。应区分系统结果与失败原因的识别。</p>
+<h3>10. 生成模型与物理能量方法是否互相排斥？</h3>
+<p>两者可以组合。生成模型提供从数据学到的结构偏好，几何或物理评价可以在生成和筛选中提供额外约束。本文本身就包含显式对称约束及部分外部引导。关键是说明每个环节约束了什么，而不是只按“AI”与“物理”分阵营。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec3">M4</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec5">M6</a></p>
+<h3>11. 得到高亲和力后，还缺什么才能说明有生物学作用？</h3>
+<p>需要目标相关的功能读出，并考虑分子是否到达作用位置、在相关环境中保持活性，以及作用是否确由预期机制产生。本文的体外结合或结构结果不能自动回答这些问题。这里是证据层次解释，不是对具体候选治疗潜力的判断。<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec7">M7</a>、<a href="https://www.nature.com/articles/s41586-023-06415-8#Sec8">M8</a></p>
+<h3>12. 怎样回答“这篇论文最值得学的研究设计是什么”？</h3>
+<p>先提出可迁移的核心构造：把预训练结构知识用于多步去噪。再用消融检验关键选择，用多个任务检验框架适用性，最后让功能与结构读出针对各自命题提供支持。值得学习的是主张与证据的对应，而不是把论文图序误当作作者真实发现过程的时间线。</p>
+<h2>用于排练的理解检查</h2>
+<table>
+<thead>
+<tr>
+<th>提问</th>
+<th>回答应包含的关键点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fig. 1c 的上下两排分别是什么？</td>
+<td>当前带噪输入与当前阶段对干净结构的估计</td>
+</tr>
+<tr>
+<td>MSE 与等变性为什么不矛盾？</td>
+<td>共同变换与单独变换预测的比较不同</td>
+</tr>
+<tr>
+<td>为什么 RF 权重不能直接代替 RFdiffusion？</td>
+<td>输入分布与监督任务改变，需要去噪微调</td>
+</tr>
+<tr>
+<td>23/25 能否写成“实验成功率 92%”？</td>
+<td>统计单位是计算基准任务，且只要求找到合格解</td>
+</tr>
+<tr>
+<td>CD 很稳定为何仍不能确认完整折叠？</td>
+<td>主要反映整体二级结构与信号随温度变化</td>
+</tr>
+<tr>
+<td>17/17 说明什么？</td>
+<td>成功表达的对应突变体的配对功能变化，不是17次重复</td>
+</tr>
+<tr>
+<td>19% 的分母是什么？</td>
+<td>筛选后进入相应结合测试的候选，按论文命中口径</td>
+</tr>
+<tr>
+<td>2.9 Å 为何不与 0.63 Å 冲突？</td>
+<td>重构分辨率与模型结构差异是不同量</td>
+</tr>
+<tr>
+<td>一个精准结构能支持多强的结论？</td>
+<td>证明受测实例可实现，不能估计全部候选精度</td>
+</tr>
+</tbody>
+</table>
+<h2>数字与表述核对表</h2>
+<table>
+<thead>
+<tr>
+<th>结果</th>
+<th>保留的口径</th>
+<th>避免的推断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>600 残基</td>
+<td>良好计算实例，整体表现有长度依赖</td>
+<td>任意该长度设计都可靠</td>
+</tr>
+<tr>
+<td>9/18</td>
+<td>无条件单体实验中通过相关表达筛选的样品</td>
+<td>所有测试单体均成功</td>
+</tr>
+<tr>
+<td>87/608</td>
+<td>至少87个的 SEC 推断在相应校准区间内接近预期</td>
+<td>87个均获高分辨率结构</td>
+</tr>
+<tr>
+<td>23、19、15 / 25</td>
+<td>基序支架计算问题覆盖数</td>
+<td>单次设计或实验功能成功比例</td>
+</tr>
+<tr>
+<td>18/36</td>
+<td>受测 Ni²⁺ 结合设计中的命中数</td>
+<td>全部生成候选的功能比例</td>
+</tr>
+<tr>
+<td>17/17</td>
+<td>成功表达的对应突变体均有结合消失或下降</td>
+<td>同一蛋白的17次独立重复</td>
+</tr>
+<tr>
+<td>19%</td>
+<td>筛选后结合候选总体命中，按相对响应判据</td>
+<td>无筛选生成概率或统一亲和力标准</td>
+</tr>
+<tr>
+<td>2.9 Å</td>
+<td>选定复合物的冷冻电镜重构分辨率</td>
+<td>设计偏差或逐原子误差</td>
+</tr>
+<tr>
+<td>0.63 Å</td>
+<td>Fig. 6g 所用口径的结构 RMSD</td>
+<td>全部设计的统一结构精度</td>
+</tr>
+</tbody>
+</table>
+<p>p53–MDM2 实验的 95/96 分母与结合措辞存在正文、图注差异。本稿保留明确亲和力实例，不合并计算总体比例。不同任务的计算筛选也有差别，以相应图注和 Supplementary Methods §5 为准。</p>
+<h2>来源索引与本次核读范围</h2>
+<p>所有论文结果来自同一篇 2023 年工作；正文、主图、Extended Data 图注及补充材料不能按文档数量计算为独立复现。以下编号用于定位证据，而非增加引用数量。</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>原始位置</th>
+<th>本稿使用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M1</td>
+<td>Main 开头的设计问题、RF 与 Inpainting 动机</td>
+<td>页2–3、15的研究逻辑</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Main 中框架、加噪、生成、自条件、计算成功定义</td>
+<td>页3–8的方法主线</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Unconditional protein monomer generation</td>
+<td>单体拓扑、长度趋势与实验概述</td>
+</tr>
+<tr>
+<td>M4</td>
+<td>Design of higher-order oligomers</td>
+<td>对称组装、SEC与电镜</td>
+</tr>
+<tr>
+<td>M5</td>
+<td>Functional-motif scaffolding</td>
+<td>25项基准、p53结合实例与口径冲突</td>
+</tr>
+<tr>
+<td>M6</td>
+<td>Scaffolding enzyme active sites</td>
+<td>几何结果与小分子表示边界</td>
+</tr>
+<tr>
+<td>M6b</td>
+<td>Symmetric functional-motif scaffolding 的金属段落</td>
+<td>结合、突变与组装的互补支持</td>
+</tr>
+<tr>
+<td>M7</td>
+<td>Design of protein-binding proteins</td>
+<td>筛选、命中、亲和力及高分辨率实例</td>
+</tr>
+<tr>
+<td>M8</td>
+<td>Discussion</td>
+<td>作者总结、目标范围与未来扩展</td>
+</tr>
+<tr>
+<td>F1–F6</td>
+<td>六张主图及其图注</td>
+<td>图形、坐标轴、比较对象与数字</td>
+</tr>
+<tr>
+<td>ED1、3、5、7、8</td>
+<td>相应 Extended Data 图注</td>
+<td>补充口径；本轮未新增这些面板的完整视觉审计</td>
+</tr>
+</tbody>
+</table>
+<p>补充材料定位采用 <strong>PDF 页码</strong>，包括出版方封面。文件内印刷页码通常比 PDF 页码少1，因此同时注明章节，避免错页。</p>
+<table>
+<thead>
+<tr>
+<th>方法编号</th>
+<th>章节与 PDF 页码</th>
+<th>核读内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S-arch</td>
+<td>§1.1–1.2，PDF 37–38页</td>
+<td>残基刚体框架与更新后的三轨架构</td>
+</tr>
+<tr>
+<td>S-forward</td>
+<td>§2.1–2.2，PDF 47–48页</td>
+<td>基本扩散记号、平移前向分布和反向均值</td>
+</tr>
+<tr>
+<td>S-rotation</td>
+<td>§2.3，PDF 49、52–53页</td>
+<td>旋转流形、score近似及其限定；未逐项展开全部密度推导</td>
+</tr>
+<tr>
+<td>S-self</td>
+<td>§2.4，PDF 54、56页</td>
+<td>前轮预测的输入角色与自条件训练说明</td>
+</tr>
+<tr>
+<td>S-loss</td>
+<td>§2.5，PDF 56、58页</td>
+<td>框架误差、Gaussian联系及旋转的理论边界</td>
+</tr>
+<tr>
+<td>S-geometry</td>
+<td>§2.6，PDF 58–60页</td>
+<td>网络等变性、旋转不变分布与中心化</td>
+</tr>
+<tr>
+<td>S-symmetry</td>
+<td>§3.1，PDF 61–62页</td>
+<td>点群、旋转与链重标记关系</td>
+</tr>
+<tr>
+<td>S-motif</td>
+<td>§3.2，PDF 64页</td>
+<td>基序与支架的条件分布</td>
+</tr>
+<tr>
+<td>S-training-loss</td>
+<td>§4.1，PDF 70页</td>
+<td>平移/旋转加权、截断及中间监督；完整训练配方不在本稿范围</td>
+</tr>
+<tr>
+<td>S-validation</td>
+<td>§5.1–5.3，PDF 80–82页</td>
+<td>计算验证的独立性、任务设置差异及成功判据</td>
+</tr>
+<tr>
+<td>S-benchmark</td>
+<td>§5.4–5.5，PDF 82–83页</td>
+<td>骨架/序列统计单位、单体实验分母与比较方法</td>
+</tr>
+</tbody>
+</table>
+<p>本次对关键公式所在的 PDF 37、48、56、58、59 页进行了页面图像核对，其余上述范围以可提取正文阅读为主。模型代码、原始测量再分析、补充材料其余全部章节及后续版本比较，均未被本稿声明为已完成。</p>
+</body></html>
