@@ -10,6 +10,7 @@ A personal bank of long-form, AI-assisted study documents and the tooling that p
 
 | Path | What it is |
 |---|---|
+| [`ap2-pip2-multiscale-research/`](ap2-pip2-multiscale-research/) | AP2–PIP₂分子互作与多尺度研究设计：15章研究案例、16篇原始研究、实验选择与结果推演；附动态成像专题（Markdown + 独立HTML） |
 | [`cell-membrane-trafficking-and-receptor-mediated-endocytosis/`](cell-membrane-trafficking-and-receptor-mediated-endocytosis/) | 受体介导胞吞与内体分选科研基座 V2：18 章、18 幅论文图、32 份机制与案例文献、7 个研究案例；环境/尺度地图、实验决策及交互通量模型（Markdown + HTML），保留 V1 导读 |
 | [`rfdiffusion/`](rfdiffusion/) | RFdiffusion 中文课堂汇报深入讲解稿：15 页讲述、数学原理、图表解读、实验依据与进阶问答（Markdown + HTML） |
 | [`crispr/`](crispr/) | CRISPR-Cas 天然机制、演化与生化全景解析：[`crispr.md`](crispr/crispr.md) 中文长文（含专著 / 原始论文 / 综述书单与配套视频课程）+ [`crispr-2-mechanism-lecture.md`](crispr/crispr-2-mechanism-lecture.md) 英文讲解稿（Act 1–4，含 NHEJ / HDR 修复机制）+ [`crispr-1.html`](crispr/crispr-1.html) 交互式分子流程动态演示 |

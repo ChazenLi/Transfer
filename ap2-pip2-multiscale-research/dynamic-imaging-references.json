@@ -1,0 +1,47 @@
+[
+  {
+    "id": "D1",
+    "authors": "Zaccai et al.",
+    "year": 2022,
+    "title": "FCHO controls AP2’s initiating role in endocytosis through a PtdIns(4,5)P₂-dependent switch",
+    "doi": "10.1126/sciadv.abn2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9054013/",
+    "scope": "相关正文及eTIRF-SIM采集、九帧重构、追踪和cryo-EM帧处理方法"
+  },
+  {
+    "id": "D2",
+    "authors": "Kodera et al.",
+    "year": 2010,
+    "title": "Video imaging of walking myosin V by high-speed atomic force microscopy",
+    "doi": "10.1038/nature09450",
+    "url": "https://www.nature.com/articles/nature09450",
+    "scope": "公开摘要、图注及补充视频说明"
+  },
+  {
+    "id": "D3",
+    "authors": "Torino et al.",
+    "year": 2023,
+    "title": "Time-resolved cryo-EM using a combination of droplet microfluidics with on-demand jetting",
+    "doi": "10.1038/s41592-023-01967-z",
+    "url": "https://www.nature.com/articles/s41592-023-01967-z",
+    "scope": "公开摘要、图注与数据说明"
+  },
+  {
+    "id": "D4",
+    "authors": "Smith et al.",
+    "year": 2024,
+    "title": "Electron videography of a lipid–protein tango",
+    "doi": "10.1126/sciadv.adk0217",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11023515/",
+    "scope": "NCBI BioC提供的原文摘要、介绍与束损伤/功能保存讨论"
+  },
+  {
+    "id": "D5",
+    "authors": "Jackson et al.",
+    "year": 2010,
+    "title": "A large-scale conformational change couples membrane recruitment to cargo binding in the AP2 clathrin adaptor complex",
+    "doi": "10.1016/j.cell.2010.05.006",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3655264/",
+    "scope": "原文及补充模型动画说明"
+  }
+]

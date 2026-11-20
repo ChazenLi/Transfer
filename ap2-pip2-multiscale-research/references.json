@@ -1,0 +1,162 @@
+[
+  {
+    "id": "R01",
+    "authors": "Gaidarov & Keen",
+    "year": "1999",
+    "venue": "Journal of Cell Biology",
+    "title": "Phosphoinositide–AP-2 interactions required for targeting to plasma membrane clathrin-coated pits",
+    "doi": "10.1083/jcb.146.4.755",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2156139/",
+    "scope": "突变、完整性检查与细胞定位相关正文。"
+  },
+  {
+    "id": "R02",
+    "authors": "Collins et al.",
+    "year": "2002",
+    "venue": "Cell",
+    "title": "Molecular architecture and functional model of the endocytic AP2 complex",
+    "doi": "10.1016/S0092-8674(02)00735-3",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/12086608/",
+    "scope": "摘要、书目信息；主文与补充材料未完整取得。"
+  },
+  {
+    "id": "R03",
+    "authors": "Höning et al.",
+    "year": "2005",
+    "venue": "Molecular Cell",
+    "title": "Phosphatidylinositol-(4,5)-bisphosphate regulates sorting signal recognition by the clathrin-associated adaptor complex AP2",
+    "doi": "10.1016/j.molcel.2005.04.019",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/15916959/",
+    "scope": "摘要、出版社公开的膜重构与SPR结果段。"
+  },
+  {
+    "id": "R04",
+    "authors": "Jackson et al.",
+    "year": "2010",
+    "venue": "Cell",
+    "title": "A large-scale conformational change couples membrane recruitment to cargo binding in the AP2 clathrin adaptor complex",
+    "doi": "10.1016/j.cell.2010.05.006",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3655264/",
+    "scope": "结构重排、膜结合与货物相关正文及方法。"
+  },
+  {
+    "id": "R05",
+    "authors": "Kelly et al.",
+    "year": "2014",
+    "venue": "Science",
+    "title": "AP2 controls clathrin polymerization with a membrane-activated switch",
+    "doi": "10.1126/science.1254836",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4333214/",
+    "scope": "构建体及Fig. 2至4相关正文、图注。"
+  },
+  {
+    "id": "R06",
+    "authors": "Ma et al.",
+    "year": "2016",
+    "venue": "Developmental Cell",
+    "title": "Transient Fcho1/2·Eps15/R·AP-2 nanoclusters prime the AP-2 clathrin adaptor for cargo binding",
+    "doi": "10.1016/j.devcel.2016.05.003",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4921775/",
+    "scope": "摘要与公开结果概述。"
+  },
+  {
+    "id": "R07",
+    "authors": "Kadlecova et al.",
+    "year": "2017",
+    "venue": "Journal of Cell Biology",
+    "title": "Regulation of clathrin-mediated endocytosis by hierarchical allosteric activation of AP2",
+    "doi": "10.1083/jcb.201608071",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5223608/",
+    "scope": "摘要、讨论及细胞阶段分析相关文字。"
+  },
+  {
+    "id": "R08",
+    "authors": "Kovtun et al.",
+    "year": "2020",
+    "venue": "Science Advances",
+    "title": "Architecture of the AP2/clathrin coat on the membranes of clathrin-coated vesicles",
+    "doi": "10.1126/sciadv.aba8381",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7375805/",
+    "scope": "膜重构正文、图注；查看了Fig. 2原图。图像许可为CC BY 4.0。"
+  },
+  {
+    "id": "R09",
+    "authors": "Partlow et al.",
+    "year": "2022",
+    "venue": "Nature Structural & Molecular Biology",
+    "title": "Structural basis of an endocytic checkpoint that primes the AP2 clathrin adaptor for cargo internalization",
+    "doi": "10.1038/s41594-022-00749-z",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10116491/",
+    "scope": "primed、货物释放和SLB交联正文；查看了Fig. 5原图。"
+  },
+  {
+    "id": "R10",
+    "authors": "Zaccai et al.",
+    "year": "2022",
+    "venue": "Science Advances",
+    "title": "FCHO controls AP2’s initiating role in endocytosis through a PtdIns(4,5)P₂-dependent switch",
+    "doi": "10.1126/sciadv.abn2018",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9054013/",
+    "scope": "FCHO时空组织、膜竞争、构建体与讨论相关正文及图注。"
+  },
+  {
+    "id": "R11",
+    "authors": "Wrobel et al.",
+    "year": "2019",
+    "venue": "Developmental Cell",
+    "title": "Temporal ordering in endocytic clathrin-coated vesicle formation via AP2 phosphorylation",
+    "doi": "10.1016/j.devcel.2019.07.017",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6706699/",
+    "scope": "书目信息、公开摘要及结果片段。2020年的更正补列了作者。"
+  },
+  {
+    "id": "R12",
+    "authors": "Partlow et al.",
+    "year": "2019",
+    "venue": "eLife",
+    "title": "A structural mechanism for phosphorylation-dependent inactivation of the AP2 complex",
+    "doi": "10.7554/eLife.50003",
+    "url": "https://elifesciences.org/articles/50003",
+    "scope": "摘要、公开结果概述及图注。"
+  },
+  {
+    "id": "R13",
+    "authors": "Maestro et al.",
+    "year": "2025",
+    "venue": "Communications Biology",
+    "title": "Combined thermodynamic and time-resolved structural analysis of interactions between AP2 and biomimetic plasma membranes provides insights into clathrin-mediated endocytosis",
+    "doi": "10.1038/s42003-025-08597-5",
+    "url": "https://www.nature.com/articles/s42003-025-08597-5",
+    "scope": "摘要、结果、讨论与相关方法文字。"
+  },
+  {
+    "id": "R14",
+    "authors": "Sloan et al.",
+    "year": "2026",
+    "venue": "Science Advances",
+    "title": "CCDC32 collaborates with the membrane to assemble the AP-2 clathrin adaptor complex",
+    "doi": "10.1126/sciadv.aeb2377",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13267310/",
+    "scope": "摘要及装配、膜结合相关正文和图注。"
+  },
+  {
+    "id": "R15",
+    "authors": "Ren et al.",
+    "year": "2013",
+    "venue": "Cell",
+    "title": "Structural basis for recruitment and activation of the AP-1 clathrin adaptor complex by Arf1",
+    "doi": "10.1016/j.cell.2012.12.042",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3913725/",
+    "scope": "摘要，以及讨论中区分招募与激活的段落。"
+  },
+  {
+    "id": "R16",
+    "authors": "Ford et al.",
+    "year": "2002",
+    "venue": "Nature",
+    "title": "Curvature of clathrin-coated pits driven by epsin",
+    "doi": "10.1038/nature01020",
+    "url": "https://www.nature.com/articles/nature01020",
+    "scope": "摘要和公开图注。"
+  }
+]
