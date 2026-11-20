@@ -30,73 +30,71 @@
 .zoom-foot{margin:0;background:#fff;padding:8px 16px;font-size:11px;color:#5a7086}.zoom-foot a{margin-left:15px}
 @media(max-width:620px){.figure-reading{grid-template-columns:1fr}.paper-figure{padding:12px}.figure-heading h4{font-size:15px}.paper-figure .zoom-trigger{padding:6px}.figure-number{font-size:10px}.zoom-toolbar{padding:9px}.zoom-toolbar strong{flex-basis:100%}.main{overflow:hidden}.hero p{font-size:14px}}
 @media print{.paper-figure{break-inside:avoid;box-shadow:none}.paper-figure img{max-height:140mm}.zoom-trigger{border:0!important;background:white!important;padding:0!important}.image-hint,#figureDialog{display:none!important}.figure-reading{grid-template-columns:1fr 1fr}.paper-caption,.figure-reading p{font-size:9pt}.hero{color:#172235;background:#edf3f9}.hero p,.eyebrow{color:#354d62}.pill{color:#354d62;border-color:#bfd0e1}.paper-figure .figure-number{color:#172235;background:#dce9f4}}
-</style></head><body><div class="progress" id="progress"></div><div class="layout"><aside class="sidebar"><div class="brand">胞吞与内体分选<small>RESEARCH FOUNDATION · V2 · 2026</small></div><button type="button" class="mobile-menu" id="mobileMenu" aria-expanded="false">目录与全文检索 ☰</button><input class="nav-search" id="guideSearch" type="search" placeholder="检索机制 / 方法 / 案例…" aria-label="检索全文"><div class="search-status" id="searchStatus"></div><div class="search-results" id="searchResults"></div><nav class="nav"><a href="#mission">00 · 从机制导读走向科研基座</a><a href="#objects">01 · 先定义对象：什么才算一次内吞？</a><a href="#membranes">02 · 膜与局部力学：为什么一张膜会弯，也会不弯？</a><a href="#assembly">03 · 从受体到包被：选择不是一把锁配一把钥匙</a><a href="#bending">04 · 包被弯曲、actin 与裂变：怎样读懂不同模型？</a><a href="#endosomes">05 · 内体：身份、化学环境和货物命运怎样共同变化？</a><a href="#receptor-cases">06 · 三类受体：先确定你在追踪谁</a><a href="#environment-map">07 · 全环境地图：变量如何进入解释链？</a><a href="#scale-map">08 · 动态尺度地图：你采样到的是哪个过程？</a><a href="#experimental-decisions">09 · 实验决策：从常规设备开始，怎样知道下一步该做什么？</a><a href="#flux-model">10 · 从终点量到通量：一个可以动手改变的模型</a><a href="#statistics">11 · 统计与图像分析：哪些习惯会把现象变成假机制？</a><a href="#fusion-context">12 · 融合与胞吐作为背景：怎样迁移证据，而不迁移过头？</a><a href="#research-cases">13 · 把论文读成可以迁移的研究经验</a><a class="case-link" href="#case-ap2">案例 A · AP2：怎样证明“到了膜上”还不够？</a><a class="case-link" href="#case-initiation">案例 B · 起始的最初几秒：为什么校准能改变生物学问题？</a><a class="case-link" href="#case-actin">案例 C · actin：为什么看似相反的结果可以被条件连接？</a><a class="case-link" href="#case-egfr">案例 D · EGFR：怎样从剂量曲线走向机制？</a><a class="case-link" href="#case-retriever">案例 E · Retriever：为什么一个标签问题能成为发现入口？</a><a class="case-link" href="#case-er">案例 F · ER 接触：怎样从“经常在旁边”走到功能贡献？</a><a class="case-link" href="#case-signalling">案例 G · 内体信号：看到受体在那里，为什么还不够？</a><a href="#worked-study">14 · 把“胞内荧光减少”变成一个可推进的课题</a><a href="#research-judgement">15 · 发展研究思路：怎样从关系缺口提出好问题？</a><a href="#self-check">16 · 自检与讨论：能否把认识带出这份资料？</a><a href="#source-library">17 · 文献作为研究素材：核查到哪里，下一步怎样回源？</a></nav><div class="sidebar-footer">从对象和条件出发，选择能改变判断的证据。<br>全部图像和交互可离线使用。</div></aside><main class="main"><header class="hero" id="top"><div class="eyebrow">MECHANISMS · ENVIRONMENT · EXPERIMENTAL CHOICES</div><h1>受体介导胞吞与内体分选<br>科研知识框架与研究基座</h1><p>从知道发生了什么，走向理解为什么这样研究、何种证据能支持结论，以及换一种细胞、环境或方法时应该怎样选择。</p><div class="hero-tags"><span>7 个研究案例</span><span>32 份机制与案例文献 · 分级标明核查范围</span><span>18 幅论文图 + 方向辅助图</span><span>常规设备起步 · 合作技术升级</span></div></header><div class="intro-bar"><button type="button" id="expandDeep">展开深入说明与文献</button><button type="button" id="collapseDeep">收起深入说明与文献</button><button type="button" id="printGuide">打印 / 导出 PDF</button><a href="#experimental-decisions">直接进入实验决策 →</a></div><div class="edition-note"><b>按讨论目标重建：</b>以受体介导胞吞—内体分选为核心，保留融合/胞吐背景；面向有细胞生物学基础、希望形成研究判断能力的读者。论文报告、论证重建与研究建议分开；交互曲线为教学模型。更新与定向检索日期：2026-11-20。</div><div id="chapters"><section class="chapter" id="mission"><h2>00 · 从机制导读走向科研基座</h2>
-<p>这份资料的目标，是让你在遇到“受体内化减少”“内体变大”“药物改变了受体降解”时，能够重建发生了什么、识别目前还无法判定什么，并选择下一项真正增加信息的研究动作。主线限定为<strong>受体介导胞吞—内体分选</strong>；膜融合与胞吐提供理解拓扑、膜稳态和区室连通所需的背景。</p>
-<p><strong>贯穿全文的研究主张：受体运输是受环境约束的多条状态转移和通量的耦合；一个分子的存在、一个区室的亮度或一张共定位图，通常不足以唯一确定其中哪一步改变。</strong> 这是一种组织研究问题的分析框架，不是一篇论文已经证明的统一定律。</p>
-<h3>如何使用四个阅读层次</h3>
+</style></head><body><div class="progress" id="progress"></div><div class="layout"><aside class="sidebar"><div class="brand">胞吞与内体分选<small>RESEARCH FOUNDATION · V2 · 2026</small></div><button type="button" class="mobile-menu" id="mobileMenu" aria-expanded="false">目录与全文检索 ☰</button><input class="nav-search" id="guideSearch" type="search" placeholder="检索机制 / 方法 / 案例…" aria-label="检索全文"><div class="search-status" id="searchStatus"></div><div class="search-results" id="searchResults"></div><nav class="nav"><a href="#mission">00 · 怎样把这份资料用到自己的研究里</a><a href="#objects">01 · 一次内吞包括哪些可以分别测量的事件？</a><a href="#membranes">02 · 膜怎样弯曲，细胞环境又怎样改变它？</a><a href="#assembly">03 · 受体选择怎样接到包被装配上？</a><a href="#bending">04 · 包被弯曲、actin 与裂变的不同证据</a><a href="#endosomes">05 · 内体的身份、环境与货物命运</a><a href="#receptor-cases">06 · TfR1、LDLR 与 EGFR：货物不同，实验也要跟着换</a><a href="#environment-map">07 · 从膜两侧到细胞状态：环境怎样进入实验</a><a href="#scale-map">08 · 空间与时间：怎样选采样尺度</a><a href="#experimental-decisions">09 · 从现有条件出发选择实验</a><a href="#flux-model">10 · 用一个模型比较量、通量和荧光</a><a href="#statistics">11 · 统计与图像分析中的几个实际选择</a><a href="#fusion-context">12 · 从融合与胞吐研究借鉴读出设计</a><a href="#research-cases">13 · 从七个案例学习怎样推进研究</a><a class="case-link" href="#case-ap2">案例 A · AP2：膜定位以后，功能怎样开启</a><a class="case-link" href="#case-initiation">案例 B · 最初几秒：怎样看见少量分子和失败事件</a><a class="case-link" href="#case-actin">案例 C · actin：把细胞条件放进“必需性”的解释</a><a class="case-link" href="#case-egfr">案例 D · EGFR：从剂量关系追到位点组合</a><a class="case-link" href="#case-retriever">案例 E · Retriever：怎样利用标签造成的功能差异</a><a class="case-link" href="#case-er">案例 F · ER 接触：从相邻位置追踪到裂分事件</a><a class="case-link" href="#case-signalling">案例 G · 内体信号：怎样从位置测到活化状态</a><a href="#worked-study">14 · 围绕“胞内荧光减少”安排一轮研究</a><a href="#research-judgement">15 · 怎样从现象提出值得继续的问题</a><a href="#self-check">16 · 带着这些问题检查自己的理解</a><a href="#source-library">17 · 文献入口与进一步阅读</a></nav><div class="sidebar-footer">把机制与自己的实验问题接起来。<br>全部图像和交互可离线使用。</div></aside><main class="main"><header class="hero" id="top"><div class="eyebrow">MECHANISMS · ENVIRONMENT · EXPERIMENTAL CHOICES</div><h1>受体介导胞吞与内体分选<br>科研知识框架与研究基座</h1><p>沿着受体的运输过程，理解分子怎样工作，研究者为什么选择这些实验，以及怎样把经验用到自己的课题。</p><div class="hero-tags"><span>7 个研究案例</span><span>32 份机制与案例文献</span><span>18 幅论文图 + 方向辅助图</span><span>常规设备起步 · 合作技术升级</span></div></header><div class="intro-bar"><button type="button" id="expandDeep">展开深入说明与文献</button><button type="button" id="collapseDeep">收起深入说明与文献</button><button type="button" id="printGuide">打印 / 导出 PDF</button><a href="#experimental-decisions">直接进入实验决策 →</a></div><div class="edition-note">适合有细胞生物学基础、希望进一步理解实验选择的读者。可顺着机制阅读，也可从自己的现象进入实验章节与论文案例。文献阅读与更新日期：2026-11-20。</div><div id="chapters"><section class="chapter" id="mission"><h2>00 · 怎样把这份资料用到自己的研究里</h2>
+<p>敲低一个基因后，细胞里的 EGF 荧光少了，下一步做什么？很容易想到拍 clathrin、测 actin，或者补一组降解实验。不过在选择之前，先看表面还有多少受体、荧光在什么时候开始下降，往往能省下不少弯路。入口变慢、回收加快和探针变暗，都可能给出相似的图像。</p>
+<p>这份资料沿着受体介导胞吞、内体分选这条路线，讨论这些现象怎样发生，以及实验怎样把它们分开。膜融合与胞吐作为背景，帮助理解膜的朝向、区室连通和膜面积的收支。贯穿各章的出发点是：把受体运输看成几条相互牵连的状态转移，连同它们所处的环境一起研究。这样，一个亮点、一条条带或一个定位变化，就有了可以解释的位置。</p>
+<h3>按问题选择阅读入口</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>阅读层</th>
-<th>你应能回答的问题</th>
-<th>建议用法</th>
+<th>现在想弄清什么</th>
+<th>可以从哪里读起</th>
+<th>阅读时留意什么</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>机制正文</td>
-<td>谁在膜哪一侧，在什么条件下改变了哪个状态？</td>
-<td>先读 01–06，不熟悉的术语可回到原图</td>
+<td>分子机器怎样完成运输</td>
+<td>01 至 06 章机制正文</td>
+<td>分子在膜哪一侧，改变的是哪一步</td>
 </tr>
 <tr>
-<td>环境与尺度地图</td>
-<td>哪些看似背景的条件会改变过程或读出？</td>
-<td>设计实验前检查相关行，而非机械测量所有变量</td>
+<td>换了细胞或培养条件，结果为何变了</td>
+<td>07 至 08 章环境与尺度</td>
+<td>哪个条件改变负载、反应或观测结果</td>
 </tr>
 <tr>
-<td>实验决策手册</td>
-<td>常规设备能先区分什么？何时需要合作升级？</td>
-<td>从自己的现象进入，确定对象、分母和时间窗</td>
+<td>手边设备能先做什么</td>
+<td>09 至 11 章实验与分析</td>
+<td>起始受体池、采样时间和测量分母</td>
 </tr>
 <tr>
-<td>完整案例与研究推演</td>
-<td>为什么这些对照、构建体或技术能够推进判断？</td>
-<td>先独立推断，再展开论证重建与迁移建议</td>
+<td>一篇好论文为什么这样安排实验</td>
+<td>13 至 14 章案例与推演</td>
+<td>对照拆开了什么解释，下一步因此怎样改变</td>
 </tr>
 </tbody>
 </table></div>
-<p>正文中的 <strong>[研究报告]</strong> 表示来源实际给出的观察或解释；<strong>[论证重建]</strong> 表示根据公开论文分析证据为何有用；<strong>[研究建议]</strong> 表示可考虑的下一步，尚未在本资料中实施。作者没有明确说明的选择理由，不会被写成其私下真实想法；论文图序也不等于真实发现顺序。</p>
-<h3>对上一版的审计结论</h3>
-<p>上一版的强项是膜方向、流程导航、17 幅论文图及每图边界。它尚未充分解释<strong>结构与功能如何连接、不同研究为何看似冲突、实验读出如何识别通量、环境干预怎样产生混杂</strong>。本版据此重建正文。原图保留，并按具体问题重新使用。完整审计另见随附的《现版学习资料深度审计》。</p>
-<p><strong>本版“深入”的判断标准</strong>是能解释一个研究决定的必要性和代价，而不是蛋白名字的数量。每遇到细节，依次问：它改变了对象、作用条件、读出，还是可排除的解释？如果改变这些，就需要保留到具体实验层面。</p>
-</section><section class="chapter" id="objects"><h2>01 · 先定义对象：什么才算一次内吞？</h2>
-<h3>1.1 五种经常被当作同一件事的事件</h3>
+<p>文中用“某某等观察到”介绍论文结果；讨论实验为何有用时，依据的是公开论文的论证。换到自己的课题后可以怎样做，则以条件性的建议展开。作者明确写出的选择理由会单独指出，其余分析按方法和证据之间的关系理解；图的排列顺序未必就是实际发现顺序。</p>
+<p>读到一个细节时，可以问它会不会改变自己的实验选择。例如标签挡住了受体尾部，就可能需要换构建体；探针受酸化影响，就需要参考通道。能把细节接到这些选择上，才算把知识带进了研究。上一版的内容审计保存在随附文件中，适合需要比较版本时查阅。</p>
+</section><section class="chapter" id="objects"><h2>01 · 一次内吞包括哪些可以分别测量的事件？</h2>
+<h3>1.1 从结合到分选</h3>
 <ol>
-<li><strong>结合</strong>：配体接触并占据受体；可以完全发生在表面。</li>
-<li><strong>募集与聚集</strong>：受体、接头或包被信号在局部增加；可以是短暂、失败或长期驻留的结构。</li>
-<li><strong>内陷</strong>：膜离开原平面，形成窝或颈部；囊泡腔仍可能与胞外连通。</li>
-<li><strong>裂变与内化</strong>：拓扑上形成与质膜分离的载体。</li>
-<li><strong>进入后续区室并分选</strong>：载体融合、内容物递送、受体回收、进入 ILV 或最终降解。</li>
+<li>结合：配体接触并占据受体，可以完全发生在细胞表面。</li>
+<li>募集与聚集：受体、接头或包被蛋白在局部积累。有些结构短暂出现后解体，有些继续成熟，也有些长期驻留。</li>
+<li>内陷：膜形成窝和颈部，此时腔内仍可能与胞外相通。</li>
+<li>裂变与内化：膜的连通关系改变，形成与质膜分离的载体。</li>
+<li>递送与分选：载体融合后，货物进入后续区室，随后回收、进入腔内囊泡（ILV），或走向降解。</li>
 </ol>
-<p>“胞内荧光斑点增加”可能对应其中几层，还受到光学截面、样品形状和探针性质影响。实际研究应先决定要证明哪种事件，再选择读出。<strong>测量对象不是蛋白名，而是有操作定义的状态变化。</strong></p>
-<h3>1.2 路径、货物与区室是三种分类</h3>
-<p>RME 按选择货物的方式命名；CME 按包被机器命名；“早期内体”按区室身份和功能命名。因此“某受体进入 EEA1 阳性结构”不直接回答它通过哪条内化路线进入，也不确定接下来回收还是降解。EGFR 的剂量和表达量依赖性尤其能暴露这种混淆。<a class="citation" href="#ref-E13">[E13]</a><a class="citation" href="#ref-E15">[E15]</a></p>
-<p>非网格蛋白途径不是一个统一的备用管道。caveolae、CLIC/GEEC、快速 endophilin 介导内吞、巨胞饮等，在细胞类型、触发、形态和分子依赖上各不相同。本版将它们作为检验“不能由 CME 解释的摄取”的候选，不展开为所有路线的百科，也不以单个标记或一种药物作通路裁决。</p>
-<h3>1.3 从连续流程转成可研究的状态网络</h3>
+<p>荧光斑点增加可以出现在这条链的不同位置。光学截面、细胞形状和探针性质又会影响它的可见程度。因此，设计实验时要把“内吞改变了”写得更具体：是初始结合少了，膜窝成熟变慢了，还是已经内化的货物停在某个区室？对应的测量随之确定。</p>
+<h3>1.2 路线、货物与区室各自回答什么</h3>
+<p>RME 按选择货物的方式命名，CME 按包被机器命名，“早期内体”则描述区室的身份和功能。观察到受体进入 EEA1 阳性结构，说明它到达了一个相应的区室；要追溯入口路线或判断后续命运，还需要前后的运输信息。EGFR 对剂量和表达量的依赖，提供了一个具体例子。<a class="citation" href="#ref-E13">[E13]</a><a class="citation" href="#ref-E15">[E15]</a></p>
+<p>非网格蛋白摄取包括 caveolae、CLIC/GEEC、快速 endophilin 介导内吞和巨胞饮等过程。它们的细胞条件、触发方式、形态及分子依赖各不相同。遇到 CME 难以解释的摄取时，可以据此选择候选路线，再用货物读出和相应干预检验。单一标记或药物适合提供线索，路线判断还要结合它们在该体系中的作用。</p>
+<h3>1.3 用起始池和流向理解流程图</h3>
 <div aria-label="受体运输的状态与可逆分流" class="route-map" role="img"><div><b>表面结合与装配</b>胞外配体、跨膜受体与胞质接头<small>测：表面池、占据、初始事件</small></div><div><b>内陷、裂变与递送</b>包被、膜形变、载体脱包被/融合<small>测：可及性、形态和事件</small></div><div><b>分选与回收 ↺</b>区室身份、膜域、回收载体<small>测：同一已内化群体的出口</small></div><div><b>ILV、降解与反馈</b>拓扑封装、降解和生理状态<small>测：完整受体、货物与信号</small></div></div>
 <figure class="paper-figure model" data-article="https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2024.1378576/full" id="paper-cme-map">
 <div class="figure-heading"><span class="figure-number">图 P05</span><div><h4>CME 的分子机器与阶段全景</h4><span class="evidence-type model">综述机制模型</span></div></div>
 <button aria-label="放大：CME 的分子机器与阶段全景" class="zoom-trigger" type="button"><img alt="Sierra Jaye, Ursula S. Sandau, Julie A. Saugstad，2024，Figure 1：CME 的分子机器与阶段全景" decoding="async" height="1347" loading="lazy" src="figures/P05-cme-map.jpg" width="1831"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">沿编号 1–5 依次定位位点启动、货物选择、包被装配、裂变和脱包被；对照下方图例辨认 AP2、网格蛋白与 Dynamin。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>分选、弯曲与裂变由胞质侧的多蛋白网络协作完成。</p><p class="limit"><b>读图边界</b>阶段编号是阅读框架；真实位点中过程会重叠，脱包被囊泡也不等于已经成熟的早期内体。</p></div>
+<figcaption class="paper-caption">沿编号 1 至 5 定位启动、货物选择、包被装配、裂变和脱包被，再对照下方图例辨认 AP2、网格蛋白与 Dynamin。</figcaption>
+<div class="figure-reading"><p>分选、弯曲和裂变由胞质侧多蛋白网络协作完成。可沿着货物与膜两条线，分别追踪每一步发生的变化。</p><p class="limit">编号便于阅读，实际位点中的过程会相互重叠。脱包被以后，载体还要经历递送与融合，才能与后续内体衔接。</p></div>
 <div class="paper-source">Sierra Jaye, Ursula S. Sandau, Julie A. Saugstad · Frontiers in Aging Neuroscience (2024) · 原文 Figure 1<br/><span class="source-title">Clathrin mediated endocytosis in Alzheimer’s disease: cell type specific involvement in amyloid beta pathology</span><br/><a href="https://doi.org/10.3389/fnagi.2024.1378576" rel="noopener" target="_blank">DOI: 10.3389/fnagi.2024.1378576</a> · <a href="https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2024.1378576/full" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>把“质膜→囊泡→内体→溶酶体”的箭头改写成问题：每条箭头的起始池是什么？事件是否可逆？是否有旁路？观察的是分子数、比例、占据量，还是单位时间穿过边界的通量？这种改写决定哪些数据能够回答问题。</p>
-<p>例如，若表面受体减少，可能是内化加快，也可能是回收变慢、合成/递送减少，或表位不可及。只测表面终点不能区分这些机制。同理，内体中受体积累也可能来自入口增强、出口受阻或降解失败。</p>
-</section><section class="chapter" id="membranes"><h2>02 · 膜与局部力学：为什么一张膜会弯，也会不弯？</h2>
-<h3>2.1 拓扑先于分子故事</h3>
-<p>质膜胞质侧始终面对胞质；非胞质侧在内化后面对囊泡腔。通常囊泡运输保持这种朝向。融合连通的是非胞质水相，裂变改变膜的连通关系；两者都不是可溶性货物直接穿过脂质疏水核心。</p>
+<p>看流程图时，值得在每条箭头旁补上几个问题：从哪个池出发？能否返回？有没有分支？手里的数据测的是某一时点的分子量，还是一段时间内通过这里的通量？例如，表面受体减少，可以来自内化加快、回收变慢、合成或表面递送减少，也可能只是表位变得难以接近。内体里受体积累，则既可能是入口增加，也可能是出口或降解受阻。</p>
+<p>这也是时间系列有用的原因。它把一个终点重新放回过程，帮助判断变化最早出现在哪里。</p>
+</section><section class="chapter" id="membranes"><h2>02 · 膜怎样弯曲，细胞环境又怎样改变它？</h2>
+<h3>2.1 先画清膜的朝向</h3>
+<p>质膜的胞质侧面对胞质，非胞质侧在内化后面对囊泡腔。通常囊泡运输保持这种朝向。融合让原先分隔的非胞质水相连通，裂变则把连续膜分开；货物随区室运输，可溶性分子无需穿过脂质的疏水核心。</p>
 <figure class="figure" id="topology-aid">
 <svg aria-label="质膜横截面和膜拓扑示意图" role="img" viewbox="0 0 940 340">
 <defs><lineargradient id="cyt" x2="0" y2="1"><stop stop-color="#e9f4ff"></stop><stop offset="1" stop-color="#f7fbff"></stop></lineargradient><lineargradient id="ext" x2="0" y2="1"><stop stop-color="#edf9f5"></stop><stop offset="1" stop-color="#fbfffd"></stop></lineargradient></defs>
@@ -113,550 +111,549 @@
 </svg>
 <figcaption class="figcap"><strong>辅助图 T1.</strong> 质膜横截面概念图。实际膜由多种脂质、胆固醇、跨膜/外周蛋白和糖基化组分构成；两侧单层具有不对称组成。</figcaption>
 </figure>
-<p>内体限制膜向腔内出芽形成 ILV 时，受体胞质尾部最终被封入 ILV 内侧。它在拓扑上的可及性改变，解释了为什么“仍在膜上”与“仍能接触胞质信号因子”不是同一件事。这个约束比单纯记忆 ESCRT 的名字更重要。</p>
+<p>内体限制膜向腔内出芽形成 ILV 时，受体的胞质尾部最终封在 ILV 内侧，胞质信号因子因而难以继续接近它。受体还存在于膜上，但可接触的伙伴已经变了。理解这一点，才能把 ESCRT 分选、信号终止和最终水解接起来。</p>
 <details class="deep">
-<summary>深入：融合与裂变为什么不能当成简单录像倒放？</summary>
-<p>脂质膜最终的连通变化在拓扑上有关，但实际可达路径受到不同蛋白装配、能量输入、颈部几何、脂质组成与张力条件限制。融合可以经历脂质混合而未形成内容物通道；包被膜已经形成深窝，也不意味着颈部已完成裂变。体外系统中的一个中间态不能自动成为所有细胞内事件的固定阶段。</p>
+<summary>融合与裂变：拓扑关系相反，实际路径怎样选择？</summary>
+<p>膜最终连通关系的变化，与达到它的分子路径需要分别考虑。蛋白怎样装配、能量从哪里输入、膜颈是什么几何形状，以及脂质和张力条件，都会影响可达的中间态。融合中可以先出现脂质混合，随后才形成内容物通道；内吞中也可以先形成深窝，膜颈仍然连通。下面的模型有助于辨认这些状态。将其中某一步用于解释细胞实验时，还要找到对应的观测证据。</p>
 <figure class="paper-figure model" data-article="https://www.frontiersin.org/journals/molecular-neuroscience/articles/10.3389/fnmol.2017.00168/full" id="paper-fusion-model">
 <div class="figure-heading"><span class="figure-number">图 P01</span><div><h4>膜融合的近端单层、半融合与融合孔</h4><span class="evidence-type model">综述机制模型</span></div></div>
 <button aria-label="放大：膜融合的近端单层、半融合与融合孔" class="zoom-trigger" type="button"><img alt="Zhiwei Yang et al.，2017，Figure 1：膜融合的近端单层、半融合与融合孔" decoding="async" height="648" loading="lazy" src="figures/P01-fusion-model.jpg" width="1300"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">按 A→F 看接触、去蛋白脂质区、融合茎、半融合盘、初始融合孔和融合后形态。C、D 的连接关系可用于辨别近端与远端单层。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>脂质混合与腔内容物连通是不同层次的事件。</p><p class="limit"><b>读图边界</b>这是经典路径的模型图；不能据图断言所有细胞融合均经历可检测的半融合盘。</p></div>
+<figcaption class="paper-caption">沿 A 至 F 看接触、去蛋白脂质区、融合茎、半融合盘、初始融合孔及融合后形态。C、D 适合用来辨认近端与远端单层。</figcaption>
+<div class="figure-reading"><p>脂质混合以后，腔内容物仍可能尚未连通。看清每个状态的膜朝向，有助于选择对应的融合读出。</p><p class="limit">这是一幅经典路径的机制模型。具体细胞中是否出现可检测的半融合盘，需要相应的结构或动态证据。</p></div>
 <div class="paper-source">Zhiwei Yang et al. · Frontiers in Molecular Neuroscience (2017) · 原文 Figure 1<br/><span class="source-title">Membrane Fusion Involved in Neurotransmission: Glimpse from Electron Microscope and Molecular Simulation</span><br/><a href="https://doi.org/10.3389/fnmol.2017.00168" rel="noopener" target="_blank">DOI: 10.3389/fnmol.2017.00168</a> · <a href="https://www.frontiersin.org/journals/molecular-neuroscience/articles/10.3389/fnmol.2017.00168/full" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
 </details>
-<h3>2.2 用最小力学模型辨认变量</h3>
-<p>教学用的膜自由能写法可以是：</p>
+<h3>2.2 用能量项理解实验变量</h3>
+<p>一个便于讨论的膜自由能表达式是：</p>
 <div class="equation">F = ∫ [κ/2 · (2H − C₀)² + κ̄K] dA + σΔA + F<sub>黏附/骨架/蛋白</sub></div>
-<p>这里 κ 是弯曲刚度，H/K 描述曲率，C₀ 是有效自发曲率，σ 表示面积代价相关的张力。最后一项提醒我们，完整细胞还包含皮层附着、蛋白装配、拥挤和外侧环境。<strong>这是建模语言，不是把活细胞代入几个常数就能直接算出内吞率的定律。</strong> 细胞膜的面积储备、边界和骨架连接均可能随时间变化。</p>
-<p>它带来的实际判断是：看见 actin 招募增加，不能只解释为细胞“想多内吞”；也可能是负载升高，需要更多力维持原有通量。看见包被更多，也不能直接解释为包被产生了更多有效内吞；某一步停滞同样会增加结构数量。</p>
-<h3>2.3 “膜张力”要问测的是哪一种</h3>
-<p>拉膜管常测得表观膜张力，其中可混合双层自身张力与膜—皮层连接效应。细胞整体拉伸、渗透膨胀、局部膜管和荧光力学探针并不必然报告同一物理量。膜脂变化还可能改变弯曲刚度或探针响应，使同一种读出变化有不同解释。</p>
-<p>Shi 等在完整细胞与 bleb 的比较中报告不同的张力传播性质，提示不能无条件假设细胞任一位置的张力都瞬时一致。该结果限定于其细胞与测量条件，不排除其他体系中的远程机械响应。<a class="citation" href="#ref-SH18">[SH18]</a> 2026 年 hiPSC 研究又把微吸引、细胞群边界和局部内吞位点放在一起观察；它研究的是特定细胞与机械耦合环境，而不是推翻所有已有张力测量。<a class="citation" href="#ref-MY26">[MY26]</a></p>
-<p><strong>[研究建议]</strong> 若课题目标只是确定摄取是否改变，先做可靠的内化读出。若要声称“通过张力改变内吞”，才需要独立测量或约束力学变量，并检验细胞体积、皮层和接头分布等替代中介。不要为技术完整而先购置一套力学设备。</p>
-</section><section class="chapter" id="assembly"><h2>03 · 从受体到包被：选择不是一把锁配一把钥匙</h2>
-<h3>3.1 先把胞外结合与胞质尾部识别分开</h3>
-<p>配体浓度、亲和力、价态和受体表面密度共同影响占据与聚集。胞质侧分选信号随后被不同接头读取：AP2 可识别特定 YxxΦ、酸性双亮氨酸等信号，ARH/Dab2 等可连接带 NPXY 信号的货物。泛素还可改变部分货物的内化或后续分选，但不能被当作所有 CME 货物的通用必需标签。</p>
+<p>κ 表示弯曲刚度，H/K 描述曲率，C₀ 是有效自发曲率，σ 对应增加膜面积的张力代价。最后一项把皮层附着、蛋白装配、拥挤和胞外环境也纳入讨论。活细胞的面积储备、边界和骨架连接会随时间改变，所以这个表达式主要帮助我们辨认变量；计算具体内吞率还需要相应的动力学和参数。</p>
+<p>由此再看 actin 增多，就会想到另一种解释：细胞可能正承受更高负载，需要更多力才能维持原来的通量。同样，包被结构变多也可能是某一步停滞后的积累。要区分这些情形，需要同时知道结构的形成、驻留和成功内化情况。</p>
+<h3>2.3 一项“张力测量”到底测到了什么</h3>
+<p>拉膜管常给出表观膜张力，其中混合了双层自身张力与膜和皮层连接的贡献。整体拉伸、渗透膨胀、局部膜管和荧光力学探针，受这些因素影响的方式各有不同；膜脂变化还可能改变弯曲刚度或探针响应。读数相似，背后的材料变化仍可能不同。</p>
+<p>Shi 等比较完整细胞与 bleb，报告了不同的张力传播性质。这个结果使局部测量与远处膜区域的关系成为需要检验的问题。<a class="citation" href="#ref-SH18">[SH18]</a> 2026 年的 hiPSC 研究把微吸引、细胞群边界和局部内吞位点放在同一实验中，进一步讨论特定细胞环境中的机械耦合。<a class="citation" href="#ref-MY26">[MY26]</a> 比较这些研究时，应保留各自的细胞和测量条件，也给其他体系中的远程响应留出解释空间。</p>
+<p>如果课题目前只问摄取是否改变，可靠的内化测量就能先推进工作。等到问题明确为“这一变化由张力介导”，再加入独立力学测量，并检查体积、皮层和接头分布等可能的中介。设备选择跟着问题走，会更容易解释最终结果。</p>
+</section><section class="chapter" id="assembly"><h2>03 · 受体选择怎样接到包被装配上？</h2>
+<h3>3.1 胞外占据与胞质尾部识别</h3>
+<p>配体浓度、亲和力、价态和受体表面密度共同影响占据与聚集。胞质侧的分选信号随后由接头识别：AP2 可读取特定 YxxΦ 和酸性双亮氨酸等信号，ARH/Dab2 等可以连接带 NPXY 信号的货物。泛素参与部分货物的内化或后续分选，其作用依货物和条件而定。</p>
 <figure class="paper-figure model" data-article="https://www.frontiersin.org/journals/molecular-biosciences/articles/10.3389/fmolb.2017.00072/full" id="paper-cargo-map">
 <div class="figure-heading"><span class="figure-number">图 P06</span><div><h4>跨膜货物如何与胞质侧接头连接</h4><span class="evidence-type model">综述机制模型</span></div></div>
 <button aria-label="放大：跨膜货物如何与胞质侧接头连接" class="zoom-trigger" type="button"><img alt="SM Smith, M Baker, M Halebian, CJ Smith，2017，Figure 1：跨膜货物如何与胞质侧接头连接" decoding="async" height="618" loading="lazy" src="figures/P06-cargo-map.jpg" width="551"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A 为装配过程概览；B 将膜外货物、跨膜受体、AP2/CLASP、PIP₂ 与网格蛋白放在同一空间关系中。重点辨认膜的两侧。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>内吞机器主要读取胞质尾部信号，并借助膜脂与接头形成多价连接。</p><p class="limit"><b>读图边界</b>图示为功能关系；不表示每种货物都直接结合 AP2，也未给出精确结构或相互作用强度。</p></div>
+<figcaption class="paper-caption">A 概览装配过程；B 将膜外货物、跨膜受体、AP2/CLASP、PIP₂ 和网格蛋白放在同一幅图中。可以先辨认膜的两侧，再沿连接关系阅读。</figcaption>
+<div class="figure-reading"><p>胞质尾部信号由接头读取，膜脂与接头之间的多价连接共同组织内吞机器。</p><p class="limit">图中呈现功能关系，具体货物由哪些接头连接、结合多强以及结构如何，需要分别查相应实验。部分货物通过其他接头连接 AP2 网络。</p></div>
 <div class="paper-source">SM Smith, M Baker, M Halebian, CJ Smith · Frontiers in Molecular Biosciences (2017) · 原文 Figure 1<br/><span class="source-title">Weak Molecular Interactions in Clathrin-Mediated Endocytosis</span><br/><a href="https://doi.org/10.3389/fmolb.2017.00072" rel="noopener" target="_blank">DOI: 10.3389/fmolb.2017.00072</a> · <a href="https://www.frontiersin.org/journals/molecular-biosciences/articles/10.3389/fmolb.2017.00072/full" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>“结合量相同”不保证受体空间分布、停留时间或聚集状态相同。若比较配体或抗体，标记位置、标记比例、二价交联和游离染料都可能改变被研究对象。抗体 feeding 的优点是能追踪受体池；代价是抗体本身可能改变受体聚集、信号或回收。</p>
-<h3>3.2 AP2 的募集、激活和功能输出是三步</h3>
-<p>AP2 到膜上并不自动意味着可以有效招募网格蛋白。Kelly 等的 Science 工作把自抑制结构、解除抑制的突变与膜上重构连接起来：生理膜配体及货物有助于形成可用的招募状态，人工把复合物拴到膜上不是完全等价的操作。<a class="citation" href="#ref-K14">[K14]</a> 这是一种“<strong>位置正确但状态不一定正确</strong>”的问题。</p>
-<p>FCHO、Eps15、AP2 与 PIP₂ 形成的局部网络，需要兼顾分子接触、膜停留和装配稳定性。FCHo2/PIP₂ 重构图可帮助看见环境重新组织，但它没有直接测量每个细胞中 AP2 的激活构象。把两种证据放在一起，既能建立机制，也能避免让某一张图承担过多结论。</p>
+<p>比较两种配体或抗体时，起始结合量相同只是一个起点，还要考虑受体的空间分布、聚集和停留时间。标记位置、标记比例、二价交联及游离染料都可能改变这些性质。抗体 feeding 便于追踪受体池；选择它时，也要确认抗体带来的聚集或激活是否影响了要测的回收过程。</p>
+<h3>3.2 AP2 到膜上以后，还要怎样被激活</h3>
+<p>Kelly 等在 Science 的工作，把 AP2 的自抑制结构、解除抑制突变和膜上重构接在了一起。生理膜配体及货物有助于形成可招募网格蛋白的状态；人工把 AP2 拴在膜上，则把“膜定位”单独拿出来检验。<a class="citation" href="#ref-K14">[K14]</a> 这一设计让人看到，位置正确以后，构象和结合位点的可用性仍决定后续装配。</p>
+<p>FCHO、Eps15、AP2 与 PIP₂ 组成的局部网络，还涉及分子接触、膜驻留和装配稳定性。下面的 FCHo2/PIP₂ 重构图显示局部环境怎样重新组织，AP2 构象则由另一类实验来检验。把证据按各自测量的对象接起来，就能逐渐解释整个启动过程。</p>
 <figure class="paper-figure" data-article="https://elifesciences.org/articles/73156" id="paper-CME-FCHO-1">
 <div class="figure-heading"><span class="figure-number">图 P07</span><div><h4>内吞位点的脂质与货物环境：FCHo2 使受体附近的 PIP₂ 信号重新聚集</h4><span class="evidence-type">原始研究：去顶细胞膜片重构、Airyscan/共聚焦成像与细胞过表达对照</span></div></div>
 <button aria-label="放大：内吞位点的脂质与货物环境：FCHo2 使受体附近的 PIP₂ 信号重新聚集" class="zoom-trigger" type="button"><img alt="Fatima El Alaoui, Ignacio Casuso, David Sanchez-Fuentes et al.，2022，Figure 1：内吞位点的脂质与货物环境：FCHo2 使受体附近的 PIP₂ 信号重新聚集" decoding="async" height="2825" loading="lazy" src="figures/P07-cme-fcho-1.jpg" width="2180"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A：实验设置与膜片上的三通道图像，TfR 为青色、PI(4,5)P₂ 为黄色、FCHo2 为品红。B–D：比较加入 FCHo2 前后，TfR/EGFR 附近的 PIP₂ 信号及其强度分布；PS 是脂质对照，A–C 标尺 2 μm。E–F：HT1080 细胞表达 mCherry、mCherry-FCHo1 或 mCherry-FCHo2 后，内源 PIP₂ 染色与分布统计，E 标尺 4 μm。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>内吞启动的局部膜环境具有组织作用：FCHo2 招募与 PIP₂ 在货物受体附近的重新分布相联系。膜脂质和蛋白并非分别在一张均匀背景膜上工作。</p><p class="limit"><b>读图边界</b>膜片实验经过细胞去顶，E–F 采用过表达。图中没有直接测量 AP2 构象、完整囊泡裂变或受体内化通量，不能把共定位当作所有环节均已完成。</p></div>
+<figcaption class="paper-caption">A：去顶膜片中的三通道图像，TfR 为青色、PI(4,5)P₂ 为黄色、FCHo2 为品红。B 至 D 比较加入 FCHo2 前后受体附近 PIP₂ 信号及分布，PS 为脂质对照，A 至 C 标尺 2 μm。E、F 比较 HT1080 细胞表达 mCherry、mCherry-FCHo1 或 mCherry-FCHo2 后的内源 PIP₂ 染色和统计，E 标尺 4 μm。</figcaption>
+<div class="figure-reading"><p>FCHo2 招募伴随货物受体附近的 PIP₂ 重分布，说明启动位点的膜脂与蛋白会共同组织局部环境。</p><p class="limit">膜片实验经过细胞去顶，E、F 使用过表达。这里测的是局部信号分布；AP2 构象、膜裂变及内化通量，还需要各自的状态或功能读出。</p></div>
 <div class="paper-source">Fatima El Alaoui, Ignacio Casuso, David Sanchez-Fuentes et al. · eLife (2022) · 原文 Figure 1<br/><span class="source-title">Structural organization and dynamics of FCHo2 docking on membranes</span><br/><a href="https://doi.org/10.7554/eLife.73156" rel="noopener" target="_blank">DOI: 10.7554/eLife.73156</a> · <a href="https://elifesciences.org/articles/73156" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<h3>3.3 起始、稳定与成熟要分别统计</h3>
-<p>Cocucci 等为了观察最初少量分子，使用高灵敏时间序列，并用单 EGFP 强度校准连接亮度与分子数。他们还把初始到达与后续失败分开，因此 FCHO 相关表型不能仅用“位点数量少了”概括。<a class="citation" href="#ref-C12">[C12]</a></p>
-<p><strong>[研究建议]</strong> 比较一个候选启动因子时，至少明确“单位膜面积、单位时间的新事件数”“事件持续时间分布”和“成功成熟的比例”各代表什么。一个同时稳定早期结构和延迟离开的蛋白，可能让位点变多、变长，但净内化并不增加。低帧率与阈值还会丢掉短暂事件，使表面上成熟率升高。</p>
-<h3>3.4 什么时候才值得讨论凝聚或多价相互作用？</h3>
-<p>多位点、低亲和力和协同募集可以解释局部装配；它们并不自动证明形成液态凝聚体。若要提出相分离机制，应明确需要额外证明哪些相行为、浓度依赖与材料性质，以及这些性质怎样改变货物摄取。融合、FRAP 恢复或亮点形成，单独都不能替代这些论证。</p>
-</section><section class="chapter" id="bending"><h2>04 · 包被弯曲、actin 与裂变：怎样读懂不同模型？</h2>
-<h3>4.1 比较模型，先统一被测量的几何</h3>
-<p>“边长边弯”和“先较平再弯”可能指膜轮廓、包被表面或荧光强度的不同关系。Avinoam 等的 Science 研究用相关成像与电子断层讨论包被重塑，本轮仅将其作为摘要已核的历史定位。<a class="citation" href="#ref-A15">[A15]</a> Scott 等进一步从活细胞测得不同时间关系，Bucher 等把几何模型、接头比例与力学条件连接起来。<a class="citation" href="#ref-S18">[S18]</a><a class="citation" href="#ref-BU18">[BU18]</a></p>
+<h3>3.3 起始、稳定与成熟的统计</h3>
+<p>Cocucci 等为观察最初少量分子，使用高灵敏时间序列，并用单 EGFP 强度把亮度校准到分子数量。他们将初始到达与后续失败分别分析，使 FCHO 的影响可以落实到具体阶段。<a class="citation" href="#ref-C12">[C12]</a></p>
+<p>研究一个候选启动因子时，可以同时保留单位膜面积、单位时间的新事件数，事件持续时间分布，以及成功成熟比例。假如某蛋白稳定早期结构，又延迟其离开，位点就可能更多、更长，净内化却没有增加。低帧率或过高阈值还会漏掉短暂失败，造成成熟率偏高。这些统计定义最好在拍摄前就想清楚。</p>
+<h3>3.4 多价相互作用与凝聚机制</h3>
+<p>多位点、低亲和力及协同募集可以帮助解释局部装配。若进一步提出液态凝聚机制，就需要研究相行为、浓度依赖和材料性质怎样影响摄取。亮点、融合或 FRAP 恢复提供了可用观察，判定机制还要结合这些观察在其他装配模型下是否同样会出现。</p>
+</section><section class="chapter" id="bending"><h2>04 · 包被弯曲、actin 与裂变的不同证据</h2>
+<h3>4.1 比较弯曲模型时，先看几何定义</h3>
+<p>“边长边弯”和“先较平再弯”的讨论，可能分别指膜轮廓、包被表面或蛋白荧光之间的关系。Avinoam 等用相关成像与电子断层研究包被重塑，这里以其摘要作历史定位。<a class="citation" href="#ref-A15">[A15]</a> Scott 等从活细胞追踪中辨认不同时间关系，Bucher 等进一步讨论几何模型、接头比例和张力条件。<a class="citation" href="#ref-S18">[S18]</a><a class="citation" href="#ref-BU18">[BU18]</a></p>
 <figure class="paper-figure" data-article="https://www.nature.com/articles/s41467-018-02818-8" id="paper-coat-em">
 <div class="figure-heading"><span class="figure-number">图 P04</span><div><h4>电镜中的平坦、穹顶与圆形包被</h4><span class="evidence-type">原始研究 · dSTORM / 铂复型 TEM</span></div></div>
 <button aria-label="放大：电镜中的平坦、穹顶与圆形包被" class="zoom-trigger" type="button"><img alt="Brandon L. Scott et al.，2018，Figure 1：电镜中的平坦、穹顶与圆形包被" decoding="async" height="1364" loading="lazy" src="figures/P04-coat-em.jpg" width="1700"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">c：去顶 SK-MEL-2 细胞的相关 dSTORM/TEM 图像，比例尺 200 nm；a、b 为两种弯曲模型。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>包被具有多样形态。</p><p class="limit"><b>读图边界</b>不同结构的快照不是同一囊泡的连续帧。</p></div>
+<figcaption class="paper-caption">c 将去顶 SK-MEL-2 细胞的 dSTORM 与铂复型 TEM 对应起来，比例尺 200 nm；a、b 画出两种弯曲模型。</figcaption>
+<div class="figure-reading"><p>同一类样品中可见平坦、穹顶及圆形包被，提供了几何模型要解释的形态范围。</p><p class="limit">各结构来自不同位点。确定它们之间的时间关系，还要结合动态追踪。</p></div>
 <div class="paper-source">Brandon L. Scott et al. · Nature Communications (2018) · 原文 Figure 1<br/><span class="source-title">Membrane bending occurs at all stages of clathrin-coat assembly and defines endocytic dynamics</span><br/><a href="https://doi.org/10.1038/s41467-018-02818-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-02818-8</a> · <a href="https://www.nature.com/articles/s41467-018-02818-8" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
 <figure class="paper-figure" data-article="https://www.nature.com/articles/s41467-018-02818-8" id="paper-coat-dynamics">
 <div class="figure-heading"><span class="figure-number">图 P08</span><div><h4>装配与弯曲存在不同的时间关系</h4><span class="evidence-type">原始研究 · 活细胞偏振 TIRF</span></div></div>
 <button aria-label="放大：装配与弯曲存在不同的时间关系" class="zoom-trigger" type="button"><img alt="Brandon L. Scott et al.，2018，Figure 3：装配与弯曲存在不同的时间关系" decoding="async" height="1407" loading="lazy" src="figures/P08-coat-dynamics.jpg" width="1535"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">a–c：比较网格蛋白信号与弯曲读出 P/S 的起点、平台和重叠；d 为寿命分布。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>装配和弯曲可同步，也可先后发生。</p><p class="limit"><b>读图边界</b>这些类别来自特定细胞与读出，不能当作全部细胞的固定比例。</p></div>
+<figcaption class="paper-caption">a 至 c 比较网格蛋白信号和弯曲读出 P/S 的起点、平台及重叠，d 给出寿命分布。</figcaption>
+<div class="figure-reading"><p>装配与弯曲既可同步，也可先后发生。比较两条曲线，比只看其中一条更容易辨认它们的时间关系。</p><p class="limit">分类与比例来自研究所用细胞和读出。换细胞、标记或筛选规则时，应重新确定这些分布。</p></div>
 <div class="paper-source">Brandon L. Scott et al. · Nature Communications (2018) · 原文 Figure 3<br/><span class="source-title">Membrane bending occurs at all stages of clathrin-coat assembly and defines endocytic dynamics</span><br/><a href="https://doi.org/10.1038/s41467-018-02818-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-02818-8</a> · <a href="https://www.nature.com/articles/s41467-018-02818-8" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>因此，不宜用一张平坦结构的电镜图宣告所有位点都先平后弯，也不能从强度增长直接推出面积增长。荧光强度还受标记比例、照明、轴向位置和交换影响。不同研究之间需要比较同一几何定义、同类细胞与相同筛选条件。</p>
-<p>Sochacki 等在多细胞比较及去顶体系中研究包被自发弯曲。去顶后不添加新的能量源或胞质因子仍能出现弯曲，说明该体系保有促弯能力；它并不证明完整细胞从装配到裂变不需能量，也不排除先前装配已储存能量。<a class="citation" href="#ref-D21">[D21]</a></p>
-<h3>4.2 actin 的“必要性”为什么会变化？</h3>
-<p>Boulant 等利用极化细胞不同膜面、低渗与机械拉伸比较 actin 依赖性。关键推进不是多测一种抑制剂，而是让“膜面差异”与“机械阻力差异”能够相互检验。<a class="citation" href="#ref-B11">[B11]</a> V1 的 STORM 图则回答 actin 在包被周围怎样组织；固定细胞的网络形态不能单独给出力值。</p>
+<p>平坦包被的电镜图能显示一种真实形态；要知道它后来怎样弯曲，需要时间信息。蛋白荧光增长还受到标记比例、照明、轴向位置和交换影响，将其换算为面积前需要校准。不同论文的模型比较，因而要从同一几何定义、同类细胞和相近筛选条件开始。</p>
+<p>Sochacki 等在多细胞比较及去顶体系中观察包被自发弯曲。去顶后，即使没有新增能量源或胞质因子，体系仍保有促弯能力；其中也可能保留了此前装配储存的能量。<a class="citation" href="#ref-D21">[D21]</a> 这个实验隔离了结构自身的能力，完整细胞从装配到裂变的能量需求则仍需放回其负载和边界条件中研究。</p>
+<h3>4.2 actin 的作用为何随条件改变</h3>
+<p>Boulant 等比较极化细胞的不同膜面，又用低渗和机械拉伸改变约束，使原有的膜面差异能够接受力学解释的检验。<a class="citation" href="#ref-B11">[B11]</a> 下面的 STORM 图补充了另一层信息：actin 在包被周围怎样排列。固定图像给出空间组织，实际力值还需要对应的测量或干预。</p>
 <figure class="paper-figure" data-article="https://pmc.ncbi.nlm.nih.gov/articles/PMC9265150/" id="paper-actin-storm">
 <div class="figure-heading"><span class="figure-number">图 P09</span><div><h4>内吞位点的网格蛋白与 actin 三维组织</h4><span class="evidence-type">原始研究 · 双色三维 STORM</span></div></div>
 <button aria-label="放大：内吞位点的网格蛋白与 actin 三维组织" class="zoom-trigger" type="button"><img alt="Charlotte Kaplan, Sam J. Kenny et al.，2022，Figure 1：内吞位点的网格蛋白与 actin 三维组织" decoding="async" height="941" loading="lazy" src="figures/P09-actin-storm.jpg" width="673"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A–C：网格蛋白（红）与 actin（青）的空间分布；E：浅窝、U 形及 Ω 形包被的 x–z 投影；F、H 将包被几何与 actin 覆盖或高度对应。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>相似包被形态可对应不同程度的 actin 包裹；几何与骨架负载不能简单等同。</p><p class="limit"><b>读图边界</b>固定细胞的空间排列不直接给出时间次序、力值或每个窝的张力；张力适应还需同文后续干预实验支持。</p></div>
+<figcaption class="paper-caption">A 至 C 显示网格蛋白（红）与 actin（青）的空间分布；E 为浅窝、U 形和 Ω 形包被的 x-z 投影；F、H 将包被几何与 actin 覆盖程度或高度对应。</figcaption>
+<div class="figure-reading"><p>相近包被形态周围可有不同程度的 actin 包裹，几何与骨架组织需要分别观察。</p><p class="limit">固定细胞图提供空间排列，时间次序、力值和每个窝的张力需另行测量。讨论张力适应时，还要结合该文后续的干预实验。</p></div>
 <div class="paper-source">Charlotte Kaplan, Sam J. Kenny et al. · Molecular Biology of the Cell (2022) · 原文 Figure 1<br/><span class="source-title">Load adaptation by endocytic actin networks</span><br/><a href="https://doi.org/10.1091/mbc.E21-11-0589" rel="noopener" target="_blank">DOI: 10.1091/mbc.E21-11-0589</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9265150/" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank">CC BY-NC-SA 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p><strong>[论证重建]</strong> 如果 actin 的贡献是补偿负载，那么在较易变形条件下干预作用较小、较高负载时作用更大，是值得检验的预测。但低渗不仅改变张力，也改变体积、离子和细胞骨架状态；遗传或药理干预 actin 也会反过来改变皮层。应把这组双向作用纳入解释，不能把“处理名称”直接当作纯自变量。</p>
-<h3>4.3 2026 年的新读出，增加了什么，也依赖什么？</h3>
-<p>一项 Nature Communications 研究用转铁蛋白修饰金纳米棒跟踪旋转行为，提出晚期 CME 中不同机械运动与 actin 招募关联。它的新增价值是超出蛋白亮点强度，提供运动代理量；但读出仍通过纳米棒—受体—膜窝的耦合实现。<a class="citation" href="#ref-ME26">[ME26]</a> 研究自己的边界与本版分析都要求保留：探针尺寸、负载、耦合稳定性和通路验证会影响从运动到膜形变的推断。</p>
-<p><strong>[研究建议]</strong> 如果常规成像已经能区分“结构形成”和“货物真实内化”，先把它们做好。只有当争议转为“晚期何种机械运动不同”，才值得寻求这类单粒子/力学合作。</p>
-<h3>4.4 裂变：位置、催化和拓扑完成分别需要证据</h3>
-<p>Dynamin 的装配、GTP 循环、膜管收缩和真正分离不是同一种观察。重构体系可隔离机制条件，活细胞则保留完整环境；两者回答的问题不同。以下高速 AFM 图显示特定重构膜管中的形态变化，不能直接替代活细胞受体内化率。</p>
+<p>从负载补偿的解释出发，可以预期较易变形时 actin 干预影响较小，负载较高时影响更明显。检验这个预测时，低渗带来的体积、离子和骨架变化也要一起考虑；actin 干预本身还会改变皮层。研究难点在这组双向作用中：怎样让不同操作提供独立信息，并确定各自实际改变了什么。</p>
+<h3>4.3 用运动读出观察晚期 CME</h3>
+<p>2026 年一项 Nature Communications 研究用转铁蛋白修饰的金纳米棒追踪旋转行为，将晚期 CME 的机械运动与 actin 招募联系起来。<a class="citation" href="#ref-ME26">[ME26]</a> 它提供了蛋白亮度以外的运动信息。解释时要沿着纳米棒、受体和膜窝之间的耦合往回看：尺寸、负载、连接稳定性和通路归属，都影响运动怎样对应膜形变。</p>
+<p>如果争议已经集中在晚期运动方式，这类单粒子或力学合作就很有针对性。若目前还在区分结构形成与货物真正内化，常规成像和内化测量通常更适合先解决问题。</p>
+<h3>4.4 从 Dynamin 装配到膜真正分离</h3>
+<p>Dynamin 装配、GTP 循环、膜管收缩和膜分离可以分别观察。重构体系便于控制组分与几何，活细胞保留了皮层和运输网络。下面的高速 AFM 序列展示重构膜管怎样变化，受体内化效率则需要细胞中的功能测量。</p>
 <figure class="paper-figure" data-article="https://elifesciences.org/articles/30246" id="paper-CME-DYNAMIN-4">
-<div class="figure-heading"><span class="figure-number">图 P10</span><div><h4>Dynamin–amphiphysin 的真实膜裂变：高速 AFM 时间序列</h4><span class="evidence-type">原始研究：体外脂质膜管、dynamin–amphiphysin 重构与高速 AFM</span></div></div>
+<div class="figure-heading"><span class="figure-number">图 P10</span><div><h4>Dynamin-amphiphysin 膜裂变的高速 AFM 序列</h4><span class="evidence-type">原始研究：体外脂质膜管、dynamin–amphiphysin 重构与高速 AFM</span></div></div>
 <button aria-label="放大：Dynamin–amphiphysin 的真实膜裂变：高速 AFM 时间序列" class="zoom-trigger" type="button"><img alt="Tetsuya Takeda, Toshiya Kozai, Huiran Yang et al.，2018，Figure 4：Dynamin–amphiphysin 的真实膜裂变：高速 AFM 时间序列" decoding="async" height="1831" loading="lazy" src="figures/P10-cme-dynamin-4.jpg" width="2294"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A：同一膜管的高速 AFM 时间序列与沿红线测量的高度剖面；FP.1/FP.2 标出蛋白簇两侧的裂变位置，红箭头标出蛋白簇。B：相应位置收缩前后的高度变化。C：另一序列显示蛋白簇侧方出现收缩，标尺 40 nm。暖色为 AFM 伪彩高度信号，并非荧光共定位。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>在这个重构体系中，裂变发生于 dynamin–amphiphysin 蛋白簇边缘的裸露膜区域；它把“颈部蛋白装配”和“最终断开的位置”分开，修正了仅靠一圈剪刀切断膜的卡通印象。</p><p class="limit"><b>读图边界</b>观察对象是固体支持上的体外膜管，不是活细胞 CME 囊泡。AFM 高度轮廓不能直接分辨脂质单层拓扑，也不单独决定 GTP 水解与每一步裂变的精确耦联。原图 B 的横轴标为 ms，而对应时间序列及图注使用 s；本资料不据该轴作速率计算。</p></div>
+<figcaption class="paper-caption">A：同一膜管的高速 AFM 序列及沿红线的高度剖面，FP.1/FP.2 标出蛋白簇两侧的裂变位置，红箭头指向蛋白簇。B 比较相应位置收缩前后的高度。C 的另一序列显示蛋白簇侧方收缩，标尺 40 nm。暖色表示 AFM 伪彩高度。</figcaption>
+<div class="figure-reading"><p>这个重构体系中，裂变发生在 dynamin-amphiphysin 簇边缘的裸露膜区域。蛋白簇的位置与最终断开的位置由此可以分别考察。</p><p class="limit">样品是固体支持上的体外膜管。高度轮廓尚不能分辨脂质单层拓扑，GTP 水解与各步裂变的精确耦联也需其他证据。原图 B 横轴标为 ms，对应序列和图注则用 s；这个单位不一致使该轴不适合直接计算速率。</p></div>
 <div class="paper-source">Tetsuya Takeda, Toshiya Kozai, Huiran Yang et al. · eLife (2018) · 原文 Figure 4<br/><span class="source-title">Dynamic clustering of dynamin-amphiphysin helices regulates membrane constriction and fission coupled with GTP hydrolysis</span><br/><a href="https://doi.org/10.7554/eLife.30246" rel="noopener" target="_blank">DOI: 10.7554/eLife.30246</a> · <a href="https://elifesciences.org/articles/30246" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>ESCRT-III/Vps4 研究提供另一个有用比较：通过正确方向的膜管、可定时释放的 ATP 与催化条件，检验逆向拓扑的切割能力。<a class="citation" href="#ref-ES18">[ES18]</a> 这不意味着质膜 CME 裂变与 ILV 形成使用相同几何或同一执行机器。比较实验时，首先画清膜哪一侧能接触机器。</p>
-<h3>4.5 脱包被不是把囊泡拆散</h3>
-<p>Auxilin 类 J-domain 蛋白、Hsc70 循环及磷脂酰肌醇去磷酸化共同改变外层包被与接头的驻留。移除的是胞质侧蛋白壳；载体膜和腔内货物可以保留。若某处理导致包被囊泡增多，还要区分形成增多、脱包被变慢或后续融合障碍。</p>
+<p>ESCRT-III/Vps4 的研究提供了另一种裂变几何。研究者通过定向膜管、可定时释放的 ATP 与催化条件，检验逆向拓扑切割。<a class="citation" href="#ref-ES18">[ES18]</a> 它与质膜 CME 所处的膜方向和执行机器不同；对照两类实验时，先画清机器能接触膜的哪一侧，会比只比较“都能切膜”更有帮助。</p>
+<h3>4.5 脱包被以后，载体继续运输</h3>
+<p>Auxilin 类 J-domain 蛋白、Hsc70 循环和磷脂酰肌醇去磷酸化，共同改变外层包被与接头的驻留。胞质侧蛋白壳释放后，膜载体及腔内货物仍可保留。因此，包被囊泡积累时，要在形成增加、脱包被减慢和后续融合受阻之间寻找原因。</p>
 <figure class="paper-figure" data-article="https://elifesciences.org/articles/32569" id="paper-CME-UNCOAT-4S1">
 <div class="figure-heading"><span class="figure-number">图 P11</span><div><h4>壳消失、膜囊泡保留：酶促脱包被的负染电镜证据</h4><span class="evidence-type">原始研究：小鼠脑来源包被囊泡、体外脱包被与负染电子显微镜</span></div></div>
 <button aria-label="放大：壳消失、膜囊泡保留：酶促脱包被的负染电镜证据" class="zoom-trigger" type="button"><img alt="Zohreh Farsi, Sindhuja Gowrisankaran, Matija Krunic et al.，2018，Figure 4—figure supplement 1：壳消失、膜囊泡保留：酶促脱包被的负染电镜证据" decoding="async" height="843" loading="lazy" src="figures/P11-cme-uncoat-4s1.jpg" width="750"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A–B：包被囊泡在中性 500 mM Tris 缓冲液处理前后。C–D：另一组包被囊泡在 auxilin、Hsc70 与 Hsp110 酶促处理前后；处理后可看到缺少外层笼状包被的膜囊泡。标尺 100 nm，A/B 与 C/D 均是群体样品前后比较，不是同一个囊泡的连续追踪。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>脱包被移除的是膜外胞质侧的蛋白壳，膜囊泡本身保留。酶促处理与缓冲液处理都能产生形态变化；这比流程箭头更具体地展示了“去壳而不拆膜”的含义。</p><p class="limit"><b>读图边界</b>酶促条件同时含 auxilin、Hsc70 与 Hsp110，本图不能单独归因于某一个组分。负染静态图不提供 ATP 水解动力学、所有接头蛋白释放顺序或活细胞内精确时程。</p></div>
+<figcaption class="paper-caption">A、B 比较小鼠脑来源包被囊泡经中性 500 mM Tris 处理前后；C、D 比较 auxilin、Hsc70 与 Hsp110 酶促处理前后，处理后可见失去外层笼状包被的膜囊泡。标尺 100 nm。两组都是群体样品的前后比较。</figcaption>
+<div class="figure-reading"><p>蛋白壳释放以后，膜囊泡仍可保留。酶促和缓冲液条件各自引起形态变化，适合结合操作来理解脱包被。</p><p class="limit">酶促条件同时包含三个组分，单个组分的贡献需要拆分检验。静态负染图提供形态；ATP 动力学、接头释放顺序和细胞内时程，需要相应动态测量。</p></div>
 <div class="paper-source">Zohreh Farsi, Sindhuja Gowrisankaran, Matija Krunic et al. · eLife (2018) · 原文 Figure 4—figure supplement 1<br/><span class="source-title">Clathrin coat controls synaptic vesicle acidification by blocking vacuolar ATPase activity</span><br/><a href="https://doi.org/10.7554/eLife.32569" rel="noopener" target="_blank">DOI: 10.7554/eLife.32569</a> · <a href="https://elifesciences.org/articles/32569" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>ATP/GTP 在这里不只是笼统“供能”：它们参与不同蛋白的状态循环、装配重排或复位。整细胞 ATP 下降会同时影响多环节，不能据此确定某个运输步骤就是唯一受影响节点。</p>
-</section><section class="chapter" id="endosomes"><h2>05 · 内体：身份、化学环境和货物命运怎样共同变化？</h2>
-<h3>5.1 内体是动态网络中的区室，不是固定标签的袋子</h3>
-<p>Rab5、PI3P 和 EEA1 有助于组织早期内体的系留、融合与分选环境；Rab7 参与较晚阶段的功能网络。但细胞器会融合、裂分并交换膜和蛋白，因此“同一个内体”需要操作定义。追踪对象可以是一个连续膜轮廓、一团货物，或某一膜域，它们在融合后不一定保持相同身份。</p>
-<p>Rink 等提出 Rab 转换作为成熟机制，本轮对该经典工作的使用限于摘要与历史概念定位。<a class="citation" href="#ref-R05">[R05]</a> 下面的现代活细胞图可以帮助学习单内体标记更替，但其 nigericin 扩大内体的条件必须随解释一起保留。</p>
+<p>ATP/GTP 在这些过程里分别参与状态循环、装配重排或复位。整细胞能量下降会同时触及多个环节，适合提示能量依赖；要定位某个节点，还需要更选择性的操作。</p>
+</section><section class="chapter" id="endosomes"><h2>05 · 内体的身份、环境与货物命运</h2>
+<h3>5.1 怎样追踪一个不断融合和裂分的区室</h3>
+<p>Rab5、PI3P 和 EEA1 参与组织早期内体的系留、融合与分选，Rab7 参与较晚阶段的功能网络。区室在此期间还会融合、裂分，交换膜和蛋白。追踪时所谓“同一个内体”，可能是一段连续膜轮廓、一团货物或某个膜域；一次融合后，这些对象的身份就可能分开。</p>
+<p>Rink 等提出 Rab 转换作为成熟机制，这里用其摘要介绍这一历史概念。<a class="citation" href="#ref-R05">[R05]</a> 下面的活细胞图则展示单内体上的标记更替。该实验用 nigericin 扩大内体，便于观测，时间应结合处理与洗脱条件理解。</p>
 <figure class="paper-figure" data-article="https://elifesciences.org/articles/70982" id="paper-ENDO-PODINOVSKAIA-1">
 <div class="figure-heading"><span class="figure-number">图 P12</span><div><h4>Rab5→Rab7 转换：在同一个扩大内体上追踪膜身份变化</h4><span class="evidence-type">原始研究：HeLa 活细胞双通道时间序列</span></div></div>
 <button aria-label="放大：Rab5→Rab7 转换：在同一个扩大内体上追踪膜身份变化" class="zoom-trigger" type="button"><img alt="Maria Podinovskaia, Cristina Prescianotto-Baschong, Dominik P. Buser, Anne Spang，2021，Figure 1：Rab5→Rab7 转换：在同一个扩大内体上追踪膜身份变化" decoding="async" height="2190" loading="lazy" src="figures/P12-endo-podinovskaia-1.jpg" width="2300"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A：mApple-Rab5 为红色、GFP-Rab7 为绿色，显示处理后扩大内体的形态恢复。C：逐帧追踪同一个内体，Rab5 先募集后消失，同时出现 Rab7；D 展示两个 Rab5 阳性内体融合后的标记变化。E 同时观察 Rab7 与 LysoTracker 信号。C–E 比例尺 2 μm，时间相对于 nigericin 洗脱计算。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>内体成熟中的 Rab 转换是膜表面蛋白身份的更替；它不是 Rab5 分子本身化学转变成 Rab7。时间序列比不同细胞中两张静态共定位图更能支持转换过程。</p><p class="limit"><b>读图边界</b>细胞先接受 10 μM nigericin 20 min 再洗脱，内体被人为扩大，不能把图中的分钟数视为未处理细胞的普遍时间表。LysoTracker 富集是酸性区室读出，并非经过校准的绝对 pH；本图也不能单独给出 Rab 转换的全部因果机制。</p></div>
+<figcaption class="paper-caption">A 以 mApple-Rab5（红）和 GFP-Rab7（绿）观察处理后扩大内体的形态恢复。C 逐帧追踪一个内体上 Rab5 募集、消失及 Rab7 出现；D 看两个 Rab5 阳性内体融合后的变化；E 同时记录 Rab7 和 LysoTracker。C 至 E 标尺 2 μm，时间相对 nigericin 洗脱计算。</figcaption>
+<div class="figure-reading"><p>Rab 转换涉及膜上蛋白身份的更替，Rab5 与 Rab7 分别募集和离开。连续追踪使这一过程比静态共定位更容易辨认。</p><p class="limit">细胞经 10 μM nigericin 处理 20 min 后洗脱，内体人为扩大，图中时程应连同此条件使用。LysoTracker 报告酸性区室富集，绝对 pH 需要校准；Rab 转换的因果机制还需结合干预分析。</p></div>
 <div class="paper-source">Maria Podinovskaia, Cristina Prescianotto-Baschong, Dominik P. Buser, Anne Spang · eLife (2021) · 原文 Figure 1<br/><span class="source-title">A novel live-cell imaging assay reveals regulation of endosome maturation</span><br/><a href="https://doi.org/10.7554/eLife.70982" rel="noopener" target="_blank">DOI: 10.7554/eLife.70982</a> · <a href="https://elifesciences.org/articles/70982" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p><strong>[研究建议]</strong> 分析 Rab5→Rab7 时，先检查分裂、融合、轨迹断裂与交换事件；再问信号变化是否可由 z 位移、曝光差异或分割阈值解释。一个扩大区室的标记持续时间，不应直接等同未处理细胞的普遍成熟时长。</p>
+<p>分析 Rab5→Rab7 轨迹时，可以先标出融合、裂分和轨迹断裂，再检查 z 位移、曝光和分割阈值。这样比较容易判断，一段信号变化究竟来自膜身份更替，还是追踪对象已经改变。处理后扩大内体的时程也应与未处理细胞分别记录。</p>
 <details class="deep">
 <summary>分子接口：Rab、PI3P、EEA1 与 SNARE 分别解决什么问题？</summary>
-<p>Rab 是受核苷酸状态调控的小 GTP 酶。GEF 促进 GDP 释放和核苷酸交换；GAP 促进 GTP 水解。这里的“激活”是状态转换，不能由 Rab 总蛋白量或单一定位图代替。PI3P 是膜脂身份的一部分；EEA1 是读取膜脂与 Rab 条件的系留因子；SNARE 则参与后续膜融合机器。把它们都叫作“早期内体标记”，会丢掉真正需要研究的接口。</p>
+<p>Rab 是受核苷酸状态调控的小 GTP 酶。GEF 促进 GDP 释放和核苷酸交换，GAP 促进 GTP 水解。Rab 的活性状态、总量和膜定位各有各的测量。PI3P 提供膜脂身份，EEA1 读取膜脂与 Rab 条件并参与系留，SNARE 参与后续膜融合。把这些角色分开，就能沿着货物递送逐步提出问题。</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
 <th>操作层</th>
 <th>要实现的关系</th>
-<th>为什么一个常见读出仍不够？</th>
+<th>读出怎样解释</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>膜身份与募集</td>
-<td>合适的膜脂和活化 Rab 使效应因子在正确位置工作</td>
-<td>EEA1 信号下降可能来自 PI3P、Rab 状态或蛋白量变化，不能直接叫“内体消失”</td>
+<td>合适膜脂和活化 Rab 招募效应因子</td>
+<td>EEA1 信号变化需结合 PI3P、Rab 状态及蛋白量判断</td>
 </tr>
 <tr>
 <td>远距离捕获</td>
-<td>系留增加合适载体与靶膜相遇、保持接触的机会</td>
-<td>两个斑点接近或共同移动，仍可能没有腔内容物连通</td>
+<td>系留增加合适载体相遇并保持接触的机会</td>
+<td>接近或共同移动说明接触，腔内容物连通需另测</td>
 </tr>
 <tr>
 <td>拉近与对接</td>
-<td>从可捕获距离进入更接近的几何状态</td>
-<td>载体团聚可能是捕获成功、后续受阻，而不是融合增强</td>
+<td>从捕获距离进入更接近的几何状态</td>
+<td>载体团聚既可能是捕获增加，也可能是后续步骤受阻</td>
 </tr>
 <tr>
-<td>膜融合与货物递送</td>
-<td>膜连通和内容物交换真正发生</td>
-<td>脂质混合、染料转移与水相内容物混合需要按具体体系区分</td>
+<td>融合与递送</td>
+<td>膜连通和内容物交换</td>
+<td>脂质混合、染料转移和水相内容物混合各自对应不同事件</td>
 </tr>
 </tbody>
 </table></div>
-<p><strong>[研究报告]</strong> Murray 等的 Nature 研究重构 EEA1、PI3P 与 Rab5 系留体系，结合结构观察、光镊及构建体分析，报告 Rab5:GTP 可使 EEA1 从伸展变得柔顺，并提出熵塌缩将已捕获载体拉近的机制。<a class="citation" href="#ref-MU16">[MU16]</a> 它连接了“选择对象”和“改变几何”，但不能被简化成 EEA1 单独足以完成全部融合。</p>
-<p><strong>[研究建议]</strong> 常规设备先确认货物从表面进入后是否到达合适区室，并同时记录 EEA1 蛋白量、定位与货物去向。若核心问题是“已经捕获却不能融合”，仅增加固定共定位图辨识力有限；应考虑经验证的内容物交换读出或重构合作。先选需要判定的事件，再选择技术。</p>
+<p>Murray 等在 Nature 的研究重构 EEA1、PI3P 与 Rab5 系留体系，结合结构观察、光镊和构建体分析，报告 Rab5:GTP 使 EEA1 从伸展变得柔顺，并提出熵塌缩将捕获载体拉近的机制。<a class="citation" href="#ref-MU16">[MU16]</a> 这一步解释了远距离捕获怎样衔接到后续对接，完整融合还涉及其他机器。</p>
+<p>在常规实验中，可以先看内化货物能否到达相应区室，同时记录 EEA1 总量、定位和货物去向。若问题进一步变为“捕获正常，融合受阻”，就需要能够报告内容物交换的测量，或考虑重构合作。固定共定位图在这里主要提供位置参照。</p>
 </details>
 <details class="deep">
-<summary>为什么 Rab 身份能够切换？为什么当年选择线虫体腔细胞？</summary>
-<p>如果早期身份能够正反馈维持，成熟就不仅是“等时间过去”，还需要解除旧网络并建立后续网络。Poteryaev 等在 Cell 研究中分析 SAND-1/Mon1 与 RABX-5/Rabex5 的联系及其膜驻留，支持打断 Rab5 正反馈这一作用。<a class="citation" href="#ref-PO10">[PO10]</a> 这里不能把 Rab5 荧光变弱直接等同每个分子的 GTP 水解；定位和活性是不同变量。</p>
-<p><strong>作者明确说明的体系选择理由</strong>是：线虫体腔细胞的内体较大且摄取活跃，普通光学成像较易辨认限制膜与腔，已有标记和 BSA–Texas Red 示踪又便于在活体追踪。论文随后使用酵母研究过表达效应，也明确利用了其表达量较易控制的优势。这不是“哪个物种更高级”的选择，而是让待研究关系变得可观察、可操控。迁移到哺乳动物时，仍需重新确认尺寸、表达和动态范围，不能把线虫时长作为通用常数。</p>
-<p>历史模型也需要更新：不能沿用早期论文中的推测，将 HOPS 一概称作 Rab7 的交换因子。后续生化工作直接检验了 Mon1–Ccz1 对酵母 Rab7 同源物 Ypt7 的 GEF 活性，并比较保留复合物形成/定位而损失交换活性的突变。<a class="citation" href="#ref-CA14">[CA14]</a> 这再次说明，“能定位”与“能催化状态转换”可以分离；物种和复合物组成仍应随结论保留。</p>
+<summary>Rab 身份怎样切换，当年为什么选择线虫体腔细胞？</summary>
+<p>早期身份若能通过正反馈维持，成熟就需要解除旧网络并建立后续网络。Poteryaev 等研究 SAND-1/Mon1 与 RABX-5/Rabex5 的联系及膜驻留，支持它打断 Rab5 正反馈的作用。<a class="citation" href="#ref-PO10">[PO10]</a> 这里需要同时理解两种变化：膜上蛋白的驻留改变，以及 Rab 的核苷酸状态转换。荧光定位直接观察前一种，后一种要靠活性相关证据。</p>
+<p>论文明确写出了选择线虫体腔细胞的理由：内体较大、摄取活跃，普通光学成像容易辨认限制膜与腔，已有标记和 BSA-Texas Red 又便于活体示踪。随后使用酵母研究过表达，也是利用其表达量较易控制的优势。每换一个体系，研究者都在换取某种观察或操控能力；迁移到哺乳动物时，就要重新确认尺寸、表达和动态范围。</p>
+<p>读历史论文还要留意模型的后续发展。早期关于 HOPS 的交换因子推测，后来由直接生化研究进一步澄清：Mon1-Ccz1 对酵母 Rab7 同源物 Ypt7 具有 GEF 活性。相关突变可以保留复合物形成和定位，却损失交换活性。<a class="citation" href="#ref-CA14">[CA14]</a> 因而定位与催化功能在实验上可以分开，具体物种的复合物组成也要一并核对。</p>
 </details>
-<h3>5.2 酸化不是只看 V-ATPase 的表达量</h3>
-<p>质子泵入腔内会建立化学梯度和膜电位；反离子通量、质子泄漏、缓冲容量、腔体积与膜运输共同决定 pH。对一个 H⁺ 的电化学代价可以写作：</p>
+<h3>5.2 内体 pH 是怎样建立的</h3>
+<p>质子泵入腔内，同时建立化学梯度和膜电位。反离子通量、质子泄漏、缓冲容量、腔体积及膜运输，都会影响最终 pH。对一个 H⁺ 的电化学代价可以写作：</p>
 <div class="equation">Δμ<sub>H⁺</sub> = RT ln([H⁺]<sub>腔</sub>/[H⁺]<sub>胞质</sub>) + F(ψ<sub>腔</sub>−ψ<sub>胞质</sub>)</div>
-<p>这解释了为什么“泵更多”与“腔更酸”并非无条件的一一对应。Steinberg 等通过离子替换、区室通透控制和比率 pH 读出讨论反离子对酸化的贡献，说明不能只把阴离子内流视为唯一电荷补偿方式。<a class="citation" href="#ref-I10">[I10]</a></p>
-<p>酸性染料的亮度会同时受装载、体积、区室数量、保留和 pH 影响。若目标是绝对 pH，需要合适动态范围、参考通道与原位校准；若只需判断货物进入酸性区室，可以采用较低要求，但结论的名称也应相应收窄。</p>
-<h3>5.3 腔内、胞质平均值与膜邻近微环境不是同一空间</h3>
-<p>“内体腔酸化不等于整个胞质变酸”仍是有用区分，但不能扩成“所有胞质侧位置都化学均一”。2026 年 Nature Cell Biology 报告了溶酶体外表面的酸性纳米层及其与运输调控的联系。<a class="citation" href="#ref-PH26">[PH26]</a> <strong>本轮仅取得公开摘要、图题及两份更正，未获得订阅全文和完整校准方法，因此将其作为近期报告与待深入材料，不作为已全面核验的完整案例，也不外推到全部早期内体。</strong></p>
-<p>该文的出版更正涉及审稿信息；作者更正补充讨论及参考文献。更正本身不等于结果被否定，但核查版本是评估材料的必要步骤。研究上真正值得带走的问题是：当胞质可溶探针与膜锚定探针给出不同结果时，是空间梯度、探针化学、定位不纯还是校准方式造成？先区分这些，才谈新的调控机制。</p>
-<h3>5.4 分选发生在多个位置，早期内体本身也有异质性</h3>
-<p>Lakadamyali 等通过活细胞货物与内体运动追踪，研究不同货物进入不同早期内体群体的偏好。<a class="citation" href="#ref-L06">[L06]</a> 它使“所有货物先到同一个共同分选站”的图景需要增加条件。这里的群体划分服务其细胞和读出，不是为全部细胞建立永远不变的两类内体。</p>
-<p>膜上的货物信号、泛素修饰、膜域、分选因子、管状载体、actin 与微管运动共同影响出口。回收不是“只要没有降解标记就自动返回”：SNX27/retromer、SNX17/retriever 及其他路线识别与组织不同货物，不能因为都含 VPS 或 SNX 名称就视为同一机器。<a class="citation" href="#ref-M17">[M17]</a></p>
-<h3>5.5 ILV、ESCRT 与信号可及性</h3>
-<p>泛素化货物可以被 ESCRT 网络分选入 ILV。多泡体中的膜拓扑变化，会使受体胞质尾部与胞质效应蛋白的接触机会改变；最终水解还需要后续降解环境。进入 Rab7 阳性区室、进入 ILV 和蛋白被降解，是可分离的事件。</p>
-<p>经典分工中，ESCRT-0 的 HRS/STAM 等帮助识别与集中泛素化货物；ESCRT-I/II 连接货物分选、膜形变和下游装配；ESCRT-III 与 VPS4 参与动态重排及膜切割。这是理解角色的简图，不表示所有场景都依赖每一级，也不表示整套复合物始终同步装配。Wenzel 等在其 HeLa 体系中比较了不同组分的重复募集波，提示不能把一张静态顺序图当成所有组分的共同寿命。<a class="citation" href="#ref-WE18">[WE18]</a></p>
+<p>所以，增加泵的数量以后，还要看电荷怎样补偿、质子怎样泄漏。Steinberg 等通过离子替换、区室通透控制和比率 pH 读出，讨论反离子对酸化的贡献，将阴离子内流以外的补偿方式也纳入解释。<a class="citation" href="#ref-I10">[I10]</a></p>
+<p>选择探针取决于要回答什么。判断货物是否到达酸性区室，可以使用相应染料；测绝对 pH，则需要合适动态范围、参考通道和原位校准。亮度还受装载、体积、区室数量与保留影响，这些因素决定怎样从信号换算到环境。</p>
+<h3>5.3 膜附近的化学环境</h3>
+<p>腔内 pH、胞质平均 pH 和膜邻近环境，对应不同的空间。2026 年 Nature Cell Biology 报告了溶酶体外表面的酸性纳米层及其与运输调控的联系。<a class="citation" href="#ref-PH26">[PH26]</a> 这项近期报告目前在此仅作问题线索：可核读材料为公开摘要、图题和两份更正，订阅全文及完整校准方法尚未取得，适用对象也应保留在溶酶体表面。</p>
+<p>出版更正涉及审稿信息，作者更正补充了讨论及参考文献。进一步阅读时，值得追问膜锚定探针与可溶探针为何不同：空间梯度、探针化学、定位纯度和校准，都可能参与。这个问题会直接影响下一种探针怎样设计、放在什么位置。</p>
+<h3>5.4 货物在早期内体就开始分流</h3>
+<p>Lakadamyali 等用活细胞货物与内体运动追踪，研究不同货物进入不同早期内体群体的偏好。<a class="citation" href="#ref-L06">[L06]</a> 早期内体由此呈现出与货物和动态相关的异质性；具体群体划分也依赖该研究的细胞和读出。</p>
+<p>货物尾部、泛素修饰、膜域、分选因子和管状载体共同参与出口选择，actin 与微管运动也影响其组织。回收本身需要识别和装配：例如 SNX27/retromer 与 SNX17/retriever 各有相应的货物及复合物关系。学习时应沿货物和亚基逐一对应，VPS 或 SNX 这样的共有命名容易掩盖它们的差别。<a class="citation" href="#ref-M17">[M17]</a></p>
+<h3>5.5 ILV 形成怎样改变信号可及性</h3>
+<p>ESCRT 网络可将泛素化货物分选入 ILV，使受体胞质尾部与胞质效应因子隔离。随后水解还依赖降解环境。获得 Rab7、进入 ILV 和蛋白消失，可以在不同时间发生。</p>
+<p>经典分工中，ESCRT-0 的 HRS/STAM 等帮助识别、集中泛素化货物；ESCRT-I/II 衔接货物分选、膜形变及下游装配；ESCRT-III 和 VPS4 参与重排与切割。各场景对这些组分的依赖和时序需要具体分析。Wenzel 等在 HeLa 中观察到不同组分反复募集，而且动力学各异，为静态顺序图补上了时间维度。<a class="citation" href="#ref-WE18">[WE18]</a></p>
 <figure class="paper-figure" data-article="https://www.nature.com/articles/s41467-018-05345-8" id="paper-ESCRT-WENZEL-3">
 <div class="figure-heading"><span class="figure-number">图 P13</span><div><h4>EGFR 进入腔内囊泡：电镜、三维断层与 ESCRT 招募动力学</h4><span class="evidence-type">原始研究：HeLa 金标 EGFR 电镜、电子断层与活细胞成像</span></div></div>
 <button aria-label="放大：EGFR 进入腔内囊泡：电镜、三维断层与 ESCRT 招募动力学" class="zoom-trigger" type="button"><img alt="Eva Maria Wenzel, Sebastian Wolfgang Schultz, Kay Oliver Schink et al.，2018，Figure 3：EGFR 进入腔内囊泡：电镜、三维断层与 ESCRT 招募动力学" decoding="async" height="2159" loading="lazy" src="figures/P13-escrt-wenzel-3.png" width="2049"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">a：EGF 刺激 5、10、15 min 后的电镜；10 nm 金颗粒标记内化 EGFR，可见出芽轮廓及逐渐增多的腔内囊泡。b：250 nm 厚切片的断层重建，红色为已脱离限制膜的 ILV，蓝色为邻近包被区。c 比较 ESCRT 招募波次与切片中的 ILV 数目分布。d：单个内体的 CHMP4B-GFP 与 mCherry-RAB7 动态。e：25 min 时的出芽与降解相关结构。电镜比例尺均为 100 nm。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>受体降解分选具有明确膜拓扑：EGFR 从内体限制膜进入 ILV，胞质侧结构域随之与胞质信号因子隔离。d 还显示获得 RAB7 后 CHMP4B 招募仍可继续，不能把 ILV 形成和 Rab 转换画成严格互斥的两步。</p><p class="limit"><b>读图边界</b>电镜时间点来自不同样本；ESCRT 波次与 ILV 数目的关系由两类实验的统计对应支持，并非同时直接看到同一个招募波形成一个 ILV。单幅图不能证明所有内体或受体都遵循完全相同的动力学。</p></div>
+<figcaption class="paper-caption">a：EGF 刺激 5、10、15 min 后的电镜，以 10 nm 金颗粒标记内化 EGFR，可见出芽和逐渐增加的 ILV。b 为 250 nm 厚切片的断层重建，红色标出已脱离限制膜的 ILV，蓝色为邻近包被区。c 比较 ESCRT 招募波与 ILV 数目分布；d 追踪单内体 CHMP4B-GFP 和 mCherry-RAB7；e 显示 25 min 时的出芽、降解相关结构。电镜标尺均为 100 nm。</figcaption>
+<div class="figure-reading"><p>EGFR 进入 ILV 后，胞质侧结构域被隔离。d 中获得 RAB7 后仍可继续招募 CHMP4B，说明 Rab 转换与 ILV 形成可以在时间上重叠。</p><p class="limit">电镜时间点取自不同样本。募集波与 ILV 数目的关系由两类实验的统计对应支持，单波与单 ILV 尚未同时直接配对；动力学也需保留该体系的条件。</p></div>
 <div class="paper-source">Eva Maria Wenzel, Sebastian Wolfgang Schultz, Kay Oliver Schink et al. · Nature Communications (2018) · 原文 Figure 3<br/><span class="source-title">Concerted ESCRT and clathrin recruitment waves define the timing and morphology of intraluminal vesicle formation</span><br/><a href="https://doi.org/10.1038/s41467-018-05345-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-05345-8</a> · <a href="https://www.nature.com/articles/s41467-018-05345-8" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
 <details class="deep">
-<summary>同样是 clathrin，怎样区分质膜入口与内体分选的贡献？</summary>
-<p>内体上由 HRS 关联的 clathrin 功能，不能直接套用质膜 AP2–clathrin 膜窝的几何和货物进入方向。全细胞 clathrin 敲低会同时影响多处运输；即使 EGFR 降解异常，也难以定位原发步骤。</p>
-<p>Wenzel 等为限制这个混淆，在敲低内源 HRS 后，以接近内源水平的抗 siRNA 野生型或缺少 clathrin-binding 区的 HRS770 替换，并核查其 clathrin 关联/募集。作者明确以此来减少 clathrin 其他位置功能的干扰。<a class="citation" href="#ref-WE18">[WE18]</a> <strong>[论证重建]</strong> 相较整细胞关闭，这种接口扰动更接近目标膜域；但删除区域仍可能影响其他性质，所以表达、定位和关联验证不可省略。</p>
-<p><strong>[可迁移做法]</strong> 研究“某运输蛋白促进受体降解”时，先问它是否同时改变入口与后续分选。若二者重叠，选择有依据的分离功能构建体，或追踪已经内化的同一货物池。晚期加入药物也需检验作用速度与其他靶点，不能仅凭加入时间宣称选择性。</p>
+<summary>同样是 clathrin，怎样区分质膜入口与内体分选？</summary>
+<p>内体上由 HRS 关联的 clathrin，与质膜 AP2-clathrin 处在不同几何和运输步骤中。整细胞敲低 clathrin 会同时影响多处运输，EGFR 降解异常也就可能从不同环节产生。</p>
+<p>Wenzel 等明确针对这一混淆设计了替换实验：先敲低内源 HRS，再用接近内源水平的抗 siRNA 野生型或缺少 clathrin-binding 区的 HRS770 恢复，核查 clathrin 关联与募集。<a class="citation" href="#ref-WE18">[WE18]</a> 这样把干预集中到目标接口，更容易讨论内体上的贡献。删除区域也可能影响构建体其他性质，因此表达、定位和关联验证与功能读出同样需要保留。</p>
+<p>自己的课题若也遇到入口与后续分选相互牵连，可以考虑功能分离构建体，或从已经内化的同一货物池开始追踪。晚期加药也是一种选择，但作用速度和其他靶点仍决定它实际隔离了哪一步。</p>
 </details>
-<p><strong>[研究建议]</strong> 若只做普通共聚焦，通常不能可靠区分一个亚分辨内体中的限制膜与 ILV。可以先用运输/降解功能与遗传证据建立问题，再决定是否需要免疫电镜或断层成像。更高分辨率应服务这个拓扑判别，而不是仅增加图片细节。</p>
-<h3>5.6 ER、骨架和代谢不是远处的背景</h3>
-<p>ER 与内体接触可以把分选域、脂质交换和分裂位置连接起来；但一次接触并不意味着所有功能都由相同分子执行。<a class="citation" href="#ref-R14">[R14]</a> 微管运输又改变区室接触和位置；药物解聚微管还会改变全细胞组织，所以不能仅从区室靠核与否推断某一个马达活性。</p>
+<p>普通共聚焦往往把亚分辨内体中的限制膜和 ILV 合在一起。可先用运输、降解和遗传证据缩小问题；当两种膜位置直接决定信号或降解解释时，免疫电镜或断层成像就能解决明确的拓扑问题。</p>
+<h3>5.6 ER、骨架与营养状态怎样参与运输</h3>
+<p>ER 接触可以连接分选域、脂质交换和裂分位置，不同接触也可能承担不同功能。<a class="citation" href="#ref-R14">[R14]</a> 微管运输改变区室位置和接触概率；解聚微管则同时重组整个细胞。解释靠核积累时，因此要把轨迹和货物命运放在一起看，才能进一步讨论特定马达。</p>
 <figure class="paper-figure" data-article="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0024479" id="paper-MT-FLORES-1">
-<div class="figure-heading"><span class="figure-number">图 P14</span><div><h4>微管与动力蛋白支持内体运动：用扰动条件检验真实运输轨迹</h4><span class="evidence-type">原始研究：HeLaM 活细胞 GFP-Rab5 内体成像与自动粒子追踪</span></div></div>
+<div class="figure-heading"><span class="figure-number">图 P14</span><div><h4>微管与动力蛋白扰动后的内体轨迹</h4><span class="evidence-type">原始研究：HeLaM 活细胞 GFP-Rab5 内体成像与自动粒子追踪</span></div></div>
 <button aria-label="放大：微管与动力蛋白支持内体运动：用扰动条件检验真实运输轨迹" class="zoom-trigger" type="button"><img alt="Neftali Flores-Rodriguez, Salman S. Rogers, David A. Kenwright, Thomas A. Waigh, Philip G. Woodman, Victoria J. Allan，2011，Figure 1：微管与动力蛋白支持内体运动：用扰动条件检验真实运输轨迹" decoding="async" height="1839" loading="lazy" src="figures/P14-mt-flores-1.png" width="2748"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">作者以 28 帧/秒记录 1000 帧，将自动追踪所得红色轨迹叠加在第一帧内体荧光图像上。A 为对照；B 为胞质动力蛋白重链 DHC1 耗竭；C 为过表达 dynactin 亚基 p50；D 为表达干扰 dynein–dynactin 相互作用的 CC1 片段；E 为 nocodazole 处理。比例尺 10 μm。红线是内体运动轨迹，绝不是微管染色。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>对照中可见较长、近直线的内体移动；耗竭动力蛋白、干扰 dynactin 或解聚微管后，轨迹明显改变。它把运输机制从示意性的“囊泡沿轨道行走”推进到可干预检验的细胞内运动。</p><p class="limit"><b>读图边界</b>各面板展示不同细胞的代表性轨迹，不能只比较单图中红线总量来计算抑制率；定量结论需结合原文 Figure 2–5 和统计。本图不直接显示 kinesin/actin，也不证明每个局部内吞位点形成都需要微管。</p></div>
+<figcaption class="paper-caption">作者以 28 帧/秒记录 1000 帧，将自动追踪所得红色轨迹叠在第一帧内体荧光图上。A 为对照，B 耗竭胞质动力蛋白重链 DHC1，C 过表达 dynactin 亚基 p50，D 表达干扰 dynein-dynactin 互作的 CC1，E 用 nocodazole 处理。标尺 10 μm；红线表示内体轨迹。</figcaption>
+<div class="figure-reading"><p>对照有较长、近直线的运动；动力蛋白、dynactin 或微管受扰以后，轨迹改变。几种干预让运动过程与运输机器建立了功能联系。</p><p class="limit">各面板为不同细胞的代表性轨迹，抑制程度要结合原文 Figure 2 至 5 的定量和统计。图中直接观察的是 Rab5 内体运动，kinesin、actin 及局部内吞位点形成需要另行研究。</p></div>
 <div class="paper-source">Neftali Flores-Rodriguez, Salman S. Rogers, David A. Kenwright, Thomas A. Waigh, Philip G. Woodman, Victoria J. Allan · PLOS ONE (2011) · 原文 Figure 1<br/><span class="source-title">Roles of Dynein and Dynactin in Early Endosome Dynamics Revealed Using Automated Tracking and Global Analysis</span><br/><a href="https://doi.org/10.1371/journal.pone.0024479" rel="noopener" target="_blank">DOI: 10.1371/journal.pone.0024479</a> · <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0024479" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0024479" rel="noopener" target="_blank">CC BY（原文未注明版本）</a> · 完整原图，未改绘</div>
 </figure>
-<p>营养状态与溶酶体位置、mTORC1 和降解过程之间存在反馈，相关研究也表明位置改变不能在缺乏营养输入时单独恢复全部信号。<a class="citation" href="#ref-N11">[N11]</a> 因而“先饥饿以同步细胞”不是中性步骤：它可能改变表面受体、代谢、区室位置和后续响应。是否饥饿、多久、用何种培养条件，应由知识目标和预实验决定，而不是照抄习惯。</p>
-</section><section class="chapter" id="receptor-cases"><h2>06 · 三类受体：先确定你在追踪谁</h2>
-<h3>6.1 TfR1：受体、蛋白配体和铁是三个不同对象</h3>
-<p>TfR1 的经典功能是利用受体循环摄取转铁蛋白携带的铁。内体中的铁释放、还原与跨膜转运，并不意味着 apo-transferrin 必须立即离开受体；受体和配体还可共同回到表面，随后解离。这里最值得积累的不是单条箭头，而是<strong>一个复合物在不同化学环境中的结合关系可以不同</strong>。</p>
+<p>营养状态、溶酶体位置、mTORC1 与降解之间存在反馈。相关研究中，单独改变位置也无法在缺乏营养输入时恢复全部信号。<a class="citation" href="#ref-N11">[N11]</a> 这使常见的饥饿步骤成为实验的一部分：它会改变表面受体、代谢和区室组织。决定是否饥饿、持续多久以及怎样恢复时，应先看这些变化会怎样影响自己要研究的响应。</p>
+</section><section class="chapter" id="receptor-cases"><h2>06 · TfR1、LDLR 与 EGFR：货物不同，实验也要跟着换</h2>
+<h3>6.1 TfR1：分别追踪受体、转铁蛋白和铁</h3>
+<p>TfR1 通过受体循环摄取转铁蛋白携带的铁。进入内体后，铁经历释放、还原和跨膜转运；apo-transferrin 仍可与受体一起回到表面，随后解离。同一对受体与配体，在不同化学环境中的结合关系因此可以改变。</p>
 <figure class="paper-figure" data-article="https://link.springer.com/article/10.1186/s12915-022-01386-0" id="paper-TFR-ROSSATTI-1">
 <div class="figure-heading"><span class="figure-number">图 P15</span><div><h4>TfR 回收可被细胞状态迅速调节：抗体预标记与流式定量</h4><span class="evidence-type">原始研究：预标记/表面封闭/流式细胞术定量回收</span></div></div>
 <button aria-label="放大：TfR 回收可被细胞状态迅速调节：抗体预标记与流式定量" class="zoom-trigger" type="button"><img alt="Pascal Rossatti, Gregory M. I. Redpath, Luca Ziegler et al.，2022，Figure 1：TfR 回收可被细胞状态迅速调节：抗体预标记与流式定量" decoding="async" height="2220" loading="lazy" src="figures/P15-tfr-rossatti-1.png" width="1416"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A：Jurkat T 细胞的 Alexa647-transferrin 摄取。B：先用生物素化抗 TfR 标记受体池，再封闭当时位于表面的标记；刺激后用荧光链霉亲和素检测重新到达细胞表面的受体。C：独立检测表面 TfR 水平及代表性流式分布；D、E 在扩增原代人 T 细胞中分别检测表面受体与回收。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>“受体循环”可以用重新暴露到细胞表面的预标记受体直接定量；图中 T 细胞激活后回收与表面 TfR 短暂增加，说明回收速率受细胞状态调控。</p><p class="limit"><b>读图边界</b>数据来自 Jurkat 与扩增人 T 细胞及特定激活条件；回收受体的抗体标记信号不等同铁释放或铁输入量，本图也未直接测定内体 pH。不能将其时间与倍数作为所有细胞的 TfR 循环常数。</p></div>
+<figcaption class="paper-caption">A 测 Jurkat T 细胞的 Alexa647-transferrin 摄取。B 先用生物素化抗 TfR 标记受体池，封闭当时的表面标记；刺激后用荧光链霉亲和素检测重新到达表面的受体。C 独立测表面 TfR，并展示流式分布；D、E 在扩增原代人 T 细胞中测表面量及回收。</figcaption>
+<div class="figure-reading"><p>预标记受体重新暴露到表面，提供了回收的直接读出。激活后的短暂增加，也使细胞状态成为解释回收时必须考虑的条件。</p><p class="limit">数据来自 Jurkat 和扩增人 T 细胞的特定激活条件，时间与倍数应在其他细胞里重新测定。抗体再暴露测受体循环，铁释放、铁输入和内体绝对 pH 各需相应读出。</p></div>
 <div class="paper-source">Pascal Rossatti, Gregory M. I. Redpath, Luca Ziegler et al. · BMC Biology (2022) · 原文 Figure 1<br/><span class="source-title">Rapid increase in transferrin receptor recycling promotes adhesion during T cell activation</span><br/><a href="https://doi.org/10.1186/s12915-022-01386-0" rel="noopener" target="_blank">DOI: 10.1186/s12915-022-01386-0</a> · <a href="https://link.springer.com/article/10.1186/s12915-022-01386-0" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>因此，荧光 Tf 摄取、表面 TfR1、预标记受体回收、细胞铁含量和铁依赖生理效应，不是可互换读出。上图直接提供的是特定 T 细胞条件下的受体回收证据，不测量绝对内体 pH 或铁输入量。研究营养摄取时，需要把运输与营养物释放的证据接起来；研究受体循环时，则应避免让铁代谢的下游变化替代回收测量。</p>
+<p>研究 TfR1 时，最好先确定自己关心链条的哪一段。荧光 Tf 摄取追踪蛋白配体，预标记受体的再暴露追踪回收，铁含量和铁依赖效应则描述营养获取及利用。上图以特定激活条件下的 T 细胞为对象，直接测受体回收；要讨论绝对内体 pH 或铁输入，还要加入相应测量。把这些结果接起来，才能解释运输怎样产生营养功能。</p>
 <details class="deep">
-<summary>为什么受体和配体回来了，铁却可以留在细胞内？</summary>
-<p>经典铁摄取链把不同物质分流：酸化改变 Tf 携铁的释放条件；Fe³⁺ 的还原与 Fe²⁺ 跨内体膜转运，将金属从腔内运输系统交给胞质侧代谢；apo-Tf 则可继续与 TfR1 共同循环，在表面环境中解离。铁跨膜不是 Tf 蛋白穿膜，也不是整个囊泡的内容物都进入胞质。</p>
-<p>Ohgami 等以小鼠突变体的定位克隆、铁还原与摄取证据，识别出对红系细胞有效 Tf 铁摄取重要的 Steap3。<a class="citation" href="#ref-OH05">[OH05]</a> STEAP3 的还原作用与 DMT1 等转运环节应分开理解；这项红系证据不能证明每一种细胞都只依赖 STEAP3。</p>
-<p><strong>[研究建议]</strong> 若问题是“铁获取为何不足”，可把配体摄取、受体回收与经验证的铁输入/利用读出连接起来。铁敏感染料反映的可交换铁池还受储存、利用和氧化还原影响，不等于单位时间跨膜输入。若运输读出正常而铁利用异常，下一步应转向释放、还原、转运或代谢，不能只继续拍更多 Tf 斑点。</p>
+<summary>受体和配体回来以后，铁怎样留在细胞内？</summary>
+<p>经典摄取链在这里分流。酸化改变 Tf 释放铁的条件，Fe³⁺ 经还原后，Fe²⁺ 通过内体膜进入胞质侧代谢；apo-Tf 则随 TfR1 循环，并在细胞表面环境中解离。金属跨过内体膜，蛋白仍留在腔内运输系统，两种物质走上了不同路线。</p>
+<p>Ohgami 等从小鼠突变体的定位克隆入手，结合铁还原与摄取证据，识别了对红系细胞有效摄取 Tf 铁重要的 Steap3。<a class="citation" href="#ref-OH05">[OH05]</a> STEAP3 完成还原，DMT1 等参与转运，各环节需要分别考虑。其他细胞采用哪些还原组分，也应在自己的体系里确认。</p>
+<p>如果配体摄取和受体回收正常，铁利用却下降，研究重心就可以转向释放、还原、转运或后续代谢。选择铁敏感染料时，还要知道它报告的可交换铁池同时受储存、利用和氧化还原影响；估计单位时间的铁输入，需要与输入过程更直接对应的测量。</p>
 </details>
-<h3>6.2 LDLR：受体循环与脂蛋白加工为什么需要分开？</h3>
-<p>经典模型中，LDL 与 LDLR 内化后可在酸性运输环境中分开，受体被回收，LDL 进入后续加工；受体丰度与细胞胆固醇稳态还存在反馈。这意味着长时间的 LDL 摄取变化可能由入口速率、受体回收、受体表达或下游胆固醇处理共同产生。</p>
+<h3>6.2 LDLR：受体回收，脂蛋白继续加工</h3>
+<p>LDL 与 LDLR 内化后，可在酸性运输环境中解离，受体返回表面，LDL 进入后续加工。与此同时，受体丰度又受到胆固醇稳态的反馈。因此，长时间 LDL 摄取的变化，可能同时包含入口、回收、表达和胆固醇处理的贡献。</p>
 <figure class="paper-figure model" data-article="https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2022.826379/full" id="paper-ldlr-map">
 <div class="figure-heading"><span class="figure-number">图 P16</span><div><h4>LDLR 回收与 LDL 降解的分流</h4><span class="evidence-type model">综述机制模型</span></div></div>
 <button aria-label="放大：LDLR 回收与 LDL 降解的分流" class="zoom-trigger" type="button"><img alt="Mohammad Majharul Islam, Iryna Hlushchenko, Simon G. Pfisterer，2022，Figure 1：LDLR 回收与 LDL 降解的分流" decoding="async" height="761" loading="lazy" src="figures/P16-ldlr-map.webp" width="1449"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A：LDL 与 LDLR 内吞后分流；B：质膜–内质网接触位点，区分酵母与哺乳动物；C：SNX17、WASH 与 CCC 等参与受体回收。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>受体回收和配体降解可并行，膜接触位点又将运输与脂质稳态联系起来。</p><p class="limit"><b>读图边界</b>B 混合呈现不同物种机制，不能把酵母甾醇机制直接套用于哺乳动物；这也不是单一实验的直接观察。</p></div>
+<figcaption class="paper-caption">A 画出 LDL 与 LDLR 内化后的分流；B 区分酵母和哺乳动物的质膜与 ER 接触机制；C 将 SNX17、WASH 和 CCC 等接到受体回收上。</figcaption>
+<div class="figure-reading"><p>受体回收与配体降解可以并行，膜接触又把运输和脂质稳态联系起来。</p><p class="limit">这是综述机制图，整合了不同实验与物种。阅读 B 时应保留酵母和哺乳动物的区分，具体甾醇机制还要回到对应体系。</p></div>
 <div class="paper-source">Mohammad Majharul Islam, Iryna Hlushchenko, Simon G. Pfisterer · Frontiers in Cell and Developmental Biology (2022) · 原文 Figure 1<br/><span class="source-title">Low-Density Lipoprotein Internalization, Degradation and Receptor Recycling Along Membrane Contact Sites</span><br/><a href="https://doi.org/10.3389/fcell.2022.826379" rel="noopener" target="_blank">DOI: 10.3389/fcell.2022.826379</a> · <a href="https://www.frontiersin.org/journals/cell-and-developmental-biology/articles/10.3389/fcell.2022.826379/full" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p><strong>[研究建议]</strong> 若处理降低荧光 LDL，应先检查表面 LDLR 与起始结合，再区分短时内化和较长时间的降解/脂质利用。检测胆固醇或转录响应能提供生理联系，却不能独立定位运输瓶颈。若比较回收接头，应直接观察受体命运，而不是只追踪配体颗粒。</p>
+<p>遇到荧光 LDL 降低，可以从表面 LDLR 和起始结合查起，再比较短时内化与较长时间的降解、脂质利用。若重点研究回收接头，就直接追踪受体；若重点研究营养功能，就补充胆固醇或转录响应。这些读出分别帮助定位运输瓶颈和建立生理联系。</p>
 <details class="deep">
-<summary>酸性环境如何改变 LDLR 的结合？结构为什么还需要功能证据？</summary>
-<p>Rudenko 等的 Science 研究获得 pH 5.3、3.7 Å 的 LDLR 胞外区结构，显示配体结合模块向 β-propeller 回折，并提出有助于配体释放的分子内竞争模型。<a class="citation" href="#ref-RU02">[RU02]</a> 作者明确限定，该分辨率支持模块相对排布，不足以讨论精确侧链构象。晶体中的一种构象也不是完整细胞里释放、回收全过程的录像。</p>
-<p><strong>[论证重建]</strong> 选择内体相关 pH，使结构对应特定工作环境；研究用途是提出怎样释放配体的可检验解释，而非再确认一次受体能够结合 LDL。<strong>[研究建议]</strong> 比较候选突变时，需依次检查成熟/折叠与表面递送、中性条件结合、改变环境后的释放，以及受体回收。否则“回收减少”可能只是受体未到表面或没有正常起始结合。</p>
-<p>释放后，LDL 颗粒的后续降解、胆固醇酯水解与游离胆固醇离开降解区室，仍是不同环节。因此，LDL 颗粒染料残留不必与可利用胆固醇同步，细胞胆固醇变化也不直接证明入口改变。研究目标若转为脂质利用，应增加对应的加工/运输证据，而不只追踪 LDLR。</p>
+<summary>低 pH 结构怎样帮助解释 LDL 释放？</summary>
+<p>Rudenko 等在 Science 报道 pH 5.3、3.7 Å 的 LDLR 胞外区结构，观察到配体结合模块向 β-propeller 回折，并提出有助于配体释放的分子内竞争模型。<a class="citation" href="#ref-RU02">[RU02]</a> 这一分辨率能够支持模块间相对排布，精确侧链构象则超出了作者所述的解析能力。结构提出了释放机制，完整细胞里的释放和回收动力学仍需要功能实验衔接。</p>
+<p>将蛋白放在内体相关 pH 下，是为了观察它在释放环境中可能采用的构象。借鉴到突变研究时，可以沿过程逐步检查：蛋白能否成熟并到达表面，中性条件下能否结合 LDL，改变环境后能否释放，最后能否回收。前一步出了问题，后面的回收表型也会随之出现。</p>
+<p>LDL 释放以后，颗粒降解、胆固醇酯水解和游离胆固醇离开降解区室又是几个环节。颗粒染料残留与可利用胆固醇因而未必同步。若目标已经转向脂质利用，就需要对应的加工和运输证据，才能说明细胞得到的胆固醇发生了什么。</p>
 </details>
-<h3>6.3 EGFR：剂量和受体丰度会改变路线问题</h3>
-<p>EGF—EGFR 既是被运输的货物，也触发会影响运输的信号。配体剂量、受体数量、泛素化与细胞状态可能改变回收和降解的平衡；不能把某一细胞中的高/低刺激阈值作为所有体系的通用常数。<a class="citation" href="#ref-E13">[E13]</a><a class="citation" href="#ref-E15">[E15]</a></p>
-<p>EGFR 的测量至少要分开：表面量、内化比例、总受体下降、受体磷酸化及下游信号。pERK 或 pAKT 是网络输出；其时间曲线还受反馈和磷酸酶影响。单靠它们，不能判断信号究竟来自质膜还是内体。需要位置相关的证据，或把运输改变与空间来源分开操控。</p>
-<h3>6.4 把同类案例迁移到新受体时，先检查四个条件</h3>
+<h3>6.3 EGFR：剂量、表达与信号共同参与分选</h3>
+<p>EGF-EGFR 一方面是运输货物，另一方面触发影响运输的信号。配体剂量、受体数量、泛素化和细胞状态共同改变回收与降解的平衡。使用文献中的高低剂量前，先在自己的表达范围里确认响应窗口。<a class="citation" href="#ref-E13">[E13]</a><a class="citation" href="#ref-E15">[E15]</a></p>
+<p>可以把表面量、内化比例、总受体下降、受体磷酸化和下游信号分别记录。pERK、pAKT 描述网络输出，曲线受到反馈与磷酸酶影响；要确定信号来自质膜还是内体，还要加入位置相关证据，或分别操控运输和空间来源。这样，信号变化才能与受体命运建立具体关系。</p>
+<h3>6.4 将这些经验用到新受体</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>要迁移的认识</th>
-<th>先检查什么</th>
-<th>为什么会改变方法选择</th>
+<th>借鉴的认识</th>
+<th>在新对象上先查什么</th>
+<th>对实验选择的影响</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>TfR 的循环逻辑</td>
-<td>新受体是否持续循环？配体是否改变激活和结合？</td>
-<td>配体追踪可能与受体追踪分离</td>
+<td>TfR 的循环</td>
+<td>是否持续循环，配体是否改变激活或结合</td>
+<td>决定配体追踪能否代表受体追踪</td>
 </tr>
 <tr>
-<td>LDLR 的回收/配体分流</td>
-<td>配体在哪个环境解离？受体尾部由谁识别？</td>
-<td>需要测受体本身及其表面池</td>
+<td>LDLR 的受体与配体分流</td>
+<td>在哪种环境解离，胞质尾部由谁识别</td>
+<td>需要分别测受体命运和表面池</td>
 </tr>
 <tr>
 <td>EGFR 的刺激依赖性</td>
-<td>受体丰度、剂量范围、细胞类型、是否过表达</td>
-<td>需要二维剂量/表达设计或先限制表达范围</td>
+<td>受体丰度、剂量、细胞类型和过表达情况</td>
+<td>可先限制表达范围，或结合剂量与表达设计比较</td>
 </tr>
 <tr>
-<td>内体信号的概念</td>
-<td>要测的是定位、活化构象还是下游效应？</td>
-<td>相同共定位不能替代构象或局部活性读出</td>
+<td>内体信号</td>
+<td>要研究定位、活化构象，还是下游输出</td>
+<td>决定是否需要局部活性或构象读出</td>
 </tr>
 </tbody>
 </table></div>
-</section><section class="chapter" id="environment-map"><h2>07 · 全环境地图：变量如何进入解释链？</h2>
-<p>“全环境”在这里意味着把膜两侧、相邻细胞器、细胞整体状态及观测环境纳入同一因果问题。<strong>不是每个实验都要测完下面所有项目；应优先控制会使候选解释无法区分的变量。</strong> 表中的“建议读出”是条件性选择，不是保证特异的标准答案。</p>
+</section><section class="chapter" id="environment-map"><h2>07 · 从膜两侧到细胞状态：环境怎样进入实验</h2>
+<p>运输发生在有负载、有化学梯度、也不断变化的细胞里。培养基、黏附、皮层和相邻细胞器，都可能改变反应或读出。选实验条件时，可以从自己的几个候选解释往回找：哪些变量如果不同，就会让比较失去意义？优先处理这些，其他项目留到问题需要时再测。</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>环境层与变量</th>
-<th>它怎样影响过程或读出？</th>
-<th>常规起步可以做什么？</th>
-<th>最容易发生的误判</th>
+<th>变量</th>
+<th>对过程或读出的影响</th>
+<th>常规条件下怎样了解它</th>
+<th>解释时还要看什么</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>胞外自由配体浓度、价态、聚集</td>
-<td>改变占据、聚集、信号和货物负载</td>
-<td>做剂量与起始结合比较；记录标记与聚集状态</td>
-<td>用相同质量浓度假定相同有效受体占据</td>
+<td>胞外自由配体浓度、价态和聚集</td>
+<td>改变占据、聚集、信号与货物负载</td>
+<td>剂量与起始结合比较，记录标记和聚集状态</td>
+<td>相同质量浓度对应的有效占据可能不同</td>
 </tr>
 <tr>
-<td>培养基 pH、温度、血清及游离配体</td>
-<td>改变结合、酶动力学与生理状态</td>
-<td>配对处理时间、培养条件及洗涤过程</td>
-<td>把温度同步视为完全不扰动的瞬时开关</td>
+<td>培养基 pH、温度、血清和游离配体</td>
+<td>改变结合、酶动力学及生理状态</td>
+<td>配对处理时程、培养和洗涤条件</td>
+<td>低温同步本身会改变膜与反应动力学</td>
 </tr>
 <tr>
-<td>糖萼与胞外空间拥挤</td>
-<td>改变膜形态的空间压力、表位可及性</td>
-<td>比较表面检测与独立标记；必要时合作研究糖萼</td>
-<td>从抗体染色变弱直接推出受体减少；从外向膜形态推断特定 CME 速率 <a class="citation" href="#ref-GL19">[GL19]</a></td>
+<td>糖萼和胞外拥挤</td>
+<td>改变膜形态的空间压力及表位可及性</td>
+<td>表面检测配合独立标记，按需合作研究糖萼</td>
+<td>抗体变暗可能来自可及性；外向膜形态与特定 CME 速率还需分别测量 <a class="citation" href="#ref-GL19">[GL19]</a></td>
 </tr>
 <tr>
-<td>ECM、黏附、极性、细胞密度</td>
-<td>改变膜面、皮层与受体可及区域</td>
-<td>固定基底、铺板密度和极化状态；区分顶端/底侧</td>
-<td>用贴玻璃底面观测代表全细胞膜 <a class="citation" href="#ref-B11">[B11]</a></td>
+<td>ECM、黏附、极性与密度</td>
+<td>改变膜面、皮层和受体可及区域</td>
+<td>固定基底、铺板密度及极化条件，区分顶端和底侧</td>
+<td>贴玻璃底面只代表其中一部分膜 <a class="citation" href="#ref-B11">[B11]</a></td>
 </tr>
 <tr>
 <td>内源受体量与外源表达</td>
-<td>改变入口负载、阈值、接头竞争和信号</td>
-<td>流式表面量、总蛋白和表达分层</td>
-<td>把过表达导致的路线变化归因于待测蛋白 <a class="citation" href="#ref-E15">[E15]</a></td>
+<td>改变负载、阈值、接头竞争及信号</td>
+<td>流式测表面量，配合总蛋白和表达分层</td>
+<td>表达差异本身也会改变路线 <a class="citation" href="#ref-E15">[E15]</a></td>
 </tr>
 <tr>
-<td>质膜 PIP₂ 与负电表面</td>
-<td>影响接头募集、构象与局部网络</td>
-<td>低表达传感器、定位和功能的配套验证</td>
-<td>把传感器亮度直接当绝对脂质浓度；忽略传感器缓冲 <a class="citation" href="#ref-K14">[K14]</a></td>
+<td>质膜 PIP₂ 和表面负电性</td>
+<td>影响接头募集、构象与局部装配</td>
+<td>低表达传感器配合定位和功能验证</td>
+<td>传感器的响应、缓冲作用与绝对脂质浓度之间的关系 <a class="citation" href="#ref-K14">[K14]</a></td>
 </tr>
 <tr>
-<td>胆固醇、脂质不对称及弯曲刚度</td>
-<td>改变膜材料性质与蛋白驻留</td>
-<td>先检测细胞活性、表面池及多类货物响应</td>
-<td>把去胆固醇处理等同某单一路线特异关闭</td>
+<td>胆固醇、脂质不对称和弯曲刚度</td>
+<td>改变膜材料性质和蛋白驻留</td>
+<td>检查细胞活性、表面池与多类货物</td>
+<td>去胆固醇会同时影响多种膜过程</td>
 </tr>
 <tr>
-<td>膜张力、面积储备、膜—皮层连接</td>
-<td>改变形变负载；不同测量混合不同成分</td>
-<td>形态、体积与阶段性内化；必要时独立力学测量</td>
-<td>用低渗处理名称替代实际力学变量 <a class="citation" href="#ref-B11">[B11]</a><a class="citation" href="#ref-SH18">[SH18]</a></td>
+<td>膜张力、面积储备及膜与皮层连接</td>
+<td>改变膜形变的负载</td>
+<td>先看形态、体积和内化阶段，按需独立测力学</td>
+<td>低渗带来的离子和体积变化，以及不同张力读出的组成 <a class="citation" href="#ref-B11">[B11]</a><a class="citation" href="#ref-SH18">[SH18]</a></td>
 </tr>
 <tr>
 <td>皮层 actin、Myo1E 与接头耦合</td>
-<td>同时可能提供力、形成屏障或影响膜约束</td>
-<td>急性/遗传干预对照、位点与货物功能双读出</td>
-<td>看到 actin 增多就认定净内吞增强 <a class="citation" href="#ref-MY26">[MY26]</a></td>
+<td>可提供力、形成屏障或改变约束</td>
+<td>比较急性和遗传干预，同时看位点及货物</td>
+<td>actin 增多可能在补偿负载，净内化需另测 <a class="citation" href="#ref-MY26">[MY26]</a></td>
 </tr>
 <tr>
-<td>胞质 ATP/GTP 与代谢状态</td>
-<td>同时影响多种装配、泵和马达循环</td>
-<td>先确认细胞状态、时程和多环节读出</td>
-<td>从能量耗竭唯一定位某个 ATPase 或 GTPase</td>
+<td>胞质 ATP/GTP 和代谢状态</td>
+<td>同时影响装配、泵和马达循环</td>
+<td>记录细胞状态、时程和多个环节的响应</td>
+<td>能量耗竭影响的节点范围较广</td>
 </tr>
 <tr>
-<td>胞质拥挤、可用接头及组分竞争</td>
-<td>影响有效浓度、扩散与多价装配</td>
-<td>表达范围控制、内源标记或接近内源的 rescue</td>
-<td>把蛋白总量当作某膜域的可用活性池</td>
+<td>胞质拥挤、可用接头和组分竞争</td>
+<td>改变有效浓度、扩散及多价装配</td>
+<td>控制表达范围，使用内源标记或接近内源的 rescue</td>
+<td>蛋白总量与局部可用活性池的差别</td>
 </tr>
 <tr>
 <td>内体腔 pH、缓冲与反离子</td>
-<td>影响配体解离、酶活性、体积与探针亮度</td>
-<td>比率探针和原位校准；区分量与比率</td>
-<td>酸性染料变亮就断言绝对 pH 下降 <a class="citation" href="#ref-I10">[I10]</a></td>
+<td>改变配体解离、酶活、体积和探针亮度</td>
+<td>比率探针、参考通道及原位校准</td>
+<td>装载与体积也会改变酸性染料亮度 <a class="citation" href="#ref-I10">[I10]</a></td>
 </tr>
 <tr>
 <td>腔内 Ca²⁺、Cl⁻、Na⁺/K⁺ 等</td>
-<td>改变电位、离子耦合及融合/裂分相关条件</td>
-<td>只有机制问题需要时才选择对应探针和校准</td>
-<td>由单一 pH 变化推出具体离子通道异常</td>
+<td>改变电位、离子耦合及融合或裂分条件</td>
+<td>根据机制选择相应探针和校准</td>
+<td>定位具体离子通道还需其功能证据</td>
 </tr>
 <tr>
 <td>限制膜胞质侧的 Rab/PI 身份</td>
 <td>招募系留、融合和分选网络</td>
 <td>多时间点、独立标记与功能干预</td>
-<td>用 Rab 阳性就认定唯一成熟阶段或必然命运</td>
+<td>标记、阶段和最终命运之间的对应关系</td>
 </tr>
 <tr>
-<td>ER 接触、脂质交换和内体分裂</td>
-<td>将分选域与邻近细胞器动态连接</td>
-<td>多通道活细胞、时序与空间偶然率对照</td>
-<td>高共定位率就是直接分子切割 <a class="citation" href="#ref-R14">[R14]</a></td>
+<td>ER 接触、脂质交换与内体裂分</td>
+<td>将分选域接到相邻细胞器的动态上</td>
+<td>多通道活细胞成像，比较时序与偶然接近</td>
+<td>接触位置与实际切割作用分别由哪些证据支持 <a class="citation" href="#ref-R14">[R14]</a></td>
 </tr>
 <tr>
-<td>微管、马达和区室分布</td>
-<td>影响运动、接触概率和长距离组织</td>
-<td>粒子追踪与货物命运；记录整体细胞形态</td>
-<td>靠核积累就等于 dynein 活性增强</td>
+<td>微管、马达与区室分布</td>
+<td>改变运动、接触概率及长距离组织</td>
+<td>货物追踪结合整体形态</td>
+<td>靠核积累可由多种运输变化产生</td>
 </tr>
 <tr>
-<td>营养、细胞周期和应激</td>
-<td>改变生物合成、代谢与内溶酶体网络</td>
-<td>记录饥饿方案、细胞状态及恢复过程</td>
-<td>将长时间终点当作单次内吞的直接结果 <a class="citation" href="#ref-N11">[N11]</a></td>
+<td>营养、细胞周期与应激</td>
+<td>改变合成、代谢和内溶酶体网络</td>
+<td>记录饥饿、细胞状态和恢复过程</td>
+<td>长时间终点叠加了运输及后续反馈 <a class="citation" href="#ref-N11">[N11]</a></td>
 </tr>
 <tr>
-<td>相邻胞质纳米环境</td>
-<td>可能与体相测量不同；读出依探针位置</td>
-<td>先问探针在哪一侧、离膜多远、怎样校准</td>
-<td>把近期局部 pH 报告扩大为全部内体通则 <a class="citation" href="#ref-PH26">[PH26]</a></td>
+<td>膜邻近的胞质环境</td>
+<td>可能与体相不同，读出取决于探针位置</td>
+<td>确定探针所在膜侧、距离和校准方式</td>
+<td>近期局部 pH 报告的适用对象与材料范围 <a class="citation" href="#ref-PH26">[PH26]</a></td>
 </tr>
 <tr>
-<td>观测光照、固定、去顶、标记和分析阈值</td>
-<td>改变系统本身或被看到的样本集合</td>
-<td>活性控制、曝光一致、盲法与阈值敏感性</td>
-<td>把样品制备后可见状态当作完整活细胞过程 <a class="citation" href="#ref-D21">[D21]</a></td>
+<td>光照、固定、去顶、标记及分析阈值</td>
+<td>改变系统或可见样本集合</td>
+<td>活性控制、曝光配对、盲法和阈值敏感性检查</td>
+<td>制备条件保留或移除了哪些环境因素 <a class="citation" href="#ref-D21">[D21]</a></td>
 </tr>
 </tbody>
 </table></div>
-<h3>7.1 怎样从环境清单里选择最重要的两项？</h3>
-<p>先写出当前结论依赖的假设。例如“处理使回收减慢”依赖起始内化池可比、表面剥离有效、追踪过程中再内化可控以及探针量不因 pH 改变而误读。优先验证这些，比不加选择地测十几个标记更能推进研究。</p>
-<p><strong>[论证重建]</strong> 研究的环境边界不是附在结尾的一句“细胞类型有差异”，而是模型的一部分：在什么条件下，哪些机制可以互相补偿，哪个步骤成为瓶颈？这才使跨细胞比较具有解释力。</p>
-</section><section class="chapter" id="scale-map"><h2>08 · 动态尺度地图：你采样到的是哪个过程？</h2>
-<p>下表为选型的量级导航，不是跨体系统一常数。具体尺寸、寿命与分辨率，应回到所用细胞、标记及方法的校准；例如完整细胞、去顶膜片和体外膜管的几何与负载不同。</p>
+<h3>7.1 怎样选出当前最值得控制的变量</h3>
+<p>例如，要比较回收是否减慢，就先确认起始内化池可比、表面剥离有效，并了解追踪中的再内化和探针亮度。它们直接影响这次比较，优先级通常高于再增加几个区室标记。</p>
+<p>跨细胞比较时也可以这样处理差异。具体指出哪种环境让某个机制能够补偿、哪一步开始成为瓶颈，比结尾笼统写一句“细胞类型不同”更容易指导下一轮实验。</p>
+</section><section class="chapter" id="scale-map"><h2>08 · 空间与时间：怎样选采样尺度</h2>
+<p>选择分辨率和时间窗，要从目标事件的量级出发，再回到所用细胞、标记与仪器做校准。完整细胞、去顶膜片和体外膜管的几何、负载不同；下面的量级适合导航，具体数值仍随体系变化。</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>对象/过程</th>
-<th>要保留的空间与时间关系</th>
-<th>常规读出能做到什么？</th>
-<th>需要升级时，升级解决什么？</th>
+<th>对象或过程</th>
+<th>需要保留的信息</th>
+<th>常规读出提供什么</th>
+<th>进一步测量怎样帮助判断</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>受体/接头结合与构象</td>
-<td>分子尺度状态、膜停留与交换</td>
-<td>IP/Western、突变和功能关系，通常不直接看构象</td>
-<td>结构、体外结合或活性传感器区分“有蛋白”与“处于功能状态”</td>
+<td>受体和接头结合、构象</td>
+<td>分子状态、膜驻留和交换</td>
+<td>IP/Western、突变与功能关系</td>
+<td>结构、体外结合或活性传感器进一步测状态</td>
 </tr>
 <tr>
-<td>CME 位点起始和装配</td>
-<td>约百纳米级结构中、秒到分钟的异质事件；短暂失败可能更快</td>
-<td>总体摄取及较慢位点动力学</td>
-<td>TIRF/高帧率追踪可分开起始、增长、失败；单分子校准才支持计数 <a class="citation" href="#ref-C12">[C12]</a></td>
+<td>CME 起始与装配</td>
+<td>百纳米量级结构中，秒到分钟的异质事件，短暂失败可能更快</td>
+<td>总摄取及较慢位点动态</td>
+<td>TIRF/高帧率分开起始、增长和失败；分子计数还要单分子校准 <a class="citation" href="#ref-C12">[C12]</a></td>
 </tr>
 <tr>
 <td>膜弯曲与颈部</td>
-<td>亚衍射几何，不能仅靠强度曲线恢复</td>
-<td>普通共聚焦通常不能确定颈部拓扑</td>
-<td>相关电镜、偏振/轴向方法或超分辨，检验曲率与位置 <a class="citation" href="#ref-S18">[S18]</a></td>
+<td>亚衍射几何及其随时间的变化</td>
+<td>普通共聚焦提供位置和蛋白信号</td>
+<td>相关电镜、偏振、轴向方法或超分辨检验曲率和位置 <a class="citation" href="#ref-S18">[S18]</a></td>
 </tr>
 <tr>
-<td>裂变事件</td>
-<td>内陷与分离的先后，结构与可及性闭合</td>
-<td>可先用表面不可及和内化功能确定事件</td>
-<td>事件触发成像、快速冷冻等帮助定位短暂中间态</td>
+<td>裂变</td>
+<td>内陷到分离的过程，膜的可及性变化</td>
+<td>表面不可及和内化功能作为起点</td>
+<td>事件触发成像、快速冷冻等定位短暂中间态</td>
 </tr>
 <tr>
-<td>内体递送、成熟和回收</td>
-<td>亚微米到微米区室，在分钟尺度及更长时段中融合/裂分</td>
-<td>多时间点共聚焦、流式、受体池追踪</td>
-<td>活细胞多通道与可靠轨迹分析，把分流、成熟与身份更替分开</td>
+<td>内体递送、成熟与回收</td>
+<td>亚微米至微米区室，在分钟及更长时段的融合和裂分</td>
+<td>多时间点共聚焦、流式及受体池追踪</td>
+<td>多通道活细胞与轨迹分析分开货物流向和标记更替</td>
 </tr>
 <tr>
-<td>受体降解与代谢反馈</td>
-<td>运输终点与较长时间合成/转录变化叠加</td>
-<td>总蛋白、表面池、功能输出及时间窗设计</td>
-<td>需要时用脉冲标记或更直接的周转测量分开旧池和新生池</td>
+<td>降解与代谢反馈</td>
+<td>运输与较长时间合成、转录的叠加</td>
+<td>总蛋白、表面池和功能输出</td>
+<td>脉冲标记或周转测量区分旧池与新生池</td>
 </tr>
 <tr>
-<td>膜邻近离子与 pH</td>
-<td>纳米局部区域和体相测量的空间差别</td>
-<td>体相或腔内探针只回答自身定位的环境</td>
-<td>锚定式、距离可控探针及严格校准才能检验邻膜梯度 <a class="citation" href="#ref-PH26">[PH26]</a></td>
+<td>邻膜离子与 pH</td>
+<td>纳米局部空间相对体相的差异</td>
+<td>探针报告其所在位置的环境</td>
+<td>锚定、距离可控的探针及校准检验邻膜梯度 <a class="citation" href="#ref-PH26">[PH26]</a></td>
 </tr>
 </tbody>
 </table></div>
-<h3>8.1 帧率、视野与光毒性是一组真实取舍</h3>
-<p>较快成像提高短事件可见性，但可能减少信噪比、视野或通道数；强光又可扰动细胞。预实验应先确定：目标事件在当前曝光下是否可检出，连续几帧才会被认定事件，移动到焦面外会不会被判为消失。不要只按仪器最高性能选择参数。</p>
-<p>“定位精度很高”也不等于“能分辨两个邻近结构”。漂移、像差、通道配准、探针长度与标记密度会影响真实空间推断。尤其是跨通道的几到几十纳米先后位置关系，不能只看重建软件输出的小数位。</p>
-<h3>8.2 异步群体与单事件轨迹各自牺牲了什么？</h3>
-<p>流式或 Western 可覆盖较多细胞、较稳健地测群体水平，却常把处于不同阶段的细胞混合。单粒子或单内体追踪保留过程，但易产生检测选择与轨迹丢失。较强研究常让两类信息在同一目标上互补，而不是期望一种技术承担所有尺度。</p>
-</section><section class="chapter" id="experimental-decisions"><h2>09 · 实验决策：从常规设备开始，怎样知道下一步该做什么？</h2>
-<p>研究选择首先取决于要区分的解释，而不是哪个方法看起来更先进。下面的路线假定可用共聚焦、流式、Western 和遗传扰动；合作技术只在能解决明确未知时升级。</p>
-<div class="tool" id="decisionTool"><h3>实验选择练习：现在究竟看到了什么？</h3><label for="phenotype">当前观察</label><select id="phenotype"><option value="uptake">胞内受体/配体荧光减少</option><option value="recycle">受体表面恢复或回收似乎改变</option><option value="degrade">总受体量或降解似乎改变</option><option value="shape">包被位点或内体数量/形态改变</option><option value="interact">定位或互作存在，功能却未恢复</option><option value="signal">内化伴随信号变化，来源不清楚</option></select><label for="resourceLevel">讨论层级</label><select id="resourceLevel"><option value="routine">常规设备起步，再决定是否合作升级</option><option value="collaboration">已具备合作条件，明确升级要解决的问题</option></select><div aria-live="polite" class="decision-output" id="decisionOutput"></div><p class="tool-note">这是本资料的条件性研究建议，用于练习问题分解；不是根据一次现象自动判定原因，也不是已经验证的实验结果。</p></div>
-<h3>9.1 第一轮先做对象与读出的闭合</h3>
-<p><strong>第一步，验证研究对象。</strong> 细胞是否表达足够的内源受体？检测的是受体还是配体？标签位置是否影响尾部信号、糖基化、寡聚或胞外结合？比较不同条件前，确认细胞状态和表面起始池。</p>
-<p><strong>第二步，确定观察边界。</strong> 一个未透化染色报告可及表位，透化后总染色报告另一种池；荧光配体报告配体而不必是受体。若“内部”依靠图像分割定义，需要检查膜边缘、z 截面及离焦信号。</p>
-<p><strong>第三步，做短时间系列。</strong> 用预实验选择能观察早期变化和后续去向的时间点，而不是直接把文献中的一个终点当作唯一窗口。若不同条件的起始量差异很大，后续比较必须把分母带进去。</p>
-<p><strong>第四步，才选择机制扰动。</strong> 先问想排除哪种解释，再决定是改变货物尾部、接头、膜环境、骨架还是区室因子。每个扰动都要配合其实际影响范围，不能让一个实验同时承担路线鉴定、机制发现和全部生理功能。</p>
-<h3>9.2 表面结合与内化：为什么“洗过了”还不够？</h3>
-<p>常见思路是先建立可测的表面结合池，再开始内化，随后用酸洗、表面荧光淬灭、可切断标记或其他可及性操作区分内外。选择取决于配体结合性质、标签耐受性、细胞完整性及要追踪的是受体还是货物。</p>
-<p>关键验证是：在以表面信号为主的条件下，外部标记能否被充分移除；已内化信号能否被保留；处理是否让细胞膜通透或改变抗原/探针。低温结合可提供有用对照，但也改变膜与反应动力学，因此不能把它当作完全生理的静态初态。</p>
-<p>可报告的量至少包括：</p>
+<h3>8.1 帧率、视野与光毒性怎样取舍</h3>
+<p>更快成像能捕捉短事件，但可能牺牲信噪比、视野或通道数，强光又会扰动细胞。预实验可以先确认目标在当前曝光下能否检出、连续几帧才认定事件，以及离开焦面时轨迹怎样处理。随后再选择足够的帧率，通常比直接用仪器最高设置更合适。</p>
+<p>空间判断也需要区分定位精度与分辨两个结构的能力。漂移、像差、通道配准、探针长度和标记密度，都影响实际距离。尤其在比较跨通道几到几十纳米的关系时，应把这些误差与重建位置一起考虑。</p>
+<h3>8.2 群体测量与单事件追踪怎样配合</h3>
+<p>流式和 Western 覆盖较多细胞，适合估计群体响应，但其中混合着不同阶段。单粒子或单内体追踪保留过程，又会受到检出选择与轨迹丢失影响。让两种测量围绕同一个问题互补，可以同时保留总体效应和事件过程：群体里是否改变，改变又发生在哪一步。</p>
+</section><section class="chapter" id="experimental-decisions"><h2>09 · 从现有条件出发选择实验</h2>
+<p>共聚焦、流式、Western 和遗传扰动，已经能够回答不少运输问题。安排实验前，先把现象写成几个可比较的解释，再看哪种测量能把它们分开。等问题落到膜颈几何、局部力或分子构象时，再寻求相应合作，会更容易知道升级带来了什么。</p>
+<div class="tool" id="decisionTool"><h3>根据现象选择下一步</h3><label for="phenotype">当前观察</label><select id="phenotype"><option value="uptake">胞内受体/配体荧光减少</option><option value="recycle">回收或表面受体量改变</option><option value="degrade">总受体量或周转改变</option><option value="shape">包被位点或内体数量/形态改变</option><option value="interact">定位或互作存在，功能却未恢复</option><option value="signal">内化伴随信号变化，来源不清楚</option></select><label for="resourceLevel">手边的实验条件</label><select id="resourceLevel"><option value="routine">常规设备起步，再决定是否合作升级</option><option value="collaboration">已具备合作条件，明确升级要解决的问题</option></select><div aria-live="polite" class="decision-output" id="decisionOutput"></div><p class="tool-note">可以对照自己的现象阅读，再结合细胞、受体和处理条件选择具体方法。</p></div>
+<h3>9.1 第一轮先确认什么</h3>
+<p>先看细胞表达多少内源受体，检测对象是受体还是配体。标签放在哪里，有没有影响尾部信号、糖基化、寡聚或胞外结合？这些决定了起始表面池是否可比。</p>
+<p>接着明确“表面”和“内部”在实验里怎样区分。未透化染色测可及表位，透化后测到的池不同；荧光配体直接追踪的是配体。若通过图像分割划出内部，还要查看膜边缘、z 截面和离焦信号怎样处理。</p>
+<p>然后做一个短时间系列，用预实验找到早期变化和后续分离的时间。起始量差异较大时，同时报告起始池及归一化后的结果。到这一步，往往已经能判断问题更靠近入口，还是后续运输，再决定干预货物尾部、接头、骨架或区室因子。</p>
+<h3>9.2 怎样从表面结合量中分出内化</h3>
+<p>常见做法是先建立可测的表面结合池，允许内化后，用酸洗、表面荧光淬灭、可切断标记或其他可及性操作排除外部信号。具体选哪一种，取决于配体结合、标签耐受性、细胞完整性，以及要追踪的对象。</p>
+<p>这一步值得单独验证：以表面信号为主时能移除多少，已内化信号保留多少，处理是否改变膜通透性或抗原、探针。低温结合常用于建立对照，但它也改变膜和反应动力学，因此恢复温度后的起始过程需要在自己的条件中确认。</p>
+<p>记录数据时，可以把几个量放在一起：</p>
 <ul>
-<li><strong>起始表面池 B₀</strong>：实际可结合/可标记的初始量。</li>
-<li><strong>处理后内部池 I(t)</strong>：经已验证的外部信号排除后测得的量。</li>
-<li><strong>内化分数 I(t)/B₀</strong>：在相同标记意义下比较；只有在模型和早期窗口允许时，其初期变化才近似入口速率。</li>
-<li><strong>细胞数、活性和表面积/大小信息</strong>：用于解释表型与合理归一化，不能不加区分地把所有量都除以细胞面积。</li>
+<li>B₀：起始可结合或可标记的表面池。</li>
+<li>I(t)：经过外部信号排除后测得的内部池。</li>
+<li>I(t)/B₀：在标记含义一致时比较内化分数；模型与早期时间窗合适时，初期变化可近似入口速率。</li>
+<li>细胞数、活性和大小或表面积：帮助选择与对象相符的归一化方式。</li>
 </ul>
-<p>如果回收已经显著发生，I(t) 是入口与出口的净结果；即使分母正确，也不能直接称为单向内化速率。</p>
-<h3>9.3 回收：先定义“曾经回来”还是“现在在表面”</h3>
-<p>抗体 feeding、可切断表面生物素和预标记受体再暴露，都可以把内化后的受体池与后续表面出现联系起来。它们的共同逻辑是：<strong>先界定一个已经内化的标记群体，再追踪其中哪些分子重新变得表面可及。</strong></p>
-<p>应分别检查初始内化池、第一次表面清除效率、追踪中的降解与再内化。一次末端第二次剥离的差异，主要报告该时点重新暴露在表面的标记；如果再内化显著，它并不自动等于整个时间段的累计回收量。若用“内部标记消失”推算回收，还必须排除降解、标签脱落和亮度变化。</p>
-<p><strong>[研究建议]</strong> 常规条件可先做表面受体量和预标记池的追踪，再以总标记保留的平行样品检查降解。若发现快速回收和再内化无法分开，升级的目标应是捕获再暴露事件或限制相应干扰，而不是增加几个固定共定位时间点。</p>
-<h3>9.4 降解：总蛋白下降不唯一指向溶酶体</h3>
-<p>总受体量取决于合成、降解、细胞数量、蛋白提取和抗体识别。追踪旧池、观察裂解片段或进行周转测量，与只测一个终点 Western 的信息不同。环己酰亚胺追踪能减少新生蛋白的贡献，却会改变细胞生理，不能被视作无副作用的数学扣除。</p>
-<p>溶酶体抑制条件若恢复总量，可支持降解途径的联系，但其药物也可能改变 pH、运输和信号。更有辨识力的组合，是总量时间系列、货物/受体去向、内化与回收测量，以及独立的分选因子干预。<strong>恢复蛋白量不等于恢复其正常表面功能。</strong></p>
-<h3>9.5 共定位：为什么要选择指标和零假设？</h3>
-<p>Pearson 系数主要描述两通道强度的协变，受背景、动态范围和空间分布影响；阈值型重叠或对象共定位回答的是另外的问题。一个大而拥挤的区室网络，本来就可能与另一标记频繁重叠。应事先定义对象、背景、通道配准、三维范围及何种空间随机化或覆盖率可作为偶然参照。</p>
-<p>高共定位不能证明直接结合，也不能独立证明已经融合或完成货物递送。IP 反映共同富集，邻近标记反映时空范围内的接近，都不自动等于直接分子接触。不同技术的“相互作用”需要各自的操作定义。</p>
-<h3>9.6 标记与遗传扰动：先验证功能，再解释漂亮定位</h3>
-<p>内源标签能降低过表达风险，但仍可能改变功能；N 端、C 端和连接肽位置应结合结构与分选信号选择。对受体尾部尤其要警惕标签遮挡。SNX17 的 N/C 端 GFP 比较提供了实际案例：定位和货物结合都正常，仍可能缺少完整分选功能。<a class="citation" href="#ref-M17">[M17]</a></p>
-<p>一个有解释力的 rescue 通常需要控制表达量、定位和功能，并区分野生型与分离功能突变体。若野生型同时恢复十种环境变量，仅凭表型恢复不能决定哪个变量是真正中介。急性干预更接近即时功能，长期敲除则可能出现适应和补偿；两者差异本身需要解释。</p>
-<h3>9.7 通路鉴定：一种药物为什么不能封口？</h3>
-<p>Pitstop 2 的原始研究显示，它还可影响非网格蛋白内吞，而且相关作用不能简单由 clathrin/AP2 解释。<a class="citation" href="#ref-P12">[P12]</a> 因而“被某 CME 抑制剂抑制”通常只是线索。脂质干预、骨架药物和运输抑制剂也可能同时改变膜环境或多条路径。</p>
-<p><strong>[研究建议]</strong> 在条件允许时组合：一个经过功能验证的遗传扰动、一个可用的恢复/分离功能实验、受体自身的内化读出，以及适当的参照货物。即便如此，也要说明这些证据支持到“主要贡献”“依赖某因子”还是“某一路线特异”。不必在入口尚未确认前穷举所有替代通路。</p>
-<h3>9.8 什么时候升级技术？</h3>
+<p>回收一旦显著，I(t) 就同时包含进入与离开的结果。这时仍可比较内部积累，但估计单向内化速率还需要约束出口。</p>
+<h3>9.3 回收：现在在表面，还是曾经到过表面</h3>
+<p>抗体 feeding、可切断表面生物素和受体再暴露测量，都从一群已经内化的标记受体开始，观察其中多少重新变得表面可及。这个起点很重要：它让后续变化能够对应同一群体。</p>
+<p>实验中要确认初始内化池和第一次表面清除效率，并追踪标记的总保留。末端第二次剥离主要测该时点位于表面的标记；已经回到表面又再次内化的部分，可能被漏掉。因此，“当前表面量”和“累计回收量”需要不同的捕获或分析设计。由内部标记消失估计回收时，还要了解降解、标签脱落及亮度的贡献。</p>
+<p>常规条件下，可以先做表面受体量与预标记池追踪，并设置平行样品检查总标记保留。若快回收与再内化已经限制解释，再考虑捕获再暴露事件或约束再内化的方法。此时增加固定共定位时间点，主要补充的是位置。</p>
+<h3>9.4 总蛋白、旧池周转与降解</h3>
+<p>总受体量由合成和降解共同决定，还受细胞数、提取及抗体识别影响。追踪旧池、查看裂解片段或测周转，可以更直接研究消失的过程。环己酰亚胺减少新生蛋白贡献的同时，也会改变细胞生理，需要把处理时长和细胞状态一起记录。</p>
+<p>溶酶体抑制条件恢复总量，有助于建立与该途径的联系。不过药物同时可能改变 pH、运输及信号。总量时间系列、货物去向、内化与回收，以及独立的分选因子干预，可以从不同位置约束解释。若关心功能恢复，还要看被保留下来的受体能否回到表面并正常工作。</p>
+<h3>9.5 怎样解释共定位与互作</h3>
+<p>Pearson 系数描述两通道强度怎样协变，背景、动态范围和空间分布都会影响它。阈值重叠和对象共定位回答的问题又不同。密集而较大的区室网络，本来就更容易与另一通道重叠，所以分析前应选好对象、背景、配准和三维范围，并考虑用空间随机化或覆盖率估计偶然接近。</p>
+<p>不同方法里的“互作”也有不同含义：共定位提供位置，IP 提供共同富集，邻近标记记录一定时空范围内的接近。要进一步讨论直接结合、融合或货物递送，就选择与该事件对应的证据。理解每种读出实际保留的关系，比简单累计方法种类更有用。</p>
+<h3>9.6 标签、扰动与恢复实验</h3>
+<p>内源标签能减少过表达的影响，功能验证仍有必要。N 端、C 端及连接肽的选择，应结合结构与分选信号，尤其要查看受体尾部是否仍可接近。SNX17 的 N/C 端 GFP 案例说明，即使定位和货物结合正常，完整回收功能仍可能不同。<a class="citation" href="#ref-M17">[M17]</a></p>
+<p>做 rescue 时，表达、定位及功能要一起比较；分离功能突变体则帮助进一步定位作用。野生型恢复了整体表型以后，若还想解释具体中介，需要继续拆开同时恢复的变量。急性干预偏向即时作用，长期敲除可能加入适应与补偿，两者的差异也可以成为研究线索。</p>
+<h3>9.7 通路归属怎样逐步建立</h3>
+<p>Pitstop 2 的原始研究发现，它还影响非网格蛋白内吞，相关作用也难以简单归因于 clathrin/AP2。<a class="citation" href="#ref-P12">[P12]</a> 因此，药物响应适合帮助选择候选机制。脂质、骨架和其他运输药物同样可能影响多处过程，解释时要结合它们在所用细胞中的实际作用。</p>
+<p>可以从经过功能验证的遗传扰动、恢复或分离功能实验、受体自身内化及参照货物之间寻找一致关系。这些证据有时支持某因子参与，有时支持主要贡献，达到路线特异性还需要更强的选择性。研究顺序可从已经确认的入口问题向外推进，逐步缩小候选。</p>
+<h3>9.8 什么时候值得合作升级</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th>未解决的知识问题</th>
-<th>常规起步及其限度</th>
-<th>值得合作升级的条件</th>
+<th>还想知道什么</th>
+<th>常规测量的起点</th>
+<th>合作方法补充什么</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>真正内化还是表面残留？</td>
-<td>流式/共聚焦加表面可及性验证</td>
-<td>需要解析单事件或膜颈部闭合时，考虑 TIRF、事件报告或电镜</td>
+<td>货物真实内化，还是表面残留</td>
+<td>流式或共聚焦加表面可及性验证</td>
+<td>TIRF、事件报告或电镜进一步解析单事件和颈部闭合</td>
 </tr>
 <tr>
-<td>位点少了，还是失败多了？</td>
-<td>总摄取不能区分二者</td>
-<td>高时间分辨成像、功能标记与事件筛选，能改变机制判断时</td>
+<td>位点起始减少，还是失败增加</td>
+<td>总摄取建立整体效应</td>
+<td>高时间分辨率追踪保留增长、失败和成熟过程</td>
 </tr>
 <tr>
-<td>是否改变膜曲率？</td>
-<td>蛋白斑点形状通常不足</td>
-<td>相关电镜、偏振/轴向读出或有适当校准的超分辨</td>
+<td>膜曲率怎样变化</td>
+<td>蛋白信号及位置</td>
+<td>相关电镜、偏振、轴向或经校准的超分辨测量几何</td>
 </tr>
 <tr>
-<td>是否直接提供机械力？</td>
-<td>actin 招募和药物依赖仅是部分证据</td>
-<td>负载操控、力学读出或约束充分的重构能区分机械与调控解释时</td>
+<td>某因子是否直接提供力</td>
+<td>actin 招募和功能依赖</td>
+<td>负载操控、力学读出或重构区分机械与调控作用</td>
 </tr>
 <tr>
-<td>是否进入 ILV？</td>
-<td>普通共定位通常无法解剖同一内体内部膜层</td>
-<td>这一拓扑决定信号或降解结论时，免疫电镜/断层成像具有明确价值</td>
+<td>受体是否进入 ILV</td>
+<td>共定位、命运及遗传证据</td>
+<td>免疫电镜或断层成像区分内体内部膜层</td>
 </tr>
 <tr>
-<td>新接头通过谁发挥作用？</td>
-<td>IP/定位提示候选关联</td>
-<td>蛋白组学或结构合作能与功能 rescue、特异扰动闭合时</td>
+<td>新接头通过哪个伙伴工作</td>
+<td>IP、定位及候选运输表型</td>
+<td>蛋白组或结构缩小候选与界面，再接回功能验证</td>
 </tr>
 <tr>
-<td>信号究竟从哪里产生？</td>
-<td>总 pERK/pAKT/cAMP 缺乏充分空间来源信息</td>
-<td>局部活性/构象传感器及分区操控能区分候选来源时</td>
+<td>信号从哪个位置产生</td>
+<td>受体池与信号时间系列</td>
+<td>局部活性或构象传感器、分区操控提供来源信息</td>
 </tr>
 </tbody>
 </table></div>
@@ -664,237 +661,234 @@
 <div class="figure-heading"><span class="figure-number">图 P17</span><div><h4>先校准弯曲读出，再解释动态曲线</h4><span class="evidence-type">原始研究 · 偏振 TIRF / TEM / AFM</span></div></div>
 <button aria-label="放大：先校准弯曲读出，再解释动态曲线" class="zoom-trigger" type="button"><img alt="Brandon L. Scott et al.，2018，Figure 2：先校准弯曲读出，再解释动态曲线" decoding="async" height="1148" loading="lazy" src="figures/P17-coat-calibration.jpg" width="1200"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">a–c：偏振原理与模拟；d–h：相关电镜、AFM 与 P/S 信号的校准。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>曲率代理读出需与独立形态测量对照。</p><p class="limit"><b>读图边界</b>本图主要验证方法；装配时序的直接证据见同文 Fig. 3。</p></div>
+<figcaption class="paper-caption">a 至 c 介绍偏振原理和模拟，d 至 h 将相关电镜、AFM 形态与 P/S 信号对应起来。</figcaption>
+<div class="figure-reading"><p>P/S 作为曲率代理量，先经过独立形态测量的校准，后续动态曲线才有了可解释的几何含义。</p><p class="limit">这里主要检验测量方法，装配与弯曲时序的直接数据在同文 Figure 3。</p></div>
 <div class="paper-source">Brandon L. Scott et al. · Nature Communications (2018) · 原文 Figure 2<br/><span class="source-title">Membrane bending occurs at all stages of clathrin-coat assembly and defines endocytic dynamics</span><br/><a href="https://doi.org/10.1038/s41467-018-02818-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-02818-8</a> · <a href="https://www.nature.com/articles/s41467-018-02818-8" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>上图说明“先校准曲率代理读出”的必要性。它本身并不是一项张力—actin 干预实验。把方法验证图与对应动态或因果实验分开，正是科研阅读中需要养成的习惯。</p>
-</section><section class="chapter" id="flux-model"><h2>10 · 从终点量到通量：一个可以动手改变的模型</h2>
-<h3>10.1 为什么看相同终点，仍可能发生不同的事？</h3>
-<p>设 S 是预标记且位于表面的受体池，E 是可回收的内部池，L 是已进入后续降解路线的池，D 是已从可检测完整受体池中移除的量。一个教学模型为：</p>
+<p>这幅方法图把曲率代理读出与独立形态测量相比较。先建立这种对应，后续动态曲线才容易解释；张力和 actin 的因果关系则要回到相应干预实验。</p>
+</section><section class="chapter" id="flux-model"><h2>10 · 用一个模型比较量、通量和荧光</h2>
+<h3>10.1 相同终点可以怎样产生</h3>
+<p>设 S 是预标记的表面受体池，E 是可回收内部池，L 是进入后续降解路线的池，D 是从可检测完整受体池中移除的量。一个教学模型为：</p>
 <div class="equation">dS/dt = −k<sub>in</sub>S + k<sub>rec</sub>E<br/>dE/dt = k<sub>in</sub>S − (k<sub>rec</sub>+k<sub>sort</sub>)E<br/>dL/dt = k<sub>sort</sub>E − k<sub>deg</sub>L<br/>dD/dt = k<sub>deg</sub>L</div>
-<p>在该模型内，S+E+L+D 保持初始总量；它忽略新生、脱落、不同内体群体和多次路径分支。真实荧光还可能是 q<sub>E</sub>(pH)E + q<sub>L</sub>(pH)L 加背景，q 不一定恒定。模型只用于检查解释是否可识别，不能直接替代真实动力学拟合。</p>
-<div class="tool" id="fluxTool"><h3>教学模型 M1：量、通量和亮度怎样分开？</h3><p class="tool-note">全部曲线均由假设模型合成，未拟合论文或实验数据；参数不是任何特定细胞的实测速率。q 只演示测量响应，不等同真实 pH 校准。</p><div class="model-controls"><label for="kin"><span class="control-caption">入口 k_in（min⁻¹）<output id="kinValue"></output></span><input id="kin" max="0.5" min="0" step="0.01" type="range" value="0.12"/></label><label for="krec"><span class="control-caption">回收 k_rec（min⁻¹）<output id="krecValue"></output></span><input id="krec" max="0.5" min="0" step="0.01" type="range" value="0.08"/></label><label for="ksort"><span class="control-caption">分流 k_sort（min⁻¹）<output id="ksortValue"></output></span><input id="ksort" max="0.3" min="0" step="0.01" type="range" value="0.04"/></label><label for="kdeg"><span class="control-caption">移除 k_deg（min⁻¹）<output id="kdegValue"></output></span><input id="kdeg" max="0.3" min="0" step="0.01" type="range" value="0.03"/></label><label for="brightness"><span class="control-caption">L 中探针亮度系数 q（无量纲）<output id="brightnessValue"></output></span><input id="brightness" max="1" min="0" step="0.01" type="range" value="1"/></label></div><div class="model-presets"><button data-model-preset="baseline" type="button">基线</button><button data-model-preset="lowentry" type="button">入口减慢</button><button data-model-preset="fastrecycle" type="button">回收加快</button><button data-model-preset="dim" type="button">只改变 L 亮度</button></div><svg aria-label="合成教学模型：受体表面池、内部池、表观荧光和移除量随时间变化" class="model-chart" id="modelChart" role="img" viewbox="0 0 760 300"></svg><div class="model-legend"><span style="--c:#718496">表面 S</span><span style="--c:#246c9b">内部 E+L</span><span style="--c:#8a55a2">表观荧光 E+qL</span><span style="--c:#ae7044">移除 D</span></div><div class="model-values"><div>30 分钟表观荧光<b id="modelFluorescence"></b></div><div>内部完整受体 E+L<b id="modelInternal"></b></div><div>累计入口通量<b id="modelEntered"></b></div><div>S+E+L+D 守恒检查<b id="modelMass"></b></div></div><p class="small">累计入口可超过初始的 100，因为同一标记受体可以回收后再次进入。模型中的 D 指完整受体池移除，不保证现实荧光随之立即消失。</p></div>
-<h3>10.2 怎样用模型决定补哪种数据？</h3>
-<p>若只测一个终点 E+L，多组入口、回收与降解参数都可能给出相近结果。增加更多同一终点的技术重复会降低噪声，却不一定解决结构性的不可识别。表面池时间系列、对初始内化池的追踪，以及区分 E/L 或探针亮度的独立信息，才可能打破这种等价。</p>
-<p><strong>[研究建议]</strong> 真正拟合前先固定参数的物理含义、单位、测量模型与观测时间窗，再检查参数是否能被数据区分。若只能稳定估计一个有效组合，就诚实报告组合，而不是给每个速率一个貌似精确的值。任何拟合都应保留不支持模型的系统残差和替代模型。</p>
-</section><section class="chapter" id="statistics"><h2>11 · 统计与图像分析：哪些习惯会把现象变成假机制？</h2>
-<h3>11.1 事件数多，不等于独立样本多</h3>
-<p>同一细胞的数百内吞位点共享表达、细胞周期、培养和成像环境。独立培养/实验批次、细胞和位点是不同层级。应保存这些标识，使用与问题匹配的层级分析或按独立实验汇总，不能把全部斑点当作完全独立的生物重复。</p>
-<h3>11.2 寿命分布需要考虑看不见的开头和结尾</h3>
-<p>在录像开始前已出现、结束后仍存在的位点存在截断或删失；只分析完整出现又消失的轨迹会系统漏掉长事件。还要记录最短检出帧数、跨帧连接距离、合并/分裂规则及失败事件定义。均值变化可能来自混合群体比例变化，而不一定是每个事件都变慢。</p>
-<h3>11.3 分割结果不能替代结构本身</h3>
-<p>内体变大时，多个相邻小结构可能被合并为一个；药物改变形态又会改变阈值下的面积。应检验不同合理分割参数、查看原始图并在条件允许时保持盲法。必要时报告对参数敏感的部分；不要只保留最符合机制图的一组参数。</p>
-<h3>11.4 效应量、分布和阴性结果怎样进入判断？</h3>
-<p>除显著性外，报告效应大小、可见异质性和不确定性。阴性结果可能意味着机制没有贡献，也可能是敲低不足、补偿、窗口不合适或测量不敏感。事先设置操控有效性与阳性读出，才使“没有变化”有信息量。相反，统计显著的轻微变化也未必足以解释主要生理表型。</p>
-</section><section class="chapter" id="fusion-context"><h2>12 · 融合与胞吐作为背景：怎样迁移证据，而不迁移过头？</h2>
-<p>在重构膜中，脂质染料交换可以区分停靠与脂质混合相关事件，但不是水溶性内容物释放的直接测量。在分泌细胞中，pH 敏感标记变亮可以报告腔环境暴露，却不自动给出初始纳米孔结构或证明完全塌陷。两类实验的共同经验是：<strong>一个代理读出要通过额外验证，才能被赋予具体事件的名称。</strong></p>
+<p>模型中 S+E+L+D 保持初始总量，暂时省略新生、脱落、不同内体群体和更多分支。实际荧光还受到测量响应影响，可以写成 q<sub>E</sub>(pH)E + q<sub>L</sub>(pH)L 加背景，q 也可能随条件变化。</p>
+<p>试着分别改变入口、回收和亮度，会看到相近终点怎样对应不同过程。这里的曲线是按假设生成的教学数据，用来了解解释的可识别性；真实动力学拟合需要另行建立与实验相符的模型。</p>
+<div class="tool" id="fluxTool"><h3>教学模型 M1：量、通量和亮度怎样分开？</h3><p class="tool-note">曲线按下述假设计算，用于教学，未拟合实验数据。q 表示亮度响应，真实 pH 测量需独立校准。</p><div class="model-controls"><label for="kin"><span class="control-caption">入口 k_in（min⁻¹）<output id="kinValue"></output></span><input id="kin" max="0.5" min="0" step="0.01" type="range" value="0.12"/></label><label for="krec"><span class="control-caption">回收 k_rec（min⁻¹）<output id="krecValue"></output></span><input id="krec" max="0.5" min="0" step="0.01" type="range" value="0.08"/></label><label for="ksort"><span class="control-caption">分流 k_sort（min⁻¹）<output id="ksortValue"></output></span><input id="ksort" max="0.3" min="0" step="0.01" type="range" value="0.04"/></label><label for="kdeg"><span class="control-caption">移除 k_deg（min⁻¹）<output id="kdegValue"></output></span><input id="kdeg" max="0.3" min="0" step="0.01" type="range" value="0.03"/></label><label for="brightness"><span class="control-caption">L 中探针亮度系数 q（无量纲）<output id="brightnessValue"></output></span><input id="brightness" max="1" min="0" step="0.01" type="range" value="1"/></label></div><div class="model-presets"><button data-model-preset="baseline" type="button">基线</button><button data-model-preset="lowentry" type="button">入口减慢</button><button data-model-preset="fastrecycle" type="button">回收加快</button><button data-model-preset="dim" type="button">只改变 L 亮度</button></div><svg aria-label="合成教学模型：受体表面池、内部池、表观荧光和移除量随时间变化" class="model-chart" id="modelChart" role="img" viewbox="0 0 760 300"></svg><div class="model-legend"><span style="--c:#718496">表面 S</span><span style="--c:#246c9b">内部 E+L</span><span style="--c:#8a55a2">表观荧光 E+qL</span><span style="--c:#ae7044">移除 D</span></div><div class="model-values"><div>30 分钟表观荧光<b id="modelFluorescence"></b></div><div>内部完整受体 E+L<b id="modelInternal"></b></div><div>累计入口通量<b id="modelEntered"></b></div><div>S+E+L+D 守恒检查<b id="modelMass"></b></div></div><p class="small">累计入口可超过初始的 100，因为同一标记受体可以回收后再次进入。D 统计完整受体池的移除；实际标记在受体降解后仍可能继续发光。</p></div>
+<h3>10.2 模型怎样帮助选择下一种数据</h3>
+<p>只测一个 E+L 终点，多组速率都可能给出相近值，这就是参数不可识别的一种情形。更多同一终点的技术重复可以降低噪声，分开这些速率则需要不同信息，例如表面池时间系列、同一内化群体的追踪，或区分 E/L 与探针亮度的测量。</p>
+<p>拟合前，先确定速率的物理含义、单位、测量模型和时间窗，再检查数据实际能约束哪些参数。有时能够稳定估计的是一个速率组合，报告这个组合会比强行拆成多个值更清楚。系统残差和替代模型也应保留，它们可能提示遗漏了一个运输状态。</p>
+</section><section class="chapter" id="statistics"><h2>11 · 统计与图像分析中的几个实际选择</h2>
+<h3>11.1 实验、细胞与事件三个层级</h3>
+<p>同一细胞的数百个位点共享表达、周期、培养和成像环境。保存独立实验批次、细胞及位点的标识，后续才能按独立实验汇总，或进行与问题相符的层级分析。位点数增加提高了对该细胞内事件的了解，生物重复仍要看独立实验层。</p>
+<h3>11.2 怎样处理录像边界</h3>
+<p>录像开始前已经存在、结束后仍未离开的位点，带有截断或删失信息。只选完整出现又消失的轨迹，会系统漏掉长事件。分析规则还应写明最短检出帧数、连接距离、合并与裂分处理，以及失败事件定义。寿命均值改变时，可以进一步查看分布：是各类事件都变慢，还是混合群体的比例变了？</p>
+<h3>11.3 分割参数怎样影响形态结论</h3>
+<p>相邻小内体可能被分成一个大结构，处理造成的形态和亮度变化又会改变阈值下的面积。比较几组合理参数，回看原始图像并尽量保持盲法，有助于了解哪些结果稳定、哪些依赖分析选择。参数敏感的部分也应随结论记录，方便后续判断。</p>
+<h3>11.4 效应大小与阴性结果</h3>
+<p>显著性之外，还要看效应大小、异质性和不确定性。没有变化时，操控是否充分、是否存在补偿、窗口和灵敏度是否合适，都影响结论。提前设置操控有效性与阳性读出，会让这类结果更容易解释。同样，一个统计显著的微小变化，也要与它试图解释的生理效应比较量级。</p>
+</section><section class="chapter" id="fusion-context"><h2>12 · 从融合与胞吐研究借鉴读出设计</h2>
+<p>在重构膜中，双通道脂质荧光可帮助区分停靠和脂质混合，水相内容物释放需要相应读出。在分泌细胞中，pH 敏感标记变亮报告腔环境暴露，孔的几何和后续命运则依靠结构与动态信息。两类实验都在处理同一个问题：怎样把探针变化对应到具体膜事件。</p>
 <figure class="paper-figure" data-article="https://www.nature.com/articles/srep12006" id="paper-FUSION-SCHWENEN-3">
 <div class="figure-heading"><span class="figure-number">图 P02</span><div><h4>双通道单囊泡融合：把显微图像与脂质荧光轨迹对应起来</h4><span class="evidence-type">原始研究：体外重构、双通道共聚焦时间序列</span></div></div>
 <button aria-label="放大：双通道单囊泡融合：把显微图像与脂质荧光轨迹对应起来" class="zoom-trigger" type="button"><img alt="Lando L. G. Schwenen, Raphael Hubrich, Dragomir Milovanovic et al.，2015，Figure 3：双通道单囊泡融合：把显微图像与脂质荧光轨迹对应起来" decoding="async" height="1544" loading="lazy" src="figures/P02-fusion-schwenen-3.jpg" width="1575"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">A：上排绿色为孔跨膜中的 Oregon Green DHPE，下排红色为含 synaptobrevin 2 囊泡中的 Texas Red DHPE；a–f 对应同一事件的不同时间点，比例尺 5 μm。B 是作者据荧光变化提出的状态模型，并非直接看到的纳米结构。C 将绿色/红色信号随时间变化与 A 的图像配对，区分停靠、脂质混合相关中间状态与最终信号消散。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>相对于单张图像，双通道时间序列能把“已靠近膜”和“发生脂质交换”分开，帮助理解融合研究如何构建证据链。</p><p class="limit"><b>读图边界</b>这是 SNARE 蛋白重构的人工膜体系；脂质荧光、FRET 与扩散共同影响读出。本图不是水溶性内容物释放的直接测量，也不是纳米级半融合结构的直接成像。</p></div>
+<figcaption class="paper-caption">A：上排绿色来自孔跨膜中的 Oregon Green DHPE，下排红色来自含 synaptobrevin 2 囊泡的 Texas Red DHPE；a 至 f 为同一事件的时间点，比例尺 5 μm。B 是作者按荧光变化提出的状态模型。C 将两通道强度与 A 配对，用于区分停靠、脂质混合相关中间态和最终信号消散。B 中的纳米结构是解释模型。</figcaption>
+<div class="figure-reading"><p>囊泡靠近膜与发生脂质交换，在两通道中的表现不同。将图像和轨迹配对，就能逐步给这些变化赋予事件含义。</p><p class="limit">实验采用 SNARE 重构的人工膜，读出受脂质荧光、FRET 和扩散共同影响。水相内容物释放、纳米级半融合结构，需要另外的测量来确认。</p></div>
 <div class="paper-source">Lando L. G. Schwenen, Raphael Hubrich, Dragomir Milovanovic et al. · Scientific Reports (2015) · 原文 Figure 3<br/><span class="source-title">Resolving single membrane fusion events on planar pore-spanning membranes</span><br/><a href="https://doi.org/10.1038/srep12006" rel="noopener" target="_blank">DOI: 10.1038/srep12006</a> · <a href="https://www.nature.com/articles/srep12006" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
 <figure class="paper-figure" data-article="https://www.nature.com/articles/s41467-021-21666-7" id="paper-EXO-LIU-6">
 <div class="figure-heading"><span class="figure-number">图 P03</span><div><h4>活细胞胞吐：双标记荧光突增与超分辨融合孔环状结构</h4><span class="evidence-type">原始研究：INS-1 活细胞、TIRF 与 Hessian-SIM</span></div></div>
 <button aria-label="放大：活细胞胞吐：双标记荧光突增与超分辨融合孔环状结构" class="zoom-trigger" type="button"><img alt="Anyuan Liu, Xiaoshuai Huang, Wenting He et al.，2021，Figure 6：活细胞胞吐：双标记荧光突增与超分辨融合孔环状结构" decoding="async" height="1115" loading="lazy" src="figures/P03-exo-liu-6.png" width="1999"/></button>
 <span class="image-hint">点击放大 · 可切换原始尺寸 · 离线可用</span>
-<figcaption class="paper-caption">a–c：INS-1 细胞中 VAMP2-SEP（绿色）与 Syp-pHmScarlet（品红）双标记同一融合事件，显微时间序列与强度曲线显示同步突增；a 比例尺 5 μm，b 比例尺 0.5 μm。d–f：VAMP2-pHmScarlet 标记的另一事件，宽场 TIRF 与 Hessian-SIM 对照；e 的超分辨时间序列可分辨瞬时环状信号，f 为相应强度变化。</figcaption>
-<div class="figure-reading"><p><b>这张图帮助建立什么</b>融合孔开放使酸性囊泡腔与胞外环境连通，pH 敏感标记因去淬灭变亮；分辨率提高后，同一类胞吐事件可以从“亮点”进一步辨认为具有空间结构的融合中间状态。</p><p class="limit"><b>读图边界</b>环状结构是经 SIM 重建后可分辨的较大孔形态，不能据此看见所有初始纳米孔。荧光随后衰减还会受膜蛋白扩散、重新酸化和成像条件影响，不能单独判定完全塌陷或 kiss-and-run；INS-1 的观察也不能无条件推广到所有分泌细胞。</p></div>
+<figcaption class="paper-caption">a 至 c：INS-1 细胞用 VAMP2-SEP（绿色）与 Syp-pHmScarlet（品红）标记同一融合事件，两通道图像和曲线同步突增；a 比例尺 5 μm，b 为 0.5 μm。d 至 f：另一事件以 VAMP2-pHmScarlet 标记，比较宽场 TIRF 和 Hessian-SIM；e 可辨认瞬时环状信号，f 给出对应强度。</figcaption>
+<div class="figure-reading"><p>融合孔开放以后，酸性囊泡腔接触胞外环境，pH 敏感标记去淬灭而变亮。SIM 进一步显示了亮点内部可分辨的环状结构。</p><p class="limit">这里解析到的是较大孔形态，初始纳米孔仍可能低于分辨能力。后续衰减同时涉及膜蛋白扩散、重新酸化与成像条件，判断完全塌陷或 kiss-and-run 还要结合其他证据。迁移到其他分泌细胞时，也需确认相应条件。</p></div>
 <div class="paper-source">Anyuan Liu, Xiaoshuai Huang, Wenting He et al. · Nature Communications (2021) · 原文 Figure 6<br/><span class="source-title">pHmScarlet is a pH-sensitive red fluorescent protein to monitor exocytosis docking and fusion steps</span><br/><a href="https://doi.org/10.1038/s41467-021-21666-7" rel="noopener" target="_blank">DOI: 10.1038/s41467-021-21666-7</a> · <a href="https://www.nature.com/articles/s41467-021-21666-7" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div>
 </figure>
-<p>胞吐增加的膜面积与胞吞回收并非每次原位、一对一、即时抵消。研究膜稳态时，需要根据时间和空间范围界定系统；研究单个受体时，也不应把整体膜面积平衡直接当作该受体循环的机制。</p>
-</section><section class="chapter" id="research-cases"><h2>13 · 把论文读成可以迁移的研究经验</h2>
-<p>以下案例按公开论证组织。每例优先恢复作者真正建立的关系，然后讨论它为什么有辨识力，以及把它迁移到自己课题时还要补什么。完整图注与方法应从所列原文查阅；本轮定向核查范围列于文献表，未将摘要定位标成完整精读。</p>
-<h3 id="case-ap2">案例 A · AP2：怎样证明“到了膜上”还不够？</h3>
-<p><strong>研究问题。</strong> 为什么 AP2 可以把胞质中的网格蛋白装配限制在适当膜上？如果只说 AP2 是接头，并未解释为什么它不在错误位置随意装配。</p>
-<p><strong>[研究报告]</strong> Kelly 等比较完整 AP2、可用结合区段及不同膜锚定条件，结合结构与解除抑制突变，连接了被遮蔽的网格蛋白结合区域和膜激活。脂质体实验还检验了含脂质/货物条件下的出芽能力。<a class="citation" href="#ref-K14">[K14]</a></p>
-<p><strong>[论证重建：为什么这样选？]</strong> 人工定位对照把“有没有接触膜”从“是否处于能有效招募的状态”中拆开；结构提出障碍在哪里，解除障碍的突变检验这个障碍是否与功能相关。它们比单独一张定位图更接近机制。重构减少未知组分，却也删去了真实皮层和膜约束。</p>
+<p>讨论膜稳态时，还要选定系统的时间与空间范围。一次胞吐增加的面积，可以在其他位置或稍后通过胞吞补回；单个受体又有自己的识别和分选规则。整体膜面积收支与特定受体循环因而需要各自的测量，再讨论它们怎样耦合。</p>
+</section><section class="chapter" id="research-cases"><h2>13 · 从七个案例学习怎样推进研究</h2>
+<p>读论文时，可以先停在研究者当时面对的问题上：已经看到了什么，还有哪几种解释，下一项操作为什么有用。这里沿公开论文的结果和方法重建这些关系，再讨论怎样借鉴到自己的课题。具体图注、构建体和处理条件可以从文献入口继续查阅，核读范围列在文献记录中。</p>
+<h3 id="case-ap2">案例 A · AP2：膜定位以后，功能怎样开启</h3>
+<p>AP2 把胞质中的网格蛋白装配限制在适当膜上，这件事需要某种控制。仅知道两者能够结合，还解释不了装配为什么在这里开始。</p>
+<p>Kelly 等比较完整 AP2、可用结合区段和不同膜锚定条件，再结合结构及解除抑制突变，研究被遮蔽的网格蛋白结合区域怎样开放。含相应脂质和货物的脂质体，还让他们检验了膜上出芽能力。<a class="citation" href="#ref-K14">[K14]</a></p>
+<p>人工定位对照在这里很有用：先让 AP2 接触膜，再看它是否有效招募网格蛋白，就能把位置和状态分开。结构给出可能的抑制位置，突变则进一步检验解除这个限制会发生什么。两种证据相互衔接，使构象解释能够接到功能上。重构中减少了未知组分，也移除了完整皮层与膜负载；细胞里哪种条件主导，仍要带回相应环境研究。</p>
 <details class="deep">
-<summary>迁移到自己的课题：结合/定位正常，但功能没有恢复</summary>
-<p>可以依次考虑活性状态、构象、膜驻留、下游结合和力学耦合，而不是立即断言该蛋白与功能无关。选择一个尽量保留整体折叠的分离功能突变体，并确认表达与定位；若突变体完全不稳定，就难以把效应归到某个界面。</p>
-<p>若资源只有共聚焦、IP 和功能测量，先建立“定位/结合与输出分离”的现象即可；结构合作要解决的是具体界面或构象，而不是替代先行功能验证。能够在体外形成包被芽，也不能被称作已经证明完整活细胞裂变的充分条件。</p>
+<summary>自己的蛋白定位正常，功能却没有恢复，可以怎样查？</summary>
+<p>可以沿着定位之后的步骤继续看：活性状态、构象、膜驻留、下游结合或力学耦合。选择分离功能突变体时，尽量保留整体折叠，并确认表达与定位。一个已经不稳定的突变体，很难用来单独解释某个界面的作用。</p>
+<p>只有共聚焦、IP 和功能测量，也能先建立“部分性质保留，输出却丢失”的现象。若后续问题落到具体界面或构象，再引入结构合作。体外包被芽提供的是出芽能力，完整细胞裂变还需要沿后续步骤检验。</p>
 </details>
-<h3 id="case-initiation">案例 B · 起始的最初几秒：为什么校准能改变生物学问题？</h3>
-<p><strong>研究问题。</strong> 一个稳定膜窝出现前，最初来了多少组分、如何到达，失败发生在哪里？普通亮点图很难回答，因为最早信号可能接近检测阈值。</p>
-<p><strong>[研究报告]</strong> Cocucci 等用高灵敏 TIRF、单分子 EGFP 强度及线性关系校准，分析初始组分；并用 FCHO 相关干预区分起始和持续增长。<a class="citation" href="#ref-C12">[C12]</a></p>
-<p><strong>[论证重建：为什么这样选？]</strong> 作者的关键能力是把“亮度”连接到可比较的分子量级，同时让短暂事件可见。若探针替代比例和单分子亮度未知，相似轨迹可能对应不同分子数。只用成熟结构作分母，还会把早期失败从问题中删除。</p>
-<p><strong>[可迁移做法]</strong> 如果课题是因子是否影响开始或完成，应保存失败事件及检出阈值；若只能测总摄取，就把结论限定为运输输出变化。不要从“有更多可见点”直接推出更高起始率。这里值得模仿的是测量校准服务具体问题，而不是每个课题都必须做单分子成像。</p>
-<h3 id="case-actin">案例 C · actin：为什么看似相反的结果可以被条件连接？</h3>
-<p><strong>研究问题。</strong> 为什么一些细胞或膜面在 actin 受扰后仍能完成 CME，另一些却停滞？把研究分成“actin 必需/不必需”两队，可能混合了不同负载条件。</p>
-<p><strong>[研究报告]</strong> Boulant 等比较极化细胞膜面，再使用低渗与机械拉伸改变约束，结合成像、形态与 actin 干预检验这种依赖性。<a class="citation" href="#ref-B11">[B11]</a> Scott、Bucher 与后续结构工作则从不同几何和样品条件补充包被变形信息。<a class="citation" href="#ref-S18">[S18]</a><a class="citation" href="#ref-BU18">[BU18]</a><a class="citation" href="#ref-D21">[D21]</a></p>
-<p><strong>[论证重建：为什么不只加一张药物图？]</strong> 第二种机械扰动使“低渗特有的化学效应”不再是唯一解释；膜面比较又提供原有差异。但这些操作仍不等价于只改变一个纯张力参数，actin 干预也反过来改变约束。支持的是有条件的机械贡献，不是任意 actin 变化都能用张力解释。</p>
-<p><strong>[可迁移做法]</strong> 在自己的细胞中，先确认基线内化、细胞形态和阶段表型；再选择能产生独立信息的负载或耦合干预。若始终只测总受体量，新增昂贵的 actin 超分辨图也未必能决定瓶颈在哪一步。</p>
-<h3 id="case-egfr">案例 D · EGFR：怎样从剂量曲线走向机制？</h3>
-<p><strong>研究问题。</strong> 为什么受体磷酸化和泛素化随配体变化的方式不同，这种差异如何与内化命运相连？一个相关的剂量阈值，还不能说明是谁产生了阈值。</p>
-<p><strong>[研究报告]</strong> Sigismund 等比较磷酸化、泛素化及 Cbl/Grb2 相关关系，并在缺少相关位点的受体背景中逐步补回候选位点，同时控制表达和激酶相关功能，检验泛素化与非网格蛋白摄取的联系。<a class="citation" href="#ref-E13">[E13]</a> 后续定量工作把受体丰度纳入阈值分析。<a class="citation" href="#ref-E15">[E15]</a></p>
-<p><strong>[论证重建：为什么用 add-back？]</strong> 单独删除一个位点后，其他相互作用仍可能代偿；从较少功能的背景补回，有助于检验特定组合在该背景下是否足够。代价是构建体更远离天然网络，因此表达、整体功能和其他异常必须检查。数据支持的充分性总是带背景的充分性。</p>
+<h3 id="case-initiation">案例 B · 最初几秒：怎样看见少量分子和失败事件</h3>
+<p>稳定膜窝出现以前，最初来了多少组分，怎样到达，又在哪里失败？这段过程信号接近检测阈值，普通亮点图很容易只留下后来长大的结构。</p>
+<p>Cocucci 等用高灵敏 TIRF 追踪最初的装配，采用单分子 EGFP 强度与线性关系校准，并通过 FCHO 相关干预区分起始和持续增长。<a class="citation" href="#ref-C12">[C12]</a> 校准使亮度可以对应到可比较的分子量级；较好的时间采样，则让短暂事件进入了统计。</p>
+<p>这两步改变了能问的问题。如果探针替代比例和单分子亮度未知，相似轨迹可以对应不同数量；如果分母只包含成熟结构，失败事件就一开始被排除了。研究启动因子时，检出阈值、短暂轨迹和成功率因而都属于结果的一部分。</p>
+<p>借鉴这个案例，未必要立刻做单分子成像。先问自己的读出能否分开开始与完成：总摄取可以建立运输输出，事件追踪才进一步定位阶段。更多可见位点也可能来自驻留延长，起始率需要按面积和时间统计。校准应服务于这项区别。</p>
+<h3 id="case-actin">案例 C · actin：把细胞条件放进“必需性”的解释</h3>
+<p>为什么一些细胞或膜面在 actin 受扰后仍能完成 CME，另一些却停滞？如果它在某些条件下主要补偿负载，这些结果就可能来自不同工作环境。</p>
+<p>Boulant 等先比较极化细胞膜面，再使用低渗和机械拉伸改变约束，结合成像、形态及 actin 干预研究依赖性。<a class="citation" href="#ref-B11">[B11]</a> Scott、Bucher 和后续结构工作则从几何与样品条件补充包被变形信息。<a class="citation" href="#ref-S18">[S18]</a><a class="citation" href="#ref-BU18">[BU18]</a><a class="citation" href="#ref-D21">[D21]</a></p>
+<p>第二种机械扰动有助于检验低渗本身的化学效应，膜面比较又保留了细胞原有的差异。几种操作从不同方向支持条件性的机械贡献。解释时还要考虑低渗对体积和离子的影响，以及 actin 干预对皮层约束的反作用；这些变量说明“负载”在完整细胞里需要怎样被测量和约束。</p>
+<p>自己的细胞可以先从基线内化、形态和阶段表型查起，再选择提供独立信息的负载或耦合干预。若目前只知道总受体量改变，优先把运输阶段分清，随后拍 actin 超分辨图才容易回答具体问题。</p>
+<h3 id="case-egfr">案例 D · EGFR：从剂量关系追到位点组合</h3>
+<p>受体磷酸化和泛素化随配体变化的方式不同，这一差异怎样产生，又怎样影响内化？剂量曲线提供了现象，机制研究还要找到产生曲线的相互作用。</p>
+<p>Sigismund 等比较磷酸化、泛素化及 Cbl/Grb2 相关关系，并在缺少相关位点的受体背景中逐步补回候选位点，配合表达和激酶相关功能控制，研究泛素化与非网格蛋白摄取的联系。<a class="citation" href="#ref-E13">[E13]</a> 后续定量工作又将受体丰度纳入阈值分析。<a class="citation" href="#ref-E15">[E15]</a></p>
+<p>为什么采用 add-back？删去一个位点后，其他联系可能仍能代偿；从功能较少的背景逐步补回，可以观察特定组合能恢复什么。代价是这个背景与天然网络相距更远，表达和整体受体功能就格外重要。由此建立的充分性，也应理解为该构建体背景下的充分性。</p>
 <details class="deep">
-<summary>在自己的 RTK 课题中，应该怎样选择，而不是照抄刺激剂量？</summary>
-<p>先测可比较的表面受体范围和剂量响应，确认占据/激活窗口，再选择能区分解释的点。若受体丰度差异很大，比较相同外加剂量可能正在比较不同工作区。常规 Western/IP 与摄取测量可以先确定曲线是否不同；只有现象可靠后，才投入复杂位点组合或定量模型。</p>
-<p>若突变使受体不能正常折叠、到达表面或被激活，它不能作为单纯的“泛素化专一缺陷”。即使一类细胞中 CME 偏向回收、NCE 偏向降解，也不能将路线与命运写成跨细胞无例外的标签。</p>
+<summary>在自己的 RTK 研究里怎样选剂量和突变体</summary>
+<p>先了解表面受体的表达范围和剂量响应，确认占据、激活窗口，再选择用于判别的刺激点。受体量差异较大时，相同外加剂量可能落在不同工作区。Western/IP 与摄取测量可以先建立这些曲线，之后再投入复杂的位点组合和模型。</p>
+<p>解释突变体时，需要确认它能折叠、到达表面并被激活，随后才适合讨论泛素化相关的功能分离。在某类细胞中观察到 CME 偏向回收、NCE 偏向降解，也应连同表达、剂量和细胞条件一起借鉴，换体系后重新核对路线与命运的关系。</p>
 </details>
-<h3 id="case-retriever">案例 E · Retriever：为什么一个标签问题能成为发现入口？</h3>
-<p><strong>研究问题。</strong> 已知货物需要 SNX17，但不能由既有 retromer 逻辑解释的回收，怎样找到下游机器？</p>
-<p><strong>[研究报告]</strong> McNally 等发现 N/C 端 GFP 构建体均可定位及结合货物，却有不同 rescue 能力，于是比较相互作用蛋白；随后以组分关联、干预及命运读出检验候选，并比较共享 VPS29 与 retromer 相关 VPS35 的作用。<a class="citation" href="#ref-M17">[M17]</a></p>
-<p><strong>[论证重建：为什么这比普通 IP 列表更有价值？]</strong> 功能有差异而部分性质保留的两个构建体，提供了较有目的的比较：哪类联系与丢失功能共同变化？但差异蛋白组仍只是候选，不能证明直接结合或运输因果；下游遗传、恢复及回收/降解读出才逐步闭合论证。</p>
-<p><strong>[可迁移做法]</strong> 遇到“定位正确但 rescue 失败”，先检查表达、构建体完整性和货物结合，再判断是否得到可用的分离功能扰动。若定位、稳定性和表达都不同，差异蛋白组会很难解释。若没有蛋白组设备，可先选有根据的候选做 IP 与功能验证；合作升级要解决候选空间问题。</p>
+<h3 id="case-retriever">案例 E · Retriever：怎样利用标签造成的功能差异</h3>
+<p>已知一些货物依赖 SNX17 回收，但既有 retromer 关系无法充分解释，怎样找出下游机器？McNally 等遇到了一个可用的差异：N/C 端 GFP 构建体都能定位并结合货物，rescue 能力却不同。他们据此比较相互作用蛋白，再用组分关联、干预及货物命运逐步检验候选，也比较了共享 VPS29 与 retromer 相关 VPS35 的作用。<a class="citation" href="#ref-M17">[M17]</a></p>
+<p>这个比较有价值，是因为功能丢失时，一部分已知性质仍被保留。“丢掉了哪种功能联系”由此为差异蛋白组筛选提供了明确方向。候选怎样结合、是否影响运输，则继续由下游遗传、恢复和回收或降解读出来建立。</p>
+<p>遇到定位正常却 rescue 失败的构建体，可以先查表达、完整性和货物结合。若这些也差很多，差异蛋白组将混入多种原因；若它们保留得较好，就可能得到功能分离工具。没有蛋白组条件时，也可以从有依据的候选做 IP 和运输验证。是否寻求组学合作，取决于候选范围是不是当前瓶颈。</p>
 <details class="deep">
-<summary>从 2017 走到后续结构：不要让基因名和结构图替代功能判断</summary>
-<p>旧文的 C16orf62、DSCR3，在后续工作中常分别记作 VPS35L、VPS26C。Commander 的研究把 Retriever 与 CCC 等组分进一步放进更大的装配框架。Cell 2023 和后续结构工作使用不同程度的实验结构、计算预测及细胞验证；阅读时需要区分直接分辨的部分和模型构建的部分。<a class="citation" href="#ref-CM23">[CM23]</a><a class="citation" href="#ref-CO24">[CO24]</a></p>
-<p>VPS29 为相关复合物共享，并不意味着 VPS29 缺失的全部表型都属于一条路线；亚基缺失还可能影响整个复合物的稳定和定位。选择“界面突变”前，先问它是否选择性破坏所声称的联系，还是让整个复合物解体。</p>
-<figure class="paper-figure" data-article="https://www.nature.com/articles/s41594-024-01246-1" id="paper-commander-methods"><div class="figure-heading"><span class="figure-number">图 N01</span><div><h4>把不同互作读出连接到内源复合物研究</h4><span class="evidence-type">原始研究 · AP–MS / BioID–MS / XL–MS / SEC 与结构工作流</span></div></div><button aria-label="放大：Commander 研究工作流" class="zoom-trigger" type="button"><img alt="Laulumaa 等，2024，Figure 1：Commander 互作分析与纯化工作流" decoding="async" height="2534" loading="lazy" src="figures/N01-commander-endogenous-methods-2024.png" width="1758"/></button><span class="image-hint">点击放大 · 完整原图 · 离线可用</span><figcaption class="paper-caption">a 为不同实验操作的工作流示意；b 为组分与标签信息；c 为 AP–MS 得到的稳定互作网络；d 比较不同 bait 与标签配置的相对丰度；e 比较交联前后纯化样品的 SEC 行为。a 中仪器/分子图标是作者示意，c–e 才包含相应分析结果。</figcaption><div class="figure-reading"><p><b>这张图帮助建立什么</b>不同方法对可保留联系、邻近和装配状态施加不同约束；研究设计需要知道每种操作选择了什么样的样品。</p><p class="limit"><b>读图边界</b>网络边不是全部直接结合，标签与交联也可能改变可观察的组成；本图并不直接证明所有组分在每一次货物回收中的必要性。</p></div><div class="paper-source">Saara Laulumaa, Esa-Pekka Kumpula, Juha T. Huiskonen, Markku Varjosalo · Nature Structural &amp; Molecular Biology (2024) · 原文 Figure 1<br/><i>Structure and interactions of the endogenous human Commander complex</i><br/><a href="https://doi.org/10.1038/s41594-024-01246-1" rel="noopener" target="_blank">DOI: 10.1038/s41594-024-01246-1</a> · <a href="https://www.nature.com/articles/s41594-024-01246-1" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div></figure>
-<p><strong>为什么联合 AP–MS、BioID–MS、XL–MS 与结构？</strong> 它们分别偏向保留可共纯化组分、记录一定时空范围的邻近、提供可交联距离限制，以及解析可重建的结构。不同方法的交集和分歧有助于区分稳定组分、邻近环境和装配模型；每条网络边仍不能直接被读作单一、直接、永久的结合。该比较是本版的论证重建。</p>
+<summary>从 Retriever 走向 Commander：结构增加了哪些信息</summary>
+<p>旧文中的 C16orf62、DSCR3，后续常分别记作 VPS35L、VPS26C。Commander 研究将 Retriever、CCC 等放进更大的装配关系。Cell 2023 和后续工作结合了不同程度的实验结构、计算预测与细胞验证；回看结构时，可以逐一确认哪些部分直接分辨，哪些由模型建立。<a class="citation" href="#ref-CM23">[CM23]</a><a class="citation" href="#ref-CO24">[CO24]</a></p>
+<p>VPS29 由相关复合物共享，因此其缺失可能同时影响多条联系；亚基缺失还可能改变整个复合物的稳定与定位。设计界面突变时，要检验丢失的是目标联系，还是整体装配。</p>
+<figure class="paper-figure" data-article="https://www.nature.com/articles/s41594-024-01246-1" id="paper-commander-methods"><div class="figure-heading"><span class="figure-number">图 N01</span><div><h4>内源 Commander 的互作、纯化与结构研究流程</h4><span class="evidence-type">原始研究 · AP–MS / BioID–MS / XL–MS / SEC 与结构工作流</span></div></div><button aria-label="放大：Commander 研究工作流" class="zoom-trigger" type="button"><img alt="Laulumaa 等，2024，Figure 1：Commander 互作分析与纯化工作流" decoding="async" height="2534" loading="lazy" src="figures/N01-commander-endogenous-methods-2024.png" width="1758"/></button><span class="image-hint">点击放大 · 完整原图 · 离线可用</span><figcaption class="paper-caption">a 画出实验工作流，b 列出组分与标签，c 给出 AP-MS 稳定互作网络，d 比较不同 bait 和标签配置的相对丰度，e 比较交联前后的 SEC 行为。a 中的图标用于说明方法，c 至 e 含对应分析结果。</figcaption><div class="figure-reading"><p>按每种方法保留的样品来读：共纯化、邻近、交联和结构各提供一类信息，它们的交集与分歧可以帮助判断装配关系。</p><p class="limit">网络边还需区分直接与间接联系，标签及交联也会影响可见组成。判断某组分在一次货物回收中的作用，要继续接上功能实验。</p></div><div class="paper-source">Saara Laulumaa, Esa-Pekka Kumpula, Juha T. Huiskonen, Markku Varjosalo · Nature Structural &amp; Molecular Biology (2024) · 原文 Figure 1<br/><i>Structure and interactions of the endogenous human Commander complex</i><br/><a href="https://doi.org/10.1038/s41594-024-01246-1" rel="noopener" target="_blank">DOI: 10.1038/s41594-024-01246-1</a> · <a href="https://www.nature.com/articles/s41594-024-01246-1" rel="noopener" target="_blank">论文全文与图注</a> · <a class="license" href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a> · 完整原图，未改绘</div></figure>
+<p>AP-MS 保留可共纯化的组分，BioID-MS 记录一定时空范围内的邻近，XL-MS 提供交联距离限制，结构研究则分析可重建的装配。按这些测量性质来理解，方法间的交集和分歧就有了意义：哪些联系稳定，哪些更像邻近环境，哪些支持同一个装配模型。网络边的“直接性”和“持续性”，仍需由相应证据确定。</p>
 </details>
-<h3 id="case-er">案例 F · ER 接触：怎样从“经常在旁边”走到功能贡献？</h3>
-<p><strong>研究问题。</strong> 分选域怎样保持并最终裂分，邻近 ER 是否参与界定这个事件？</p>
-<p><strong>[研究报告]</strong> Rowland 等用多标记时间序列把 ER、内体域和货物分开追踪；比较接触相对裂分的时空关系及偶然覆盖，并改变 ER 形态/动态，配合内体和芽形态控制分析裂分效率。<a class="citation" href="#ref-R14">[R14]</a></p>
-<p><strong>[论证重建：为什么要有时间顺序和空间零假设？]</strong> 密集 ER 本来就容易与内体重叠，因此需要比较接触是否特异指向事件边界、是否在事件前到位。扰动把关联推进到功能联系；控制结构尺寸和芽长度，可排除某些“根本没有形成可裂芽”的解释。但广泛改变 ER 仍不等于找到了直接切割膜颈的分子。</p>
-<p><strong>[可迁移做法]</strong> 若课题是两个细胞器共同工作，先定义共同事件及随机接近的预期，再考虑选择性解除接触或功能界面的干预。普通共聚焦已可能提供高价值的时空线索；何时需要电镜，取决于你要证明接触距离、膜融合，还是货物分流。</p>
-<h3 id="case-signalling">案例 G · 内体信号：看到受体在那里，为什么还不够？</h3>
-<p><strong>研究问题。</strong> 内体上的受体或 G 蛋白，是活跃地产生信号，还是只是被运输过去？</p>
-<p><strong>[研究报告]</strong> Irannejad 等以构象相关传感器追踪受体与 G 蛋白活化，并用可逆响应、延迟募集等验证限制替代解释。<a class="citation" href="#ref-G13">[G13]</a> 2026 年后续工作进一步区分 Gα 转位、活化状态和受体—G 蛋白耦联，并明确原生 G 蛋白与受体过表达的表达层级差别。<a class="citation" href="#ref-GP26">[GP26]</a></p>
-<p><strong>[论证重建：为什么更换读出对象？]</strong> 定位回答“在哪里”，构象探针试图回答“处于什么状态”；延迟募集帮助检验传感器是否只是从质膜一路被携带。但探针本身会结合并可能影响状态，必须验证选择性、表达和可逆性。一个总信号曲线不能独立定位起源。</p>
-<p><strong>[可迁移做法]</strong> 若常规实验显示受体内化改变了 pERK 或其他输出，先保留反馈、表面池变化和全局状态等解释。只有当空间来源决定结论时，再合作使用局部传感器或分区操控。不要把“某个蛋白为内源水平”简写成整个系统全部保持生理表达。</p>
-</section><section class="chapter" id="worked-study"><h2>14 · 把“胞内荧光减少”变成一个可推进的课题</h2>
-<p>这是教学情景，<strong>没有对应一组本资料产生的实验结果</strong>。设某基因扰动后，EGF 处理时胞内荧光变少。第一轮不把题目定成“该基因促进内吞”，而是问：哪个对象、哪个池、哪个时间窗改变？</p>
-<h3>14.1 先比较候选解释</h3>
+<h3 id="case-er">案例 F · ER 接触：从相邻位置追踪到裂分事件</h3>
+<p>一个分选域怎样保持并最终裂分？附近的 ER 是否参与了这件事？Rowland 等用多标记时间序列分别追踪 ER、内体域和货物，比较接触相对裂分的时空关系与偶然覆盖，再改变 ER 形态和动态，并用内体、芽形态控制分析裂分效率。<a class="citation" href="#ref-R14">[R14]</a></p>
+<p>密集 ER 本来就容易与内体重叠，因而“在旁边”需要一个偶然接近的参照。看接触是否在事件前出现、是否集中于边界，能够把空间关系具体到一个过程。干预进一步检验功能贡献，控制结构尺寸和芽长则帮助判断是否已形成可裂分的芽。至于直接切割膜颈的分子，仍是另一个层次的问题。</p>
+<p>如果自己也研究细胞器协作，可以先定义共同事件和随机接近的预期，再选择解除接触或改变功能界面的操作。普通共聚焦已能提供时序线索；需要确证接触距离或膜融合时，电镜才补上相应结构信息。货物分流则仍要追踪货物。</p>
+<h3 id="case-signalling">案例 G · 内体信号：怎样从位置测到活化状态</h3>
+<p>受体和 G 蛋白到达内体以后，是否仍在产生信号？Irannejad 等采用构象相关传感器，追踪受体及 G 蛋白活化，并结合可逆响应、延迟募集等操作检验解释。<a class="citation" href="#ref-G13">[G13]</a> 2026 年后续工作进一步分别研究 Gα 转位、活化状态和受体与 G 蛋白耦联，也保留了原生 G 蛋白与过表达受体之间的表达层级差别。<a class="citation" href="#ref-GP26">[GP26]</a></p>
+<p>换成构象读出，问题就从分子在哪里推进到它在那里处于什么状态。延迟募集则帮助检查传感器是否只是随受体从质膜带入。传感器自身会结合目标，也可能影响状态，所以选择性、表达和可逆性验证与定位图同样重要。</p>
+<p>在常规实验中，若内化改变伴随 pERK 等输出变化，可以先把反馈、表面池和全局细胞状态纳入解释。等研究确实需要定位信号来源，再合作使用局部传感器或分区操控，并分别记录受体和信号组分的表达水平。某个蛋白保持内源表达，只说明该组分的条件。</p>
+</section><section class="chapter" id="worked-study"><h2>14 · 围绕“胞内荧光减少”安排一轮研究</h2>
+<p>设某基因扰动后，EGF 处理时胞内荧光减少。下面是一个假设情景，用来练习实验选择。可以先问减少的是哪个标记、哪个受体池，以及差异最早出现在哪个时间点。</p>
+<h3>14.1 现有现象还兼容哪些解释</h3>
 <div class="table-scroll"><table>
 <thead>
 <tr>
 <th>候选解释</th>
-<th>第一轮需要什么区别信息？</th>
-<th>哪种结果仍不足？</th>
+<th>第一轮需要的信息</th>
+<th>现有结果还缺什么</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>起始表面受体/结合减少</td>
-<td>表面池与起始配体结合；短时间内化分数</td>
-<td>胞内总量下降但没有表面分母</td>
+<td>起始表面受体或结合减少</td>
+<td>表面池、起始结合和短时内化分数</td>
+<td>胞内总量需要配上表面分母</td>
 </tr>
 <tr>
-<td>内化本身减少</td>
-<td>表面信号排除得到验证后的早期内化时间系列</td>
-<td>单张“膜边亮、胞内暗”的图片</td>
+<td>入口减慢</td>
+<td>验证表面信号排除后的早期时间系列</td>
+<td>静态膜边与胞内图像还缺过程信息</td>
 </tr>
 <tr>
-<td>回收更快</td>
-<td>对已内化群体的追踪及再暴露读出</td>
-<td>只见内部池快速消失</td>
+<td>回收加快</td>
+<td>同一内化群体的追踪及再暴露测量</td>
+<td>内部池消失还要查它去了哪里</td>
 </tr>
 <tr>
-<td>降解或标签丢失更快</td>
-<td>标记和完整受体保留、后续去向及亮度控制</td>
-<td>一种抑制剂恢复了荧光</td>
+<td>降解、标签丢失加快</td>
+<td>完整受体和标记保留、去向及亮度</td>
+<td>抑制剂恢复荧光还需判断作用环节</td>
 </tr>
 <tr>
-<td>探针受到 pH/环境影响</td>
-<td>合适的参考通道、pH 敏感性与校准</td>
-<td>酸性染料和受体探针同时变化</td>
+<td>pH 或探针环境改变</td>
+<td>参考通道、pH 响应及校准</td>
+<td>两种探针同时变亮或变暗的共同影响</td>
 </tr>
 <tr>
-<td>细胞状态或成像偏差</td>
+<td>细胞状态或成像差异</td>
 <td>活性、体积、焦面、背景与配准</td>
-<td>大量事件合并后一个显著性值</td>
+<td>汇总显著性之外的细胞和操作信息</td>
 </tr>
 </tbody>
 </table></div>
-<h3>14.2 根据知识收益安排第一轮</h3>
-<p>如果表面池已经显著改变，先判断其对内化量的贡献；若归一化后早期内化仍不同，再进入入口机制。若早期相近、后期分离，优先研究回收、分选、降解或探针环境，避免过早把全部工作集中到膜窝形成。</p>
-<p>选择两种具有不同偏差的读出，例如经表面排除验证的流式与分区共聚焦；它们的一致性提高稳健性，分歧则提示需要检查哪个操作定义不同。普通全细胞 Western 可测总量与磷酸化；表面池需要非透化流式，或经表面标记/分离后再做 Western 等操作，不能从普通裂解液条带直接读出。它们都不能单独替代单向通量。</p>
-<h3>14.3 怎样判断要不要做 rescue、组学或高级成像？</h3>
-<p>先确定扰动可靠、效应可重现、测量没有混淆，再用接近内源的野生型恢复与合适突变体区分功能。若问题转为“通过哪个伙伴连接分选”，组学可能有价值；若转为“是否进入 ILV”，结构成像有价值；若仍未确认入口还是出口，先升级仪器通常不会自动解决。</p>
-<h3>14.4 不支持预想时，怎样更新问题？</h3>
-<p>如果独立读出不支持内化改变，就撤回“入口因子”的表述，保留真实观察并研究其他池。若只有过表达时有表型，区分增强能力与生理必要性；若不同细胞给出不同结果，检查受体丰度、环境、补偿和实际检测窗口，而不是只保留最漂亮的细胞。</p>
-<p>首轮成功可以是排除一条解释、确定测量边界或保留原有模型；并不要求一定发现新的分子机制。</p>
-</section><section class="chapter" id="research-judgement"><h2>15 · 发展研究思路：怎样从关系缺口提出好问题？</h2>
-<h3>15.1 先问成功后改变什么，再问还能测多少东西</h3>
-<p>“这个蛋白还没研究过”“这种细胞还没拍过”并不自动形成重要问题。更有信息量的表达是：现有结果兼容 A 与 B，而它们对同一条件有不同预测；如果区分二者，就会改变对受体分选的解释或实验选择。</p>
-<p>围绕本资料的核心主张，可以选择三类关系深入。下面都是<strong>阅读者提出的研究用途</strong>，不宣称领域中无人研究，也不是批准执行的实验计划。</p>
+<h3>14.2 第一轮怎样排序</h3>
+<p>若表面池已经明显改变，先估计它对内化量的贡献；归一化后早期内化仍有差异，再集中研究入口。若早期相近、后期分离，回收、分选、降解和探针环境就更值得优先检查。</p>
+<p>选两种偏差不同的读出，例如经表面排除验证的流式与分区共聚焦，可以检查效应是否稳健。二者分歧时，回到各自的操作定义找原因。普通全细胞 Western 补充总量和磷酸化；表面池用非透化流式，或经表面标记、分离后再做 Western。根据这些数据的时间窗和池定义，再讨论单向通量。</p>
+<h3>14.3 怎样选择 rescue、组学与成像合作</h3>
+<p>先确认扰动有效、效应可重现及测量可靠，再用接近内源的野生型恢复和合适突变体研究功能。若下一步卡在“通过谁连接分选”，组学可以缩小候选；若关键在是否进入 ILV，结构成像能分辨膜位置。入口和出口尚未分清时，先补池与通量的信息通常更直接。</p>
+<h3>14.4 结果与预想不同时怎样继续</h3>
+<p>独立读出若不支持内化改变，就把研究对象转到实际变化的池，修改“入口因子”的表述。只有过表达时出现效应，可以研究增强能力及其剂量，同时继续确认生理必要性。不同细胞结果不同，则比较受体丰度、环境、补偿和检测窗口。</p>
+<p>第一轮的收获也可以是排除一个解释、确定一个可靠读出，或判断现有模型仍够用。这些结果都能帮助决定下一步投入哪里。</p>
+</section><section class="chapter" id="research-judgement"><h2>15 · 怎样从现象提出值得继续的问题</h2>
+<h3>15.1 想清楚结果将改变什么</h3>
+<p>发现一个尚少研究的蛋白或细胞类型后，还可以再往前问一步：弄清它以后，我们对运输的哪一段会理解得更好？例如现有结果同时符合两种解释，它们却对同一条件有不同预测，区分二者就会改变后续实验。这比单纯增加一个研究对象更容易说明课题的意义。</p>
+<p>下面几个问题是沿前面案例延伸出的研究设想。它们适合练习怎样选下一项证据；用于真实课题前，还需要针对具体对象查阅已有工作。</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
 <th>工作问题</th>
-<th>现有最强简单解释</th>
-<th>真正需要区分的关系</th>
-<th>第一项有信息量的动作</th>
+<th>已有的简单解释</th>
+<th>想进一步分清什么</th>
+<th>可以先取得哪种信息</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>货物更多时，为什么有的位点更难成熟？</td>
-<td>受体/接头占据变化，或入口负载变化</td>
-<td>生化募集与机械约束是否可分离？</td>
-<td>同时建立表面负载与成功内化，先确定瓶颈是否在入口；只有必要时增加局部力学读出</td>
+<td>货物增多时，某些位点为何更难成熟</td>
+<td>受体或接头占据变化，入口负载增加</td>
+<td>生化募集与机械约束各贡献多少</td>
+<td>同时看表面负载和成功内化，先定位入口瓶颈，再按需测局部力学</td>
 </tr>
 <tr>
-<td>内体 pH 变化为何伴随受体回收变化？</td>
-<td>配体解离、探针亮度、降解或位置变化都可产生表型</td>
-<td>pH 是运输中介，还是伴随读出？</td>
-<td>用不依赖同一 pH 响应的受体池测量，并确认化学环境；再考虑更选择性的分离操作</td>
+<td>pH 改变为何伴随回收改变</td>
+<td>配体解离、探针响应、降解或位置变化</td>
+<td>pH 是否介导了运输变化</td>
+<td>以不依赖同一 pH 响应的方式测受体池，确认环境后选择更具体的干预</td>
 </tr>
 <tr>
-<td>ER 接触更多，为什么裂分未增加？</td>
-<td>接触可能是结果、补偿，或不属于同一功能类型</td>
-<td>接触形成、分选域与实际裂分之间哪步受限？</td>
-<td>以单个芽为单位比较接触前后及成功/失败，而不是只比较全细胞接触总量</td>
+<td>ER 接触增加，裂分为何没有增加</td>
+<td>接触可能是补偿、结果，或属于不同类型</td>
+<td>接触、分选域与裂分之间哪步受限</td>
+<td>按单个芽比较接触时序和成功、失败，保留事件与总接触量的关系</td>
 </tr>
 </tbody>
 </table></div>
-<h3>15.2 三种“新认识”都值得保留</h3>
-<p><strong>解释成功。</strong> 一个已有方法为什么能把以前混在一起的状态分开？例如从定位探针换成活化相关传感器，研究问题从“在哪里”变为“在那里做什么”。</p>
-<p><strong>修正对象。</strong> 早期内体不是同质的共同终点，受体数量也不是运输速率。这样的修正若改变了采样、分母或后续选择，就有实际研究后果。</p>
-<p><strong>发现使能条件。</strong> 某个机器在体外足以产生形态，但完整细胞只有特定负载下才依赖另一组因子。应寻找条件关系，而不是把两个体系强行合并成“谁才是真正驱动者”的单一竞赛。</p>
-<h3>15.3 怎样选择下一步，避免无边界加实验？</h3>
-<p>在新增测量前，用一段话写清：当前哪项结论仍不能成立；新结果的几种可能会怎样改变解释；无变化或技术失败如何识别；如果所有结果都不会改变行动，为什么还要做它。必要的技术校准可以非常重要，但它的目的应连接到这个上层问题。</p>
-<p>选择时同时考虑科学重要性、已有证据、资源和信息收益。便宜但无法判别的实验不一定是好的首检；复杂但只增加同类图片的技术，也不自动更深入。允许保留原有模型、决定复现、改变问题表示，或暂时停止一条不能带来认识的路线。</p>
-</section><section class="chapter" id="self-check"><h2>16 · 自检与讨论：能否把认识带出这份资料？</h2>
+<h3>15.2 从已有研究里继续获得认识</h3>
+<p>一种方法为什么成功，常常值得认真追问。构象传感器让定位与活化可以分别观察，测量能力的变化就打开了新的生物学问题。</p>
+<p>研究对象的定义也会影响结论。早期内体有不同群体，受体数量又与运输速率不同；认识到这些差别后，采样、分母和下一项实验都可能改变。</p>
+<p>还可以寻找机制工作的条件。体外机器已有产生形态的能力，完整细胞却只在某种负载下需要另一组因子，两者之间可能存在补偿关系。明确这种关系，可以进一步预测换条件后会出现什么。</p>
+<h3>15.3 怎样决定下一步投入哪里</h3>
+<p>新增测量前，可以简短写下自己最想确定的关系，以及结果不同会怎样更新解释。无变化时怎样确认操控和灵敏度，出现新现象时又怎样重新定义问题，也值得提前想一遍。技术校准同样可以成为必要的下一步，只要它确实解决了当前解释中的困难。</p>
+<p>选择时，把科学意义、已有证据、资源和预期信息放在一起比较。便宜的方法如果能分开关键解释，就值得先做；复杂方法若能回答结构或状态问题，也可能非常合适。复现、沿用现有模型，或暂停一条信息收益较低的路线，都是可以据此作出的选择。</p>
+</section><section class="chapter" id="self-check"><h2>16 · 带着这些问题检查自己的理解</h2>
 <details class="deep">
-<summary>表面受体减少，而总蛋白不变，能否直接说内化加快？</summary>
-<p>不能。回收、表面递送、表位可及性及内部分布都可能改变。需要界定起始表面池、短时内化及回收等信息。总量不变也可能只是多个通量变化后的平衡。</p>
+<summary>表面受体减少，总蛋白不变，怎样判断变化来自哪里？</summary>
+<p>先界定起始表面池，再比较短时内化与回收。表面递送、表位可及性和内部分布也会改变表面读数；总量保持不变，可能是几项通量重新平衡的结果。</p>
 </details>
 <details class="deep">
-<summary>内体里的荧光变少，但降解 Western 没有变化，下一步优先是什么？</summary>
-<p>先看探针和受体是否是同一对象、标记是否受 pH 影响，以及表面再暴露和分割/焦面等操作差异。Western 的时间窗和灵敏度也可能不同。不要仅因总蛋白阴性就排除所有降解相关过程。</p>
+<summary>内体荧光减少，Western 总量却相近，下一步优先看什么？</summary>
+<p>先确认探针与受体是否对应同一对象，再查 pH 响应、表面再暴露和分割、焦面。Western 的时间窗和灵敏度也影响它能检出的周转变化，可以据此决定是否进一步追踪旧池。</p>
 </details>
 <details class="deep">
-<summary>两个构建体定位和 IP 都相同，为什么还需要 rescue？</summary>
-<p>定位与共同富集只验证部分性质；尾部可用性、下游机器连接、状态循环和输出仍可能不同。SNX17 标签案例表明，这种差异有时可以进一步转成研究工具，但必须先排除表达、稳定性等更简单解释。</p>
+<summary>两个构建体定位和 IP 相近，rescue 还能告诉我们什么？</summary>
+<p>它直接检验输出是否保留。尾部可用性、下游连接及状态循环，可能在定位和共同富集相近时仍然不同。SNX17 的标签案例提供了一个例子；先确认表达和稳定性，才能将差异用作功能分离工具。</p>
 </details>
 <details class="deep">
-<summary>去顶膜片自发弯曲，是否证明 actin 只是多余的？</summary>
-<p>不证明。去顶改变了负载、边界和胞质条件；蛋白网络也可能在此前装配中储能。需要将结构固有能力与完整细胞在具体环境中的必要性区分。</p>
+<summary>去顶膜片能自发弯曲，怎样理解完整细胞中 actin 的作用？</summary>
+<p>去顶改变了负载、边界和胞质环境，也可能保留此前装配储存的能量。它显示结构自身的促弯能力；完整细胞在特定负载下需要多少 actin，要回到相应条件和功能测量。</p>
 </details>
 <details class="deep">
-<summary>晚期内体与 ER 高度共定位，是否应该立即做更多电镜？</summary>
-<p>先确定要证明什么。如果问题是接触是否先于某个裂分事件，可靠的活细胞时间序列及空间零假设可能更有价值；如果需要确证膜接触距离或是否融合，电镜可能正好解决关键未知。</p>
+<summary>晚期内体与 ER 经常相邻，应该怎样选择下一种成像？</summary>
+<p>若想了解接触是否先于裂分，活细胞时间序列和偶然接近参照更直接。若关键在膜间距或是否融合，电镜可以补上结构信息。先明确缺的是时序还是几何，方法就容易选择。</p>
 </details>
 <details class="deep">
-<summary>药物阻断、敲低和 rescue 都支持一个因子，是否已证明直接机械作用？</summary>
-<p>它们可强化功能联系与特异性，但因子仍可能通过调控、运输其他组分或改变环境发挥作用。直接机械主张需要把力/几何与相应分离操作接起来，而不是只增加同类功能实验。</p>
+<summary>药物、敲低与 rescue 一致支持某因子，怎样继续研究它的机械作用？</summary>
+<p>这些结果建立了功能联系和特异性。接下来要分开直接力学贡献、调控、其他组分运输和环境改变，可将负载、力或几何读出与功能分离操作连接起来。</p>
 </details>
 <details class="deep">
-<summary>新论文比旧论文更新、期刊更高，是否就应该替换旧结论？</summary>
-<p>先比较对象、方法、条件、真正支持的命题与是否有更正。新工作可能测量了不同量，或者只扩展了适用条件。期刊和年代帮助定位阅读，不替代科学判断。</p>
+<summary>新旧论文结论看起来不同，怎样比较？</summary>
+<p>先对齐对象、条件、方法和各自支持的命题，再检查后续更正。新工作有时测了另一种量，有时扩展了适用条件。期刊与年代帮助找到材料，具体判断仍从这些关系展开。</p>
 </details>
-</section><section class="chapter" id="source-library"><h2>17 · 文献作为研究素材：核查到哪里，下一步怎样回源？</h2>
-<p>本轮以现版图源为起点，按 AP2 激活、包被力学、EGFR 剂量、回收机器、细胞器接触、局部环境与空间信号进行定向检索，并纳入截至 2026-11-20 的部分近期研究。<strong>这不是系统综述，不宣称检索穷尽；“取得全文”也不等于本文复核了全部结果和所有补充数据。</strong></p>
-<p>下面将来源与实际核查范围放在一起。核心案例优先使用可追溯的公开正文及明确图注；摘要定位的经典或近期工作只承担相应有限作用。原论文中的数值和条件，不因进入知识框架就升级成通用常数。</p>
-<details class="source-entry" id="ref-K14"><summary>[K14] AP2 controls clathrin polymerization with a membrane-activated switch<br/><span class="journal">Science · 2014</span></summary><p><a href="https://doi.org/10.1126/science.1254836" rel="noopener" target="_blank">DOI: 10.1126/science.1254836</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文网页，正文及Fig1–4图注定向核查；本地XML获取失败</p><p><b>回源位置：</b>Fig1: full AP2 versus isolated hinge; membrane attachment controls；Fig2: buried hinge and release mutations；Fig4: lipid/cargo-dependent clathrin recruitment and buds</p><p><b>本资料中的作用：</b>膜定位不等于构象激活；结构、解除抑制突变和脂质体重构形成不同层级证据。出芽充分性不等于完整裂变充分性。</p></details><details class="source-entry" id="ref-C12"><summary>[C12] The first five seconds in the life of a clathrin-coated pit<br/><span class="journal">Cell · 2012</span></summary><p><a href="https://doi.org/10.1016/j.cell.2012.05.047" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2012.05.047</a></p><p class="read-scope"><b>本轮核查范围：</b>作者实验室公开PDF，主要结果与单分子校准、FCHO缺失段落定向核查</p><p><b>回源位置：</b>Fig1/2 and related single-EGFP calibration；Discussion/FCHO1/2 depletion and abortive pits</p><p><b>本资料中的作用：</b>起始少量分子需要校准与时间分辨；初始到达、持续增长和成功成熟必须分开。</p></details><details class="source-entry" id="ref-B11"><summary>[B11] Actin dynamics counteract membrane tension during clathrin-mediated endocytosis<br/><span class="journal">Nature Cell Biology · 2011</span></summary><p><a href="https://doi.org/10.1038/ncb2307" rel="noopener" target="_blank">DOI: 10.1038/ncb2307</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文XML，主要结果、Fig1/3/4及讨论定向核查</p><p><b>回源位置：</b>Fig1 apical/basolateral polarized MDCK；Fig3 hypotonic challenge；Fig4 independent mechanical stretch</p><p><b>本资料中的作用：</b>同种细胞不同膜面及不同机械挑战改变actin依赖性；独立扰动共同支持机械解释。</p></details><details class="source-entry" id="ref-A15"><summary>[A15] Endocytic sites mature by continuous bending and remodeling of the clathrin coat<br/><span class="journal">Science · 2015</span></summary><p><a href="https://doi.org/10.1126/science.aaa9555" rel="noopener" target="_blank">DOI: 10.1126/science.aaa9555</a></p><p class="read-scope"><b>本轮核查范围：</b>PubMed索引摘要核查；本轮未获取全文</p><p><b>回源位置：</b>Abstract: fluorescence plus electron tomography; coat area/curvature</p><p><b>本资料中的作用：</b>作为模型历史定位；不把摘要定位当逐图复核。</p></details><details class="source-entry" id="ref-S18"><summary>[S18] Membrane bending occurs at all stages of clathrin-coat assembly and defines endocytic dynamics<br/><span class="journal">Nature Communications · 2018</span></summary><p><a href="https://doi.org/10.1038/s41467-018-02818-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-02818-8</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文、方法校准与Fig2/3；V1已查看相应原图</p><p><b>回源位置：</b>Fig2 pol-TIRF/TEM/AFM calibration；Fig3 live-cell bending classes</p><p><b>本资料中的作用：</b>曲率代理读出与实际形态需校准；混合动力学不能被静态单一路径覆盖。</p></details><details class="source-entry" id="ref-BU18"><summary>[BU18] Clathrin-adaptor ratio and membrane tension regulate the flat-to-curved transition of the clathrin coat during endocytosis<br/><span class="journal">Nature Communications · 2018</span></summary><p><a href="https://doi.org/10.1038/s41467-018-03533-0" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-03533-0</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文、摘要、结果与几何模型定向核查</p><p><b>回源位置：</b>BSC-1 flat-to-curved transition；clathrin/AP2 ratio and membrane tension</p><p><b>本资料中的作用：</b>不要把强度、包被面积和膜曲率当同一量；结论带细胞与模型条件。</p></details><details class="source-entry" id="ref-D21"><summary>[D21] The structure and spontaneous curvature of clathrin lattices at the plasma membrane<br/><span class="journal">Developmental Cell · 2021</span></summary><p><a href="https://doi.org/10.1016/j.devcel.2021.03.017" rel="noopener" target="_blank">DOI: 10.1016/j.devcel.2021.03.017</a></p><p class="read-scope"><b>本轮核查范围：</b>公开PMC正文的Introduction、主要结果与去顶弯曲实验定向核查；本地XML不可用</p><p><b>回源位置：</b>Fig3 unroofing and spontaneous curvature；multi-cell structure comparison</p><p><b>本资料中的作用：</b>去顶后无需新增能量/蛋白即可弯曲，限定于去顶体系；不等于活细胞不消耗能量。</p></details><details class="source-entry" id="ref-SH18"><summary>[SH18] Cell membranes resist flow<br/><span class="journal">Cell · 2018</span></summary><p><a href="https://doi.org/10.1016/j.cell.2018.09.054" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2018.09.054</a></p><p class="read-scope"><b>本轮核查范围：</b>公开PMC摘要及两膜管/bleb比较的网页内容定位；本地全文下载未成功</p><p><b>回源位置：</b>Abstract: intact-cell versus bleb tension propagation</p><p><b>本资料中的作用：</b>局部张力与全细胞均一张力需要区分；不把特定细胞中的传播性质普遍化。</p></details><details class="source-entry" id="ref-E13"><summary>[E13] Threshold-controlled ubiquitination of the EGFR directs receptor fate<br/><span class="journal">The EMBO Journal · 2013</span></summary><p><a href="https://doi.org/10.1038/emboj.2013.149" rel="noopener" target="_blank">DOI: 10.1038/emboj.2013.149</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文XML，Fig1–3及Fig6–9/相关结果定向核查</p><p><b>回源位置：</b>Fig1/2 phosphorylation versus ubiquitination dose response；Fig3 surface origin；Fig7–9 phosphosite-null/add-back mutants, expression and kinase controls</p><p><b>本资料中的作用：</b>剂量相关被位点重建、受体丰度与激酶活性控制推进到机制论证；原文为CC BY-NC-ND，本版仅链接不新增复刻图。</p></details><details class="source-entry" id="ref-E15"><summary>[E15] Quantitative analysis reveals how EGFR activation and downregulation are coupled in normal but not in cancer cells<br/><span class="journal">Nature Communications · 2015</span></summary><p><a href="https://doi.org/10.1038/ncomms8999" rel="noopener" target="_blank">DOI: 10.1038/ncomms8999</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文，受体表达量和定量模型主要结果定向核查</p><p><b>回源位置：</b>EGFR level-dependent ubiquitination threshold；normal/cancer cell comparison</p><p><b>本资料中的作用：</b>刺激剂量不能脱离受体丰度比较；不是所有细胞共用固定阈值。</p></details><details class="source-entry" id="ref-R14"><summary>[R14] ER contact sites define the position and timing of endosome fission<br/><span class="journal">Cell · 2014</span></summary><p><a href="https://doi.org/10.1016/j.cell.2014.10.023" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2014.10.023</a></p><p class="read-scope"><b>本轮核查范围：</b>公开网页中Introduction、Fig1/4/6/7及Discussion定向核查；本地XML不可用</p><p><b>回源位置：</b>Fig1 cargo/Rab/ER time series；Fig4 spatial coincidence/coverage null；Fig7 Rtn4a perturbation, endosome size/bud length controls</p><p><b>本资料中的作用：</b>时空定位、偶然覆盖对照及扰动共同支持ER参与；尚不单独确立分子切割机器。</p></details><details class="source-entry" id="ref-R05"><summary>[R05] Rab conversion as a mechanism of progression from early to late endosomes<br/><span class="journal">Cell · 2005</span></summary><p><a href="https://doi.org/10.1016/j.cell.2005.06.043" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2005.06.043</a></p><p class="read-scope"><b>本轮核查范围：</b>PubMed摘要与书目信息；本轮未获全文</p><p><b>回源位置：</b>Abstract: individual endosome Rab5 replacement by Rab7</p><p><b>本资料中的作用：</b>历史定位；不重复把2005文中HOPS/GEF表述当作当代普遍分子模型。</p></details><details class="source-entry" id="ref-L06"><summary>[L06] Ligands for clathrin-mediated endocytosis are differentially sorted into distinct populations of early endosomes<br/><span class="journal">Cell · 2006</span></summary><p><a href="https://doi.org/10.1016/j.cell.2005.12.038" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2005.12.038</a></p><p class="read-scope"><b>本轮核查范围：</b>作者实验室PDF，主要结果和货物/微管动力学比较定向核查</p><p><b>回源位置：</b>dynamic/static early-endosome populations；cargo delivery before endosome entry</p><p><b>本资料中的作用：</b>早期内体异质性及递送选择不能简化为单一共同终点；具体分群依体系与测量。</p></details><details class="source-entry" id="ref-M17"><summary>[M17] Retriever is a multiprotein complex for retromer-independent endosomal cargo recycling<br/><span class="journal">Nature Cell Biology · 2017</span></summary><p><a href="https://doi.org/10.1038/ncb3610" rel="noopener" target="_blank">DOI: 10.1038/ncb3610</a></p><p class="read-scope"><b>本轮核查范围：</b>公开PMC全文，Fig1–3结果/图注、rescue及recycling实验定向核查；期刊页面仅摘要</p><p><b>回源位置：</b>Fig1 N/C-terminal GFP comparison, rescue and SILAC；Fig2 VPS29 versus VPS35 and orthogonal fate assays；Fig3 association and reconstituted heterotrimer</p><p><b>本资料中的作用：</b>定位和结合正常不保证功能；标签差异提供分离功能扰动，比较蛋白组学需功能证据闭合。</p></details><details class="source-entry" id="ref-G13"><summary>[G13] Conformational biosensors reveal GPCR signalling from endosomes<br/><span class="journal">Nature · 2013</span></summary><p><a href="https://doi.org/10.1038/nature12000" rel="noopener" target="_blank">DOI: 10.1038/nature12000</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文网页/PDF索引中Nb80、Nb37及Fig1/2验证段落定向核查；期刊页面为摘要</p><p><b>回源位置：</b>agonist/antagonist reversibility；delayed endosomal sensor recruitment；wavelength reversal control</p><p><b>本资料中的作用：</b>位置与活化构象分开；排除从质膜一路携带传感器的替代解释。</p></details><details class="source-entry" id="ref-ES18"><summary>[ES18] ATP-dependent force generation and membrane scission by ESCRT-III and Vps4<br/><span class="journal">Science · 2018</span></summary><p><a href="https://doi.org/10.1126/science.aat1839" rel="noopener" target="_blank">DOI: 10.1126/science.aat1839</a></p><p class="read-scope"><b>本轮核查范围：</b>作者机构公开摘要与方法说明；本地PDF下载为空，不声称全文精读</p><p><b>回源位置：</b>GUV encapsulation, nanotubes, ATP photo-uncaging, Vps4 catalytic controls</p><p><b>本资料中的作用：</b>逆向拓扑、定时能量输入和催化控制展示机制设计；仅用于有限机制说明。</p></details><details class="source-entry" id="ref-GL19"><summary>[GL19] Physical Principles of Membrane Shape Regulation by the Glycocalyx<br/><span class="journal">Cell · 2019</span></summary><p><a href="https://doi.org/10.1016/j.cell.2019.04.017" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2019.04.017</a></p><p class="read-scope"><b>本轮核查范围：</b>公开摘要与PMC中聚合物刷模型/逆转实验段落定位；非逐图全文复核</p><p><b>回源位置：</b>mucin size/density and model membranes</p><p><b>本资料中的作用：</b>糖萼的空间压力可影响膜形态；不能由外向膜形态直接推定具体受体CME速率。</p></details><details class="source-entry" id="ref-N11"><summary>[N11] Lysosomal positioning coordinates cellular nutrient responses<br/><span class="journal">Nature Cell Biology · 2011</span></summary><p><a href="https://doi.org/10.1038/ncb2204" rel="noopener" target="_blank">DOI: 10.1038/ncb2204</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文XML，营养/位置/胞质pH及Fig3/4定向核查</p><p><b>回源位置：</b>position manipulation under starvation/recovery；position alone not sufficient without nutrients</p><p><b>本资料中的作用：</b>饥饿不是中性同步；位置与营养输入的必要性/充分性分开。</p></details><details class="source-entry" id="ref-I10"><summary>[I10] A cation counterflux supports lysosomal acidification<br/><span class="journal">Journal of Cell Biology · 2010</span></summary><p><a href="https://doi.org/10.1083/jcb.200911083" rel="noopener" target="_blank">DOI: 10.1083/jcb.200911083</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文XML，电荷补偿、离子替换、比率pH测量相关结果/方法</p><p><b>回源位置：</b>cation counterflux and reversible permeabilization；in situ pH calibration</p><p><b>本资料中的作用：</b>酸化涉及电位、离子、缓冲和体积，不是V-ATPase蛋白量的单变量函数。</p></details><details class="source-entry" id="ref-P12"><summary>[P12] Pitstop 2 Is a Potent Inhibitor of Clathrin-Independent Endocytosis<br/><span class="journal">PLOS ONE · 2012</span></summary><p><a href="https://doi.org/10.1371/journal.pone.0045799" rel="noopener" target="_blank">DOI: 10.1371/journal.pone.0045799</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文XML，pitstop2在clathrin/AP2缺失条件下的实验</p><p><b>回源位置：</b>MHCI/Tf cargo comparison；clathrin heavy chain or μ2 depletion</p><p><b>本资料中的作用：</b>药物能抑制标称靶通路之外的摄取；不能以一种抑制剂独立鉴定通路。</p></details><details class="source-entry" id="ref-PH26"><summary>[PH26] DNA nanodevices detect an acidic nanolayer on the lysosomal surface<br/><span class="journal">Nature Cell Biology · 2026</span></summary><p><a href="https://doi.org/10.1038/s41556-025-01855-y" rel="noopener" target="_blank">DOI: 10.1038/s41556-025-01855-y</a></p><p class="read-scope"><b>本轮核查范围：</b>期刊公开摘要、图题和两份更正；未取得订阅全文与完整方法，不作完整精读案例</p><p><b>回源位置：</b>Abstract: juxta-lysosomal acidic nanolayer；Publisher Correction 10.1038/s41556-026-01897-w: reviewer information；Author Correction 10.1038/s41556-026-02024-5: discussion and references added</p><p><b>本资料中的作用：</b>作为局部胞质环境的重要近期报告和待深入材料；不外推所有内体、不宣称已全面核验纳米尺度校准或独立复现。</p></details><details class="source-entry" id="ref-ME26"><summary>[ME26] In situ mapping of late-stage biomechanical coordination during clathrin-mediated endocytosis<br/><span class="journal">Nature Communications · 2026</span></summary><p><a href="https://doi.org/10.1038/s41467-026-75876-y" rel="noopener" target="_blank">DOI: 10.1038/s41467-026-75876-y</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文，纳米棒SPT、Fig1–7及方法/讨论定向核查</p><p><b>回源位置：</b>40×80 nm transferrin-modified gold nanorod cargo；swing/twist indirect readout and actin subset；hypotonic/CK666 perturbations</p><p><b>本资料中的作用：</b>新增可观测量仍带探针—目标耦合假设；载荷尺寸和药理特异性需要保留。</p></details><details class="source-entry" id="ref-GP26"><summary>[GP26] Conformational biosensors delineate endosomal G protein regulation by GPCRs<br/><span class="journal">Nature Communications · 2026</span></summary><p><a href="https://doi.org/10.1038/s41467-026-69329-9" rel="noopener" target="_blank">DOI: 10.1038/s41467-026-69329-9</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文，Fig2–6、endogenous/overexpression及Discussion定向核查</p><p><b>回源位置：</b>Gαs redistribution versus activation/coupling；native G proteins but overexpressed activating GPCRs；Nb37 and KB1691 different states</p><p><b>本资料中的作用：</b>G蛋白到达内体不等于在那里由受体激活；生理表达层级和传感器状态特异性要分开。</p></details><details class="source-entry" id="ref-MY26"><summary>[MY26] Class-I myosin responds to changes in membrane tension during clathrin-mediated endocytosis in human induced pluripotent stem cells<br/><span class="journal">PNAS · 2026</span></summary><p><a href="https://doi.org/10.1073/pnas.2532817123" rel="noopener" target="_blank">DOI: 10.1073/pnas.2532817123</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文XML，hiPSC标签、Myo1E缺失、微吸引与低渗主要结果/图注</p><p><b>回源位置：</b>Fig1/2 endogenous tagging and knockout；Fig3 colony aspiration and cell boundaries；Fig4/5 hypotonic challenge</p><p><b>本资料中的作用：</b>应区分位点、单细胞和细胞群环境；Myo1E缺失表型不等于所有细胞都必须依赖该蛋白。</p></details><details class="source-entry" id="ref-CM23"><summary>[CM23] Structure of the endosomal Commander complex linked to Ritscher-Schinzel syndrome<br/><span class="journal">Cell · 2023</span></summary><p><a href="https://doi.org/10.1016/j.cell.2023.04.003" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2023.04.003</a></p><p class="read-scope"><b>本轮核查范围：</b>公开摘要、主要结果及Fig1结构说明网页定位；本地XML未获取，不作全篇逐图复核</p><p><b>回源位置：</b>Retriever names and Commander assemblies；cryo-EM/AlphaFold integration limits</p><p><b>本资料中的作用：</b>使用当前亚基名称，并区分实验结构与计算建模。</p></details><details class="source-entry" id="ref-CO24"><summary>[CO24] Structure and interactions of the endogenous human Commander complex<br/><span class="journal">Nature Structural &amp; Molecular Biology · 2024</span></summary><p><a href="https://doi.org/10.1038/s41594-024-01246-1" rel="noopener" target="_blank">DOI: 10.1038/s41594-024-01246-1</a></p><p class="read-scope"><b>本轮核查范围：</b>公开全文，Fig1和方法组合、Fig5结构比较定向核查；完整Fig1已目视检查并核对CC BY4许可</p><p><b>回源位置：</b>Fig1 AP-MS/BioID/XL-MS/SEC workflow and quantitative interaction analysis；Fig5 comparison of structural models</p><p><b>本资料中的作用：</b>不同互作技术施加不同观测约束，结合结构仍需区分直接分辨与装配模型。</p></details><details class="source-entry" id="ref-MU16"><summary>[MU16] An endosomal tether undergoes an entropic collapse to bring vesicles together<br/><span class="journal">Nature · 2016</span></summary><p><a href="https://doi.org/10.1038/nature19326" rel="noopener" target="_blank">DOI: 10.1038/nature19326</a></p><p class="read-scope"><b>本轮核查范围：</b>PMC公开作者稿的摘要、引言、Fig1/2说明及光镊方法和讨论定向核查；本轮XML下载未成功，不标为逐图视觉复核</p><p><b>回源位置：</b>Abstract and Fig1/2 text: PI3P-EEA1-Rab5 tethering and flexibility；Optical tweezer methods; Discussion: approach to trans-SNARE range</p><p><b>本资料中的作用：</b>系留、几何靠近与融合不是同一事件；Rab5调节EEA1柔顺性的机制不能扩成EEA1单独完成全部融合。</p></details><details class="source-entry" id="ref-PO10"><summary>[PO10] Identification of the Switch in Early-to-Late Endosome Transition<br/><span class="journal">Cell · 2010</span></summary><p><a href="https://doi.org/10.1016/j.cell.2010.03.011" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2010.03.011</a></p><p class="read-scope"><b>本轮核查范围：</b>研究机构公开PDF，Introduction、线虫体系选择理由、Rab转换及RABX-5驻留和酵母实验相关正文/图注定向核查；未重做全部图像分析</p><p><b>回源位置：</b>PDF pages 1-3: feedback problem, coelomocyte system and Fig1/2 explanations；SAND-1 Displaces RABEX-5 from Yeast Endosomes: rationale for expression control</p><p><b>本资料中的作用：</b>保留作者明确说明的体系选择理由；区分定位与活性，并以后续GEF研究限定历史HOPS解释。</p></details><details class="source-entry" id="ref-CA14"><summary>[CA14] The Mon1-Ccz1 GEF activates the Rab7 GTPase Ypt7 via a longin-fold-Rab interface and association with PI3P-positive membranes<br/><span class="journal">Journal of Cell Science · 2014</span></summary><p><a href="https://doi.org/10.1242/jcs.140921" rel="noopener" target="_blank">DOI: 10.1242/jcs.140921</a></p><p class="read-scope"><b>本轮核查范围：</b>PubMed原始研究索引摘要核查；本轮未获取全文，限用于摘要明确说明的酵母Ypt7交换活性及分离功能突变</p><p><b>回源位置：</b>Abstract: Ypt7 activation, heterodimer/localization-preserving mutations and PI3P membrane stimulation</p><p><b>本资料中的作用：</b>Mon1-Ccz1的GEF活性与定位可分离；不把酵母复合物组成和实验条件无条件套到所有物种。</p></details><details class="source-entry" id="ref-OH05"><summary>[OH05] Identification of a ferrireductase required for efficient transferrin-dependent iron uptake in erythroid cells<br/><span class="journal">Nature Genetics · 2005</span></summary><p><a href="https://doi.org/10.1038/ng1658" rel="noopener" target="_blank">DOI: 10.1038/ng1658</a></p><p class="read-scope"><b>本轮核查范围：</b>PubMed原始研究索引摘要核查；本轮未获取可核读的完整正文和全部功能图，限于红系Steap3识别与功能定位</p><p><b>回源位置：</b>Abstract: nm1054 positional cloning; overexpression and deficient erythroid ferrireductase activity</p><p><b>本资料中的作用：</b>受体/配体运输与金属还原、铁获取分开；不将红系STEAP3依赖性扩展为所有细胞唯一机制。</p></details><details class="source-entry" id="ref-RU02"><summary>[RU02] Structure of the LDL receptor extracellular domain at endosomal pH<br/><span class="journal">Science · 2002</span></summary><p><a href="https://doi.org/10.1126/science.1078124" rel="noopener" target="_blank">DOI: 10.1126/science.1078124</a></p><p class="read-scope"><b>本轮核查范围：</b>作者机构仓储公开PDF的在线文本：摘要、结构测定段及分辨率限制定向核查；本地下载空响应，未做全篇逐图检查</p><p><b>回源位置：</b>PDF page 2 (journal page 2353): pH 5.3, 3.7 A structure, module positions and explicit side-chain limitation；Abstract: beta-propeller as proposed alternate substrate for ligand-binding region</p><p><b>本资料中的作用：</b>低pH结构支持模块排布与释放模型，不能独立证明完整细胞释放/回收动力学或精确侧链接触。</p></details><details class="source-entry" id="ref-WE18"><summary>[WE18] Concerted ESCRT and clathrin recruitment waves define the timing and morphology of intraluminal vesicle formation<br/><span class="journal">Nature Communications · 2018</span></summary><p><a href="https://doi.org/10.1038/s41467-018-05345-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-05345-8</a></p><p class="read-scope"><b>本轮核查范围：</b>V1已核P13原图；本轮另从已保存的原文XML定向核查Introduction、ESCRT募集摘要及HRS770替换实验正文/方法；未新增Fig5视觉检查</p><p><b>回源位置：</b>Abstract/Introduction: ESCRT roles and recurring waves；Results: HRS clathrin-box deletion and close-to-endogenous replacement；Fig5 text and plasmid/siRNA methods; Fig3 image inspection retained from V1</p><p><b>本资料中的作用：</b>内体HRS-clathrin与质膜AP2-clathrin作用分开；选择性接口扰动减少多位点干预混淆，仍需表达和功能验证。</p></details>
-<h3>当你准备把本资料用于真实课题</h3>
-<p>先选一个具体受体、一种细胞状态和一个可操作的问题；回到对应原文的构建体、表达水平、处理时间、数据定义及统计单位，再决定能否迁移。若要引用某幅论文图，沿图源及许可回到原文；本资料中的中文读法不能替代完整图注。</p>
-<p>若需要形成开题材料，优先带走四样东西：<strong>可检查的问题定义、最强已有解释、能改变判断的下一项证据，以及明确未解决的条件</strong>。它们比一串尚未组织关系的蛋白和技术名称，更接近可继续合作的科研基座。</p></section></div><footer class="footer"><p><b>使用边界：</b>这是可继续扩展的科研学习基座，不声称穷尽全部受体、细胞和分子细节，亦未重新分析原始实验数据。每份补充来源的实际核查范围见文献区；摘要定位未标为全文精读。</p><p><b>图像许可：</b>18 幅论文图均保持完整图版，逐图标注来源与许可。P09 为 CC BY-NC-SA 4.0；P14 原文注明 CC BY 但未列版本；其余见各图。T1 为方向辅助示意，教学模型 M1 为本资料的合成模型，不是实验数据。</p><p>V2 · 2026-11-20 · 中文正文与参考素材 · 单文件离线阅读；外部论文链接需联网。</p></footer></main></div><button type="button" class="backtop" id="backtop" aria-label="回到顶部">↑</button><dialog aria-labelledby="zoomTitle" id="figureDialog"><div class="zoom-toolbar"><strong id="zoomTitle">论文图</strong><button aria-label="缩小" id="zoomMinus" type="button">−</button><span id="zoomValue">100%</span><button aria-label="放大" id="zoomPlus" type="button">＋</button><button id="zoomFit" type="button">适合宽度</button><button id="zoomActual" type="button">原始尺寸</button><button id="zoomClose" type="button">关闭 ✕</button></div><div class="zoom-viewport"><img alt="" id="zoomImage"/></div><p class="zoom-foot">放大后可横向或纵向滚动，按 Esc 关闭。<a href="#" id="zoomSource" rel="noopener" target="_blank">论文原文与完整图注 ↗</a></p></dialog><script>const decisionData={
- uptake:{title:'先区分结合、入口与后续消失',first:'测起始表面受体与结合量，再用经验证的表面排除方法获得早期内化时间系列。以同一对象的起始池作分母，同时记录细胞状态。',alternatives:'回收加快、降解、pH 亮度变化及焦面/分割均可使胞内荧光减少。单终点 MFI 不能确定入口。',upgrade:'如果问题已经定位到位点起始、增长或失败，TIRF/事件追踪才带来新的判别力。',link:'#worked-study'},
- recycle:{title:'追踪已经内化的同一群体',first:'用受体预标记、抗体 feeding 或合适的可切断表面标记界定内化池，再测重新表面可及的量。设置总标记保留的平行追踪。',alternatives:'内部标记减少还可能是降解、标签脱落或亮度变化；末端表面量又受到再内化影响。先定义当前表面池还是累计回收。',upgrade:'当快速回收与再内化无法分开时，寻求再暴露捕获或事件级读出；更多固定共定位图通常不直接解决此问题。',link:'#experimental-decisions'},
- degrade:{title:'把旧池周转与总蛋白变化分开',first:'做总受体、表面池及标记保留的时间系列，检查合成与提取/抗体识别因素。结合分选因子干预与合适的恢复。',alternatives:'一种溶酶体药物恢复总量，并不能独立确定原发瓶颈；恢复蛋白量也可能没有恢复正常表面功能。',upgrade:'若核心命题变为进入 ILV 而非限制膜，普通共聚焦不足，免疫电镜/断层成像才具有明确意义。',link:'#endosomes'},
- shape:{title:'先问结构身份和检测规则',first:'检查原始三维图像、标记和分割阈值；比较事件形成、驻留与后续货物命运。内体变大或包被增多可能来自出口受阻。',alternatives:'荧光亮度、面积、包被量和膜曲率不是同一变量；样品去顶或固定也会改变可见结构集合。',upgrade:'只有当曲率/颈部拓扑决定机制时，再选择有校准的轴向、偏振、超分辨或相关电镜。',link:'#bending'},
- interact:{title:'互作是否连接到功能？',first:'先验证标签构建体的表达、定位和 rescue；比较尽量保留其他功能的构建体，结合 IP 和候选的运输读出。',alternatives:'共同沉淀可能是间接联系，邻近标记不是直接结合；差异互作还可能来自不同表达和定位。',upgrade:'当候选空间确实是瓶颈时，比较蛋白组学、交联或结构合作才有针对性；随后仍需功能证据。',link:'#case-retriever'},
- signal:{title:'位置、活化和输出分开问',first:'同步观察受体表面/内部池及信号时间系列，考虑表面池变化、反馈与细胞状态等解释。',alternatives:'受体与内体共定位不证明在那里活化；总 pERK/pAKT 等输出不能唯一确定空间来源。',upgrade:'当空间来源决定结论时，局部构象/活性传感器与分区操控有价值，但需特异性和表达验证。',link:'#case-signalling'}
+</section><section class="chapter" id="source-library"><h2>17 · 文献入口与进一步阅读</h2>
+<p>文献围绕 AP2 激活、包被力学、EGFR 剂量、回收机器、细胞器接触、局部环境和空间信号选取，纳入了截至 2026-11-20 的部分近期工作。每条记录列出实际核读范围和定位信息：有些用于摘要定位，有些进一步读到指定结果、图注或方法。本次采用定向检索，未进行领域文献的穷尽检索或原始数据重分析。</p>
+<details class="source-entry" id="ref-K14"><summary>[K14] AP2 controls clathrin polymerization with a membrane-activated switch<br/><span class="journal">Science · 2014</span></summary><p><a href="https://doi.org/10.1126/science.1254836" rel="noopener" target="_blank">DOI: 10.1126/science.1254836</a></p><p class="read-scope"><b>阅读范围：</b>公开全文网页，正文及Fig1–4图注定向核查；本地XML获取失败</p><p><b>相关位置：</b>Fig1: full AP2 versus isolated hinge; membrane attachment controls；Fig2: buried hinge and release mutations；Fig4: lipid/cargo-dependent clathrin recruitment and buds</p><p><b>阅读线索：</b>膜定位不等于构象激活；结构、解除抑制突变和脂质体重构形成不同层级证据。出芽充分性不等于完整裂变充分性。</p></details><details class="source-entry" id="ref-C12"><summary>[C12] The first five seconds in the life of a clathrin-coated pit<br/><span class="journal">Cell · 2012</span></summary><p><a href="https://doi.org/10.1016/j.cell.2012.05.047" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2012.05.047</a></p><p class="read-scope"><b>阅读范围：</b>作者实验室公开PDF，主要结果与单分子校准、FCHO缺失段落定向核查</p><p><b>相关位置：</b>Fig1/2 and related single-EGFP calibration；Discussion/FCHO1/2 depletion and abortive pits</p><p><b>阅读线索：</b>起始少量分子需要校准与时间分辨；初始到达、持续增长和成功成熟必须分开。</p></details><details class="source-entry" id="ref-B11"><summary>[B11] Actin dynamics counteract membrane tension during clathrin-mediated endocytosis<br/><span class="journal">Nature Cell Biology · 2011</span></summary><p><a href="https://doi.org/10.1038/ncb2307" rel="noopener" target="_blank">DOI: 10.1038/ncb2307</a></p><p class="read-scope"><b>阅读范围：</b>公开全文XML，主要结果、Fig1/3/4及讨论定向核查</p><p><b>相关位置：</b>Fig1 apical/basolateral polarized MDCK；Fig3 hypotonic challenge；Fig4 independent mechanical stretch</p><p><b>阅读线索：</b>同种细胞不同膜面及不同机械挑战改变actin依赖性；独立扰动共同支持机械解释。</p></details><details class="source-entry" id="ref-A15"><summary>[A15] Endocytic sites mature by continuous bending and remodeling of the clathrin coat<br/><span class="journal">Science · 2015</span></summary><p><a href="https://doi.org/10.1126/science.aaa9555" rel="noopener" target="_blank">DOI: 10.1126/science.aaa9555</a></p><p class="read-scope"><b>阅读范围：</b>PubMed索引摘要核查；本轮未获取全文</p><p><b>相关位置：</b>Abstract: fluorescence plus electron tomography; coat area/curvature</p><p><b>阅读线索：</b>作为模型历史定位；不把摘要定位当逐图复核。</p></details><details class="source-entry" id="ref-S18"><summary>[S18] Membrane bending occurs at all stages of clathrin-coat assembly and defines endocytic dynamics<br/><span class="journal">Nature Communications · 2018</span></summary><p><a href="https://doi.org/10.1038/s41467-018-02818-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-02818-8</a></p><p class="read-scope"><b>阅读范围：</b>公开全文、方法校准与Fig2/3；V1已查看相应原图</p><p><b>相关位置：</b>Fig2 pol-TIRF/TEM/AFM calibration；Fig3 live-cell bending classes</p><p><b>阅读线索：</b>曲率代理读出与实际形态需校准；混合动力学不能被静态单一路径覆盖。</p></details><details class="source-entry" id="ref-BU18"><summary>[BU18] Clathrin-adaptor ratio and membrane tension regulate the flat-to-curved transition of the clathrin coat during endocytosis<br/><span class="journal">Nature Communications · 2018</span></summary><p><a href="https://doi.org/10.1038/s41467-018-03533-0" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-03533-0</a></p><p class="read-scope"><b>阅读范围：</b>公开全文、摘要、结果与几何模型定向核查</p><p><b>相关位置：</b>BSC-1 flat-to-curved transition；clathrin/AP2 ratio and membrane tension</p><p><b>阅读线索：</b>不要把强度、包被面积和膜曲率当同一量；结论带细胞与模型条件。</p></details><details class="source-entry" id="ref-D21"><summary>[D21] The structure and spontaneous curvature of clathrin lattices at the plasma membrane<br/><span class="journal">Developmental Cell · 2021</span></summary><p><a href="https://doi.org/10.1016/j.devcel.2021.03.017" rel="noopener" target="_blank">DOI: 10.1016/j.devcel.2021.03.017</a></p><p class="read-scope"><b>阅读范围：</b>公开PMC正文的Introduction、主要结果与去顶弯曲实验定向核查；本地XML不可用</p><p><b>相关位置：</b>Fig3 unroofing and spontaneous curvature；multi-cell structure comparison</p><p><b>阅读线索：</b>去顶后无需新增能量/蛋白即可弯曲，限定于去顶体系；不等于活细胞不消耗能量。</p></details><details class="source-entry" id="ref-SH18"><summary>[SH18] Cell membranes resist flow<br/><span class="journal">Cell · 2018</span></summary><p><a href="https://doi.org/10.1016/j.cell.2018.09.054" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2018.09.054</a></p><p class="read-scope"><b>阅读范围：</b>公开PMC摘要及两膜管/bleb比较的网页内容定位；本地全文下载未成功</p><p><b>相关位置：</b>Abstract: intact-cell versus bleb tension propagation</p><p><b>阅读线索：</b>局部张力与全细胞均一张力需要区分；不把特定细胞中的传播性质普遍化。</p></details><details class="source-entry" id="ref-E13"><summary>[E13] Threshold-controlled ubiquitination of the EGFR directs receptor fate<br/><span class="journal">The EMBO Journal · 2013</span></summary><p><a href="https://doi.org/10.1038/emboj.2013.149" rel="noopener" target="_blank">DOI: 10.1038/emboj.2013.149</a></p><p class="read-scope"><b>阅读范围：</b>公开全文XML，Fig1–3及Fig6–9/相关结果定向核查</p><p><b>相关位置：</b>Fig1/2 phosphorylation versus ubiquitination dose response；Fig3 surface origin；Fig7–9 phosphosite-null/add-back mutants, expression and kinase controls</p><p><b>阅读线索：</b>剂量相关被位点重建、受体丰度与激酶活性控制推进到机制论证；原文为CC BY-NC-ND，本版仅链接不新增复刻图。</p></details><details class="source-entry" id="ref-E15"><summary>[E15] Quantitative analysis reveals how EGFR activation and downregulation are coupled in normal but not in cancer cells<br/><span class="journal">Nature Communications · 2015</span></summary><p><a href="https://doi.org/10.1038/ncomms8999" rel="noopener" target="_blank">DOI: 10.1038/ncomms8999</a></p><p class="read-scope"><b>阅读范围：</b>公开全文，受体表达量和定量模型主要结果定向核查</p><p><b>相关位置：</b>EGFR level-dependent ubiquitination threshold；normal/cancer cell comparison</p><p><b>阅读线索：</b>刺激剂量不能脱离受体丰度比较；不是所有细胞共用固定阈值。</p></details><details class="source-entry" id="ref-R14"><summary>[R14] ER contact sites define the position and timing of endosome fission<br/><span class="journal">Cell · 2014</span></summary><p><a href="https://doi.org/10.1016/j.cell.2014.10.023" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2014.10.023</a></p><p class="read-scope"><b>阅读范围：</b>公开网页中Introduction、Fig1/4/6/7及Discussion定向核查；本地XML不可用</p><p><b>相关位置：</b>Fig1 cargo/Rab/ER time series；Fig4 spatial coincidence/coverage null；Fig7 Rtn4a perturbation, endosome size/bud length controls</p><p><b>阅读线索：</b>时空定位、偶然覆盖对照及扰动共同支持ER参与；尚不单独确立分子切割机器。</p></details><details class="source-entry" id="ref-R05"><summary>[R05] Rab conversion as a mechanism of progression from early to late endosomes<br/><span class="journal">Cell · 2005</span></summary><p><a href="https://doi.org/10.1016/j.cell.2005.06.043" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2005.06.043</a></p><p class="read-scope"><b>阅读范围：</b>PubMed摘要与书目信息；本轮未获全文</p><p><b>相关位置：</b>Abstract: individual endosome Rab5 replacement by Rab7</p><p><b>阅读线索：</b>历史定位；不重复把2005文中HOPS/GEF表述当作当代普遍分子模型。</p></details><details class="source-entry" id="ref-L06"><summary>[L06] Ligands for clathrin-mediated endocytosis are differentially sorted into distinct populations of early endosomes<br/><span class="journal">Cell · 2006</span></summary><p><a href="https://doi.org/10.1016/j.cell.2005.12.038" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2005.12.038</a></p><p class="read-scope"><b>阅读范围：</b>作者实验室PDF，主要结果和货物/微管动力学比较定向核查</p><p><b>相关位置：</b>dynamic/static early-endosome populations；cargo delivery before endosome entry</p><p><b>阅读线索：</b>早期内体异质性及递送选择不能简化为单一共同终点；具体分群依体系与测量。</p></details><details class="source-entry" id="ref-M17"><summary>[M17] Retriever is a multiprotein complex for retromer-independent endosomal cargo recycling<br/><span class="journal">Nature Cell Biology · 2017</span></summary><p><a href="https://doi.org/10.1038/ncb3610" rel="noopener" target="_blank">DOI: 10.1038/ncb3610</a></p><p class="read-scope"><b>阅读范围：</b>公开PMC全文，Fig1–3结果/图注、rescue及recycling实验定向核查；期刊页面仅摘要</p><p><b>相关位置：</b>Fig1 N/C-terminal GFP comparison, rescue and SILAC；Fig2 VPS29 versus VPS35 and orthogonal fate assays；Fig3 association and reconstituted heterotrimer</p><p><b>阅读线索：</b>定位和结合正常不保证功能；标签差异提供分离功能扰动，比较蛋白组学需功能证据闭合。</p></details><details class="source-entry" id="ref-G13"><summary>[G13] Conformational biosensors reveal GPCR signalling from endosomes<br/><span class="journal">Nature · 2013</span></summary><p><a href="https://doi.org/10.1038/nature12000" rel="noopener" target="_blank">DOI: 10.1038/nature12000</a></p><p class="read-scope"><b>阅读范围：</b>公开全文网页/PDF索引中Nb80、Nb37及Fig1/2验证段落定向核查；期刊页面为摘要</p><p><b>相关位置：</b>agonist/antagonist reversibility；delayed endosomal sensor recruitment；wavelength reversal control</p><p><b>阅读线索：</b>位置与活化构象分开；排除从质膜一路携带传感器的替代解释。</p></details><details class="source-entry" id="ref-ES18"><summary>[ES18] ATP-dependent force generation and membrane scission by ESCRT-III and Vps4<br/><span class="journal">Science · 2018</span></summary><p><a href="https://doi.org/10.1126/science.aat1839" rel="noopener" target="_blank">DOI: 10.1126/science.aat1839</a></p><p class="read-scope"><b>阅读范围：</b>作者机构公开摘要与方法说明；本地PDF下载为空，不声称全文精读</p><p><b>相关位置：</b>GUV encapsulation, nanotubes, ATP photo-uncaging, Vps4 catalytic controls</p><p><b>阅读线索：</b>逆向拓扑、定时能量输入和催化控制展示机制设计；仅用于有限机制说明。</p></details><details class="source-entry" id="ref-GL19"><summary>[GL19] Physical Principles of Membrane Shape Regulation by the Glycocalyx<br/><span class="journal">Cell · 2019</span></summary><p><a href="https://doi.org/10.1016/j.cell.2019.04.017" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2019.04.017</a></p><p class="read-scope"><b>阅读范围：</b>公开摘要与PMC中聚合物刷模型/逆转实验段落定位；非逐图全文复核</p><p><b>相关位置：</b>mucin size/density and model membranes</p><p><b>阅读线索：</b>糖萼的空间压力可影响膜形态；不能由外向膜形态直接推定具体受体CME速率。</p></details><details class="source-entry" id="ref-N11"><summary>[N11] Lysosomal positioning coordinates cellular nutrient responses<br/><span class="journal">Nature Cell Biology · 2011</span></summary><p><a href="https://doi.org/10.1038/ncb2204" rel="noopener" target="_blank">DOI: 10.1038/ncb2204</a></p><p class="read-scope"><b>阅读范围：</b>公开全文XML，营养/位置/胞质pH及Fig3/4定向核查</p><p><b>相关位置：</b>position manipulation under starvation/recovery；position alone not sufficient without nutrients</p><p><b>阅读线索：</b>饥饿不是中性同步；位置与营养输入的必要性/充分性分开。</p></details><details class="source-entry" id="ref-I10"><summary>[I10] A cation counterflux supports lysosomal acidification<br/><span class="journal">Journal of Cell Biology · 2010</span></summary><p><a href="https://doi.org/10.1083/jcb.200911083" rel="noopener" target="_blank">DOI: 10.1083/jcb.200911083</a></p><p class="read-scope"><b>阅读范围：</b>公开全文XML，电荷补偿、离子替换、比率pH测量相关结果/方法</p><p><b>相关位置：</b>cation counterflux and reversible permeabilization；in situ pH calibration</p><p><b>阅读线索：</b>酸化涉及电位、离子、缓冲和体积，不是V-ATPase蛋白量的单变量函数。</p></details><details class="source-entry" id="ref-P12"><summary>[P12] Pitstop 2 Is a Potent Inhibitor of Clathrin-Independent Endocytosis<br/><span class="journal">PLOS ONE · 2012</span></summary><p><a href="https://doi.org/10.1371/journal.pone.0045799" rel="noopener" target="_blank">DOI: 10.1371/journal.pone.0045799</a></p><p class="read-scope"><b>阅读范围：</b>公开全文XML，pitstop2在clathrin/AP2缺失条件下的实验</p><p><b>相关位置：</b>MHCI/Tf cargo comparison；clathrin heavy chain or μ2 depletion</p><p><b>阅读线索：</b>药物能抑制标称靶通路之外的摄取；不能以一种抑制剂独立鉴定通路。</p></details><details class="source-entry" id="ref-PH26"><summary>[PH26] DNA nanodevices detect an acidic nanolayer on the lysosomal surface<br/><span class="journal">Nature Cell Biology · 2026</span></summary><p><a href="https://doi.org/10.1038/s41556-025-01855-y" rel="noopener" target="_blank">DOI: 10.1038/s41556-025-01855-y</a></p><p class="read-scope"><b>阅读范围：</b>期刊公开摘要、图题和两份更正；未取得订阅全文与完整方法，不作完整精读案例</p><p><b>相关位置：</b>Abstract: juxta-lysosomal acidic nanolayer；Publisher Correction 10.1038/s41556-026-01897-w: reviewer information；Author Correction 10.1038/s41556-026-02024-5: discussion and references added</p><p><b>阅读线索：</b>作为局部胞质环境的重要近期报告和待深入材料；不外推所有内体、不宣称已全面核验纳米尺度校准或独立复现。</p></details><details class="source-entry" id="ref-ME26"><summary>[ME26] In situ mapping of late-stage biomechanical coordination during clathrin-mediated endocytosis<br/><span class="journal">Nature Communications · 2026</span></summary><p><a href="https://doi.org/10.1038/s41467-026-75876-y" rel="noopener" target="_blank">DOI: 10.1038/s41467-026-75876-y</a></p><p class="read-scope"><b>阅读范围：</b>公开全文，纳米棒SPT、Fig1–7及方法/讨论定向核查</p><p><b>相关位置：</b>40×80 nm transferrin-modified gold nanorod cargo；swing/twist indirect readout and actin subset；hypotonic/CK666 perturbations</p><p><b>阅读线索：</b>新增可观测量仍带探针—目标耦合假设；载荷尺寸和药理特异性需要保留。</p></details><details class="source-entry" id="ref-GP26"><summary>[GP26] Conformational biosensors delineate endosomal G protein regulation by GPCRs<br/><span class="journal">Nature Communications · 2026</span></summary><p><a href="https://doi.org/10.1038/s41467-026-69329-9" rel="noopener" target="_blank">DOI: 10.1038/s41467-026-69329-9</a></p><p class="read-scope"><b>阅读范围：</b>公开全文，Fig2–6、endogenous/overexpression及Discussion定向核查</p><p><b>相关位置：</b>Gαs redistribution versus activation/coupling；native G proteins but overexpressed activating GPCRs；Nb37 and KB1691 different states</p><p><b>阅读线索：</b>G蛋白到达内体不等于在那里由受体激活；生理表达层级和传感器状态特异性要分开。</p></details><details class="source-entry" id="ref-MY26"><summary>[MY26] Class-I myosin responds to changes in membrane tension during clathrin-mediated endocytosis in human induced pluripotent stem cells<br/><span class="journal">PNAS · 2026</span></summary><p><a href="https://doi.org/10.1073/pnas.2532817123" rel="noopener" target="_blank">DOI: 10.1073/pnas.2532817123</a></p><p class="read-scope"><b>阅读范围：</b>公开全文XML，hiPSC标签、Myo1E缺失、微吸引与低渗主要结果/图注</p><p><b>相关位置：</b>Fig1/2 endogenous tagging and knockout；Fig3 colony aspiration and cell boundaries；Fig4/5 hypotonic challenge</p><p><b>阅读线索：</b>应区分位点、单细胞和细胞群环境；Myo1E缺失表型不等于所有细胞都必须依赖该蛋白。</p></details><details class="source-entry" id="ref-CM23"><summary>[CM23] Structure of the endosomal Commander complex linked to Ritscher-Schinzel syndrome<br/><span class="journal">Cell · 2023</span></summary><p><a href="https://doi.org/10.1016/j.cell.2023.04.003" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2023.04.003</a></p><p class="read-scope"><b>阅读范围：</b>公开摘要、主要结果及Fig1结构说明网页定位；本地XML未获取，不作全篇逐图复核</p><p><b>相关位置：</b>Retriever names and Commander assemblies；cryo-EM/AlphaFold integration limits</p><p><b>阅读线索：</b>使用当前亚基名称，并区分实验结构与计算建模。</p></details><details class="source-entry" id="ref-CO24"><summary>[CO24] Structure and interactions of the endogenous human Commander complex<br/><span class="journal">Nature Structural &amp; Molecular Biology · 2024</span></summary><p><a href="https://doi.org/10.1038/s41594-024-01246-1" rel="noopener" target="_blank">DOI: 10.1038/s41594-024-01246-1</a></p><p class="read-scope"><b>阅读范围：</b>公开全文，Fig1和方法组合、Fig5结构比较定向核查；完整Fig1已目视检查并核对CC BY4许可</p><p><b>相关位置：</b>Fig1 AP-MS/BioID/XL-MS/SEC workflow and quantitative interaction analysis；Fig5 comparison of structural models</p><p><b>阅读线索：</b>不同互作技术施加不同观测约束，结合结构仍需区分直接分辨与装配模型。</p></details><details class="source-entry" id="ref-MU16"><summary>[MU16] An endosomal tether undergoes an entropic collapse to bring vesicles together<br/><span class="journal">Nature · 2016</span></summary><p><a href="https://doi.org/10.1038/nature19326" rel="noopener" target="_blank">DOI: 10.1038/nature19326</a></p><p class="read-scope"><b>阅读范围：</b>PMC公开作者稿的摘要、引言、Fig1/2说明及光镊方法和讨论定向核查；本轮XML下载未成功，不标为逐图视觉复核</p><p><b>相关位置：</b>Abstract and Fig1/2 text: PI3P-EEA1-Rab5 tethering and flexibility；Optical tweezer methods; Discussion: approach to trans-SNARE range</p><p><b>阅读线索：</b>系留、几何靠近与融合不是同一事件；Rab5调节EEA1柔顺性的机制不能扩成EEA1单独完成全部融合。</p></details><details class="source-entry" id="ref-PO10"><summary>[PO10] Identification of the Switch in Early-to-Late Endosome Transition<br/><span class="journal">Cell · 2010</span></summary><p><a href="https://doi.org/10.1016/j.cell.2010.03.011" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2010.03.011</a></p><p class="read-scope"><b>阅读范围：</b>研究机构公开PDF，Introduction、线虫体系选择理由、Rab转换及RABX-5驻留和酵母实验相关正文/图注定向核查；未重做全部图像分析</p><p><b>相关位置：</b>PDF pages 1-3: feedback problem, coelomocyte system and Fig1/2 explanations；SAND-1 Displaces RABEX-5 from Yeast Endosomes: rationale for expression control</p><p><b>阅读线索：</b>保留作者明确说明的体系选择理由；区分定位与活性，并以后续GEF研究限定历史HOPS解释。</p></details><details class="source-entry" id="ref-CA14"><summary>[CA14] The Mon1-Ccz1 GEF activates the Rab7 GTPase Ypt7 via a longin-fold-Rab interface and association with PI3P-positive membranes<br/><span class="journal">Journal of Cell Science · 2014</span></summary><p><a href="https://doi.org/10.1242/jcs.140921" rel="noopener" target="_blank">DOI: 10.1242/jcs.140921</a></p><p class="read-scope"><b>阅读范围：</b>PubMed原始研究索引摘要核查；本轮未获取全文，限用于摘要明确说明的酵母Ypt7交换活性及分离功能突变</p><p><b>相关位置：</b>Abstract: Ypt7 activation, heterodimer/localization-preserving mutations and PI3P membrane stimulation</p><p><b>阅读线索：</b>Mon1-Ccz1的GEF活性与定位可分离；不把酵母复合物组成和实验条件无条件套到所有物种。</p></details><details class="source-entry" id="ref-OH05"><summary>[OH05] Identification of a ferrireductase required for efficient transferrin-dependent iron uptake in erythroid cells<br/><span class="journal">Nature Genetics · 2005</span></summary><p><a href="https://doi.org/10.1038/ng1658" rel="noopener" target="_blank">DOI: 10.1038/ng1658</a></p><p class="read-scope"><b>阅读范围：</b>PubMed原始研究索引摘要核查；本轮未获取可核读的完整正文和全部功能图，限于红系Steap3识别与功能定位</p><p><b>相关位置：</b>Abstract: nm1054 positional cloning; overexpression and deficient erythroid ferrireductase activity</p><p><b>阅读线索：</b>受体/配体运输与金属还原、铁获取分开；不将红系STEAP3依赖性扩展为所有细胞唯一机制。</p></details><details class="source-entry" id="ref-RU02"><summary>[RU02] Structure of the LDL receptor extracellular domain at endosomal pH<br/><span class="journal">Science · 2002</span></summary><p><a href="https://doi.org/10.1126/science.1078124" rel="noopener" target="_blank">DOI: 10.1126/science.1078124</a></p><p class="read-scope"><b>阅读范围：</b>作者机构仓储公开PDF的在线文本：摘要、结构测定段及分辨率限制定向核查；本地下载空响应，未做全篇逐图检查</p><p><b>相关位置：</b>PDF page 2 (journal page 2353): pH 5.3, 3.7 A structure, module positions and explicit side-chain limitation；Abstract: beta-propeller as proposed alternate substrate for ligand-binding region</p><p><b>阅读线索：</b>低pH结构支持模块排布与释放模型，不能独立证明完整细胞释放/回收动力学或精确侧链接触。</p></details><details class="source-entry" id="ref-WE18"><summary>[WE18] Concerted ESCRT and clathrin recruitment waves define the timing and morphology of intraluminal vesicle formation<br/><span class="journal">Nature Communications · 2018</span></summary><p><a href="https://doi.org/10.1038/s41467-018-05345-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-018-05345-8</a></p><p class="read-scope"><b>阅读范围：</b>V1已核P13原图；本轮另从已保存的原文XML定向核查Introduction、ESCRT募集摘要及HRS770替换实验正文/方法；未新增Fig5视觉检查</p><p><b>相关位置：</b>Abstract/Introduction: ESCRT roles and recurring waves；Results: HRS clathrin-box deletion and close-to-endogenous replacement；Fig5 text and plasmid/siRNA methods; Fig3 image inspection retained from V1</p><p><b>阅读线索：</b>内体HRS-clathrin与质膜AP2-clathrin作用分开；选择性接口扰动减少多位点干预混淆，仍需表达和功能验证。</p></details>
+<h3>准备用于自己的课题时</h3>
+<p>选定受体、细胞状态和工作问题后，回到相应原文，重点核对构建体、表达、处理时间、数据定义和统计单位。引用图像时，还要查看完整图注和原许可。</p>
+<p>准备开题讨论，可以把材料压成一页：现在的问题是什么，已有解释是什么，下一项证据会怎样改变判断，以及哪些条件仍待确认。具体细节沿文献入口展开，讨论就能从共同的问题继续往前走。</p></section></div><footer class="footer"><p>继续阅读可从文献区查看核读范围与相关位置；版本审计另见随附说明。</p><p><b>图像许可：</b>18 幅论文图均保持完整图版，逐图标注来源与许可。P09 为 CC BY-NC-SA 4.0；P14 原文注明 CC BY 但未列版本；其余见各图。T1 为方向辅助示意，M1 为合成教学模型。</p><p>V2 · 2026-11-20 · 中文正文与参考素材 · 单文件离线阅读；外部论文链接需联网。</p></footer></main></div><button type="button" class="backtop" id="backtop" aria-label="回到顶部">↑</button><dialog aria-labelledby="zoomTitle" id="figureDialog"><div class="zoom-toolbar"><strong id="zoomTitle">论文图</strong><button aria-label="缩小" id="zoomMinus" type="button">−</button><span id="zoomValue">100%</span><button aria-label="放大" id="zoomPlus" type="button">＋</button><button id="zoomFit" type="button">适合宽度</button><button id="zoomActual" type="button">原始尺寸</button><button id="zoomClose" type="button">关闭 ✕</button></div><div class="zoom-viewport"><img alt="" id="zoomImage"/></div><p class="zoom-foot">放大后可横向或纵向滚动，按 Esc 关闭。<a href="#" id="zoomSource" rel="noopener" target="_blank">论文原文与完整图注 ↗</a></p></dialog><script>const decisionData={
+ uptake:{title:'先看差异从哪个受体池开始',first:'测起始表面量与结合量，再经表面信号排除取得早期内化时间系列。用同一对象的起始池作分母，同时记录细胞状态。',alternatives:'回收、降解、pH 响应、焦面和分割都可能改变内部亮度。比较早期与后期，能帮助缩小原因。',upgrade:'问题若落到位点起始、增长或失败，TIRF 和事件追踪可以进一步分开这些阶段。',link:'#worked-study'},
+ recycle:{title:'从同一群已经内化的受体开始',first:'用受体预标记、抗体 feeding 或可切断表面标记界定内化池，追踪重新表面可及的部分，并平行测总标记保留。',alternatives:'内部标记会因降解、脱落或亮度变化而减少；末端表面量又受再内化影响。先选定要测当前表面池，还是累计回收。',upgrade:'快回收与再内化交叠时，可考虑再暴露捕获或事件级读出。固定共定位主要补充位置信息。',link:'#experimental-decisions'},
+ degrade:{title:'先了解原有受体怎样周转',first:'结合总受体、表面池和标记保留的时间系列，了解合成、提取及抗体识别的影响，再配合分选因子干预与恢复。',alternatives:'溶酶体药物恢复总量时，pH、运输和信号也可能改变；还要看受体是否重新到达表面并恢复功能。',upgrade:'若需要确定限制膜与 ILV 中的受体，免疫电镜或断层成像能补充所需拓扑。',link:'#endosomes'},
+ shape:{title:'结合原始图像看形成、驻留与去向',first:'检查三维图像、标记和分割阈值，再比较结构形成、持续时间及货物命运。内体变大或包被积累也可能来自出口受阻。',alternatives:'亮度、面积、包被量和曲率各有测量含义，去顶与固定又会改变可见结构。先对齐这些条件。',upgrade:'曲率或颈部拓扑决定结论时，可选择经校准的轴向、偏振、超分辨或相关电镜。',link:'#bending'},
+ interact:{title:'找出哪一种联系伴随功能改变',first:'检查标签构建体的表达、定位与 rescue，选择尽量保留其他功能的构建体，再配合 IP 和运输读出。',alternatives:'共同沉淀可包含间接联系，邻近标记反映时空接近。比较差异互作时，还要对齐表达与定位。',upgrade:'候选范围过大时，蛋白组、交联或结构合作有助于缩小范围，随后用功能实验检验候选。',link:'#case-retriever'},
+ signal:{title:'把位置与活化状态接起来',first:'同时记录受体表面和内部池、信号时间系列，了解反馈与细胞状态的贡献。',alternatives:'共定位描述受体在哪里，pERK/pAKT 描述网络输出。确定信号来源，还需要空间相关的活性信息。',upgrade:'可考虑局部构象、活性传感器和分区操控，并验证选择性、表达范围及可逆性。',link:'#case-signalling'}
 };
-function renderDecision(){const d=decisionData[document.getElementById('phenotype').value];const upgrade=document.getElementById('resourceLevel').value==='collaboration';document.getElementById('decisionOutput').innerHTML='<h4>'+d.title+'</h4><p><b>常规起步：</b>'+d.first+'</p><p><b>仍兼容的解释：</b>'+d.alternatives+'</p><p><b>'+(upgrade?'合作升级要解决：':'何时再升级：')+'</b>'+d.upgrade+'</p><a href="'+d.link+'">回到对应推演 →</a>'}
+function renderDecision(){const d=decisionData[document.getElementById('phenotype').value];const upgrade=document.getElementById('resourceLevel').value==='collaboration';document.getElementById('decisionOutput').innerHTML='<h4>'+d.title+'</h4><p>可以先做：'+d.first+'</p><p>'+d.alternatives+'</p><p>'+(upgrade?'合作时可以讨论：':'进一步需要时：')+d.upgrade+'</p><a href="'+d.link+'">阅读相关案例与方法 →</a>'}
 document.getElementById('phenotype').addEventListener('change',renderDecision);document.getElementById('resourceLevel').addEventListener('change',renderDecision);renderDecision();
 
 function traffickingModel(p){
