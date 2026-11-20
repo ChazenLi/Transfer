@@ -1,10 +1,41 @@
-# 细胞膜运输：膜融合、胞吞胞吐与受体介导胞吞
+# 受体介导胞吞与内体分选：科研知识框架与研究基座
 
-**Cell Membrane Trafficking: Membrane Fusion, Endocytosis, Exocytosis, and Receptor-Mediated Endocytosis**
+**Receptor-Mediated Endocytosis and Endosomal Sorting: A Research Foundation · V2**
 
-一份以膜拓扑、分子机器和实验读出为主线的中文学习与分析资料。内容从膜融合、胞吐与胞吞推进到 AP2/网格蛋白、肌动蛋白、Dynamin、脱包被、内体成熟和受体分选，并比较 TfR1、LDLR 与 EGFR 的不同命运。
+面向具有细胞生物学基础、希望进一步判断证据和选择实验的读者。以受体介导胞吞—内体分选为核心，将膜拓扑、局部力学、膜脂、化学环境、细胞器互作、营养与信号连接到可研究的问题；融合和胞吐作为必要背景。
 
-## 阅读入口
+## V2 阅读入口
+
+- [科研基座正文（Markdown，GitHub 可直接阅读）](receptor-mediated-endocytosis-research-foundation-v2.md)
+- [交互图文版（HTML）](receptor-mediated-endocytosis-research-foundation-v2.html)：下载本主题目录，保留 `figures/` 后以浏览器打开。GitHub 文件页显示源码。
+- [V1 深度审计](V1-DEPTH-AUDIT.md) · [V2 核查与交付说明](V2-VERIFICATION.md)
+- [32 份机制与案例文献及实际核查范围](research-sources-v2.json)
+- [18 幅论文图的来源与许可](FIGURE-SOURCES-V2.md) · [结构化图源](figure-sources-v2.json)
+
+V2 的核心是解释：**为什么选择这个体系、为什么这个对照有用、怎样从读出走到结论、仍兼容哪些解释，以及换一种受体或实验条件时怎样重新选择。** 作者报告、根据公开论文重建的论证与新增研究建议分别标注，不推测作者私下的发现过程。
+
+## V2 的四个阅读层次
+
+| 层次 | 主要问题 | 内容 |
+|---|---|---|
+| 机制正文 | 谁在膜哪一侧，以何种状态改变哪一步？ | AP2 激活、包被弯曲、actin、Dynamin、脱包被、系留/融合、Rab 转换、酸化、回收与 ILV |
+| 环境与尺度地图 | 哪些条件改变过程，哪些条件改变我们看到的结果？ | 膜两侧、糖萼/ECM、皮层、局部张力、离子/pH、ER、代谢及采样条件 |
+| 实验决策手册 | 常规设备能先区分什么，何时需要合作升级？ | 表面结合/内化、回收/再内化、降解、共定位、标记、遗传恢复和统计单位 |
+| 论文案例推演 | 为什么这些研究动作能推进判断？ | AP2、起始校准、条件性 actin、EGFR 剂量、Retriever、ER 接触、内体信号，共 7 例 |
+
+共 **18 章、18 幅论文图、32 份机制与案例文献**。文献库以 Nature、Cell、Science 及相关高质量原始研究为主，保留必要的专门期刊证据。期刊级别不代替证据判断；“取得全文”不等于复核整篇全部结果。
+
+默认资源为共聚焦、流式、Western 和遗传扰动；TIRF、超分辨、电镜、结构、单粒子和力学方法按具体未知作为合作路线。实验建议是条件性选择，不能直接当作已经验证的通用协议。
+
+HTML 提供全文搜索、目录跳转、深入说明与文献折叠、论文图放大、实验决策练习、手机布局及打印样式。通量模型分别改变入口、回收、分流、移除及探针亮度；曲线来自合成教学模型，未拟合实验数据。
+
+HTML 与 Markdown 共用 `figures/`。新增 N01 为内源 Commander 的互作/纯化研究工作流。未将原论文全文 PDF 或订阅材料放入仓库。
+
+这是一份定向检索、分级核查的科研学习基座，不是系统综述，也不宣称穷尽所有受体、细胞和分子细节。部分工作仅用于摘要定位，已在文献表逐篇说明；未重新分析原始实验数据。
+
+## V1 背景导读与文件
+
+V1 以膜拓扑、分子机器和实验读出为主线，包含更宽的膜融合、胞吐与胞吞背景。以下入口和内容说明对应 V1。
 
 - [完整学习资料（Markdown，GitHub 可直接阅读）](cell-membrane-trafficking-and-receptor-mediated-endocytosis.md)
 - [图文阅读版（HTML）](cell-membrane-trafficking-and-receptor-mediated-endocytosis.html)：下载本主题**完整目录**后用浏览器打开，支持目录搜索、补充说明折叠、论文图放大和打印。GitHub 文件页显示 HTML 源码。

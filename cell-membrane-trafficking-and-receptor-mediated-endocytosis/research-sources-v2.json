@@ -1,0 +1,518 @@
+[
+  {
+    "id": "K14",
+    "title": "AP2 controls clathrin polymerization with a membrane-activated switch",
+    "journal": "Science",
+    "year": 2014,
+    "doi": "10.1126/science.1254836",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4333214/fullTextXML",
+    "role": "AP2 activation and reductionist evidence",
+    "scope": "公开全文网页，正文及Fig1–4图注定向核查；本地XML获取失败",
+    "anchors": [
+      "Fig1: full AP2 versus isolated hinge; membrane attachment controls",
+      "Fig2: buried hinge and release mutations",
+      "Fig4: lipid/cargo-dependent clathrin recruitment and buds"
+    ],
+    "finding": "膜定位不等于构象激活；结构、解除抑制突变和脂质体重构形成不同层级证据。出芽充分性不等于完整裂变充分性。",
+    "article_url": "https://doi.org/10.1126/science.1254836"
+  },
+  {
+    "id": "C12",
+    "title": "The first five seconds in the life of a clathrin-coated pit",
+    "journal": "Cell",
+    "year": 2012,
+    "doi": "10.1016/j.cell.2012.05.047",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3413093/fullTextXML",
+    "role": "Initiation, molecular counting, abortive events",
+    "scope": "作者实验室公开PDF，主要结果与单分子校准、FCHO缺失段落定向核查",
+    "anchors": [
+      "Fig1/2 and related single-EGFP calibration",
+      "Discussion/FCHO1/2 depletion and abortive pits"
+    ],
+    "finding": "起始少量分子需要校准与时间分辨；初始到达、持续增长和成功成熟必须分开。",
+    "article_url": "https://doi.org/10.1016/j.cell.2012.05.047"
+  },
+  {
+    "id": "B11",
+    "title": "Actin dynamics counteract membrane tension during clathrin-mediated endocytosis",
+    "journal": "Nature Cell Biology",
+    "year": 2011,
+    "doi": "10.1038/ncb2307",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3167020/fullTextXML",
+    "role": "Conditional actin requirement and mechanics",
+    "scope": "公开全文XML，主要结果、Fig1/3/4及讨论定向核查",
+    "anchors": [
+      "Fig1 apical/basolateral polarized MDCK",
+      "Fig3 hypotonic challenge",
+      "Fig4 independent mechanical stretch"
+    ],
+    "finding": "同种细胞不同膜面及不同机械挑战改变actin依赖性；独立扰动共同支持机械解释。",
+    "article_url": "https://doi.org/10.1038/ncb2307"
+  },
+  {
+    "id": "A15",
+    "title": "Endocytic sites mature by continuous bending and remodeling of the clathrin coat",
+    "journal": "Science",
+    "year": 2015,
+    "doi": "10.1126/science.aaa9555",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26089517/",
+    "role": "Landmark; abstract-level orientation unless full text obtained",
+    "scope": "PubMed索引摘要核查；本轮未获取全文",
+    "anchors": [
+      "Abstract: fluorescence plus electron tomography; coat area/curvature"
+    ],
+    "finding": "作为模型历史定位；不把摘要定位当逐图复核。",
+    "article_url": "https://doi.org/10.1126/science.aaa9555"
+  },
+  {
+    "id": "S18",
+    "title": "Membrane bending occurs at all stages of clathrin-coat assembly and defines endocytic dynamics",
+    "journal": "Nature Communications",
+    "year": 2018,
+    "doi": "10.1038/s41467-018-02818-8",
+    "url": "https://www.nature.com/articles/s41467-018-02818-8",
+    "role": "Live-cell bending dynamics and calibration",
+    "scope": "公开全文、方法校准与Fig2/3；V1已查看相应原图",
+    "anchors": [
+      "Fig2 pol-TIRF/TEM/AFM calibration",
+      "Fig3 live-cell bending classes"
+    ],
+    "finding": "曲率代理读出与实际形态需校准；混合动力学不能被静态单一路径覆盖。",
+    "article_url": "https://doi.org/10.1038/s41467-018-02818-8"
+  },
+  {
+    "id": "BU18",
+    "title": "Clathrin-adaptor ratio and membrane tension regulate the flat-to-curved transition of the clathrin coat during endocytosis",
+    "journal": "Nature Communications",
+    "year": 2018,
+    "doi": "10.1038/s41467-018-03533-0",
+    "url": "https://www.nature.com/articles/s41467-018-03533-0",
+    "role": "Coat geometry model comparison",
+    "scope": "公开全文、摘要、结果与几何模型定向核查",
+    "anchors": [
+      "BSC-1 flat-to-curved transition",
+      "clathrin/AP2 ratio and membrane tension"
+    ],
+    "finding": "不要把强度、包被面积和膜曲率当同一量；结论带细胞与模型条件。",
+    "article_url": "https://doi.org/10.1038/s41467-018-03533-0"
+  },
+  {
+    "id": "D21",
+    "title": "The structure and spontaneous curvature of clathrin lattices at the plasma membrane",
+    "journal": "Developmental Cell",
+    "year": 2021,
+    "doi": "10.1016/j.devcel.2021.03.017",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8081270/fullTextXML",
+    "role": "Multi-cell structural comparison and unroofing",
+    "scope": "公开PMC正文的Introduction、主要结果与去顶弯曲实验定向核查；本地XML不可用",
+    "anchors": [
+      "Fig3 unroofing and spontaneous curvature",
+      "multi-cell structure comparison"
+    ],
+    "finding": "去顶后无需新增能量/蛋白即可弯曲，限定于去顶体系；不等于活细胞不消耗能量。",
+    "article_url": "https://doi.org/10.1016/j.devcel.2021.03.017"
+  },
+  {
+    "id": "SH18",
+    "title": "Cell membranes resist flow",
+    "journal": "Cell",
+    "year": 2018,
+    "doi": "10.1016/j.cell.2018.09.054",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6541487/fullTextXML",
+    "role": "Local versus global membrane tension",
+    "scope": "公开PMC摘要及两膜管/bleb比较的网页内容定位；本地全文下载未成功",
+    "anchors": [
+      "Abstract: intact-cell versus bleb tension propagation"
+    ],
+    "finding": "局部张力与全细胞均一张力需要区分；不把特定细胞中的传播性质普遍化。",
+    "article_url": "https://doi.org/10.1016/j.cell.2018.09.054"
+  },
+  {
+    "id": "E13",
+    "title": "Threshold-controlled ubiquitination of the EGFR directs receptor fate",
+    "journal": "The EMBO Journal",
+    "year": 2013,
+    "doi": "10.1038/emboj.2013.149",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3730230/fullTextXML",
+    "role": "Dose, ubiquitination, causal engineering",
+    "scope": "公开全文XML，Fig1–3及Fig6–9/相关结果定向核查",
+    "anchors": [
+      "Fig1/2 phosphorylation versus ubiquitination dose response",
+      "Fig3 surface origin",
+      "Fig7–9 phosphosite-null/add-back mutants, expression and kinase controls"
+    ],
+    "finding": "剂量相关被位点重建、受体丰度与激酶活性控制推进到机制论证；原文为CC BY-NC-ND，本版仅链接不新增复刻图。",
+    "article_url": "https://doi.org/10.1038/emboj.2013.149"
+  },
+  {
+    "id": "E15",
+    "title": "Quantitative analysis reveals how EGFR activation and downregulation are coupled in normal but not in cancer cells",
+    "journal": "Nature Communications",
+    "year": 2015,
+    "doi": "10.1038/ncomms8999",
+    "url": "https://www.nature.com/articles/ncomms8999",
+    "role": "Receptor abundance and dose threshold",
+    "scope": "公开全文，受体表达量和定量模型主要结果定向核查",
+    "anchors": [
+      "EGFR level-dependent ubiquitination threshold",
+      "normal/cancer cell comparison"
+    ],
+    "finding": "刺激剂量不能脱离受体丰度比较；不是所有细胞共用固定阈值。",
+    "article_url": "https://doi.org/10.1038/ncomms8999"
+  },
+  {
+    "id": "R14",
+    "title": "ER contact sites define the position and timing of endosome fission",
+    "journal": "Cell",
+    "year": 2014,
+    "doi": "10.1016/j.cell.2014.10.023",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC4634643/fullTextXML",
+    "role": "Environment, spatiotemporal controls, perturbation",
+    "scope": "公开网页中Introduction、Fig1/4/6/7及Discussion定向核查；本地XML不可用",
+    "anchors": [
+      "Fig1 cargo/Rab/ER time series",
+      "Fig4 spatial coincidence/coverage null",
+      "Fig7 Rtn4a perturbation, endosome size/bud length controls"
+    ],
+    "finding": "时空定位、偶然覆盖对照及扰动共同支持ER参与；尚不单独确立分子切割机器。",
+    "article_url": "https://doi.org/10.1016/j.cell.2014.10.023"
+  },
+  {
+    "id": "R05",
+    "title": "Rab conversion as a mechanism of progression from early to late endosomes",
+    "journal": "Cell",
+    "year": 2005,
+    "doi": "10.1016/j.cell.2005.06.043",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16143105/",
+    "role": "Historical concept; abstract-level unless full text obtained",
+    "scope": "PubMed摘要与书目信息；本轮未获全文",
+    "anchors": [
+      "Abstract: individual endosome Rab5 replacement by Rab7"
+    ],
+    "finding": "历史定位；不重复把2005文中HOPS/GEF表述当作当代普遍分子模型。",
+    "article_url": "https://doi.org/10.1016/j.cell.2005.06.043"
+  },
+  {
+    "id": "L06",
+    "title": "Ligands for clathrin-mediated endocytosis are differentially sorted into distinct populations of early endosomes",
+    "journal": "Cell",
+    "year": 2006,
+    "doi": "10.1016/j.cell.2005.12.038",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2660893/fullTextXML",
+    "role": "Heterogeneity and cargo sorting before early endosomes",
+    "scope": "作者实验室PDF，主要结果和货物/微管动力学比较定向核查",
+    "anchors": [
+      "dynamic/static early-endosome populations",
+      "cargo delivery before endosome entry"
+    ],
+    "finding": "早期内体异质性及递送选择不能简化为单一共同终点；具体分群依体系与测量。",
+    "article_url": "https://doi.org/10.1016/j.cell.2005.12.038"
+  },
+  {
+    "id": "M17",
+    "title": "Retriever is a multiprotein complex for retromer-independent endosomal cargo recycling",
+    "journal": "Nature Cell Biology",
+    "year": 2017,
+    "doi": "10.1038/ncb3610",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5790113/fullTextXML",
+    "role": "Distinguish recycling machineries",
+    "scope": "公开PMC全文，Fig1–3结果/图注、rescue及recycling实验定向核查；期刊页面仅摘要",
+    "anchors": [
+      "Fig1 N/C-terminal GFP comparison, rescue and SILAC",
+      "Fig2 VPS29 versus VPS35 and orthogonal fate assays",
+      "Fig3 association and reconstituted heterotrimer"
+    ],
+    "finding": "定位和结合正常不保证功能；标签差异提供分离功能扰动，比较蛋白组学需功能证据闭合。",
+    "article_url": "https://doi.org/10.1038/ncb3610"
+  },
+  {
+    "id": "G13",
+    "title": "Conformational biosensors reveal GPCR signalling from endosomes",
+    "journal": "Nature",
+    "year": 2013,
+    "doi": "10.1038/nature12000",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3835555/fullTextXML",
+    "role": "Location, activation, sensor validation",
+    "scope": "公开全文网页/PDF索引中Nb80、Nb37及Fig1/2验证段落定向核查；期刊页面为摘要",
+    "anchors": [
+      "agonist/antagonist reversibility",
+      "delayed endosomal sensor recruitment",
+      "wavelength reversal control"
+    ],
+    "finding": "位置与活化构象分开；排除从质膜一路携带传感器的替代解释。",
+    "article_url": "https://doi.org/10.1038/nature12000"
+  },
+  {
+    "id": "ES18",
+    "title": "ATP-dependent force generation and membrane scission by ESCRT-III and Vps4",
+    "journal": "Science",
+    "year": 2018,
+    "doi": "10.1126/science.aat1839",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6309985/fullTextXML",
+    "role": "Reverse topology and mechanistic sufficiency",
+    "scope": "作者机构公开摘要与方法说明；本地PDF下载为空，不声称全文精读",
+    "anchors": [
+      "GUV encapsulation, nanotubes, ATP photo-uncaging, Vps4 catalytic controls"
+    ],
+    "finding": "逆向拓扑、定时能量输入和催化控制展示机制设计；仅用于有限机制说明。",
+    "article_url": "https://doi.org/10.1126/science.aat1839"
+  },
+  {
+    "id": "GL19",
+    "title": "Physical Principles of Membrane Shape Regulation by the Glycocalyx",
+    "journal": "Cell",
+    "year": 2019,
+    "doi": "10.1016/j.cell.2019.04.017",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6768631/fullTextXML",
+    "role": "Extracellular steric environment; transfer boundary",
+    "scope": "公开摘要与PMC中聚合物刷模型/逆转实验段落定位；非逐图全文复核",
+    "anchors": [
+      "mucin size/density and model membranes"
+    ],
+    "finding": "糖萼的空间压力可影响膜形态；不能由外向膜形态直接推定具体受体CME速率。",
+    "article_url": "https://doi.org/10.1016/j.cell.2019.04.017"
+  },
+  {
+    "id": "N11",
+    "title": "Lysosomal positioning coordinates cellular nutrient responses",
+    "journal": "Nature Cell Biology",
+    "year": 2011,
+    "doi": "10.1038/ncb2204",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3071334/fullTextXML",
+    "role": "Nutrients, position, signalling, starvation confounds",
+    "scope": "公开全文XML，营养/位置/胞质pH及Fig3/4定向核查",
+    "anchors": [
+      "position manipulation under starvation/recovery",
+      "position alone not sufficient without nutrients"
+    ],
+    "finding": "饥饿不是中性同步；位置与营养输入的必要性/充分性分开。",
+    "article_url": "https://doi.org/10.1038/ncb2204"
+  },
+  {
+    "id": "I10",
+    "title": "A cation counterflux supports lysosomal acidification",
+    "journal": "Journal of Cell Biology",
+    "year": 2010,
+    "doi": "10.1083/jcb.200911083",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC2894458/fullTextXML",
+    "role": "pH, voltage, buffering, counterions",
+    "scope": "公开全文XML，电荷补偿、离子替换、比率pH测量相关结果/方法",
+    "anchors": [
+      "cation counterflux and reversible permeabilization",
+      "in situ pH calibration"
+    ],
+    "finding": "酸化涉及电位、离子、缓冲和体积，不是V-ATPase蛋白量的单变量函数。",
+    "article_url": "https://doi.org/10.1083/jcb.200911083"
+  },
+  {
+    "id": "P12",
+    "title": "Pitstop 2 Is a Potent Inhibitor of Clathrin-Independent Endocytosis",
+    "journal": "PLOS ONE",
+    "year": 2012,
+    "doi": "10.1371/journal.pone.0045799",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3448704/fullTextXML",
+    "role": "Drug specificity and orthogonal perturbation",
+    "scope": "公开全文XML，pitstop2在clathrin/AP2缺失条件下的实验",
+    "anchors": [
+      "MHCI/Tf cargo comparison",
+      "clathrin heavy chain or μ2 depletion"
+    ],
+    "finding": "药物能抑制标称靶通路之外的摄取；不能以一种抑制剂独立鉴定通路。",
+    "article_url": "https://doi.org/10.1371/journal.pone.0045799"
+  },
+  {
+    "id": "PH26",
+    "title": "DNA nanodevices detect an acidic nanolayer on the lysosomal surface",
+    "journal": "Nature Cell Biology",
+    "year": 2026,
+    "doi": "10.1038/s41556-025-01855-y",
+    "url": "https://www.nature.com/articles/s41556-025-01855-y",
+    "role": "Recent test of uniform cytosolic environment assumption",
+    "scope": "期刊公开摘要、图题和两份更正；未取得订阅全文与完整方法，不作完整精读案例",
+    "anchors": [
+      "Abstract: juxta-lysosomal acidic nanolayer",
+      "Publisher Correction 10.1038/s41556-026-01897-w: reviewer information",
+      "Author Correction 10.1038/s41556-026-02024-5: discussion and references added"
+    ],
+    "finding": "作为局部胞质环境的重要近期报告和待深入材料；不外推所有内体、不宣称已全面核验纳米尺度校准或独立复现。",
+    "article_url": "https://doi.org/10.1038/s41556-025-01855-y"
+  },
+  {
+    "id": "ME26",
+    "title": "In situ mapping of late-stage biomechanical coordination during clathrin-mediated endocytosis",
+    "journal": "Nature Communications",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-75876-y",
+    "url": "https://www.nature.com/articles/s41467-026-75876-y",
+    "role": "Recent mechanics, indirect tracking and heterogeneity",
+    "scope": "公开全文，纳米棒SPT、Fig1–7及方法/讨论定向核查",
+    "anchors": [
+      "40×80 nm transferrin-modified gold nanorod cargo",
+      "swing/twist indirect readout and actin subset",
+      "hypotonic/CK666 perturbations"
+    ],
+    "finding": "新增可观测量仍带探针—目标耦合假设；载荷尺寸和药理特异性需要保留。",
+    "article_url": "https://doi.org/10.1038/s41467-026-75876-y"
+  },
+  {
+    "id": "GP26",
+    "title": "Conformational biosensors delineate endosomal G protein regulation by GPCRs",
+    "journal": "Nature Communications",
+    "year": 2026,
+    "doi": "10.1038/s41467-026-69329-9",
+    "url": "https://www.nature.com/articles/s41467-026-69329-9",
+    "role": "Recent receptor-specific location bias and overexpression limitations",
+    "scope": "公开全文，Fig2–6、endogenous/overexpression及Discussion定向核查",
+    "anchors": [
+      "Gαs redistribution versus activation/coupling",
+      "native G proteins but overexpressed activating GPCRs",
+      "Nb37 and KB1691 different states"
+    ],
+    "finding": "G蛋白到达内体不等于在那里由受体激活；生理表达层级和传感器状态特异性要分开。",
+    "article_url": "https://doi.org/10.1038/s41467-026-69329-9"
+  },
+  {
+    "id": "MY26",
+    "title": "Class-I myosin responds to changes in membrane tension during clathrin-mediated endocytosis in human induced pluripotent stem cells",
+    "journal": "PNAS",
+    "year": 2026,
+    "doi": "10.1073/pnas.2532817123",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12956820/fullTextXML",
+    "role": "Recent cell-state-dependent mechanics",
+    "scope": "公开全文XML，hiPSC标签、Myo1E缺失、微吸引与低渗主要结果/图注",
+    "anchors": [
+      "Fig1/2 endogenous tagging and knockout",
+      "Fig3 colony aspiration and cell boundaries",
+      "Fig4/5 hypotonic challenge"
+    ],
+    "finding": "应区分位点、单细胞和细胞群环境；Myo1E缺失表型不等于所有细胞都必须依赖该蛋白。",
+    "article_url": "https://doi.org/10.1073/pnas.2532817123"
+  },
+  {
+    "id": "CM23",
+    "title": "Structure of the endosomal Commander complex linked to Ritscher-Schinzel syndrome",
+    "journal": "Cell",
+    "year": 2023,
+    "doi": "10.1016/j.cell.2023.04.003",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10187114/fullTextXML",
+    "role": "Recycling complex architecture and structural evidence boundaries",
+    "scope": "公开摘要、主要结果及Fig1结构说明网页定位；本地XML未获取，不作全篇逐图复核",
+    "anchors": [
+      "Retriever names and Commander assemblies",
+      "cryo-EM/AlphaFold integration limits"
+    ],
+    "finding": "使用当前亚基名称，并区分实验结构与计算建模。",
+    "article_url": "https://doi.org/10.1016/j.cell.2023.04.003"
+  },
+  {
+    "id": "CO24",
+    "title": "Structure and interactions of the endogenous human Commander complex",
+    "journal": "Nature Structural & Molecular Biology",
+    "year": 2024,
+    "doi": "10.1038/s41594-024-01246-1",
+    "url": "https://www.nature.com/articles/s41594-024-01246-1",
+    "role": "Endogenous assembly and comparison with earlier models",
+    "scope": "公开全文，Fig1和方法组合、Fig5结构比较定向核查；完整Fig1已目视检查并核对CC BY4许可",
+    "anchors": [
+      "Fig1 AP-MS/BioID/XL-MS/SEC workflow and quantitative interaction analysis",
+      "Fig5 comparison of structural models"
+    ],
+    "finding": "不同互作技术施加不同观测约束，结合结构仍需区分直接分辨与装配模型。",
+    "article_url": "https://doi.org/10.1038/s41594-024-01246-1"
+  },
+  {
+    "id": "MU16",
+    "title": "An endosomal tether undergoes an entropic collapse to bring vesicles together",
+    "journal": "Nature",
+    "year": 2016,
+    "doi": "10.1038/nature19326",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5142606/",
+    "role": "Tethering, geometric approach and fusion as separate operations",
+    "scope": "PMC公开作者稿的摘要、引言、Fig1/2说明及光镊方法和讨论定向核查；本轮XML下载未成功，不标为逐图视觉复核",
+    "anchors": [
+      "Abstract and Fig1/2 text: PI3P-EEA1-Rab5 tethering and flexibility",
+      "Optical tweezer methods; Discussion: approach to trans-SNARE range"
+    ],
+    "finding": "系留、几何靠近与融合不是同一事件；Rab5调节EEA1柔顺性的机制不能扩成EEA1单独完成全部融合。",
+    "article_url": "https://doi.org/10.1038/nature19326"
+  },
+  {
+    "id": "PO10",
+    "title": "Identification of the Switch in Early-to-Late Endosome Transition",
+    "journal": "Cell",
+    "year": 2010,
+    "doi": "10.1016/j.cell.2010.03.011",
+    "url": "https://publications.mpi-cbg.de/Poteryaev_2010_4233.pdf",
+    "role": "Rab conversion feedback and explicit choice of experimental system",
+    "scope": "研究机构公开PDF，Introduction、线虫体系选择理由、Rab转换及RABX-5驻留和酵母实验相关正文/图注定向核查；未重做全部图像分析",
+    "anchors": [
+      "PDF pages 1-3: feedback problem, coelomocyte system and Fig1/2 explanations",
+      "SAND-1 Displaces RABEX-5 from Yeast Endosomes: rationale for expression control"
+    ],
+    "finding": "保留作者明确说明的体系选择理由；区分定位与活性，并以后续GEF研究限定历史HOPS解释。",
+    "article_url": "https://doi.org/10.1016/j.cell.2010.03.011"
+  },
+  {
+    "id": "CA14",
+    "title": "The Mon1-Ccz1 GEF activates the Rab7 GTPase Ypt7 via a longin-fold-Rab interface and association with PI3P-positive membranes",
+    "journal": "Journal of Cell Science",
+    "year": 2014,
+    "doi": "10.1242/jcs.140921",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24413168/",
+    "role": "GEF activity versus complex localization; historical-model qualification",
+    "scope": "PubMed原始研究索引摘要核查；本轮未获取全文，限用于摘要明确说明的酵母Ypt7交换活性及分离功能突变",
+    "anchors": [
+      "Abstract: Ypt7 activation, heterodimer/localization-preserving mutations and PI3P membrane stimulation"
+    ],
+    "finding": "Mon1-Ccz1的GEF活性与定位可分离；不把酵母复合物组成和实验条件无条件套到所有物种。",
+    "article_url": "https://doi.org/10.1242/jcs.140921"
+  },
+  {
+    "id": "OH05",
+    "title": "Identification of a ferrireductase required for efficient transferrin-dependent iron uptake in erythroid cells",
+    "journal": "Nature Genetics",
+    "year": 2005,
+    "doi": "10.1038/ng1658",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/16227996/",
+    "role": "Distinguish protein trafficking from erythroid iron acquisition",
+    "scope": "PubMed原始研究索引摘要核查；本轮未获取可核读的完整正文和全部功能图，限于红系Steap3识别与功能定位",
+    "anchors": [
+      "Abstract: nm1054 positional cloning; overexpression and deficient erythroid ferrireductase activity"
+    ],
+    "finding": "受体/配体运输与金属还原、铁获取分开；不将红系STEAP3依赖性扩展为所有细胞唯一机制。",
+    "article_url": "https://doi.org/10.1038/ng1658"
+  },
+  {
+    "id": "RU02",
+    "title": "Structure of the LDL receptor extracellular domain at endosomal pH",
+    "journal": "Science",
+    "year": 2002,
+    "doi": "10.1126/science.1078124",
+    "url": "https://escholarship.org/uc/item/1xv2v2fq",
+    "role": "Environment-dependent conformation and structural evidence limits",
+    "scope": "作者机构仓储公开PDF的在线文本：摘要、结构测定段及分辨率限制定向核查；本地下载空响应，未做全篇逐图检查",
+    "anchors": [
+      "PDF page 2 (journal page 2353): pH 5.3, 3.7 A structure, module positions and explicit side-chain limitation",
+      "Abstract: beta-propeller as proposed alternate substrate for ligand-binding region"
+    ],
+    "finding": "低pH结构支持模块排布与释放模型，不能独立证明完整细胞释放/回收动力学或精确侧链接触。",
+    "article_url": "https://doi.org/10.1126/science.1078124"
+  },
+  {
+    "id": "WE18",
+    "title": "Concerted ESCRT and clathrin recruitment waves define the timing and morphology of intraluminal vesicle formation",
+    "journal": "Nature Communications",
+    "year": 2018,
+    "doi": "10.1038/s41467-018-05345-8",
+    "url": "https://www.nature.com/articles/s41467-018-05345-8",
+    "role": "ESCRT dynamics and selective endosomal HRS-clathrin interface perturbation; also source of figure P13",
+    "scope": "V1已核P13原图；本轮另从已保存的原文XML定向核查Introduction、ESCRT募集摘要及HRS770替换实验正文/方法；未新增Fig5视觉检查",
+    "anchors": [
+      "Abstract/Introduction: ESCRT roles and recurring waves",
+      "Results: HRS clathrin-box deletion and close-to-endogenous replacement",
+      "Fig5 text and plasmid/siRNA methods; Fig3 image inspection retained from V1"
+    ],
+    "finding": "内体HRS-clathrin与质膜AP2-clathrin作用分开；选择性接口扰动减少多位点干预混淆，仍需表达和功能验证。",
+    "article_url": "https://doi.org/10.1038/s41467-018-05345-8"
+  }
+]

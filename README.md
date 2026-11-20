@@ -10,7 +10,7 @@ A personal bank of long-form, AI-assisted study documents and the tooling that p
 
 | Path | What it is |
 |---|---|
-| [`cell-membrane-trafficking-and-receptor-mediated-endocytosis/`](cell-membrane-trafficking-and-receptor-mediated-endocytosis/) | 细胞膜运输：膜融合、胞吞胞吐与受体介导胞吞，含 17 幅论文图、中文读图分析、受体案例与证据边界（Markdown + HTML） |
+| [`cell-membrane-trafficking-and-receptor-mediated-endocytosis/`](cell-membrane-trafficking-and-receptor-mediated-endocytosis/) | 受体介导胞吞与内体分选科研基座 V2：18 章、18 幅论文图、32 份机制与案例文献、7 个研究案例；环境/尺度地图、实验决策及交互通量模型（Markdown + HTML），保留 V1 导读 |
 | [`rfdiffusion/`](rfdiffusion/) | RFdiffusion 中文课堂汇报深入讲解稿：15 页讲述、数学原理、图表解读、实验依据与进阶问答（Markdown + HTML） |
 | [`crispr/`](crispr/) | CRISPR-Cas 天然机制、演化与生化全景解析：[`crispr.md`](crispr/crispr.md) 中文长文（含专著 / 原始论文 / 综述书单与配套视频课程）+ [`crispr-2-mechanism-lecture.md`](crispr/crispr-2-mechanism-lecture.md) 英文讲解稿（Act 1–4，含 NHEJ / HDR 修复机制）+ [`crispr-1.html`](crispr/crispr-1.html) 交互式分子流程动态演示 |
 | [`journal-tracking/`](journal-tracking/) | 顶级期刊追踪：**技能本体**（Nature / Science / Cell 规范）+ **每周运行结果**归档 |

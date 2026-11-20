@@ -1,0 +1,57 @@
+{
+  "structure": {
+    "figures": 18,
+    "imagesLoaded": 18,
+    "chapters": 18,
+    "sources": 32,
+    "deep": 16,
+    "cases": 7,
+    "duplicateIds": [],
+    "brokenAnchors": [],
+    "externalAssets": 0,
+    "unresolved": []
+  },
+  "numerical": {
+    "maxAnalyticError": 1.021049911287264e-11,
+    "maxMassError": 3.410605131648481e-13,
+    "minPool": 0,
+    "settings": 16
+  },
+  "baseline": "60.0",
+  "baseSignal": "60.0",
+  "dimInternal": "60.0",
+  "dimSignal": "38.7",
+  "searchCount": 1,
+  "highlighted": 1,
+  "citationOpen": true,
+  "expanded": true,
+  "collapsed": true,
+  "actual": {
+    "width": 1758,
+    "natural": 1758
+  },
+  "closed": true,
+  "widths": [
+    {
+      "viewport": 1440,
+      "width": 1440
+    },
+    {
+      "viewport": 1024,
+      "width": 1024
+    },
+    {
+      "viewport": 390,
+      "width": 390
+    }
+  ],
+  "expandedMobileWidth": {
+    "viewport": 390,
+    "width": 390
+  },
+  "mobileNav": true,
+  "printSidebar": true,
+  "errors": [],
+  "networkRequests": [],
+  "failures": []
+}
