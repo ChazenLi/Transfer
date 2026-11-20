@@ -1,0 +1,116 @@
+{
+  "date": "2026-11-21",
+  "html_sha256": "fda1d0b00be09a828cf75a0fae0c0020d7caf796a4dbb5b26fc9d06ac59f2e2f",
+  "structure": {
+    "chapters": 26,
+    "figures": 10,
+    "images": 10,
+    "sources": 42,
+    "cases": 6,
+    "citations": 180,
+    "duplicateIds": [],
+    "brokenAnchors": [],
+    "unresolved": false,
+    "externalAssets": 0
+  },
+  "numeric": {
+    "maxExpectedError": 7.105427357601002e-15,
+    "boundViolations": 0,
+    "probabilityMassError": 6.661338147750939e-16,
+    "planningViolations": 0,
+    "poissonError": 1.1102230246251565e-16,
+    "poissonAtOneError": 0,
+    "oneEmpty": {
+      "M": 1,
+      "N": 0,
+      "fraction": 0,
+      "unique": 0,
+      "missing": 1,
+      "allLower": 0,
+      "nMean": 1,
+      "nAll": 1,
+      "rareSeen": 0,
+      "ratio": 0
+    },
+    "oneSample": {
+      "M": 1,
+      "N": 1,
+      "fraction": 1,
+      "unique": 1,
+      "missing": 0,
+      "allLower": 1,
+      "nMean": 1,
+      "nAll": 1,
+      "rareSeen": 1,
+      "ratio": 1
+    },
+    "dnaError": 1.734723475976807e-18,
+    "rates": {
+      "baseline": 1.3333333333333333,
+      "expression": 2.6666666666666665,
+      "catalysis": 2.6666666666666665,
+      "specificBase": 3.3333333333333335,
+      "specificExpression": 3.3333333333333335,
+      "specificCatalysis": 6.666666666666667,
+      "zeroSubstrate": 0,
+      "zeroEnzyme": 0,
+      "halfMax": 0.5
+    }
+  },
+  "controls": {
+    "allPreset": "95.00%",
+    "allSamples": "438854",
+    "rareProbability": "12.53%",
+    "baseline": "1.333 μM/s",
+    "expression": "2.667 μM/s",
+    "catalysis": "2.667 μM/s",
+    "specificBase": "3.333 s⁻¹",
+    "specificExpression": "3.333 s⁻¹",
+    "specificCatalysis": "6.667 s⁻¹",
+    "searchCount": 1,
+    "highlighted": 1,
+    "citationOpen": true,
+    "allExpanded": true,
+    "allCollapsed": true,
+    "mobileMenu": true,
+    "zoomVisible": true,
+    "zoomClosed": true,
+    "natural": {
+      "shown": 1772,
+      "natural": 1772
+    },
+    "print": {
+      "sidebarHidden": true,
+      "detailsOpen": true
+    }
+  },
+  "widths": [
+    {
+      "viewport": 1440,
+      "width": 1440
+    },
+    {
+      "viewport": 1024,
+      "width": 1024
+    },
+    {
+      "viewport": 760,
+      "width": 760
+    },
+    {
+      "viewport": 390,
+      "width": 390
+    },
+    {
+      "viewport": 360,
+      "width": 360
+    }
+  ],
+  "expandedMobile": {
+    "viewport": 390,
+    "width": 390
+  },
+  "errors": [],
+  "networkRequests": [],
+  "failures": []
+}

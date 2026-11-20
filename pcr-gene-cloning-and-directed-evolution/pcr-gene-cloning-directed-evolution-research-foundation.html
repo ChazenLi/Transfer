@@ -1,0 +1,776 @@
+<!doctype html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="从 PCR 的分子机制、质粒构建与细胞环境，到文库、筛选和定向进化的科研学习基座，含原论文图、实验选择与案例推演。"><title>PCR、基因克隆与定向进化｜科研知识框架与实验选择</title><style>:root{--ink:#213c3a;--muted:#637471;--teal:#176c62;--pale:#eaf1ed;--paper:#fffefb;--bg:#f3f2ec;--line:#dce3dd;--rust:#a85c36;--orange:#bd713d;--shadow:0 16px 45px #243c3510;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif;font-size:17px;line-height:1.95}a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:4px}a:hover{color:var(--rust)}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #c48445;outline-offset:4px}button,input,select{border:1px solid #bfcfc5;border-radius:7px;background:var(--paper);color:var(--ink)}button{padding:8px 14px;line-height:1.55}button:hover{background:#edf3ed}input,select{padding:9px 11px;max-width:100%}input[type=range]{accent-color:var(--teal);padding:0;width:100%}input[type=number]{width:100%;min-width:0}select{width:100%;white-space:normal}p{margin:0 0 1.15em}ul,ol{padding-left:1.6em}b,strong{font-weight:650}small,.small{font-size:13px;color:var(--muted);line-height:1.65}h1,h2,h3,h4{line-height:1.5;font-weight:650;overflow-wrap:anywhere}h1{font-size:clamp(28px,3vw,43px);letter-spacing:.01em;margin:16px 0 22px}h2{font-size:26px;margin:0 0 30px}h3{font-size:21px;margin:38px 0 18px}h4{font-size:19px;margin:0 0 8px}.page-progress{height:3px;position:fixed;left:0;top:0;background:var(--teal);z-index:40;width:0}.layout{max-width:1560px;margin:0 auto;display:grid;grid-template-columns:290px minmax(0,1fr);gap:42px;padding:0 30px 60px}.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;padding:32px 14px 32px 0;scrollbar-width:thin}.brand{font-size:20px;font-weight:650;line-height:1.6;margin-bottom:26px}.brand span{display:block;font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:450;margin-top:8px}.nav-search{width:100%;font-size:14px}.nav-status{font-size:12px;color:var(--muted);margin:7px 0}.nav-group{font-size:12px;letter-spacing:.06em;color:var(--muted);margin:24px 0 9px}.nav a{display:block;text-decoration:none;font-size:13px;line-height:1.65;padding:7px 10px;border-radius:5px;margin:2px 0}.nav a.active{background:#dfeae1;color:#14564c}.nav a:hover{background:#e6ede5}.search-results:empty{display:none}.search-results{padding:6px 0;border-bottom:1px solid var(--line);max-height:300px;overflow:auto}.search-results button{width:100%;display:block;text-align:left;font-size:12px;margin-bottom:6px}.sidebar-note{font-size:12px;color:var(--muted);margin-top:28px}.mobile-menu{display:none}.main{min-width:0;max-width:1130px}.hero{padding:52px 38px 34px;background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--teal);margin-top:32px;border-radius:0 0 14px 14px;box-shadow:var(--shadow)}.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--teal)}.hero p{font-size:18px;max-width:850px}.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}.hero-meta span{border:1px solid var(--line);font-size:12px;padding:4px 10px;border-radius:20px;background:#f6f8f2}.routes{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0 0}.routes a{font-size:13px;display:block;padding:6px 12px;background:var(--pale);border-radius:5px;text-decoration:none}.toolbar{display:flex;gap:10px;flex-wrap:wrap;padding:22px 0 18px}.toolbar button{font-size:13px}.reading-note{font-size:14px;line-height:1.8;color:var(--muted);padding:0 5px 25px}.chapter{padding:40px 38px 28px;background:var(--paper);border:1px solid var(--line);border-radius:12px;margin:0 0 24px;box-shadow:0 3px 12px #243c3505;overflow-wrap:anywhere;scroll-margin-top:24px}.chapter>h2{padding-bottom:20px;border-bottom:1px solid var(--line)}.chapter a.citation{font-size:.72em;vertical-align:super;text-decoration:none;font-weight:600;white-space:nowrap;letter-spacing:.01em;margin-left:3px}.table-scroll{overflow-x:auto;max-width:100%;margin:24px 0 30px;border:1px solid var(--line);border-radius:7px;overscroll-behavior-x:contain}table{border-collapse:collapse;width:100%;min-width:540px;font-size:14px;line-height:1.8}th,td{padding:13px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);min-width:110px}th{background:#edf2e9;color:#28574c;font-weight:600}tr:last-child td{border-bottom:0}tbody tr:nth-child(even){background:#fbfcf7}.equation{background:#f0f4ed;padding:18px 20px;border-left:3px solid var(--teal);font-family:"Cambria Math","Microsoft YaHei",serif;font-size:18px;line-height:1.9;margin:25px 0;overflow-x:auto;max-width:100%}.sequence{background:#f5f4ef;color:#384b42;font-family:Consolas,monospace;font-size:13px;line-height:1.8;padding:18px;overflow:auto;border:1px solid var(--line);border-radius:6px}.route-map{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:28px 0}.route-map>div{padding:16px 12px;border-top:3px solid var(--teal);background:#edf3ec;font-size:13px;line-height:1.75}.route-map b{display:block;font-size:15px;margin-bottom:9px}.route-map small{display:block;margin-top:10px}.paper-figure{margin:32px 0;border:1px solid #ccd9cd;border-radius:9px;overflow:hidden;background:white;break-inside:avoid}.figure-top{background:#eef3ec;padding:16px 20px}.figure-top h4{font-size:18px;margin:3px 0 7px}.figure-label{font-size:11px;letter-spacing:.07em;color:#536e63}.figure-type{font-size:12px;color:var(--muted)}.zoom-trigger{width:100%;padding:18px;border:0;border-radius:0;background:#fff;display:flex;justify-content:center;align-items:center}.zoom-trigger:hover{background:#fcfcfa}.zoom-trigger img{display:block;max-width:100%;max-height:740px;width:auto;height:auto;object-fit:contain}.image-hint{display:block;text-align:center;font-size:12px;color:var(--muted);margin:0 12px 14px}figcaption{font-size:14px;line-height:1.9;padding:0 20px 8px}.figure-reading{padding:12px 20px 17px;font-size:14px;line-height:1.85;background:#fafbf6}.figure-reading p{margin:0}.figure-source{padding:14px 20px;font-size:11px;color:var(--muted);line-height:1.8;border-top:1px solid var(--line)}.figure-source a{overflow-wrap:anywhere}.deep,.source-entry{border:1px solid var(--line);border-radius:7px;padding:15px 19px;margin:18px 0;background:#fbfcf8}summary{cursor:pointer;line-height:1.75;font-size:15px;font-weight:600;color:#315e52}details[open]>summary{margin-bottom:20px}.source-entry{padding:13px 16px}.source-entry summary{font-size:14px}.source-entry summary .journal{font-size:12px;color:var(--muted);font-weight:450}.source-entry p{font-size:13px;line-height:1.8;margin-bottom:11px}.source-entry p:last-child{margin-bottom:0}.tool{background:#edf3ee;border:1px solid #c2d3c8;border-radius:9px;padding:24px;margin:28px 0}.tool h3{margin:0 0 12px;font-size:20px}.tool-note{font-size:13px;color:var(--muted);line-height:1.8}.tool-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px 24px}.tool-controls label{display:flex;flex-direction:column;gap:7px;font-size:13px;min-width:0}.control-line{display:flex;justify-content:space-between;gap:8px}.control-line output{font-weight:650;color:var(--teal);white-space:nowrap}.tool-actions{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.tool-actions button{font-size:12px}.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:19px 0}.metric{background:#fffefb;border:1px solid #d8e2d8;padding:12px 14px;border-radius:6px;font-size:12px;min-width:0;line-height:1.7}.metric b{display:block;font-size:23px;color:#1d6658;margin-top:5px;overflow-wrap:anywhere}.metric small{display:block;margin-top:3px;font-size:11px}.model-chart{display:block;width:100%;height:auto;margin-top:15px;background:white;border:1px solid #dae3da;border-radius:6px;max-width:100%}.model-legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;margin:9px 0}.model-legend span:before{content:"";display:inline-block;width:15px;height:3px;background:var(--c);vertical-align:middle;margin-right:6px}.model-summary,.decision-output{font-size:14px;background:white;border-left:3px solid var(--teal);padding:16px 18px;margin-top:18px}.decision-output p:last-child{margin-bottom:0}.tool-error{color:#9b391e;font-size:13px;min-height:1em}.bar-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0}.poisson-bar{height:130px;display:flex;align-items:flex-end;background:#f9fcf6;border:1px solid #d5e1d6;border-radius:5px;overflow:hidden}.poisson-bar div{width:100%;background:var(--teal);transition:height .15s}.bar-cell{text-align:center;font-size:12px;line-height:1.65}.bar-cell output{font-weight:650;display:block;margin-top:7px}.search-hit{background:#fcf0d6!important;outline:2px solid #cda963;outline-offset:5px}.backtop{position:fixed;bottom:22px;right:22px;background:var(--teal);color:white;border:none;border-radius:50%;width:43px;height:43px;padding:0;z-index:20}.backtop:hover{background:#255c4c}.footer{font-size:13px;line-height:1.8;color:var(--muted);padding:12px 8px 32px}.figure-dialog{width:min(1300px,96vw);max-width:96vw;padding:0;border:1px solid #bbc9bf;border-radius:10px;box-shadow:0 30px 100px #0005}.figure-dialog::backdrop{background:#102e2be0}.dialog-tools{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#edf2eb}.dialog-tools span{font-size:13px;flex:1;min-width:0}.dialog-tools button{font-size:12px;flex-shrink:0}.dialog-scroll{max-height:78vh;overflow:auto;background:white;padding:14px;text-align:center}.dialog-scroll img{display:block;width:auto;max-width:100%;max-height:73vh;height:auto;object-fit:contain;margin:auto}.dialog-scroll.natural{text-align:left}.dialog-scroll.natural img{max-width:none;max-height:none;margin:0}.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(min-width:1600px){.layout{gap:60px}.chapter{padding-left:50px;padding-right:50px}}
+@media(max-width:1100px){.layout{grid-template-columns:240px minmax(0,1fr);gap:22px;padding:0 18px 40px}.sidebar{padding-right:4px}.hero{padding:35px 27px 27px}.chapter{padding:30px 25px 20px}.route-map{grid-template-columns:repeat(2,minmax(0,1fr))}h2{font-size:24px}}
+@media(max-width:760px){body{font-size:16px}.layout{display:block;padding:0 12px 35px}.sidebar{position:relative;height:auto;overflow:visible;padding:20px 4px 12px}.brand{font-size:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.brand span{font-size:9px;max-width:160px;letter-spacing:.07em;margin:0}.mobile-menu{display:block;width:100%;font-size:14px;margin-bottom:12px}.nav{display:none;max-height:60vh;overflow:auto}.sidebar.menu-open .nav{display:block;padding:8px 2px 16px}.sidebar-note{display:none}.nav-search{font-size:14px}.nav a{font-size:14px;padding:9px 12px}.hero{margin-top:4px;padding:25px 21px 25px}.hero p{font-size:16px}.eyebrow{font-size:10px;letter-spacing:.08em}.hero-meta{gap:6px}.hero-meta span{font-size:11px;padding:3px 9px}.routes{gap:7px}.routes a{font-size:12px}.toolbar{gap:7px;padding:18px 0}.toolbar button{font-size:12px;padding:7px 9px}.reading-note{font-size:13px}.chapter{padding:26px 20px 16px;border-radius:9px;margin-bottom:17px}.chapter>h2{font-size:22px;margin-bottom:23px;padding-bottom:16px}h3{font-size:19px;margin:31px 0 16px}.table-scroll{margin:22px -3px;max-width:calc(100% + 6px)}table{font-size:13px;min-width:540px}.equation{font-size:16px;padding:14px 12px}.route-map{gap:8px}.route-map>div{font-size:12px;padding:12px 10px}.route-map b{font-size:14px}.figure-top{padding:12px 14px}.figure-top h4{font-size:16px}.zoom-trigger{padding:12px}.zoom-trigger img{max-height:600px}figcaption{padding:0 14px 8px;font-size:13px}.figure-reading{font-size:13px;padding:12px 14px}.figure-source{padding:12px 14px}.deep,.source-entry{padding:13px 13px}.tool{padding:18px 14px;margin:23px -3px}.tool h3{font-size:18px}.tool-controls{gap:16px 13px}.control-line{flex-wrap:wrap;gap:2px}.metric{padding:11px 10px}.metric b{font-size:20px}.metrics{gap:8px}.bar-grid{gap:8px}.poisson-bar{height:100px}.dialog-tools{flex-wrap:wrap;gap:8px;padding:10px}.dialog-tools span{flex-basis:100%}.dialog-scroll{padding:8px}.backtop{right:14px;bottom:15px}.model-summary,.decision-output{padding:14px;font-size:13px}}
+@media(max-width:380px){.tool-controls{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}.hero{padding:23px 17px}.chapter{padding-left:17px;padding-right:17px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media print{@page{size:A4;margin:16mm 14mm}html{scroll-behavior:auto}body{background:white;color:#111;font-size:10.5pt;line-height:1.75}.layout{display:block;padding:0;max-width:none}.sidebar,.toolbar,.backtop,.page-progress,.routes,.image-hint{display:none!important}.main{max-width:none}.hero{box-shadow:none;margin:0 0 20px;padding:15px 20px;border:1px solid #aaa}.hero h1{font-size:24pt}.hero p{font-size:11pt}.hero-meta span{font-size:9pt}.chapter{padding:12px 0;margin:0 0 20px;border:0;border-radius:0;box-shadow:none;break-before:auto}.chapter>h2{font-size:17pt;margin-bottom:20px;padding-bottom:10px}h3{font-size:13pt;break-after:avoid}.table-scroll{overflow:visible;border:0;margin:15px 0}table{font-size:9pt;min-width:0;table-layout:fixed}th,td{min-width:0;padding:7px;border:1px solid #aaa;overflow-wrap:anywhere}tr{break-inside:avoid}.paper-figure{break-inside:avoid}.zoom-trigger img{max-height:175mm}.figure-top h4{font-size:12pt}figcaption,.figure-reading{font-size:9pt}.figure-source{font-size:8pt}.equation{font-size:12pt;background:#f4f4f1;overflow:visible}.tool{break-inside:avoid;padding:14px}.tool-controls{display:none}.tool-actions{display:none}.tool-note,.model-summary{font-size:9pt}.metric b{font-size:15pt}.model-chart{max-height:65mm}.source-entry{break-inside:avoid}details>summary{list-style:none}details>summary::-webkit-details-marker{display:none}a{color:inherit;text-decoration:none}.chapter a.citation{font-size:8pt}.footer{font-size:9pt}.figure-dialog{display:none}}
+</style></head><body><div class="page-progress" id="pageProgress"></div><div class="layout"><aside class="sidebar"><div class="brand">PCR · 克隆 · 定向进化<span>RESEARCH FOUNDATION<br>2026 · 本地讨论版</span></div><button type="button" class="mobile-menu" id="mobileMenu" aria-expanded="false">打开目录</button><input type="search" class="nav-search" id="guideSearch" placeholder="检索机制、方法或论文…" aria-label="检索全文"><div class="nav-status" id="searchStatus" aria-live="polite"></div><div class="search-results" id="searchResults"></div><nav class="nav" aria-label="章节目录"><div class="nav-group">PCR 与分子机制</div><a href="#research-object">01 动手之前，先说清楚要做哪一种蛋白</a><a href="#pcr-chemistry">02 PCR 怎样把一段 DNA 复制出来</a><a href="#primers-environment">03 引物怎么设计，条件为什么这样选</a><a href="#pcr-quality">04 PCR 产物要看哪几种质量</a><a href="#pcr-diagnosis">05 PCR 出问题后，先查哪一步</a><div class="nav-group">基因克隆与构建体</div><a href="#cloning-purpose">06 为什么还要把 PCR 片段放进载体</a><a href="#assembly-choice">07 几种组装方法，该怎么选</a><a href="#clone-verification">08 长出菌落以后，怎样确认做对了</a><a href="#cell-context">09 DNA 做好了，蛋白在细胞里会怎样</a><a href="#three-workflows">10 放进实际任务里，怎样安排构建</a><div class="nav-group">定向进化与测量</div><a href="#evolution-objective">11 先决定这轮想改好什么</a><a href="#variation-design">12 怎样做变体，决定了能采到哪些变化</a><a href="#library-bottlenecks">13 设计了多少，最后又测到了多少</a><a href="#coverage">14 “覆盖 95%”究竟要抽多少样本</a><a href="#assay-design">15 筛选怎么做，才能选到想要的性质</a><a href="#epistasis-causality">16 筛到候选以后，怎样继续</a><div class="nav-group">环境与动态尺度</div><a href="#environment-scales">17 换了环境，为什么结果也会变</a><div class="nav-group">六组论文案例</div><a href="#case-pcr">18 PCR 文库偏了，怎样找出问题在哪一步</a><a href="#case-assembly">19 组装研究里，那些对照为什么这样设</a><a href="#case-cell">20 同义序列和标签，为什么也要算进实验设计</a><a href="#case-solvent">21 Chen–Arnold：筛选环境为什么要贴近使用环境</a><a href="#case-gfp">22 GFP：筛选方式会把蛋白改向哪里</a><a href="#case-active-learning">23 主动学习：什么时候值得让模型选下一批变体</a><div class="nav-group">实验选择与继续研究</div><a href="#experimental-decisions">24 眼下遇到的问题，可以从哪里查起</a><a href="#research-projects">25 选一个实际问题，把这些方法用起来</a><a href="#references">26 接下来可以读哪些论文</a></nav><p class="sidebar-note">图像与计算可离线使用。<br>外部论文链接需联网。</p></aside><main class="main"><header class="hero" id="top"><div class="eyebrow">MOLECULES · CONSTRUCTS · FUNCTION</div><h1>PCR、基因克隆<br>与定向进化</h1><p>从 PCR 取得片段，到构建质粒、表达蛋白和筛选变体。结合原论文，逐步看每一步怎样做、为什么这样选，以及遇到问题后怎样继续。</p><div class="hero-meta"><span>26 个章节</span><span>6 组论文案例</span><span>3 类实践场景</span><span>42 份文献与勘误</span><span>10 幅原论文图</span></div><div class="routes"><a href="#pcr-chemistry">从 PCR 机制开始</a><a href="#three-workflows">代入自己的场景</a><a href="#case-pcr">拆解论文怎么做</a><a href="#experimental-decisions">从实验现象出发</a></div></header><div class="toolbar"><button type="button" id="expandAll">展开说明与文献</button><button type="button" id="collapseAll">收起说明与文献</button><button type="button" id="printGuide">打印 / 导出 PDF</button></div><div class="reading-note">有基础可以从眼下的问题或论文案例读起。正文从常规实验室能做的测量展开。更新：2026-11-21。</div><div id="chapters"><section class="chapter" id="research-object"><h2>01 动手之前，先说清楚要做哪一种蛋白</h2>
+<p>研究一个蛋白质，往往从很具体的疑问开始：它为什么出现在这个位置？某个残基换掉以后，反应为什么变慢？要把问题做下去，很快就会用到 DNA。此时先确认手里的序列、准备使用的表达系统，以及最后打算测什么，后面的引物和载体设计才有着落。</p>
+<p>PCR 用来获得所需片段，也能把接头或突变写入片段。克隆让这份设计可以保存、转移，在细胞中继续使用。定向进化则同时做出许多变体，测过以后，再决定下一轮保留谁、怎样改。<a class="citation" href="#ref-S88">[S88]</a><a class="citation" href="#ref-C73">[C73]</a><a class="citation" href="#ref-Q15">[Q15]</a></p>
+<p>设计引物前，我会先把最终材料写清楚：用哪个转录本，保留哪一段编码区，接头怎么连，翻译后得到什么蛋白，放在哪个宿主里测哪项功能。做文库还要多想一步：准备比较多少变体，测量结果怎样对应回每条序列。这样选组装方法时，考虑的就是手里这项实验的要求。</p>
+<p>同一个人源蛋白，做定位、测动力学和研究自抑制，可能各需要一套构建。看定位，要照顾天然定位信号和调控区；测酶，可以考虑能独立折叠的可溶结构域；研究结构域之间的自抑制，则要把完整蛋白和删除体放在一起比较。它们都可能扩出漂亮条带，之后要观察的东西却很不同。OpenCell 的内源标签和蛋白工程里的融合构建，正好提供了两种研究安排的实例。<a class="citation" href="#ref-O22">[O22]</a><a class="citation" href="#ref-SF06">[SF06]</a></p>
+<div aria-label="从模板到蛋白功能的实验过程" class="route-map"><div><b>模板与扩增</b>选好模板，扩出所需片段<small>确认序列，比较产物和成员比例</small></div><div><b>质粒构建</b>按设计接好插入和骨架<small>查接头、亲本背景和完整序列</small></div><div><b>表达与检测</b>在目标宿主中观察蛋白<small>测表达、蛋白状态和产物</small></div><div><b>变体与下一轮</b>保留好候选，继续比较组合<small>把每份结果对回相应序列</small></div></div>
+<p>检查材料时，每种方法各有用处。电泳帮你看大小和产物是否整齐，测序确认核苷酸，Western 看被抗体识别的蛋白，显微镜看标记的位置，酶学测反应速率。把这些结果对应到同一份构建上，就能逐渐弄清楚：序列已经做好以后，蛋白在哪一步出现了变化。<a class="citation" href="#ref-P17">[P17]</a><a class="citation" href="#ref-M18">[M18]</a><a class="citation" href="#ref-O22">[O22]</a></p>
+</section><section class="chapter" id="pcr-chemistry"><h2>02 PCR 怎样把一段 DNA 复制出来</h2>
+<h3>从引物末端接上一个核苷酸</h3>
+<p>DNA 合成从引物的 3′-OH 开始。聚合酶把互补的 dNTP 放到活性位点，引物末端的氧与它的 α-磷酸形成新键，同时释放焦磷酸。模板提供配对信息，dNTP 提供构件和反应所需的化学势。Mg²⁺帮助底物定位并稳定电荷；酶的构象、配对几何和校对过程一起影响这个核苷酸最终能否留下来。<a class="citation" href="#ref-N12">[N12]</a><a class="citation" href="#ref-P17">[P17]</a></p>
+<p>聚合酶沿新生链的 5′→3′方向延伸。设计反向引物时，先取参考序列右侧对应区域的反向互补，再按 5′→3′写出引物。订购前把它放回模板上看一眼，确认延伸方向指向所需区域，通常比只核对引物名字可靠。</p>
+<p>温度改变的是 DNA 各种配对状态之间的竞争。双链稳定性受到碱基堆积、配对、溶剂和离子的共同影响；升温有利于两条链分开，降温后模板会复性，引物也会结合，发夹和引物二聚体同样有机会形成。近邻模型把相邻碱基组合对焓和熵的影响算进去，因此比单看 GC 百分比更能描述这些差异。<a class="citation" href="#ref-T98">[T98]</a></p>
+<h3>目标片段的两端怎样逐渐固定</h3>
+<p>第一轮合成从引物开始，远端却还没有由另一条引物规定的物理终点，新链可能长于目标区域。等这些新链成为模板，另一条引物再来延伸，产物的另一端才逐渐固定下来。随后，两端都符合设计的双链片段迅速积累。5′附加序列也是这样进入产物、再进入下一轮模板的。</p>
+<p>用 Eⱼ 表示第 j 轮的有效扩增效率，可以把数量变化简化为：</p>
+<div class="equation">Nₙ = N₀ ∏ⱼ₌₁ⁿ (1 + Eⱼ)</div>
+<p>每轮 Eⱼ=1，就得到熟悉的 N₀·2ⁿ。实际反应里，效率会随模板、循环和体系状态改变。到了后期，引物和底物供给、酶活性以及产物复性都会影响产量。所以做完一管 PCR 后测到的 DNA，已经带着整段扩增历史；要估计起始丰度，就得选好仍保留定量关系的测量阶段和参照。<a class="citation" href="#ref-S88">[S88]</a><a class="citation" href="#ref-K15">[K15]</a><a class="citation" href="#ref-A11">[A11]</a></p>
+<h3>耐热酶为什么让 PCR 好用起来</h3>
+<p>Saiki 等在 1988 年把耐热聚合酶用于循环扩增，高温变性后酶仍能继续合成 DNA，特异性等表现也得到改善。实验由此减少了反复补酶的操作，也能使用较高的延伸温度。<a class="citation" href="#ref-S88">[S88]</a></p>
+<p>这里有一个很实用的思路：先找到反应中卡住的过程，再改相应条件。今天遇到难扩增模板，也可以顺着问：双链分开了吗？引物能结合吗？聚合酶是否容易停下来？已有产物是否在竞争？几种原因对应的调整并不相同。</p>
+</section><section class="chapter" id="primers-environment"><h2>03 引物怎么设计，条件为什么这样选</h2>
+<h3>先画最终序列</h3>
+<p>带组装接头的长引物，可以分成 3′侧的退火区和 5′侧的附加区。前者在起始模板上找到位置，后者随着延伸写入产物，随后也成为模板的一部分。计算最初的退火条件时，主要看与原模板配对的那一段；把整条长引物都算进去，得到的 Tm 可能偏高。<a class="citation" href="#ref-G09">[G09]</a><a class="citation" href="#ref-E08">[E08]</a></p>
+<pre class="sequence">引物（按 5′→3′书写）
+5′ [载体重叠区 / 酶切接头 / 标签编码区] [与原模板配对的退火区] 3′
+                                                    ↑ 可延伸末端
+
+设计检查：原始模板 → 扩增片段 → 最终组装序列 → 翻译后的蛋白</pre>
+<p>反向引物的附加区也从最终组装序列往回推。尤其做 C 端融合时，把终止密码子、连接肽和标签连起来翻译一次：保留了目标基因的终止密码子，后面的标签就无法接着翻译；连接处错一位，后面的蛋白序列也会改变。</p>
+<p>构建记录里可以保留这些设计信息，之后换载体或改边界时还能接着用。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>设计位置</th>
+<th>要确认的内容</th>
+<th>为什么影响实验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>转录本与起始模板</td>
+<td>accession/version、外显子和内含子</td>
+<td>同一基因名可能对应不同蛋白；细菌通常无法按真核剪接方式处理内含子</td>
+</tr>
+<tr>
+<td>扩增边界</td>
+<td>完整 ORF、成熟肽或结构域；残基编号来源</td>
+<td>截短位置会影响折叠单元、定位信息和调控区域</td>
+</tr>
+<tr>
+<td>3′退火区</td>
+<td>唯一匹配、末端互补和可延伸的二聚体</td>
+<td>一个错误起点只要能够延伸，就可能在后续循环中获得扩增优势</td>
+</tr>
+<tr>
+<td>5′附加区</td>
+<td>与载体的连接方式、加入的编码或非编码序列</td>
+<td>决定接头、阅读框和最终蛋白末端</td>
+</tr>
+<tr>
+<td>Tm 与二级结构</td>
+<td>计算模型、盐和 Mg²⁺设置、所用酶</td>
+<td>发夹、可延伸二聚体和目标结合会竞争，计算结果也随环境变化</td>
+</tr>
+<tr>
+<td>其他可结合的模板</td>
+<td>同源基因、剪接体、重复序列和混合模板</td>
+<td>决定应在哪个序列背景中检查特异性</td>
+</tr>
+</tbody>
+</table></div>
+<p>Tm 描述给定条件下的双链熔解，退火温度则是你在仪器上设定的实验条件。两者通过相应体系的经验和测试联系起来。可以先用适合所用聚合酶的计算方法产生候选，再作小范围比较。18–25 nt、40%–60% GC 是常见起点，最后还要结合目标序列的特异性和结构来选。<a class="citation" href="#ref-T98">[T98]</a><a class="citation" href="#ref-P17">[P17]</a></p>
+<h3>Mg²⁺要和 dNTP、盐、添加剂一起看</h3>
+<p>Mg²⁺既参与聚合酶反应，也影响核酸配对。dNTP 会结合金属，模板制备留下的 EDTA 也会改变可用金属的比例。增加总 Mg²⁺有时能恢复反应，同时也可能让不理想的配对更容易延伸。所以记录 Mg²⁺浓度时，把缓冲液和 dNTP 条件一起记下，才方便比较。<a class="citation" href="#ref-P17">[P17]</a></p>
+<p>DMSO、甜菜碱和专用添加剂可以改变难熔解模板及二级结构的行为，也会影响酶和引物结合。Aird 等把制备步骤、温控仪、变性历史和添加剂分开比较，发现高 GC 片段的恢复取决于条件组合。读这类研究时，值得带走的是每次调整影响了哪一步。<a class="citation" href="#ref-A11">[A11]</a></p>
+<p>例如，混合样本里的高 GC 成员偏少，可以分别比较变性时间、聚合酶和添加剂。先看少量条件下目标产量与成员比例怎样变化，再决定往哪个方向试。若只需要制备一个已知片段，选出足量产物即可继续；若要保留整个文库的比例，就得把其他成员也一起看。</p>
+</section><section class="chapter" id="pcr-quality"><h2>04 PCR 产物要看哪几种质量</h2>
+<h3>先选好酶，再确认拿到的序列</h3>
+<p>聚合酶通过底物选择、延伸选择和 3′→5′校对减少错误。普通克隆选高保真酶，主要是减少扩增时额外引入的碱基替换。测到最终克隆后，再把它与参考序列比较，才能同时检查起始模板差异、引物合成错误、DNA 损伤和组装问题。<a class="citation" href="#ref-P17">[P17]</a></p>
+<p>Potapov 与 Ong 用单分子测序拆解了几类错误：错掺、结构相关的模板切换、分子间重组和温度循环损伤。热损伤那组实验很值得看：他们让 DNA 经历模拟温度循环，却不进行正常扩增，再比较修复处理前后。这样就能单独考察温度历史。该文勘误交换了 Figure 1A 中 PrimeSTAR GXL 与 KOD 的标签，比较这两种酶时使用更正图即可。<a class="citation" href="#ref-P17">[P17]</a><a class="citation" href="#ref-P17C">[P17C]</a></p>
+<figure class="paper-figure" data-source="P17" id="paper-P17-4"><div class="figure-top"><span class="figure-label">论文图 01 · 原文 Fig 4</span><h4>单独看温度循环给 DNA 带来的损伤</h4><span class="figure-type">实测结果 · 模拟温度循环与修复处理</span></div><button aria-label="放大：单独看温度循环给 DNA 带来的损伤" class="zoom-trigger" type="button"><img alt="Potapov V, Ong JL.，2017，Fig 4：单独看温度循环给 DNA 带来的损伤" decoding="async" height="1039" loading="lazy" src="figures/P17-figure-4.png" width="2579"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>让 DNA 经历模拟温度循环、但不作正常扩增，再比较修复处理。图中列出未处理、模拟循环、循环后修复，以及建库前后修复的样品碱基替换率。</figcaption><div class="figure-reading"><p>温度循环后替换率上升，修复处理后下降，研究者由此分析热损伤的贡献。这里统计的是各组样品中的替换率；比较聚合酶时使用的每次有效加倍错误率，则另按相应分母计算。</p></div><div class="figure-source">Potapov V, Ong JL. · PloS one · 2017<br/><i>Examining Sources of Error in PCR by Single-Molecule Sequencing.</i><br/><a href="https://doi.org/10.1371/journal.pone.0169774" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1371/journal.pone.0169774</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>读保真度数值时，先找清楚分母：每碱基、每次有效加倍，与每碱基、每个设定循环，是两种报告方式。模板、测序背景和反应条件也会改变测得的错误率。把这些条件放在一起比较，再回到自己的构建序列，比较才有用。<a class="citation" href="#ref-P17">[P17]</a><a class="citation" href="#ref-P17C">[P17C]</a></p>
+<h3>一条带里可能有哪些差异</h3>
+<p>点突变通常不改变片段长度；不同同源模板和嵌合产物也可能跑到相同位置。电泳先帮你筛掉大小明显错误的产物，随后测序再看碱基。多种相似模板共同扩增时，不完全延伸的产物还可能与另一模板退火，接着延伸出嵌合序列。<a class="citation" href="#ref-P17">[P17]</a><a class="citation" href="#ref-K15">[K15]</a></p>
+<p>扩增早期出现的变化会由许多后代继承。如果某个异常替换影响功能解释，我会从原始模板重新独立扩增、构建一次，比较新旧结果。同一 PCR 里多挑几个菌落，可以找出不同克隆；重新起一次反应，则更有利于追查变化是否来自共同的扩增祖先。</p>
+<h3>起始分子少时，运气也会留下痕迹</h3>
+<p>Kebschull 与 Zador 用成对条码和额外的分子标签，区分序列成员与起始分子，并比较几种偏差机制。在他们的低输入文库中，早期随机扩增对后来的比例有明显影响。少数分子若在最初几轮错过复制，之后即使扩增效率恢复，也已经落后于其他成员。<a class="citation" href="#ref-K15">[K15]</a></p>
+<p>它和 Aird 的 GC 研究分别抓住了不同问题。制备一个已知基因时，可以把精力放在获得正确克隆；比较成员丰度时，还要照顾起始分子的代表性，减少不必要的扩增，并在关键步骤留样。这样即使总产量很高，也能及时看出某些成员是否已经变少或丢失。<a class="citation" href="#ref-A11">[A11]</a><a class="citation" href="#ref-K15">[K15]</a></p>
+</section><section class="chapter" id="pcr-diagnosis"><h2>05 PCR 出问题后，先查哪一步</h2>
+<p>没有条带和出现多条带，值得从不同地方查起。前者先看反应与检测是否工作、样本能否扩增；后者先确认目标带，再追查其他产物从哪里启动。每次比较围绕一个原因来安排，调整后就容易知道为什么有效。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>看到的结果</th>
+<th>可以先做的比较</th>
+<th>接下来怎么判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>目标扩不出，已知阳性正常</td>
+<td>核对引物和模板；受控稀释样本，或加入可区分的内参查抑制</td>
+<td>稀释后恢复，支持抑制参与；仍无目标，再看模板完整性、边界和序列匹配</td>
+</tr>
+<tr>
+<td>目标与阳性都不扩增</td>
+<td>检查配制、酶、循环程序和检测，加入独立的已验证反应</td>
+<td>先找共同操作因素，再决定是否重设计引物</td>
+</tr>
+<tr>
+<td>阴性对照有产物</td>
+<td>测序确认产物，比较模板制备空白和无模板反应</td>
+<td>定位污染进入的位置；短产物同时查引物二聚体</td>
+</tr>
+<tr>
+<td>多个条带</td>
+<td>确认预期条带，比较温度、引物特异性或一个主要体系因素</td>
+<td>特异性改善后，继续看目标产量是否足够</td>
+</tr>
+<tr>
+<td>长度相同，测序却混杂</td>
+<td>查混合模板、同源序列、单克隆来源和测序质量</td>
+<td>决定重新分离起始材料，还是取得序列明确的独立克隆</td>
+</tr>
+<tr>
+<td>扩增后成员比例改变</td>
+<td>比较扩增前后、不同循环负担和起始分子数</td>
+<td>区分可重复的扩增偏好、早期抽样与后续培养选择</td>
+</tr>
+</tbody>
+</table></div>
+<p>具体温度、时间和浓度跟随所用酶与模板选择。实验记录多写两句会很有用：这次改了什么，原本希望改善哪一步，结果怎样。下次换模板时，就有具体经验可用。</p>
+<p>一管用于克隆的 PCR 做到目标明确、片段足够，并能继续获得正确序列的构建，就可以往下走。定量文库还多一项检查：各成员的比例是否保留得足以回答这次的问题。<a class="citation" href="#ref-P17">[P17]</a><a class="citation" href="#ref-K15">[K15]</a></p>
+</section><section class="chapter" id="cloning-purpose"><h2>06 为什么还要把 PCR 片段放进载体</h2>
+<p>扩出来的 DNA 已经可以拿去测序、做体外反应，某些无细胞表达也能直接使用。想长期保存同一个构建、反复转入细胞，或把一批序列分别保存在可追踪的克隆里时，载体就方便得多。Cohen 等早期的重组质粒工作，做的正是把体外连接的 DNA 放进细菌，检查它能否作为有功能的遗传材料继续存在。<a class="citation" href="#ref-C73">[C73]</a><a class="citation" href="#ref-CF25">[CF25]</a></p>
+<p>插入片段和骨架共同组成质粒。细菌 ori 让它在适合的宿主中复制，选择标记帮助维持带质粒的细胞，启动子、翻译起始和终止元件安排表达。换到哺乳动物细胞，复制条件也要跟着考虑：细菌 ori 管的是细菌中的复制，瞬时表达、稳定整合和能在哺乳动物细胞中维持的复制体系，各有相应设计。<a class="citation" href="#ref-C73">[C73]</a><a class="citation" href="#ref-H00">[H00]</a><a class="citation" href="#ref-O22">[O22]</a></p>
+<p>做功能研究，还得接着看 RNA 和蛋白：产生了多少，蛋白在哪里，以什么状态存在。同一 ORF 换了骨架、宿主或培养条件，表达结果都可能改变。所以每换一次体系，先重新测一下野生型，后面的突变体比较会踏实得多。<a class="citation" href="#ref-K09">[K09]</a><a class="citation" href="#ref-P15">[P15]</a><a class="citation" href="#ref-SF06">[SF06]</a></p>
+<h3>配 DNA 时，为什么要换算成摩尔量</h3>
+<p>DNA 连接要让末端相遇。同样质量的短片段分子更多，配比时因此要把长度算进去。按双链 DNA 每 bp 约 660 g/mol 估算：</p>
+<div class="equation">物质的量（pmol）≈ 质量（ng）× 1000 / [长度（bp）× 660]</div>
+<p>50 ng 的 5,000 bp 骨架约是 0.0152 pmol；1,000 bp 插入只需约 10 ng，就与它等摩尔。这里用的是每 bp 平均分子量，单链 DNA 和短寡核苷酸用相应换算。实际配样时，还要知道有多少 DNA 完整、纯净，能够参加组装。</p>
+<p>文库也一样要看分子来自哪里。少数成员扩出很多 DNA，总质量会很好看，多样性仍由原先那些成员决定。已经丢掉的序列，需要从更早的材料重新找回来。<a class="citation" href="#ref-K15">[K15]</a></p>
+</section><section class="chapter" id="assembly-choice"><h2>07 几种组装方法，该怎么选</h2>
+<h3>酶切连接：现成末端合适时，很直接</h3>
+<p>限制性酶切先产生指定末端，连接酶再把相邻的 3′-OH 与 5′-磷酸接成磷酸二酯键。安排两种不同、按设计配对的末端，可以限定插入方向，也能减少骨架自连。选位点时，一起看插入内部是否也有这个位点、连接后留下什么序列、阅读框能否接上。现成位点正好合用，酶切连接就很省事；频繁换插入时，重叠组装或标准化 Type IIS 模块往往更方便。<a class="citation" href="#ref-C73">[C73]</a><a class="citation" href="#ref-E08">[E08]</a><a class="citation" href="#ref-S16">[S16]</a></p>
+<p>TA 克隆让带 3′ A 末端的 PCR 产物与 T 载体配对。聚合酶能够进行非模板末端添加，实际产物带什么末端、还需什么处理，要和具体酶及载体对照着选。<a class="citation" href="#ref-CL88">[CL88]</a></p>
+<h3>Gibson：连接位置由重叠区指定</h3>
+<p>Gibson 里，5′外切酶先露出 3′单链区，相邻片段通过互补重叠结合，聚合酶补缺，连接酶封口。这样可以按需要安排连接位置，把接头直接写进设计。<a class="citation" href="#ref-G09">[G09]</a></p>
+<p>一个骨架加 ORF，或再加标签、连接肽，都可以这样拆成片段。设计重叠区时，我会把所有片段放在一起检查：同一段重叠若出现在多个位置，就可能连到别处。片段越多，要完成的连接也越多，末端错误、短片段损失和配比偏差都会累积。重复序列多的构建，可以换分块位置、分步组装，或改用接口更容易区分的方法。</p>
+<p>“无缝”说的是连接处可以做成需要的序列。特意加入的连接肽会留下来，意外加入的密码子也会留下来；把最终接头写出来并翻译一次，检查起来最直观。</p>
+<h3>Golden Gate：正确产物为什么会积累</h3>
+<p>Type IIS 酶在识别位点外切割，所以识别序列和连接端可以分别设计。在 Engler 等的安排中，正确连接的产物失去相应切割位点，其他可再切开的产物继续参加反应，目标构建便逐渐积累。<a class="citation" href="#ref-E08">[E08]</a></p>
+<figure class="paper-figure" data-source="E08" id="paper-E08-1"><div class="figure-top"><span class="figure-label">论文图 04 · 原文 Figure 1</span><h4>Golden Gate 怎样让正确产物积累</h4><span class="figure-type">作者机制示意 · Golden Gate 单插入设计</span></div><button aria-label="放大：Golden Gate 怎样让正确产物积累" class="zoom-trigger" type="button"><img alt="Engler C, Kandzia R, Marillonnet S.，2008，Figure 1：Golden Gate 怎样让正确产物积累" decoding="async" height="3979" loading="lazy" src="figures/E08-figure-1.png" width="1772"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>按入口和目标载体上的 BsaI 位点切开、连接后，会出现图中几种产物。D 已失去相应切割安排，可以保留下来；其他产物能继续被切开。</figcaption><div class="figure-reading"><p>沿着识别位点、切割位置和连接端看一遍，就能理解为什么插入按这个方向接入。下一幅再用实际克隆的诊断酶切检查设计结果。</p></div><div class="figure-source">Engler C, Kandzia R, Marillonnet S. · PloS one · 2008<br/><i>A one pot, one step, precision cloning method with high throughput capability.</i><br/><a href="https://doi.org/10.1371/journal.pone.0003647" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1371/journal.pone.0003647</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>如果要反复组合启动子、ORF、标签和终止元件，先把接口统一好，后面换模块会方便很多。前期工作主要在内部酶切位点和连接端的处理上。为了去除内部位点而作同义改写时，也把它记录下来：蛋白序列虽然相同，RNA 的表达行为仍可能改变，尤其值得在表达比较项目里留意。<a class="citation" href="#ref-K09">[K09]</a><a class="citation" href="#ref-P15">[P15]</a></p>
+<p>Potapov 等测量了 T4 连接酶对四碱基突出端的偏好与错连。不同末端的效率、保真度有差异，同管里的末端也会互相竞争。因此，多接口设计要把整套末端一起比较。<a class="citation" href="#ref-L18">[L18]</a></p>
+<h3>Gateway 和 IVA，分别省在哪一步</h3>
+<p>Gateway 用位点特异性重组，把一个插入转移到不同载体。Hartley 等面对的是许多 ORF、多种表达背景和融合构建；同一个基因要反复转载体时，前面建立入口克隆的投入就更合算。选择它时，再看看重组后留下的序列与融合接头是否适合目标蛋白。<a class="citation" href="#ref-H00">[H00]</a></p>
+<p>IVA 让带互补末端的 PCR 产物进入细菌，利用常见实验室菌株中的 RecA 非依赖组装能力恢复构建，因而省下一部分体外组装步骤。选这条路线时，先看 PCR 是否容易完成、末端能否正确配对、亲本背景高不高，再看自己的宿主条件。原论文把这些因素逐项作了比较。<a class="citation" href="#ref-I16">[I16]</a></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>手头的任务</th>
+<th>可以先考虑</th>
+<th>什么情况下换一种方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一个插入，现成酶切位点合适</td>
+<td>酶切连接</td>
+<td>位点冲突、接头不合用，或后续要经常换模块</td>
+</tr>
+<tr>
+<td>少量片段，需要精确连接</td>
+<td>重叠组装</td>
+<td>重叠区重复、片段难制备，或后续适合标准化组合</td>
+</tr>
+<tr>
+<td>反复组合标准部件</td>
+<td>Golden Gate</td>
+<td>内部位点改写代价高、连接端干扰，或需保留原始序列</td>
+</tr>
+<tr>
+<td>同一 ORF 转入许多载体</td>
+<td>Gateway</td>
+<td>重组接头影响用途，或构建量少、入口准备不合算</td>
+</tr>
+<tr>
+<td>少量插入、删除、突变，已有合适宿主</td>
+<td>IVA 或逆向 PCR 路线</td>
+<td>大骨架难扩增、亲本背景高，或分步方案更稳定</td>
+</tr>
+<tr>
+<td>先比较体外蛋白活性</td>
+<td>合适的线性模板/无细胞路线</td>
+<td>目标依赖宿主内过程、需要长期保存，或模板稳定性受限</td>
+</tr>
+</tbody>
+</table></div>
+<p>实验室已有的载体和熟练方法，也会改变实际工作量。先把这次的材料做好，再看有没有足够多的重复任务值得做成平台。</p>
+</section><section class="chapter" id="clone-verification"><h2>08 长出菌落以后，怎样确认做对了</h2>
+<h3>先留意原来的质粒有没有混进来</h3>
+<p>亲本质粒可以直接进入细菌形成菌落，所以 PCR 产量低时，平板上仍可能长得不少。DpnI 常被用来降低这类背景：它识别 GATC 中甲基化的腺嘌呤。模板是否具有相应甲基化、是否有可用位点，以及消化条件，都会影响处理结果。PCR 产物、合成 DNA 和不同甲基化来源的模板，先按各自性质选择处理。<a class="citation" href="#ref-Z04">[Z04]</a><a class="citation" href="#ref-I16">[I16]</a></p>
+<figure class="paper-figure" data-source="I16" id="paper-I16-2"><div class="figure-top"><span class="figure-label">论文图 06 · 原文 Figure 2</span><h4>把亲本背景和末端组装分开试</h4><span class="figure-type">设计与实测结果 · IVA 条件比较</span></div><button aria-label="放大：把亲本背景和末端组装分开试" class="zoom-trigger" type="button"><img alt="García-Nafría J, Watson JF, Greger IH.，2016，Figure 2：把亲本背景和末端组装分开试" decoding="async" height="1037" loading="lazy" src="figures/I16-figure-2.jpg" width="2100"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>a 去掉有效重叠，比较模板投入与假阳性菌落；b、c 分别试同源区长度和 Tm；d 比较聚合酶下的产物与菌落，e 画出对应引物。</figcaption><div class="figure-reading"><p>b 比长度时让 Tm 接近，c 比 Tm 时固定长度，因此两项影响能分别观察。a 中左右纵轴分别对应 PCR 产物与背景菌落，先对应好各条曲线再读数。</p></div><div class="figure-source">García-Nafría J, Watson JF, Greger IH. · Scientific reports · 2016<br/><i>IVA cloning: A single-tube universal cloning system exploiting bacterial In Vivo Assembly.</i><br/><a href="https://doi.org/10.1038/srep27459" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1038/srep27459</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>IVA 里有一个很实用的对照：引物不带有效同源末端，这时仍长出的菌落，就帮助研究者发现亲本携带等背景。换到自己的组装方案，可以按主要怀疑对象，选缺插入、缺关键处理或仅骨架的一项作比较。</p>
+<h3>扩增出来的 DNA，怎样恢复成可用质粒</h3>
+<p>逆向 PCR 可以得到带指定末端的线性全质粒产物，接着经连接、组装或宿主修复恢复。另一些经典突变方案有不同的引物配对和产物结构。这里分开想两件事就清楚了：DpnI 处理亲本背景，后续相应步骤恢复能够复制的分子。<a class="citation" href="#ref-Z04">[Z04]</a><a class="citation" href="#ref-I16">[I16]</a></p>
+<h3>从大小、方向查到具体序列</h3>
+<p>菌落 PCR 先看插入大小，跨接头 PCR 可以看方向，诊断酶切用多个切点检查构型，最后测序确认碱基和连接处。Engler 的验证把构建图谱与多个克隆的诊断条带放在一起，能直接对照预期片段与实际泳道。<a class="citation" href="#ref-E08">[E08]</a></p>
+<figure class="paper-figure" data-source="E08" id="paper-E08-2"><div class="figure-top"><span class="figure-label">论文图 05 · 原文 Figure 2</span><h4>从图谱预测条带，再检查每个克隆</h4><span class="figure-type">构建图谱与实测结果 · 多克隆诊断酶切</span></div><button aria-label="放大：从图谱预测条带，再检查每个克隆" class="zoom-trigger" type="button"><img alt="Engler C, Kandzia R, Marillonnet S.，2008，Figure 2：从图谱预测条带，再检查每个克隆" decoding="async" height="2648" loading="lazy" src="figures/E08-figure-2.png" width="1937"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>A 画出入口、目标骨架和最终构建的诊断切点及预期片段，B 对照实际克隆与载体的酶切结果。119 bp 片段较短，原图说明它在这里不容易看见。</figcaption><div class="figure-reading"><p>先按图谱推一遍预期大小，再看泳道是否相符。酶切检查构型，接头和具体碱基则由覆盖相应位置的测序接着确认。</p></div><div class="figure-source">Engler C, Kandzia R, Marillonnet S. · PloS one · 2008<br/><i>A one pot, one step, precision cloning method with high throughput capability.</i><br/><a href="https://doi.org/10.1371/journal.pone.0003647" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1371/journal.pone.0003647</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>安排测序时，把完整插入和两端接头都覆盖到。普通小构建可用 Sanger，片段较长就增加内部引物；怀疑启动子、骨架或拷贝调控影响功能时，整质粒测序更直接。测多少，跟着这次会影响解释的区域决定。</p>
+<p>如果筛到一个“酶活更高”的克隆，我会先查完整目标基因和表达相关区域，再放回相同骨架、新鲜宿主中复测。研究定位的突变体，则先确认目标替换、标签、接头和定位元件。两种任务的检查范围因此会有侧重。</p>
+<h3>让下一位使用者能找到同一份材料</h3>
+<p>构建记录里保留参考序列版本、最终完整序列和蛋白翻译，同时写明载体、宿主、修改位置、测序覆盖和原始读段。独立克隆的编号与保存位置也要对应好。历史质粒重新测出差异时，给新结果一个版本，保留与旧材料的关系，之后就容易追查哪一次实验用了哪份材料。</p>
+</section><section class="chapter" id="cell-context"><h2>09 DNA 做好了，蛋白在细胞里会怎样</h2>
+<h3>相同蛋白序列，也会有不同表达量</h3>
+<p>Kudla 等做了 154 条同义 GFP 序列，它们编码相同蛋白，在细菌里的表达却差别很大，变化与起始区 RNA 折叠密切相关。Presnyak 等在酵母中又把同义密码子变化与 mRNA 稳定性和翻译联系起来。<a class="citation" href="#ref-K09">[K09]</a><a class="citation" href="#ref-P15">[P15]</a></p>
+<p>遇到哺乳动物细胞中的表达下降，可以沿着 RNA 丰度、翻译和蛋白周转往下查。这两篇研究使用不同体系，说明同义改写究竟影响哪一步，要放回具体宿主里看。</p>
+<p>过表达还会改变蛋白丰度、定位和伙伴之间的比例。假设突变体的 Western 信号下降，拉下来的伙伴也变少，先比较输入量、可溶比例和定位，再看蛋白量接近时互作差别是否还在。表达量相当而位置改变，也会影响两个蛋白相遇的机会。<a class="citation" href="#ref-O22">[O22]</a><a class="citation" href="#ref-M18">[M18]</a></p>
+<h3>荧光标签也有自己的折叠和成熟过程</h3>
+<p>荧光标签翻译出来以后，还要折叠、形成色团。GFP 的色团形成包含氧化过程，最后看到多亮也受光谱和测量条件影响。放在 N 端或 C 端，则可能改变附近的定位、修饰和结合。<a class="citation" href="#ref-H94">[H94]</a><a class="citation" href="#ref-SF06">[SF06]</a></p>
+<p>Pédelacq 等比较 superfolder GFP 与 folding reporter GFP 时，发现它们与融合对象折叠状态的关系不同。选标签前，先决定这次想看总表达、成功折叠，还是定位，再检查该融合组合是否合适。<a class="citation" href="#ref-SF06">[SF06]</a></p>
+<p>例如，N 端信号肽要保留合适的末端安排；C 端短序列若负责定位，也要给它留下发挥作用的位置。可以先做少量标签位置不同的构建，对照内源定位或功能恢复，看看哪一种更接近研究需要。</p>
+<h3>什么时候值得做到内源背景</h3>
+<p>OpenCell 用基因组工程、活细胞共聚焦和质谱，在内源调控背景下观察蛋白的位置与互作。它把空间观察和生化测量放到了同一批材料上。<a class="citation" href="#ref-O22">[O22]</a></p>
+<p>手头的课题可以从较小的比较开始。研究一个残基的作用，先做序列确认的野生型与突变体，比较表达、定位和功能。如果外源水平已经影响系统，再考虑可调表达、接近内源的表达量，或内源编辑。救援实验里，先找到野生型在相应表达水平下能恢复功能的条件，才能接着比较突变体。</p>
+<p>敲除或抑制内源蛋白后，突变体救不回来，可以按结果往下查：蛋白少了，查丰度、稳定性和折叠；位置变了，查定位与运输；量和位置都接近，再看具体活性或互作接口。</p>
+</section><section class="chapter" id="three-workflows"><h2>10 放进实际任务里，怎样安排构建</h2>
+<p>下面三个教学情境分别对应常规表达、细胞机制和蛋白工程。拿到实际基因后，填入参考序列、载体、宿主和已有测量，就能继续设计引物与接头。</p>
+<details class="deep" open="open">
+<summary>场景 A：克隆一个已知 ORF，用来表达蛋白</summary>
+<p>先确认模板与参考、转录本和蛋白边界。如果插入、骨架都容易制备，又需要精确接头，可以从重叠组装开始；现成酶切位点合适，酶切连接也很直接。高保真扩增用来减少构建时额外引入的替换。<a class="citation" href="#ref-G09">[G09]</a><a class="citation" href="#ref-P17">[P17]</a></p>
+<p>按最终序列检查引物，再把接头翻译一遍。扩增产物大小和纯度合适后组装，挑克隆，用测序覆盖插入和两端接头。首次表达时，接着看全长蛋白、可溶性和基础功能，这样 DNA 与蛋白的检查就接上了。</p>
+<p>如果几乎没有蛋白，先查 RNA、表达元件和宿主；蛋白主要不溶，就看边界、标签、表达强度和折叠条件；可溶但测不到活性，再看底物、辅因子、成熟过程和产物检测。</p>
+</details>
+<details class="deep">
+<summary>场景 B：做一个点突变，研究细胞中的功能</summary>
+<p>先把残基编号对回相应转录本，确认它在成熟蛋白或哪一个结构域里。野生型与突变体尽量用相同骨架、标签和其余序列。少数位置的修改，可以选择已经验证过的全质粒突变或 IVA，并核对自己的模板是否适合相应方案。<a class="citation" href="#ref-Z04">[Z04]</a><a class="citation" href="#ref-I16">[I16]</a></p>
+<p>结果出来后，先看表达和位置。如果互作下降同时伴随蛋白量减少，把输入量、可溶比例一起比较；研究催化残基时，尽量测到相应产物或反应步骤。结构上的邻近帮助选点，细胞实验再告诉我们这个位置如何影响功能。</p>
+<p>要继续区分原因，可以加保守替换、改变其他化学性质的替换，或组合突变。每加一个构建，先说清楚它要比较什么：折叠是否还能保持，还是某种电荷、氢键或局部作用确实参与了功能。这样比连续增加同样失活的替换更容易学到东西。</p>
+</details>
+<details class="deep">
+<summary>场景 C：做一轮可追踪的蛋白质变体文库</summary>
+<p>固定亲本、骨架、宿主和测量方法，再按能检测的独立样本数决定文库规模。几百个样本的预算，可以集中在少量位置；一次饱和很多位置，大部分组合就会留在未采到的部分。<a class="citation" href="#ref-K13">[K13]</a><a class="citation" href="#ref-BA05">[BA05]</a></p>
+<p>扩增、组装、转化和培养之后，保留必要的抽样信息：亲本还有多少，正确插入占多少，序列是否重复，多少成员保有基础功能。筛到候选后重新构建、独立表达，再决定下一轮扩大位置、组合突变，还是先把检测体系做好。</p>
+</details>
+</section><section class="chapter" id="evolution-objective"><h2>11 先决定这轮想改好什么</h2>
+<p>同一个酶，低底物浓度下反应快，长时间反应却未必产物多；能耐高温，也未必保有所需选择性。“活性更好”要落到使用条件里，才知道筛到什么样的变体值得留下。<a class="citation" href="#ref-C91">[C91]</a><a class="citation" href="#ref-C93">[C93]</a><a class="citation" href="#ref-AL25">[AL25]</a></p>
+<p>我会先把测量安排写出来。例如：固定 pH、温度、底物和溶剂，处理一定时间后测目标产物，候选复核时再比较单位有效酶量的表现。下次重复和进入下一轮时，就知道哪些条件要保持一致。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>想改好的性质</th>
+<th>可以先测什么</th>
+<th>测量时一起确认</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>低底物浓度下的效率</td>
+<td>合适模型中的 kcat/KM，或定义清楚的低浓度初速</td>
+<td>活性酶浓度、底物范围、底物能否自由到达酶</td>
+</tr>
+<tr>
+<td>底物接近饱和时的周转</td>
+<td>kcat 或单位有效酶的初速</td>
+<td>是否饱和，有无底物抑制和产物干扰</td>
+</tr>
+<tr>
+<td>实际产量</td>
+<td>固定过程里的产物量、收率和选择性</td>
+<td>酶负载、时间、底物耗尽、辅因子和传质</td>
+</tr>
+<tr>
+<td>处理后的工作能力</td>
+<td>残余活性随处理时间的变化</td>
+<td>处理条件和随后测活条件怎样安排</td>
+</tr>
+<tr>
+<td>融合蛋白是否好用</td>
+<td>指定融合背景中的成熟信号与蛋白状态</td>
+<td>标签折叠、氧化、等待时间和目标蛋白量</td>
+</tr>
+<tr>
+<td>细胞中的功能</td>
+<td>相应过程的表型和功能恢复</td>
+<td>表达量、定位、宿主与细胞状态</td>
+</tr>
+</tbody>
+</table></div>
+<p>选位置时可以利用结构、同源序列和已有突变；至于选中的位置换成什么最好，交给实际测量比较。这两种做法很容易放在同一轮实验里使用。<a class="citation" href="#ref-K13">[K13]</a><a class="citation" href="#ref-B06">[B06]</a><a class="citation" href="#ref-W19">[W19]</a></p>
+</section><section class="chapter" id="variation-design"><h2>12 怎样做变体，决定了能采到哪些变化</h2>
+<h3>易错 PCR：先在亲本附近寻找</h3>
+<p>改变聚合酶和反应条件，可以让 PCR 引入更多变化。位置可以不预先指定，碱基替换却各有发生偏好。起始密码子也影响某个氨基酸替换是否容易出现：需要同时改两个或三个核苷酸的变化，在低负担点突变库里就很难采到。<a class="citation" href="#ref-P17">[P17]</a><a class="citation" href="#ref-C91">[C91]</a></p>
+<p>突变少，文库里会有较多亲本和重复成员；增加负担，某些组合更容易出现，失活也会增多。怎么选，要看这轮希望保留多少能工作的成员，以及想离亲本走多远。Bloom 等的研究还提示，比较稳定的亲本往往有更多余量容纳额外变化。<a class="citation" href="#ref-B06">[B06]</a></p>
+<p>先用一个简单模型看看负担怎样分布。把最终序列相对亲本的替换数 K 近似为泊松分布：</p>
+<div class="equation">P(K=k)=e⁻λ λᵏ/k!；λ≈Lμ</div>
+<p>这里 L 是长度，μ 指最终产物相对亲本的平均每位点突变概率。厂商报告的每次加倍错误率用的是另一个分母，要考虑扩增过程后才能联系过来。实际文库还带有位置偏好、共同谱系、插入缺失，以及培养中失活成员被筛掉的影响。因此，做出文库后抽样测序，看看替换数、类型、重复率和亲本比例，会比只记反应配方更有用。<a class="citation" href="#ref-P17">[P17]</a><a class="citation" href="#ref-K15">[K15]</a></p>
+<div class="tool" id="mutationTool"><h3>改动突变负担，看看文库怎样变化</h3><p class="tool-note">用泊松分布看替换数，用标准遗传密码数 NNK 组合。这里按碱基均匀、位点独立作教学计算。</p><div class="tool-controls"><label for="mutationLambda"><span class="control-line">平均替换数 λ<output id="lambdaValue"></output></span><input id="mutationLambda" max="8" min="0" step="0.1" type="range" value="1"/></label><label for="nnkSites">同时随机化的 NNK 位点<select id="nnkSites"><option value="1">1 个</option><option value="2">2 个</option><option selected="" value="3">3 个</option><option value="4">4 个</option><option value="5">5 个</option><option value="6">6 个</option></select></label></div><div class="bar-grid"><div class="bar-cell"><div class="poisson-bar"><div id="poissonBar0"></div></div><output id="poissonValue0"></output>0 次替换</div><div class="bar-cell"><div class="poisson-bar"><div id="poissonBar1"></div></div><output id="poissonValue1"></output>1 次替换</div><div class="bar-cell"><div class="poisson-bar"><div id="poissonBar2"></div></div><output id="poissonValue2"></output>2 次替换</div><div class="bar-cell"><div class="poisson-bar"><div id="poissonBar3"></div></div><output id="poissonValue3"></output>≥3 次替换</div></div><div class="metrics"><div class="metric">理论密码子组合数<b id="codonCount"></b></div><div class="metric">理论非终止氨基酸组合数<b id="aminoCount"></b><small>各组合在 NNK 中并不等概率</small></div><div class="metric">全部位点无终止密码子的比例<b id="noStop"></b></div><div class="metric">全部位点均为 Met 的出现概率<b id="metProbability"></b></div></div><div aria-live="polite" class="model-summary" id="mutationSummary"></div></div>
+<h3>定点突变：用替换比较一种具体作用</h3>
+<p>怀疑某残基参与催化，就想一想要改变它的哪项性质：电荷、体积、氢键能力，还是构象约束。替换后测功能，同时看看蛋白量和折叠。这样遇到活性下降时，就能继续区分是蛋白状态改变，还是相应反应步骤受到影响。<a class="citation" href="#ref-Z04">[Z04]</a><a class="citation" href="#ref-B06">[B06]</a></p>
+<p>保守替换和较大扰动的替换，有时放在一起比单做 Ala 更有信息。如果还拿不准哪种替换合适，先做饱和突变，看这个位置能容忍哪些氨基酸，再挑出适合研究机制的几个。</p>
+<h3>饱和突变：密码子分布会变成氨基酸分布</h3>
+<p>NNK 中 N 是四种碱基，K 是 G/T，共 32 种密码子，覆盖 20 种标准氨基酸，也含一个终止密码子。不同氨基酸占的密码子数不同，所以即使合成时每种碱基完全均匀，最后的氨基酸也有多有少。<a class="citation" href="#ref-K13">[K13]</a></p>
+<p>例如，Met 在 NNK 中有一个密码子，Leu 有三个。三个位点同时用 NNK，Met–Met–Met 的出现概率是 1/32³。若按 20³种氨基酸组合等概率来估，会低估这种稀有组合所需的抽样量。终止密码子也会累积：m 个 NNK 位点都没有终止的理论比例是 (31/32)ᵐ，之后还要考虑其他失活和构建错误。<a class="citation" href="#ref-K13">[K13]</a></p>
+<p>想减少重复筛选，可以选冗余较少的简并方案、定义好混合比例的引物，或三联体合成。Kille 等展示了用 22 个密码子覆盖 20 种氨基酸的方案，Wrenbeck 等提供了可按需要建立饱和库的方法。比较时，把合成投入和后面要测的样本数一起算。<a class="citation" href="#ref-K13">[K13]</a><a class="citation" href="#ref-W16">[W16]</a></p>
+<h3>已有几个亲本时，怎样重组</h3>
+<p>DNA shuffling 利用同源片段之间的重组，把亲本里的变化重新搭配。能产生什么组合，受到亲本同源性、可交换片段和重组断点的影响。<a class="citation" href="#ref-S94">[S94]</a></p>
+<p>如果只想比较几个明确替换，直接做组合构建更容易掌握每份材料的身份；亲本多、变化分散，想广泛重排已有变化时，重组文库更合适。选择时一起估算能得到哪些组合、要测多少样本，以及结果是否容易追到具体变化。</p>
+<p>Stemmer 在 1994 年用 β-lactamase 体系展示了这条路线。论文中 32,000 倍的变化对应宿主最低抑菌浓度，读到的是表达、定位、宿主和酶功能共同形成的表型。想接着解释酶本身的周转变化，就再安排相应生化测量。<a class="citation" href="#ref-S94">[S94]</a></p>
+</section><section class="chapter" id="library-bottlenecks"><h2>13 设计了多少，最后又测到了多少</h2>
+<p>理论上有几万种序列，经过合成、扩增、组装、转化、培养和检测后，实际比例会改变。有些序列容易扩增，有些变体拖慢宿主生长，混合培养中生长快的克隆还会逐渐占优势。<a class="citation" href="#ref-K15">[K15]</a><a class="citation" href="#ref-BA05">[BA05]</a><a class="citation" href="#ref-CE15">[CE15]</a></p>
+<p>为了知道问题出在哪一步，可以分别记下这些数量。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>要记录的量</th>
+<th>它告诉你什么</th>
+<th>怎样检查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>理论设计数</td>
+<td>允许多少种序列</td>
+<td>从密码子或确定的变体列表计算</td>
+</tr>
+<tr>
+<td>进入宿主的独立克隆规模</td>
+<td>这次建立了多大的起始细胞群体</td>
+<td>适当稀释后估计克隆形成，记录取样和误差</td>
+</tr>
+<tr>
+<td>正确构建比例</td>
+<td>多少克隆带着预期插入和接头</td>
+<td>抽样检查并确认序列</td>
+</tr>
+<tr>
+<td>序列种类与频率</td>
+<td>哪些成员存在，重复和偏斜有多大</td>
+<td>Sanger 抽样或适合的文库测序</td>
+</tr>
+<tr>
+<td>可表达、可工作的比例</td>
+<td>多少成员还能测到基础功能</td>
+<td>无偏的功能抽样，结合表达或活性检查</td>
+</tr>
+<tr>
+<td>已测试的独立基因型数</td>
+<td>本轮比较了多少不同设计</td>
+<td>对应样本与序列，处理重复克隆</td>
+</tr>
+</tbody>
+</table></div>
+<p>如果每一步都用上一步留下来的材料作分母，各阶段的条件合格率可以相乘，算出整体合格率，环节间的依赖已经包含在其中。若比例来自不同批次、不同抽样，就先检查这些分母能否接上。某个成员在转化时丢了，要回到更早的材料重新建立；继续测序则能更清楚地了解目前留下来的成员。</p>
+<h3>重复克隆从哪里来</h3>
+<p>同一批组装液可以长出很多菌落，但上游有效分子很少时，许多菌落可能是相同序列。不同密码子也可能编码相同氨基酸变体。统计探索过多少蛋白时，先把 DNA 和蛋白两种层面的重复分开处理。<a class="citation" href="#ref-K13">[K13]</a><a class="citation" href="#ref-K15">[K15]</a></p>
+<p>筛选时，还得让信号跟产生它的基因待在一起。一个样本带了多种变体，分泌产物帮助了旁边细胞，或多个细胞共用一个检测区室，都会让回收的序列与信号来源难以对应。区室化方法把遗传材料和反应产物限制在同一空间，正是为了解决这件事。<a class="citation" href="#ref-D98">[D98]</a><a class="citation" href="#ref-AG10">[AG10]</a></p>
+</section><section class="chapter" id="coverage"><h2>14 “覆盖 95%”究竟要抽多少样本</h2>
+<p>先假设 M 种变体等概率出现，每次独立、有放回地抽样，共抽 N 次。对某个指定变体，一次没抽到的概率为 1−1/M，N 次都没抽到就是 (1−1/M)ᴺ：</p>
+<div class="equation">指定成员至少出现一次：p = 1−(1−1/M)ᴺ<br/>期望独特变体数：E[U] = M·p<br/>期望覆盖比例：E[U]/M = p</div>
+<p>用这个式子得到“95%”，意思是平均能见到 95% 的成员。若希望以 95% 的概率把所有成员都见一遍，就要把每一种可能缺失的情况一起考虑。<a class="citation" href="#ref-BA05">[BA05]</a></p>
+<p>用并集上界，可以得到一个保守结果，推导它时无需假定各成员的缺失事件相互独立：</p>
+<div class="equation">P(全部覆盖) ≥ max{0, 1−M(1−1/M)ᴺ}</div>
+<p>对 M&gt;1、0&lt;α&lt;1，让这个下界达到 1−α，可选择满足下式的整数 N：</p>
+<div class="equation">N ≥ ln(α/M) / ln(1−1/M) ≈ M·ln(M/α)</div>
+<p>三个 NNK 位点共有 32,768 种密码子组合。均匀抽样约 9.82 万次，期望覆盖为 95%，平均仍会缺约 1,638 种；要把全部覆盖概率的保守下界提高到 95%，需要约 43.89 万次。实验预算因此取决于你采用哪一种要求。计算器使用未取整的公式，可以直接比较。</p>
+<div class="tool" id="coverageTool"><h3>平均见到多少，全部见到要抽多少</h3><p class="tool-note">曲线按独立、有放回、等概率抽样计算。稀有成员一项单独设置该成员的出现概率。</p><div class="tool-controls"><label for="libraryM">理论成员数 M<input id="libraryM" max="1000000000" min="1" step="1" type="number" value="32768"/></label><label for="libraryN">独立抽样次数 N<input id="libraryN" max="1000000000000" min="0" step="1" type="number" value="98200"/></label><label for="rareFactor">指定成员概率 / 均匀概率<select id="rareFactor"><option value="1">1 倍（均匀成员）</option><option value="0.1">0.1 倍（低十倍）</option><option value="0.01">0.01 倍（低百倍）</option></select></label></div><div class="tool-actions"><button data-cover="mean" type="button">三位点 NNK：95% 期望覆盖</button><button data-cover="all" type="button">三位点 NNK：全部覆盖下界 95%</button></div><div aria-live="polite" class="tool-error" id="coverageError"></div><div class="metrics"><div class="metric">期望覆盖比例<b id="meanCoverage"></b><small>也等于一个均匀指定成员至少出现一次的概率</small></div><div class="metric">期望独特成员数<b id="uniqueCount"></b></div><div class="metric">期望缺失成员数<b id="missingCount"></b></div><div class="metric">全部覆盖概率的保守下界<b id="allLower"></b><small>这里报告保守下界，实际概率可以更高</small></div><div class="metric">95% 期望覆盖所需 N<b id="meanRequired"></b></div><div class="metric">全部覆盖下界达到 95% 所需 N<b id="allRequired"></b></div><div class="metric">指定稀有成员至少出现一次<b id="rareSeen"></b></div></div><svg aria-label="理论模型：期望覆盖比例与全部覆盖概率下界随抽样规模变化" class="model-chart" id="coverageChart" role="img" viewbox="0 0 760 310"></svg><div class="model-legend"><span style="--c:#176c62">期望覆盖比例</span><span style="--c:#b66a37">全部覆盖概率下界</span></div><div aria-live="polite" class="model-summary" id="coverageSummary"></div></div>
+<p>实际文库有偏斜时，设各成员概率为 pᵢ，则：</p>
+<div class="equation">E[U] = Σᵢ[1−(1−pᵢ)ᴺ]</div>
+<p>频率越低的成员越难抽到。某个 pᵢ 已经为零，就要重新建立那份材料。先用均匀模型估规模，再用抽样测到的频率修正，规划会更接近手头的文库。<a class="citation" href="#ref-BA05">[BA05]</a><a class="citation" href="#ref-K13">[K13]</a></p>
+<p>实际项目未必都需要全部覆盖。比较一组已知替换，可以逐个构建；寻找工程命中，可以集中抽样有希望的成员。先决定哪些结果值得这轮去找，再把检测预算花到相应范围里。</p>
+</section><section class="chapter" id="assay-design"><h2>15 筛选怎么做，才能选到想要的性质</h2>
+<h3>先看亲本和参照能否分开</h3>
+<p>大文库上手前，先用空载体、失活参照、亲本和有依据的阳性测一轮，看看培养、裂解、反应和检测各有多大波动。若亲本与无活性样本挤在同一个信号范围里，先把测量做开，会比继续增加样本数更有帮助。</p>
+<p>Z 因子把阳性、阴性的间距与散布放在一起看：</p>
+<div class="equation">Z′ = 1 − 3(σ₊ + σ₋)/|μ₊−μ₋|</div>
+<p>先选有意义的参照、取得足够样本，再估计分布。Z′大，说明这两个参照容易区分；想找的改善若很细微，还要单独看该效应与测量波动相差多少。<a class="citation" href="#ref-Z99">[Z99]</a></p>
+<h3>逐个检测，还是让成员自己富集</h3>
+<p>逐个检测便于保存样本身份、直接比较信号，工作量也随样本数增长。选择富集则把功能接到存活、增殖或结合回收上，适合处理较大的群体。FACS 按细胞信号进行物理分选；报告系统怎样设计，决定信号主要反映功能、表达，还是细胞状态。<a class="citation" href="#ref-F10">[F10]</a><a class="citation" href="#ref-D98">[D98]</a><a class="citation" href="#ref-AG10">[AG10]</a></p>
+<p>液滴把部分反应装进各自区室，减少产物在不同变体之间共享。使用时要一起考虑装载、泄漏、体积和检测时间。若文库的主要困难正是这些分子混在一起、信号难以归属，区室化就值得比较；Agresti 等提供了相应原型的研究实例。<a class="citation" href="#ref-AG10">[AG10]</a></p>
+<h3>同样的高信号，可能怎样产生</h3>
+<p>简单单底物反应满足米氏近似时，初速为：</p>
+<div class="equation">v₀ = [E]active · kcat · [S]/(KM+[S])</div>
+<p>参与反应的有效酶量，受总表达、可溶比例、成熟与活性状态共同影响。测终点时，还加入了反应时间、失活、底物耗尽、产物抑制和检测响应。所以粗裂解液里测出一个好样品后，可以接着比较：是酶更多，还是单位酶表现更好？<a class="citation" href="#ref-C93">[C93]</a><a class="citation" href="#ref-SF06">[SF06]</a><a class="citation" href="#ref-M18">[M18]</a></p>
+<div class="tool" id="assayTool"><h3>表达增加和催化变快，信号会怎样变</h3><p class="tool-note">这个教学示例使用单底物米氏初速模型，以可溶且有活性的酶量计算反应。参数可自行调整；模型假设底物尚未耗尽，也未出现抑制和随时间失活。</p><div class="tool-controls"><label for="assay-enzyme"><span class="control-line">总酶浓度（μM）<output id="assay-enzyme-value"></output></span><input id="assay-enzyme" max="10" min="0" step="0.1" type="range" value="1"/></label><label for="assay-soluble"><span class="control-line">可溶比例<output id="assay-soluble-value"></output></span><input id="assay-soluble" max="1" min="0" step="0.05" type="range" value="0.5"/></label><label for="assay-active"><span class="control-line">可溶部分中的活性比例<output id="assay-active-value"></output></span><input id="assay-active" max="1" min="0" step="0.05" type="range" value="0.8"/></label><label for="assay-kcat"><span class="control-line">kcat（s⁻¹）<output id="assay-kcat-value"></output></span><input id="assay-kcat" max="100" min="0" step="1" type="range" value="10"/></label><label for="assay-km"><span class="control-line">KM（μM）<output id="assay-km-value"></output></span><input id="assay-km" max="500" min="1" step="1" type="range" value="100"/></label><label for="assay-substrate"><span class="control-line">底物 [S]（μM）<output id="assay-substrate-value"></output></span><input id="assay-substrate" max="1000" min="0" step="5" type="range" value="50"/></label></div><div class="tool-actions"><button data-assay="baseline" type="button">基线</button><button data-assay="expression" type="button">只把表达量加倍</button><button data-assay="catalysis" type="button">只把 kcat 加倍</button></div><div class="metrics"><div class="metric">有效酶浓度<b id="activeEnzyme"></b></div><div class="metric">总初速<b id="initialRate"></b></div><div class="metric">每单位有效酶的初速系数<b id="specificRate"></b></div><div class="metric">相对基线的总初速<b id="rateFold"></b></div></div><svg aria-label="教学模型：有效酶量及动力学参数影响初速随底物浓度的变化" class="model-chart" id="assayChart" role="img" viewbox="0 0 760 310"></svg><div class="model-legend"><span style="--c:#919b8d">基线</span><span style="--c:#176c62">当前参数</span></div><div aria-live="polite" class="model-summary" id="assaySummary"></div></div>
+<p>KM 在相应动力学模型里描述底物响应，只有合适的机制与速率条件下才接近结合解离常数。想改善高底物下的使用表现，可以看转化与耐受；关心低底物效率，就在相应浓度范围比较，并测有效酶量与 kcat。</p>
+<details class="deep">
+<summary>从反应步骤看，KM 为什么还包含催化</summary>
+<p>先用最简反应 E + S ⇌ ES → E + P 来想。结合、解离和产物形成的速率常数分别为 k₁、k₋₁ 和 kcat。初始产物很少，ES 已达到准稳态、自由底物近似不变时，ES 的生成与消耗近似平衡：</p>
+<div class="equation">k₁[E][S] ≈ (k₋₁+kcat)[ES]<br/>KM = (k₋₁+kcat)/k₁；KD = k₋₁/k₁</div>
+<p>代入有效酶守恒 [E]active=[E]+[ES]，就得到前面的初速式。ES 可以解离，也可以继续成产物，所以 KM 里有两条出口。当 kcat 比 k₋₁ 小很多，KM 在这个最简机制里才接近 KD。研究结合与研究周转，由此要作不同测量。</p>
+<p>当 [S] 远低于 KM，初速近似 [E]active·(kcat/KM)·[S]；远高于 KM，则趋近 [E]active·kcat。改变底物浓度，就会让两种变体之间的不同性质更容易显现。</p>
+<p>这套推导适用于刚才写出的机制与近似。出现多底物、抑制、协同性或随时间失活时，按观察重新选择模型。后面的 CF25 案例里，酸底物曲线和耦联检测就遇到了这样的实际问题。<a class="citation" href="#ref-CF25">[CF25]</a></p>
+</details>
+<h3>初筛以后，把条件逐渐换到实际用途</h3>
+<p>显色底物可以降低初筛成本，复核时再加入真实底物、直接测产物，看优势是否还能保留。做稳定性时，可以先在目标环境处理，再回到统一条件测残余活性，这样就把处理过程中能保留多少功能，与测活时反应多快分开了。<a class="citation" href="#ref-C91">[C91]</a><a class="citation" href="#ref-C93">[C93]</a></p>
+<p>热转变温度 Tm 看的是相应条件下的结构转变，活性半衰期看的是活性随时间损失。酶要长时间工作，就把持续催化能力放进比较；想解释它为什么能保持，再结合结构稳定性测量。</p>
+<p>初筛最高的一孔，常常同时包含真实改善和偶然偏高的误差。重新培养、独立表达，并和亲本放在同一批次测，能估计出更可靠的提升幅度。技术复孔看同一样品的测量波动，独立构建、培养或表达则看这些过程能否重现。</p>
+</section><section class="chapter" id="epistasis-causality"><h2>16 筛到候选以后，怎样继续</h2>
+<h3>先让改善跟着目标基因转移一次</h3>
+<p>筛出的细胞带着目标基因，也带着自己的宿主状态、载体和培养历史。把候选目标基因重新放回同一骨架，转入新鲜、背景一致的宿主，再独立表达。改善若一起转移，就更容易归到目标序列上；若消失，则回查原骨架、宿主和筛选条件。<a class="citation" href="#ref-S94">[S94]</a><a class="citation" href="#ref-SF06">[SF06]</a></p>
+<p>下一步取决于项目目标。想研究内在催化变化，测有效酶量和单位酶活；想提高单位培养体积的产量，表达增加本身就有用，接着看它在实际条件下是否稳定。</p>
+<h3>组合突变的上位性，怎样比较</h3>
+<p>设变化为 A、B，WT 为参照。在线性加和模型下：</p>
+<div class="equation">εadd = yAB − yA − yB + yWT</div>
+<p>若正值表型采用倍数相乘作为独立预期，则比较：</p>
+<div class="equation">εlog = ln(yAB/yWT) − ln(yA/yWT) − ln(yB/yWT)</div>
+<p>两种模型的预期不同，同一组数据算出的数值也会不同。把 WT、A、B、AB 放齐，做独立重复，同时看背景、零值和饱和范围，就能判断组合偏离预期的程度。<a class="citation" href="#ref-F10">[F10]</a><a class="citation" href="#ref-GF16">[GF16]</a></p>
+<p>Sarkisyan 等在 GFP 中发现，许多组合的亮度变化可以与整体稳定性阈值联系起来。几个单独影响不大的变化积累后，可能一起越过阈值，造成明显失活。这类上位性可以经整体状态发生；具体到某一对残基是否直接接触，再结合结构、蛋白状态和相应干预来研究。<a class="citation" href="#ref-GF16">[GF16]</a></p>
+<h3>下一轮，可以留几个性质不同的亲本</h3>
+<p>可以把第一名作为下一轮亲本，也看看其他候选里是否有更稳定、更有选择性，或更适合组合的分支。保留少数已经复核、性质互补的成员，可以给后面的重组和多目标优化留些选择；是否值得保留，要看已有结果与增加的工作量。<a class="citation" href="#ref-B06">[B06]</a><a class="citation" href="#ref-AL25">[AL25]</a></p>
+<p>如果本轮大多失活，先看亲本稳定性与突变负担；信号分不开或命中复核消失，先把检测原因找清楚。可靠候选已经出现，再决定扩大位置、组合变化，或转去研究它为什么有效。</p>
+</section><section class="chapter" id="environment-scales"><h2>17 换了环境，为什么结果也会变</h2>
+<p>PCR 在高温循环中进行，质粒进入细胞后要复制，蛋白还要表达、折叠、成熟，最后再进入检测。材料一路经过不同环境，每换一步，都值得看看原来起作用的条件是否还在。<a class="citation" href="#ref-A11">[A11]</a><a class="citation" href="#ref-K09">[K09]</a><a class="citation" href="#ref-C93">[C93]</a></p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>所处过程</th>
+<th>周围有哪些影响因素</th>
+<th>怎样随时间变化</th>
+<th>会影响什么选择</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>聚合酶配对与成键</td>
+<td>金属、dNTP、局部结构、温度</td>
+<td>延伸、停顿、错掺和校对</td>
+<td>酶、缓冲液与特异性安排</td>
+</tr>
+<tr>
+<td>温度循环与扩增</td>
+<td>升降温、模板可及性、复性和产物积累</td>
+<td>早期随机扩增、有效复制和终点平台</td>
+<td>变性历史、循环负担与取样</td>
+</tr>
+<tr>
+<td>DNA 末端组装</td>
+<td>末端化学、重叠唯一性、摩尔配比、重复序列</td>
+<td>可连接中间体与背景产物形成</td>
+<td>分块、连接端和组装方法</td>
+</tr>
+<tr>
+<td>转化与培养</td>
+<td>宿主、复制系统、选择和表达负担</td>
+<td>成员丢失、拷贝维持和生长竞争</td>
+<td>宿主、培养安排与文库规模估计</td>
+</tr>
+<tr>
+<td>RNA 与蛋白生成</td>
+<td>RNA 结构、密码子、伴侣、辅因子和周转</td>
+<td>丰度、可溶性、成熟和失活</td>
+<td>编码设计、表达强度、标签与检测时间</td>
+</tr>
+<tr>
+<td>细胞内定位和相遇</td>
+<td>区室、膜、定位信号、伙伴及相对丰度</td>
+<td>结合、运输和功能恢复</td>
+<td>标签位置、表达背景与功能参照</td>
+</tr>
+<tr>
+<td>容器里的反应与检测</td>
+<td>温度、pH、氧、混合、蒸发、底物和产物</td>
+<td>初速、终点与随时间失活</td>
+<td>孔位、读数时间、归一化与产物复核</td>
+</tr>
+<tr>
+<td>最终使用过程</td>
+<td>底物负载、溶剂、持续时间和放大条件</td>
+<td>产量、选择性、寿命和重复表现</td>
+<td>筛选指标、候选保留与下一轮条件</td>
+</tr>
+</tbody>
+</table></div>
+<p>几种过程的时间并不同步。DNA 在循环中增加，培养改变成员比例，荧光要等色团成熟，酶也可能在测量时逐渐失活。想比较催化，就先找能测初速的窗口；想看能工作多久，就记录完整处理时间；看细胞定位，则把表达和标签成熟时间一起安排好。<a class="citation" href="#ref-K15">[K15]</a><a class="citation" href="#ref-H94">[H94]</a><a class="citation" href="#ref-C93">[C93]</a></p>
+<p>这些环节还会彼此影响。密码子变化可以影响 RNA 和翻译，标签会影响折叠与定位，外源表达也会占用细胞资源。Ceroni 等把细胞的表达容量做成可测指标，研究外源构建带来的负担。自己的项目可以先记录生长和表达，发现它们随构建改变后，再决定测哪一部分资源或状态。<a class="citation" href="#ref-K09">[K09]</a><a class="citation" href="#ref-P15">[P15]</a><a class="citation" href="#ref-SF06">[SF06]</a><a class="citation" href="#ref-CE15">[CE15]</a></p>
+<p>例如，候选在微孔板里更好，放大后优势却消失，可以把两边的酶量、氧供给、混合和反应时长放在一起比较。逐项改变那些差别，通常更容易找到下一次放大还用得上的条件。</p>
+</section><section class="chapter" id="case-pcr"><h2>18 PCR 文库偏了，怎样找出问题在哪一步</h2>
+<h3>Aird 2011：为什么沿制备流程留样</h3>
+<p>Aird 等想弄清测序文库的组成偏差。剪切、末端处理、接头连接、片段选择和 PCR，每一步都可能改变成员比例。于是，他们在这些步骤中间留样，用覆盖不同 GC 范围的短片段 qPCR，追踪相对丰度。<a class="citation" href="#ref-A11">[A11]</a></p>
+<p>混合不同来源的基因组，可以在可控制的分析规模内取得较宽的 GC 范围。qPCR 目标做得短，剪切以后仍能检测局部片段；不同样品的量再对中等 GC 位点归一化，前后步骤就能放在一起比较。</p>
+<figure class="paper-figure" data-source="A11" id="paper-A11-1"><div class="figure-top"><span class="figure-label">论文图 02 · 原文 Figure 1</span><h4>沿流程留样，找到成员从哪里变少</h4><span class="figure-type">流程与实测结果 · 分步骤 qPCR</span></div><button aria-label="放大：沿流程留样，找到成员从哪里变少" class="zoom-trigger" type="button"><img alt="Aird D, Ross MG, Chen WS, Danielsson M, Fennell T, Russ C, Jaffe DB, Nusbaum C, Gnirke A.，2011，Figure 1：沿流程留样，找到成员从哪里变少" decoding="async" height="1499" loading="lazy" src="figures/A11-figure-1.jpg" width="1200"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>a–e 显示文库制备各步骤的取样结果，横轴是被检片段的 GC 比例，纵轴是采用对数刻度的相对丰度。f–g 用生物素接头捕获已连接片段。PCR 后，极端组成区间的成员明显变少。</figcaption><div class="figure-reading"><p>右侧捕获操作值得留意：它先分离已经接上接头的 DNA，再检测这部分的组成。直接测整个连接反应液时，未连接的 DNA 也会被计入。图中丰度对中等 GC 位点作了归一化。</p></div><div class="figure-source">Aird D, Ross MG, Chen WS, Danielsson M, Fennell T, Russ C, Jaffe DB, Nusbaum C, Gnirke A. · Genome biology · 2011<br/><i>Analyzing and minimizing PCR amplification bias in Illumina sequencing libraries.</i><br/><a href="https://doi.org/10.1186/gb-2011-12-2-r18" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1186/gb-2011-12-2-r18</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener" target="_blank">CC BY 2.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>图 1 里，接头连接后的检查很有意思。直接测反应液，会把没接上接头的 DNA 也测进去，已经连接的那部分即使有偏好，也可能被掩盖。他们为此用了生物素化接头，捕获已连接片段后再测 GC 组成。想研究下一步会处理到哪些 DNA，取样时就先把那些 DNA 分出来。<a class="citation" href="#ref-A11">[A11]</a></p>
+<p>随后，相同标称程序在不同温控仪上得到了不同的 GC 代表性。图 2 把默认升降温速率列出来：材料实际经历的热历史也在影响结果。作者接着在快速升降温、原先表现较差的仪器上优化，希望流程换台仪器仍能好用。<a class="citation" href="#ref-A11">[A11]</a></p>
+<figure class="paper-figure" data-source="A11" id="paper-A11-2"><div class="figure-top"><span class="figure-label">论文图 03 · 原文 Figure 2</span><h4>程序相同，换台温控仪为什么还会不同</h4><span class="figure-type">实测结果 · 三台温控仪的默认升降温条件</span></div><button aria-label="放大：程序相同，换台温控仪为什么还会不同" class="zoom-trigger" type="button"><img alt="Aird D, Ross MG, Chen WS, Danielsson M, Fennell T, Russ C, Jaffe DB, Nusbaum C, Gnirke A.，2011，Figure 2：程序相同，换台温控仪为什么还会不同" decoding="async" height="594" loading="lazy" src="figures/A11-figure-2.jpg" width="1200"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>三种颜色对应三台温控仪及其默认升降温速率。标称循环程序相同，高 GC 位点保留下来的比例却不同；纵轴为对数刻度的归一化相对丰度。</figcaption><div class="figure-reading"><p>对照图注中的速率，再看各条曲线从哪里下降，就能跟着作者考虑实际热历史。后续优化选在原条件下表现较差的仪器上进行。</p></div><div class="figure-source">Aird D, Ross MG, Chen WS, Danielsson M, Fennell T, Russ C, Jaffe DB, Nusbaum C, Gnirke A. · Genome biology · 2011<br/><i>Analyzing and minimizing PCR amplification bias in Illumina sequencing libraries.</i><br/><a href="https://doi.org/10.1186/gb-2011-12-2-r18" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1186/gb-2011-12-2-r18</a> · <a href="https://creativecommons.org/licenses/by/2.0/" rel="noopener" target="_blank">CC BY 2.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>多片段组装缺了一个模块时，也可以借用这种查法：分别看看片段制备后、组装后和进入宿主后还有多少目标成员。若问题在前面的片段制备，后面反复换连接条件就很难解决。至于选哪种酶和配方，仍从自己的模板条件试起。</p>
+<h3>Kebschull 2015：起始分子很少时，又会怎样</h3>
+<p>Kebschull 与 Zador 在低输入条码体系中，分别研究扩增偏好、随机扩增、模板切换和聚合酶错误。条码结构与分子标签帮助他们分清已有成员的频率变化，以及扩增后新产生的序列。早期随机扩增能解释其中许多分布特征。<a class="citation" href="#ref-K15">[K15]</a></p>
+<p>他们的模板和起始量与 Aird 不同。作者认为，短条码、所用酶和较慢升降温，可能减弱了自己体系里的 GC 偏差。放回实际项目，可以比较两种现象：某类序列是否每次都被压低，还是同一份低输入材料每次留下的后代都不太一样。前者先看模板和反应，后者多看起始分子数与早期复制；两种影响也可以同时存在。<a class="citation" href="#ref-K15">[K15]</a></p>
+<p>如果要在自己的文库里区分它们，可以从同一起始材料独立扩增，比较各反应的成员频率，再看扩增前后和不同循环负担。稳定重复的偏向与反应之间的随机漂移，会给出不同的下一步。</p>
+</section><section class="chapter" id="case-assembly"><h2>19 组装研究里，那些对照为什么这样设</h2>
+<h3>Engler 2008：先预测条带，再看实际克隆</h3>
+<p>Golden Gate 的机制图画出了正确产物怎样留下来，接下来就看真实质粒。Engler 等给出入口、目标骨架和最终构建的图谱，检查白色菌落的诊断酶切，并继续测试多片段组装。<a class="citation" href="#ref-E08">[E08]</a></p>
+<p>白色菌落先帮助富集候选。作者检查了 48 个克隆的酶切，再对其中 32 个测插入与接头，所以这两种结果各有自己的样本数。诊断还特意用了其他酶，因为正确构建已经失去相应 BsaI 位点。先画出做成后的分子，再决定拿什么检查，是很值得照着做的一步。<a class="citation" href="#ref-E08">[E08]</a></p>
+<p>换一套模块，还要重新看连接端之间怎样竞争。Potapov 等对错配与连接偏好的测量，提供了这方面的具体数据。<a class="citation" href="#ref-L18">[L18]</a></p>
+<p>如果实验室要长期更换 ORF，前面设计并验证好接口，以后会省很多事；只做一个简单替换、现有接口又不合适时，重叠组装可能更快。方法是否省事，要放在准备做多少类似构建里算。</p>
+<h3>IVA 2016：先让亲本背景显出来</h3>
+<p>García-Nafría 等先设计了不带有效重叠的引物，比较不同模板投入下还能长多少菌落。预期组装做不起来，剩下的菌落就能帮助追查未去掉的亲本；作者又用酶切和测序确认了这些背景材料。<a class="citation" href="#ref-I16">[I16]</a></p>
+<p>优化末端时，他们把长度和结合强度分开试。比较长度，保持 Tm 接近；比较 Tm，保持长度固定。这样就能分别看“更长”和“结合更稳”怎样影响结果。</p>
+<figure class="paper-figure" data-source="I16" id="paper-I16-3"><div class="figure-top"><span class="figure-label">论文图 07 · 原文 Figure 3</span><h4>扩增了多少，最后检查了几个克隆</h4><span class="figure-type">构建示意与实测结果 · 多类 IVA 改造</span></div><button aria-label="放大：扩增了多少，最后检查了几个克隆" class="zoom-trigger" type="button"><img alt="García-Nafría J, Watson JF, Greger IH.，2016，Figure 3：扩增了多少，最后检查了几个克隆" decoding="async" height="1511" loading="lazy" src="figures/I16-figure-3.jpg" width="1575"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>插入删除、点突变、随循环的产物量，以及亚克隆，都在这张图里。部分实验还列出菌落总数与被检克隆的正确比例。</figcaption><div class="figure-reading"><p>百分数后面的括号保留了样本数，有些是 3–10 个。c、d 先比较扩增表现，再结合方法看哪些样品继续转化、检查了哪些克隆，几步结果就能接起来。</p></div><div class="figure-source">García-Nafría J, Watson JF, Greger IH. · Scientific reports · 2016<br/><i>IVA cloning: A single-tube universal cloning system exploiting bacterial In Vivo Assembly.</i><br/><a href="https://doi.org/10.1038/srep27459" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1038/srep27459</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>图 3 同时放了 PCR 条带、随循环的产物增长、菌落数和正确比例。读到百分数时，顺手看看旁边实际检查了几个克隆。IVA 与 QuikChange 那一组主要比较扩增表现，文中说明后者产量较低，没有继续作相应转化比较；最终菌落结果就按实际做过的那部分来读。<a class="citation" href="#ref-I16">[I16]</a></p>
+<p>自己的方案也可以分开查：PCR 产量低，先调引物和扩增；等量、同质量的片段仍难组装，再看末端与宿主；背景菌落多，则查亲本携带。每种结果都能对应到一项改动。</p>
+</section><section class="chapter" id="case-cell"><h2>20 同义序列和标签，为什么也要算进实验设计</h2>
+<h3>蛋白序列相同，表达为什么差这么多</h3>
+<p>Kudla 等固定 GFP 蛋白序列，比较 154 条同义编码序列。细菌中的蛋白量差别很大，与起始区域 RNA 折叠有关。蛋白本身的氨基酸没有变，研究就能集中到编码 DNA/RNA 怎样影响表达。<a class="citation" href="#ref-K09">[K09]</a></p>
+<p>Presnyak 等则从酵母 RNA 周转研究起，改变同义密码子，测 mRNA 稳定性和翻译。和前一篇放在一起，可以看到同义改写有不同作用位置：有时突出在起始区结构，有时要看到延伸与 RNA 降解。<a class="citation" href="#ref-P15">[P15]</a></p>
+<p>这会直接影响构建安排。为了清除 Golden Gate 内部位点而作的同义改写，保存在最终序列记录里；表达随后变了，就能恢复原序列或换一种改写来比较。专门研究氨基酸效应时，保留其余编码安排，结果也更容易解释。</p>
+<h3>看见多少信号，还要知道测的是什么</h3>
+<p>VAMP-seq 用融合报告和测序比较许多变体的细胞内丰度。蛋白丰度低时，可以继续查表达、稳定性和周转；丰度正常时，催化、结合与调控仍各有可测的变化。<a class="citation" href="#ref-M18">[M18]</a></p>
+<p>OpenCell 把内源蛋白的定位和互作放在一起研究。手头的细胞课题可以先把野生型、突变体的序列与表达安排好，看位置和功能；外源水平影响比较时，再考虑内源标记或编辑。<a class="citation" href="#ref-O22">[O22]</a></p>
+<p>记录时，把启动子、宿主、蛋白结构域和表达范围也放进去。之后看到信号变化，就能顺着这些记录决定：保持哪个因素一致，再改变哪一个来比较。</p>
+</section><section class="chapter" id="case-solvent"><h2>21 Chen–Arnold：筛选环境为什么要贴近使用环境</h2>
+<h3>1991：把酶放进希望它工作的介质</h3>
+<p>Chen 与 Arnold 研究的是酶在极性有机溶剂里活性下降。1991 年的摘要提出了一个具体情况：折叠结构可以保持，催化却受到影响。所以他们直接去测新介质中的反应表现。<a class="citation" href="#ref-C91">[C91]</a></p>
+<p>PCR 随机突变后，研究者用 DMF/酪蛋白平板初筛，找到 Q103R 和 D60N，再用肽底物的催化效率比较。D60N 的改善到 DMF 条件下才显现：一直在水相筛选，就可能错过它。<a class="citation" href="#ref-C91">[C91]</a></p>
+<p>平板适合先比较许多克隆，随后测动力学，能够进一步分析催化表现。从这种安排看，后者也有助于区分平板信号中表达、分泌和扩散的影响；具体操作仍要结合原文方法理解。</p>
+<h3>1993：每个提升倍数，对应哪种条件</h3>
+<p>1993 年报告的 PC3 来自连续突变和筛选，在 60% DMF 中对相应肽底物的催化效率是野生型的 256 倍。研究还比较不同替换组合，观察变化集中在哪些结构区域，并讨论其他有机介质中的相关反应。<a class="citation" href="#ref-C93">[C93]</a></p>
+<p>1991 年的另一个结果是，三突变体在 85% DMF 中有 38 倍活性；1993 年的 256 倍则对应 PC3、60% DMF 和相应底物/指标。把条件与倍数一起记，之后拿自己的体系比较才方便。<a class="citation" href="#ref-C91">[C91]</a><a class="citation" href="#ref-C93">[C93]</a></p>
+<p>复现平板初筛时，再查 1991 年全文中的 DMF 比例：公开摘要列出了 DMF/酪蛋白平板，未列比例。该文当时刊名是 Bio/Technology，现在可在 Nature Biotechnology 站点找到。</p>
+<h3>换成自己的酶，可以怎么安排</h3>
+<p>想要溶剂处理后还能工作，可以处理不同时间，再回到统一条件测剩余活性；想让酶在溶剂中反应更快，就直接在该介质中测动力学或转化；最终要的是产物收率，初筛后就加入真实产物检测。把亲本、突变和条件一起保留下来，每轮结果就能比较。</p>
+<p>有结构时，可以据此选一些可容忍变化的位置，同时留一部分全基因搜索；结构信息少，就先用低到中等负担的文库找可靠候选。等单突变和组合都测过，再看它们怎样共同改善功能。<a class="citation" href="#ref-B06">[B06]</a><a class="citation" href="#ref-GF16">[GF16]</a></p>
+</section><section class="chapter" id="case-gfp"><h2>22 GFP：筛选方式会把蛋白改向哪里</h2>
+<h3>紫外灯、流式和融合背景，各自在选什么</h3>
+<p>Crameri 等用 DNA shuffling 改善 GFP，Pédelacq 等后来围绕融合背景中的折叠问题开发 superfolder GFP。这些研究关心的是：标签在实际表达和检测条件里，能否给出好用的信号。<a class="citation" href="#ref-F96">[F96]</a><a class="citation" href="#ref-SF06">[SF06]</a></p>
+<p>Crameri 等选择紫外灯下目视筛选，是为了避免当时的 FACS 路线偏向激发峰红移。最后，相对所用商业参照，细菌全细胞荧光增强 45 倍，总表达水平却没有相应增加；更多蛋白处于可溶、能形成有效色团的状态，是作者解释结果的重点。<a class="citation" href="#ref-F96">[F96]</a></p>
+<p>如果你希望标签在固定成像通道里更亮，就在该通道下比较；要改变激发谱，则直接测光谱移动。表达量与成熟状态也一起测，才能知道信号从哪里改善。</p>
+<p>用 GFP 观察酶融合体时，还要想清楚标签的折叠跟谁走。能独立折叠的标签，可以在目标蛋白状态不理想时继续发光；依赖融合对象折叠的标签，又可能受某些融合安排影响，错过本来有用的成员。先选好想观察的蛋白状态，再挑报告器，会更容易解释结果。<a class="citation" href="#ref-SF06">[SF06]</a></p>
+<h3>Sarkisyan 2016：几个小变化，为什么合起来会失活</h3>
+<p>Sarkisyan 等把随机库、细胞分选与全编码区测序结合，测了大规模 avGFP 局部景观。56,086 种核苷酸序列对应 51,715 种蛋白序列，也说明统计文库时为什么要分别记 DNA 和蛋白的种类。<a class="citation" href="#ref-GF16">[GF16]</a></p>
+<p>他们用许多独立标记的野生型和已知失去荧光的变化，先估测量误差与辨别范围，再在对数荧光尺度上比较组合与单突变的加和预期。这样可以估计组合偏离预期多少，以及多少偏离可能来自误差。</p>
+<p>许多组合的表现可以用非线性阈值模型描述，其中的潜在量又与计算预测的稳定性变化有关。几个单独影响不大的变化一起越过阈值，就能让荧光明显下降。这里的稳定性解释来自模型和计算，继续作逐变体热力学测量，就能进一步检验它。<a class="citation" href="#ref-GF16">[GF16]</a></p>
+<p>自己遇到 A、B 都能工作、AB 却失活，也可以先测表达、可溶比例和稳定性。如果有效酶量明显下降，先研究蛋白状态；状态接近时，再查局部构象、具体反应步骤或互作。结果会帮助你选择下一种测量。</p>
+</section><section class="chapter" id="case-active-learning"><h2>23 主动学习：什么时候值得让模型选下一批变体</h2>
+<h3>先看单突变和简单组合做到了哪里</h3>
+<p>Yang 等 2025 年研究 ALDE 时，使用一种古菌来源的血红素蛋白（protoglobin，ParPgb），希望改善非天然反应的收率和立体选择性。他们把 cis 与 trans 产率之差设为目标，因此主要产生非目标异构体的高总产率变体，排名也可能靠后。<a class="citation" href="#ref-AL25">[AL25]</a></p>
+<figure class="paper-figure" data-source="AL25" id="paper-AL25-2"><div class="figure-top"><span class="figure-label">论文图 09 · 原文 Fig. 2</span><h4>为什么还要探索多位点组合</h4><span class="figure-type">结构与概念示意、实测结果 · 目标产率和选择性</span></div><button aria-label="放大：为什么还要探索多位点组合" class="zoom-trigger" type="button"><img alt="Yang J, Lal RG, Bowden JC, Astudillo R, Hameedi MA, Kaur S, Hill M, Yue Y, Arnold FH.，2025，Fig. 2：为什么还要探索多位点组合" decoding="async" height="956" loading="lazy" src="figures/AL25-figure-2.png" width="2050"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>A 给出反应和产物，B 标出选定位点，C 比较单点变化，D 检查几种组合。作者主要优化 cis 与 trans 的产率差。</figcaption><div class="figure-reading"><p>D 把 cis 产率、cis−trans 产率差与 cis/trans 比例并排画出。同一组合换一个指标，排名就可能改变；这也是开始筛选前要先选好指标的原因。</p></div><div class="figure-source">Yang J, Lal RG, Bowden JC, Astudillo R, Hameedi MA, Kaur S, Hill M, Yue Y, Arnold FH. · Nature communications · 2025<br/><i>Active learning-assisted directed evolution.</i><br/><a href="https://doi.org/10.1038/s41467-025-55987-8" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1038/s41467-025-55987-8</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>先做五个位点的单点饱和，再把表现好的变化组合起来，是一种很自然的尝试。在这个体系里，它未能直接给出高目标性能组合，于是多位点背景值得继续探索。结构邻近和已有工程经验帮助作者选定这五个位点，也让计算与实验规模能够掌握。</p>
+<h3>初库随机抽样，后面再指定序列</h3>
+<p>最初五位点 NNK 库挑了 384 个样本，测序后得到 216 个独特且无终止密码子的变体。这里可以把几个数并排记：20⁵种蛋白组合、32⁵种密码子组合，实际取出 384 个样本，留下 216 个有效独特成员。<a class="citation" href="#ref-AL25">[AL25]</a></p>
+<p>作者不确定零样本预测分数是否适合这项非天然化学，所以先随机取样，取得序列和测量配对的数据。之后两轮，每轮提出 90 条具体序列，合成后直接测试。随机库用来开始了解这个体系，指定合成则把后续检测量用到想比较的那些成员上。</p>
+<figure class="paper-figure" data-source="AL25" id="paper-AL25-1"><div class="figure-top"><span class="figure-label">论文图 08 · 原文 Fig. 1</span><h4>这一轮测到的结果，怎样用来选下一轮</h4><span class="figure-type">作者策略示意 · 定向进化与主动学习</span></div><button aria-label="放大：这一轮测到的结果，怎样用来选下一轮" class="zoom-trigger" type="button"><img alt="Yang J, Lal RG, Bowden JC, Astudillo R, Hameedi MA, Kaur S, Hill M, Yue Y, Arnold FH.，2025，Fig. 1：这一轮测到的结果，怎样用来选下一轮" decoding="async" height="1330" loading="lazy" src="figures/AL25-figure-1.png" width="2050"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>A、C 画出两种工作流程，B、D 用假想景观演示搜索。主动学习把已有序列和功能测量交给模型，再选下一批要做的序列。</figcaption><div class="figure-reading"><p>景观曲线在这里用来解释策略：模型怎样预测，下一次怎样选点。后续的实验与模拟比较，再检验这种选择是否有效。</p></div><div class="figure-source">Yang J, Lal RG, Bowden JC, Astudillo R, Hameedi MA, Kaur S, Hill M, Yue Y, Arnold FH. · Nature communications · 2025<br/><i>Active learning-assisted directed evolution.</i><br/><a href="https://doi.org/10.1038/s41467-025-55987-8" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1038/s41467-025-55987-8</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>建模使用五位点的 one-hot 表示、神经网络集成和 Thompson sampling，选择这些设置时参考了完整景观上的模拟比较。换到自己的项目，可以把正则化的简单模型、随机采样和单点策略放在旁边，用同样实验预算比较谁更容易找到好候选。<a class="citation" href="#ref-AL25">[AL25]</a><a class="citation" href="#ref-R13">[R13]</a></p>
+<h3>12%、93%、99%和 14:1，分别在说什么</h3>
+<figure class="paper-figure" data-source="AL25" id="paper-AL25-3"><div class="figure-top"><span class="figure-label">论文图 10 · 原文 Fig. 3</span><h4>从随机初库，到两轮指定序列</h4><span class="figure-type">实测结果与工作流 · 三个实验阶段</span></div><button aria-label="放大：从随机初库，到两轮指定序列" class="zoom-trigger" type="button"><img alt="Yang J, Lal RG, Bowden JC, Astudillo R, Hameedi MA, Kaur S, Hill M, Yue Y, Arnold FH.，2025，Fig. 3：从随机初库，到两轮指定序列" decoding="async" height="966" loading="lazy" src="figures/AL25-figure-3.png" width="2050"/></button><span class="image-hint">点击放大 · 可切换原图尺寸 · 图像离线可用</span><figcaption>初始有效数据集有 216 个独特序列，后两轮各测 90 个指定序列。A–C 对照成员组成和产率分布，D–F 依次看目标差值、总产率和选择性。</figcaption><div class="figure-reading"><p>绿色是最佳值，橙色是均值。D–F 的误差条按原图注表示该轮不同变体的散布；单个反应的重复则另外反映测量表现。先分清这两种变化，再看每轮进展。</p></div><div class="figure-source">Yang J, Lal RG, Bowden JC, Astudillo R, Hameedi MA, Kaur S, Hill M, Yue Y, Arnold FH. · Nature communications · 2025<br/><i>Active learning-assisted directed evolution.</i><br/><a href="https://doi.org/10.1038/s41467-025-55987-8" rel="noopener" target="_blank">论文与原图注 · DOI: 10.1038/s41467-025-55987-8</a> · <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener" target="_blank">CC BY 4.0</a><br/>完整图版，原始文件未改绘或裁切；附中文读图说明。</div></figure>
+<p>摘要用目标产物收率从 12% 到 93%概括改善；末轮最佳变体的总产率为 99%，cis:trans 为 14:1。前者看目标产物，后两者把总量和产物比例分开说。图 3 D–F 中，部分误差条描述一轮内不同变体的散布；单个变体的生物重复又是另一项信息。读最佳值、均值和误差条时，分别对应到这些样本就清楚了。<a class="citation" href="#ref-AL25">[AL25]</a></p>
+<p>这项湿实验告诉我们该路线在 ParPgb 上能够做成什么，完整景观模拟则方便比较搜索策略。考虑换蛋白时，先看测量是否可靠、是否值得同时探索多个位点，以及指定序列能否及时做出来，再估计模型能省多少实验。</p>
+<h3>无细胞表达，还能把时间省在哪里</h3>
+<p>Landwehr 等 2025 年将无细胞 DNA 组装、表达、功能检测与机器学习放在一起，改造酰胺合成酶的多种反应。适合体外测量的目标，可以先较快取得一批序列与功能数据，再挑材料进入后续细胞或应用体系。<a class="citation" href="#ref-CF25">[CF25]</a></p>
+<p>这样减少了部分细胞建立工作，体外模板、表达、能量和辅因子条件则要另外安排。可溶催化反应比较容易直接测；依赖膜、修饰或细胞伙伴的功能，后面还要在相应环境中复核。</p>
+<p>原文方法里有个很具体的困难。作者用耦联反应把酰胺合成接到 NADH 信号；后来试另一种焦磷酸检测试剂盒时，少量 DMSO 就让盒中的酶沉淀了。改变酸底物浓度时，他们还遇到偏离简单米氏行为的曲线，怀疑存在底物抑制。<a class="citation" href="#ref-CF25">[CF25]</a></p>
+<p>所以用耦联检测，可以先分别检查目标酶、耦联酶和底物条件。目标介质影响耦联组件，就比较直接色谱检测；浓度曲线出现下降，则一起查溶解、抑制和检测响应，再选择拟合模型。</p>
+<h3>开始积累自己的数据时</h3>
+<p>把样本身份、完整序列、失败样本、培养和表达批次都记下来，配上实际测量。若模型只看见初筛通过的高信号成员，训练数据已经受过一次选择。下一批推荐出来时，与同预算的随机或简单方案并列测试，再看表达、产物和最终用途是否一起改善。</p>
+<p>评估方式也跟着使用场景定。想预测附近的单点变化，可以测这个距离上的新样本；想跨亲本预测多位点组合，就留出相应新背景。跨轮次、跨谱系的数据，按新一轮或新背景留出，往往比把相似样本随机拆开更接近下一次要做的实验。</p>
+</section><section class="chapter" id="experimental-decisions"><h2>24 眼下遇到的问题，可以从哪里查起</h2>
+<p>PCR、电泳、菌落检查、Sanger、Western、共聚焦和基础活性测量，已经能查清不少问题。可以先从自己的观察选一条路线；需要更深的序列、分子或结构信息时，再接上高通量测序、流式分选、质谱、结构或单分子方法。</p>
+<div class="tool" id="decisionTool"><h3>眼下这个结果，下一步怎么查</h3><div class="tool-controls"><label for="currentProblem">当前问题<select id="currentProblem"><option value="pcr">PCR 没有目标或有异常产物</option><option value="clone">有菌落，构建身份或方向不清</option><option value="expression">表达、可溶性或信号降低</option><option value="cell">细胞定位、互作或救援改变</option><option value="library">文库成员偏斜或覆盖不足</option><option value="hit">初筛命中，复核或原因不清</option><option value="combination">单突变与组合表现不一致</option><option value="model">考虑用模型选择下一批变体</option></select></label><label for="researchContext">主要场景<select id="researchContext"><option value="routine">常规克隆与表达</option><option value="cell">细胞功能与机制</option><option value="evolution">蛋白质工程与定向进化</option></select></label></div><div aria-live="polite" class="decision-output" id="decisionOutput"></div><p class="tool-note" style="margin-top:14px;margin-bottom:0">按手头的模板、宿主和检测条件选比较方法，相关章节可以接着看具体研究怎么做。</p></div>
+<h3>动手前，再把模板和测量对一遍</h3>
+<p>模板来自哪里，会影响拿到什么序列。基因组 DNA 带着内含子和相应基因组区域，cDNA 来自转录、处理后的 RNA，已有质粒或合成序列可能还留有工程改写。研究启动子和剪接，保留相关上下文；表达成熟蛋白，则明确转录本和编码区。不同处理样本的 cDNA，也把表达和剪接状态记录下来。</p>
+<p>测序时，再确认样本对应一个克隆、一个细胞池，还是一群带条码的成员。要恢复多个突变的真实组合，就用同一读段或可靠的连锁信息把位置连起来。各位置的单独频率只告诉我们各自出现多少。Fowler 的大规模序列与功能研究，以及 ALDE 的逐孔标注，都依赖这种样本与序列的对应。<a class="citation" href="#ref-F10">[F10]</a><a class="citation" href="#ref-AL25">[AL25]</a></p>
+<p>最后把检测接到用途上。低底物初速、短时终点、长时产量、细胞生长和成像，各自包含的过程不同。可以选其中方便的一项初筛，再用更贴近使用条件的测量复核，看看保留了哪些性质、有没有漏掉重要候选。<a class="citation" href="#ref-C93">[C93]</a><a class="citation" href="#ref-SF06">[SF06]</a><a class="citation" href="#ref-CF25">[CF25]</a></p>
+<h3>遇到零计数、背景信号时</h3>
+<p>测序零计数，可能是成员已经丢失，也可能只是没抽到或在读段处理中被去掉；功能接近背景，则要继续看表达、活性和检测下限。为了画图或算比值加入小常数时，原始计数和背景也一起保存，之后还能回头区分这些情况。<a class="citation" href="#ref-F10">[F10]</a><a class="citation" href="#ref-K15">[K15]</a></p>
+</section><section class="chapter" id="research-projects"><h2>25 选一个实际问题，把这些方法用起来</h2>
+<h3>项目 A：突变体为什么救不回来</h3>
+<p>可以先问：“表达量和位置接近时，这个替换是否影响功能？”从野生型能恢复基线的条件开始，再比较序列确认的突变体。蛋白变少，测总量、可溶比例和周转；位置变了，查定位与运输；两者相当时，接着研究催化或互作接口。<a class="citation" href="#ref-O22">[O22]</a><a class="citation" href="#ref-M18">[M18]</a></p>
+<p>保守替换、结构域构建和换标签位置，各能接着回答一部分。换标签后结果也变，先研究融合背景；要查残基的化学作用，再选合适替换、测相关功能。突变体若恢复了功能，也值得留下：它帮助确定这个残基在什么状态或条件下才重要。</p>
+<h3>项目 B：只有几百个样本的预算，怎样改一个酶</h3>
+<p>先让亲本和参照在目标条件下稳定分开，再看能复核多少独立样本。几百个样本可以集中到少量有依据的位置，用较少冗余的密码子，或先拿小型随机库寻找线索。第一轮一边找候选，一边估计多少成员还能工作，再决定是否扩大。<a class="citation" href="#ref-K13">[K13]</a><a class="citation" href="#ref-B06">[B06]</a></p>
+<p>粗样品表现好的候选，重新表达后比较总产出和单位有效酶活。表达增加，可以帮助生产；单位酶改善，可以进一步研究催化。按用途保留后，再换成真实底物、相应处理时间和应用环境，看优势能否延续。<a class="citation" href="#ref-C93">[C93]</a><a class="citation" href="#ref-CF25">[CF25]</a></p>
+<h3>项目 C：环境会怎样改变两个突变的组合效果</h3>
+<p>选少量值得比较的变化，在两种环境中测 WT、A、B 和 AB。表达与测量尽量可比，先约定线性、倍数或对数尺度的独立预期。看到上位性随环境改变，再比较稳定性、有效酶量和具体反应步骤。<a class="citation" href="#ref-GF16">[GF16]</a><a class="citation" href="#ref-C91">[C91]</a></p>
+<p>例如，AB 只在目标溶剂中优于单突变，可以先看它是否更容易保持可溶、活性状态。若是，就接着研究蛋白状态；量与状态都接近，再看动力学和构象，以及两个残基是否直接作用。</p>
+<p>这些是方案示例。选定自己的基因后，带上参考序列、现有载体和宿主、已有结果及可检测样本数，再挑出这轮最想弄清的一件事。</p>
+<h3>和同事讨论方案时</h3>
+<p>先把最终 DNA 与预期蛋白摆出来，再看哪组比较能回答问题。做文库，就看独立成员怎样建立、结果怎样对应回序列；测功能，就顺着信号的生成过程，找出哪些因素已经控制，哪些还混在一起。</p>
+<p>新结果也会改变后面的安排。独立培养后排序变了，先查批次和测量；换标签后定位变了，先看融合方式；重新构建后改善仍然出现，就继续分析目标序列如何起作用。把这些比较和结果记下来，下一个项目就有具体经验可用。</p>
+<details class="deep">
+<summary>常用词在实验中各指什么</summary>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>词</th>
+<th>放回实验里怎样理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>保真度 fidelity</td>
+<td>给定条件和分母下，酶或反应体系复制信息的准确程度</td>
+</tr>
+<tr>
+<td>克隆 clone</td>
+<td>来自共同起始材料的谱系，或该谱系保存的构建；用序列确认具体身份</td>
+</tr>
+<tr>
+<td>构建体 construct</td>
+<td>定义好的完整遗传材料，包括插入、骨架和接头</td>
+</tr>
+<tr>
+<td>表达 expression</td>
+<td>从转录、翻译到后续状态的产物生成过程，可测 RNA，也可测蛋白</td>
+</tr>
+<tr>
+<td>适应度 fitness</td>
+<td>本次选择或优化采用的量；蛋白工程里常是按实验定义的功能分数</td>
+</tr>
+<tr>
+<td>筛选 screening</td>
+<td>测量、比较并回收需要的候选，可以逐孔检测，也可以物理分选</td>
+</tr>
+<tr>
+<td>选择 selection</td>
+<td>让目标行为影响成员存活、增殖或被回收的概率</td>
+</tr>
+<tr>
+<td>覆盖 coverage</td>
+<td>说清是哪些设计、期望见到多少、实际见到多少，还是全部见到的概率</td>
+</tr>
+<tr>
+<td>上位性 epistasis</td>
+<td>组合偏离事先定义的独立预期，同时说明比较尺度和背景</td>
+</tr>
+<tr>
+<td>救援 rescue</td>
+<td>在受扰动背景中引入材料，与相应参照比较功能能否恢复</td>
+</tr>
+<tr>
+<td>验证 validation</td>
+<td>对一个具体问题作检查：序列、功能复核和机制实验各有检查内容</td>
+</tr>
+</tbody>
+</table></div>
+</details>
+</section><section class="chapter" id="references"><h2>26 接下来可以读哪些论文</h2>
+<p>先串起技术流程，可以读 S88、G09、E08 和 C91/C93；想学怎样定位失败，接着看 A11、P17、I16。细胞机制可把 K09、P15、O22、M18 放在一起，文库与搜索则可继续读 K13、BA05、GF16、AL25。Q15、V23、S16 是综述或方法导读，方便查术语并找到相关原始研究。</p>
+<p>展开条目，可看到阅读到的位置和核读范围，之后查图和方法就从这些位置接着读。正文按语境说明论文结果、对实验安排的理解和新项目建议；选定具体基因、宿主或问题后，再沿相应方向扩展检索。</p>
+<details class="source-entry" id="ref-S88"><summary>[S88] Primer-directed enzymatic amplification of DNA with a thermostable DNA polymerase.<br/><span class="journal">Science (New York, N.Y.) · 1988 · 原始研究 / 方法与理论</span></summary><p>Saiki RK, Gelfand DH, Stoffel S, Scharf SJ, Higuchi R, Horn GT, Mullis KB, Erlich HA.</p><p><a href="https://doi.org/10.1126/science.2448875" rel="noopener" target="_blank">DOI: 10.1126/science.2448875</a></p><p>本轮核读：原始研究摘要与书目信息。</p><p>定位：摘要：耐热酶、较高温度扩增与性能变化。</p><p>用于解释耐热性带来的技术能力；未据此提供某个现代商业酶的操作参数。</p></details><details class="source-entry" id="ref-T98"><summary>[T98] A unified view of polymer, dumbbell, and oligonucleotide DNA nearest-neighbor thermodynamics.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 1998 · 原始研究 / 方法与理论</span></summary><p>SantaLucia J.</p><p><a href="https://doi.org/10.1073/pnas.95.4.1460" rel="noopener" target="_blank">DOI: 10.1073/pnas.95.4.1460</a></p><p>本轮核读：原始论文摘要与参数综合目的。</p><p>定位：摘要：近邻参数、盐条件与研究间比较。</p><p>用于热力学建模背景，未重新拟合参数或替任意酶计算退火温度。</p></details><details class="source-entry" id="ref-N12"><summary>[N12] Watching DNA polymerase η make a phosphodiester bond.<br/><span class="journal">Nature · 2012 · 原始研究 / 方法与理论</span></summary><p>Nakamura T, Zhao Y, Yamagata Y, Hua YJ, Yang W.</p><p><a href="https://doi.org/10.1038/nature11181" rel="noopener" target="_blank">DOI: 10.1038/nature11181</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：人源聚合酶 η 的时间分辨晶体实验。</p><p>支持成键、金属与结构状态的解释；晶体中的时间不作为 PCR 酶在溶液中的反应速率。</p></details><details class="source-entry" id="ref-P17"><summary>[P17] Examining Sources of Error in PCR by Single-Molecule Sequencing.<br/><span class="journal">PloS one · 2017 · 原始研究 / 方法与理论</span></summary><p>Potapov V, Ong JL.</p><p><a href="https://doi.org/10.1371/journal.pone.0169774" rel="noopener" target="_blank">DOI: 10.1371/journal.pone.0169774</a></p><p>本轮核读：正文中错误率分母、主要错误来源、热损伤与 Figure 4 定向阅读；Figure 4 图版已查看。</p><p>定位：Introduction：错误单位；Results：保真度与热循环损伤；Figure 4。</p><p>区分错掺、热损伤、模板切换与建库背景；另见勘误 P17C。</p></details><details class="source-entry" id="ref-K15"><summary>[K15] Sources of PCR-induced distortions in high-throughput sequencing data sets.<br/><span class="journal">Nucleic acids research · 2015 · 原始研究 / 方法与理论</span></summary><p>Kebschull JM, Zador AM.</p><p><a href="https://doi.org/10.1093/nar/gkv717" rel="noopener" target="_blank">DOI: 10.1093/nar/gkv717</a></p><p>本轮核读：摘要、引言、实验系统、分子标签与 PCR 方法，以及与随机性相关的结果和图注定向阅读。</p><p>定位：DNA oligos and PCR；Experimental system；Stochastic amplification；Discussion。</p><p>低输入文库中早期随机性可显著影响成员丰度；原图下载未成功，未将其图版纳入成品。</p></details><details class="source-entry" id="ref-A11"><summary>[A11] Analyzing and minimizing PCR amplification bias in Illumina sequencing libraries.<br/><span class="journal">Genome biology · 2011 · 原始研究 / 方法与理论</span></summary><p>Aird D, Ross MG, Chen WS, Danielsson M, Fennell T, Russ C, Jaffe DB, Nusbaum C, Gnirke A.</p><p><a href="https://doi.org/10.1186/gb-2011-12-2-r18" rel="noopener" target="_blank">DOI: 10.1186/gb-2011-12-2-r18</a></p><p>本轮核读：结果中流程取样、温控仪、条件组合及 PCR-free 比较，Discussion 与 qPCR 方法定向阅读；Figures 1、2 已查看。</p><p>定位：Results：Following a diverse panel、Comparing three thermocyclers、Optimizing；qPCR；Figures 1、2。</p><p>用适当中间体定位偏差，热历史与混合模板组成共同影响结果。</p></details><details class="source-entry" id="ref-C73"><summary>[C73] Construction of biologically functional bacterial plasmids in vitro.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 1973 · 原始研究 / 方法与理论</span></summary><p>Cohen SN, Chang AC, Boyer HW, Helling RB.</p><p><a href="https://doi.org/10.1073/pnas.70.11.3240" rel="noopener" target="_blank">DOI: 10.1073/pnas.70.11.3240</a></p><p>本轮核读：原始研究摘要与书目信息。</p><p>定位：摘要：体外连接与细菌内功能复制子。</p><p>用于说明从 DNA 组装到生物学可维持材料的联系。</p></details><details class="source-entry" id="ref-G09"><summary>[G09] Enzymatic assembly of DNA molecules up to several hundred kilobases.<br/><span class="journal">Nature methods · 2009 · 原始研究 / 方法与理论</span></summary><p>Gibson DG, Young L, Chuang RY, Venter JC, Hutchison CA, Smith HO.</p><p><a href="https://doi.org/10.1038/nmeth.1318" rel="noopener" target="_blank">DOI: 10.1038/nmeth.1318</a></p><p>本轮核读：原始研究摘要与方法组成。</p><p>定位：摘要：5′外切酶、聚合酶与连接酶协同作用。</p><p>支持重叠组装的主要机制；未逐一核查原文所有构建规模。</p></details><details class="source-entry" id="ref-E08"><summary>[E08] A one pot, one step, precision cloning method with high throughput capability.<br/><span class="journal">PloS one · 2008 · 原始研究 / 方法与理论</span></summary><p>Engler C, Kandzia R, Marillonnet S.</p><p><a href="https://doi.org/10.1371/journal.pone.0003647" rel="noopener" target="_blank">DOI: 10.1371/journal.pone.0003647</a></p><p>本轮核读：原始摘要、机制与单插入验证、相关方法和图注定向阅读；Figures 1、2 已查看。</p><p>定位：Results：Subcloning from one entry clone；Methods：Sequencing；Figures 1、2。</p><p>将重复切割机制、构建图谱与实测诊断条带相连。</p></details><details class="source-entry" id="ref-L18"><summary>[L18] Comprehensive Profiling of Four Base Overhang Ligation Fidelity by T4 DNA Ligase and Application to DNA Assembly.<br/><span class="journal">ACS synthetic biology · 2018 · 原始研究 / 方法与理论</span></summary><p>Potapov V, Ong JL, Kucera RB, Langhorst BW, Bilotti K, Pryor JM, Cantor EJ, Canton B, Knight TF, Evans TC, Lohman GJS.</p><p><a href="https://doi.org/10.1021/acssynbio.8b00333" rel="noopener" target="_blank">DOI: 10.1021/acssynbio.8b00333</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：连接端偏好、错配与多片段验证。</p><p>用于说明突出端集合需要考虑相互竞争；未重建或重新计算连接矩阵。</p></details><details class="source-entry" id="ref-H00"><summary>[H00] DNA cloning using in vitro site-specific recombination.<br/><span class="journal">Genome research · 2000 · 原始研究 / 方法与理论</span></summary><p>Hartley JL, Temple GF, Brasch MA.</p><p><a href="https://doi.org/10.1101/gr.143000" rel="noopener" target="_blank">DOI: 10.1101/gr.143000</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：方向、阅读框、载体间转移与融合。</p><p>重组克隆适合多载体转移的目的来自该设计。</p></details><details class="source-entry" id="ref-I16"><summary>[I16] IVA cloning: A single-tube universal cloning system exploiting bacterial In Vivo Assembly.<br/><span class="journal">Scientific reports · 2016 · 原始研究 / 方法与理论</span></summary><p>García-Nafría J, Watson JF, Greger IH.</p><p><a href="https://doi.org/10.1038/srep27459" rel="noopener" target="_blank">DOI: 10.1038/srep27459</a></p><p>本轮核读：方法总览、引物优化、点突变、宿主与优化方法定向阅读；Figures 2、3 已查看。</p><p>定位：Method overview；Method and primer design optimisation；Site-directed Mutagenesis；Protocol and primer optimisation；Figures 2、3。</p><p>分开背景、扩增与末端组装；比较正确率时保留被检克隆数及后续流程范围。</p></details><details class="source-entry" id="ref-Z04"><summary>[Z04] An efficient one-step site-directed and site-saturation mutagenesis protocol.<br/><span class="journal">Nucleic acids research · 2004 · 原始研究 / 方法与理论</span></summary><p>Zheng L, Baumann U, Reymond JL.</p><p><a href="https://doi.org/10.1093/nar/gnh110" rel="noopener" target="_blank">DOI: 10.1093/nar/gnh110</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：部分重叠引物、扩增与饱和突变。</p><p>用于介绍引物设计与全质粒改造的比较思路。</p></details><details class="source-entry" id="ref-K13"><summary>[K13] Reducing codon redundancy and screening effort of combinatorial protein libraries created by saturation mutagenesis.<br/><span class="journal">ACS synthetic biology · 2013 · 原始研究 / 方法与理论</span></summary><p>Kille S, Acevedo-Rocha CG, Parra LP, Zhang ZG, Opperman DJ, Reetz MT, Acevedo JP.</p><p><a href="https://doi.org/10.1021/sb300037w" rel="noopener" target="_blank">DOI: 10.1021/sb300037w</a></p><p>本轮核读：原始研究摘要与密码子设计内容。</p><p>定位：摘要：22 密码子方案、冗余与过采样。</p><p>DNA 密码子分布与氨基酸目标分布需要分别计算；NNK 计数另作确定性枚举检查。</p></details><details class="source-entry" id="ref-C91"><summary>[C91] Enzyme engineering for nonaqueous solvents: random mutagenesis to enhance activity of subtilisin E in polar organic media.<br/><span class="journal">Bio/Technology（现 Nature Biotechnology） · 1991 · 原始研究 / 方法与理论</span></summary><p>Chen KQ, Arnold FH.</p><p><a href="https://doi.org/10.1038/nbt1191-1073" rel="noopener" target="_blank">DOI: 10.1038/nbt1191-1073</a></p><p>本轮核读：原始摘要、题名与出版信息。</p><p>定位：摘要：DMF/酪蛋白平板、Q103R/D60N、85% DMF 中三突变体比较。</p><p>1991 平板筛选的具体 DMF 比例未由本轮摘要确认；不套用 1993 条件。</p></details><details class="source-entry" id="ref-C93"><summary>[C93] Tuning the activity of an enzyme for unusual environments: sequential random mutagenesis of subtilisin E for catalysis in dimethylformamide.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 1993 · 原始研究 / 方法与理论</span></summary><p>Chen K, Arnold FH.</p><p><a href="https://doi.org/10.1073/pnas.90.12.5618" rel="noopener" target="_blank">DOI: 10.1073/pnas.90.12.5618</a></p><p>本轮核读：原始研究摘要及作者存档身份信息。</p><p>定位：摘要：PC3、60% DMF、特定肽底物与替换组合。</p><p>保留指标和环境，未把摘要重建成全文逐图精读。</p></details><details class="source-entry" id="ref-S94"><summary>[S94] Rapid evolution of a protein in vitro by DNA shuffling.<br/><span class="journal">Nature · 1994 · 原始研究 / 方法与理论</span></summary><p>Stemmer WP.</p><p><a href="https://doi.org/10.1038/370389a0" rel="noopener" target="_blank">DOI: 10.1038/370389a0</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：DNA shuffling、回交与 MIC 表型。</p><p>历史实例中的提升倍数属于宿主表型；正文仅作研究逻辑比较。</p></details><details class="source-entry" id="ref-F96"><summary>[F96] Improved green fluorescent protein by molecular evolution using DNA shuffling.<br/><span class="journal">Nature biotechnology · 1996 · 原始研究 / 方法与理论</span></summary><p>Crameri A, Whitehorn EA, Tate E, Stemmer WP.</p><p><a href="https://doi.org/10.1038/nbt0396-315" rel="noopener" target="_blank">DOI: 10.1038/nbt0396-315</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：选择紫外目视筛选的理由、全细胞信号与可溶折叠。</p><p>检测方式参与定义目标，信号改善需与表达和成熟区分。</p></details><details class="source-entry" id="ref-SF06"><summary>[SF06] Engineering and characterization of a superfolder green fluorescent protein.<br/><span class="journal">Nature biotechnology · 2006 · 原始研究 / 方法与理论</span></summary><p>Pédelacq JD, Cabantous S, Tran T, Terwilliger TC, Waldo GS.</p><p><a href="https://doi.org/10.1038/nbt1172" rel="noopener" target="_blank">DOI: 10.1038/nbt1172</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：superfolder 与 folding reporter GFP 的融合比较。</p><p>报告器的折叠行为会改变报告对象。</p></details><details class="source-entry" id="ref-O22"><summary>[O22] OpenCell: Endogenous tagging for the cartography of human cellular organization.<br/><span class="journal">Science (New York, N.Y.) · 2022 · 原始研究 / 方法与理论</span></summary><p>Cho NH, Cheveralls KC, Brunner AD, Kim K, Michaelis AC, Raghavan P, Kobayashi H, Savy L, Li JY, Canaj H, Kim JYS, Stewart EM, Gnann C, McCarthy F, Cabrera JP, Brunetti RM, Chhun BB, Dingle G, Hein MY, Huang B, Mehta SB, Weissman JS, Gómez-Sjöberg R, Itzhak DN, Royer LA, Mann M, Leonetti MD.</p><p><a href="https://doi.org/10.1126/science.abi6983" rel="noopener" target="_blank">DOI: 10.1126/science.abi6983</a></p><p>本轮核读：原始研究摘要与研究工作流信息。</p><p>定位：摘要：内源基因组工程、共聚焦活细胞成像与质谱。</p><p>作为内源背景、定位与互作连接的参照，未声称逐项重审数据库。</p></details><details class="source-entry" id="ref-K09"><summary>[K09] Coding-sequence determinants of gene expression in Escherichia coli.<br/><span class="journal">Science (New York, N.Y.) · 2009 · 原始研究 / 方法与理论</span></summary><p>Kudla G, Murray AW, Tollervey D, Plotkin JB.</p><p><a href="https://doi.org/10.1126/science.1170160" rel="noopener" target="_blank">DOI: 10.1126/science.1170160</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：154 条同义 GFP、表达量和起始区 RNA 结构。</p><p>细菌表达结果用于说明核酸层面的构建背景，跨宿主机制需要另行测试。</p></details><details class="source-entry" id="ref-P15"><summary>[P15] Codon optimality is a major determinant of mRNA stability.<br/><span class="journal">Cell · 2015 · 原始研究 / 方法与理论</span></summary><p>Presnyak V, Alhusaini N, Chen YH, Martin S, Morris N, Kline N, Olson S, Weinberg D, Baker KE, Graveley BR, Coller J.</p><p><a href="https://doi.org/10.1016/j.cell.2015.02.029" rel="noopener" target="_blank">DOI: 10.1016/j.cell.2015.02.029</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：同义密码子、mRNA 稳定性与翻译。</p><p>与 K09 作有条件的比较，不把不同体系压成一个通用主导机制。</p></details><details class="source-entry" id="ref-W16"><summary>[W16] Plasmid-based one-pot saturation mutagenesis.<br/><span class="journal">Nature methods · 2016 · 原始研究 / 方法与理论</span></summary><p>Wrenbeck EE, Klesmith JR, Stapleton JA, Adeniran A, Tyo KE, Whitehead TA.</p><p><a href="https://doi.org/10.1038/nmeth.4029" rel="noopener" target="_blank">DOI: 10.1038/nmeth.4029</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：nicking mutagenesis 与可定义饱和文库。</p><p>作为可设计文库方法入口；未提供未经核对的操作配方。</p></details><details class="source-entry" id="ref-F10"><summary>[F10] High-resolution mapping of protein sequence-function relationships.<br/><span class="journal">Nature methods · 2010 · 原始研究 / 方法与理论</span></summary><p>Fowler DM, Araya CL, Fleishman SJ, Kellogg EH, Stephany JJ, Baker D, Fields S.</p><p><a href="https://doi.org/10.1038/nmeth.1492" rel="noopener" target="_blank">DOI: 10.1038/nmeth.1492</a></p><p>本轮核读：公开作者稿的摘要、研究工作流及主要图注定向阅读。</p><p>定位：Figure 1 图注：文库、展示与测序；Figure 3–4 图注：富集和组合。</p><p>用于解释测量对象、富集与序列—功能连接；未复制其受限许可图版。</p></details><details class="source-entry" id="ref-B06"><summary>[B06] Protein stability promotes evolvability.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 2006 · 原始研究 / 方法与理论</span></summary><p>Bloom JD, Labthavikul ST, Otey CR, Arnold FH.</p><p><a href="https://doi.org/10.1073/pnas.0510098103" rel="noopener" target="_blank">DOI: 10.1073/pnas.0510098103</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：稳定性、突变稳健性和 P450 变体比较。</p><p>支持稳定性余量可影响可进化性的实例，具体亲本仍需自己的测量。</p></details><details class="source-entry" id="ref-W19"><summary>[W19] Machine learning-assisted directed protein evolution with combinatorial libraries.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 2019 · 原始研究 / 方法与理论</span></summary><p>Wu Z, Kan SBJ, Lewis RD, Wittmann BJ, Arnold FH.</p><p><a href="https://doi.org/10.1073/pnas.1901979116" rel="noopener" target="_blank">DOI: 10.1073/pnas.1901979116</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：组合文库、GB1 比较与酶工程。</p><p>机器学习辅助搜索的早期原始研究入口；与方法综述的 DOI 已区分。</p></details><details class="source-entry" id="ref-R13"><summary>[R13] Navigating the protein fitness landscape with Gaussian processes.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 2013 · 原始研究 / 方法与理论</span></summary><p>Romero PA, Krause A, Arnold FH.</p><p><a href="https://doi.org/10.1073/pnas.1215251110" rel="noopener" target="_blank">DOI: 10.1073/pnas.1215251110</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：高斯过程、预测不确定性与候选选择。</p><p>用于解释带不确定性模型怎样服务实验选择。</p></details><details class="source-entry" id="ref-Z99"><summary>[Z99] A Simple Statistical Parameter for Use in Evaluation and Validation of High Throughput Screening Assays.<br/><span class="journal">Journal of biomolecular screening · 1999 · 原始研究 / 方法与理论</span></summary><p>Zhang JH, Chung TD, Oldenburg KR.</p><p><a href="https://doi.org/10.1177/108705719900400206" rel="noopener" target="_blank">DOI: 10.1177/108705719900400206</a></p><p>本轮核读：原始研究摘要；正文使用对照窗口的标准 Z′ 定义，未逐项核读 1999 全文。</p><p>定位：摘要：筛选窗口系数、信号范围和变异。</p><p>评价两个参照的分离与散布；目标读出有效性还需对应功能验证。</p></details><details class="source-entry" id="ref-M18"><summary>[M18] Multiplex assessment of protein variant abundance by massively parallel sequencing.<br/><span class="journal">Nature genetics · 2018 · 原始研究 / 方法与理论</span></summary><p>Matreyek KA, Starita LM, Stephany JJ, Martin B, Chiasson MA, Gray VE, Kircher M, Khechaduri A, Dines JN, Hause RJ, Bhatia S, Evans WE, Relling MV, Yang W, Shendure J, Fowler DM.</p><p><a href="https://doi.org/10.1038/s41588-018-0122-z" rel="noopener" target="_blank">DOI: 10.1038/s41588-018-0122-z</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：VAMP-seq 的细胞内丰度测量。</p><p>测量对象是丰度，功能解释需要相应功能证据。</p></details><details class="source-entry" id="ref-D98"><summary>[D98] Man-made cell-like compartments for molecular evolution.<br/><span class="journal">Nature biotechnology · 1998 · 原始研究 / 方法与理论</span></summary><p>Tawfik DS, Griffiths AD.</p><p><a href="https://doi.org/10.1038/nbt0798-652" rel="noopener" target="_blank">DOI: 10.1038/nbt0798-652</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：乳液区室中的基因型—表型关联。</p><p>用于说明共同物理边界如何保留反应与遗传材料的联系。</p></details><details class="source-entry" id="ref-AG10"><summary>[AG10] Ultrahigh-throughput screening in drop-based microfluidics for directed evolution.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 2010 · 原始研究 / 方法与理论</span></summary><p>Agresti JJ, Antipov E, Abate AR, Ahn K, Rowat AC, Baret JC, Marquez M, Klibanov AM, Griffiths AD, Weitz DA.</p><p><a href="https://doi.org/10.1073/pnas.0910781107" rel="noopener" target="_blank">DOI: 10.1073/pnas.0910781107</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：液滴平台与酶筛选实例。</p><p>作为区室化与通量升级的原型参考。</p></details><details class="source-entry" id="ref-BA05"><summary>[BA05] Mathematical expressions useful in the construction, description and evaluation of protein libraries.<br/><span class="journal">Biomolecular engineering · 2005 · 原始研究 / 方法与理论</span></summary><p>Bosley AD, Ostermeier M.</p><p><a href="https://doi.org/10.1016/j.bioeng.2004.11.002" rel="noopener" target="_blank">DOI: 10.1016/j.bioeng.2004.11.002</a></p><p>本轮核读：原始研究摘要与覆盖问题分类；正文中的概率式另行推导、数值验证。</p><p>定位：摘要：指定成员、完整文库与重复转化概率。</p><p>明确期望覆盖比例、指定成员概率和全部覆盖概率。</p></details><details class="source-entry" id="ref-Q15"><summary>[Q15] Methods for the directed evolution of proteins.<br/><span class="journal">Nature reviews. Genetics · 2015 · 综述 / 方法导读</span></summary><p>Packer MS, Liu DR.</p><p><a href="https://doi.org/10.1038/nrg3927" rel="noopener" target="_blank">DOI: 10.1038/nrg3927</a></p><p>本轮核读：综述摘要与主题导航。</p><p>定位：遗传多样性及筛选/选择方法。</p><p>作为导读入口，具体案例主要引用相应原始研究。</p></details><details class="source-entry" id="ref-V23"><summary>[V23] A primer to directed evolution: current methodologies and future directions.<br/><span class="journal">RSC chemical biology · 2023 · 综述 / 方法导读</span></summary><p>Sellés Vidal L, Isalan M, Heap JT, Ledesma-Amaro R.</p><p><a href="https://doi.org/10.1039/D2CB00231K" rel="noopener" target="_blank">DOI: 10.1039/D2CB00231K</a></p><p>本轮核读：综述摘要、方法分类与相关段落导航。</p><p>定位：多样性、筛选和方法选择。</p><p>用于关联术语与进一步阅读；不作为独立实验复现。</p></details><details class="source-entry" id="ref-S16"><summary>[S16] Overview of Post Cohen-Boyer Methods for Single Segment Cloning and for Multisegment DNA Assembly.<br/><span class="journal">Current protocols in molecular biology · 2016 · 综述 / 方法导读</span></summary><p>Sands B, Brent R.</p><p><a href="https://doi.org/10.1002/0471142727.mb0326s113" rel="noopener" target="_blank">DOI: 10.1002/0471142727.mb0326s113</a></p><p>本轮核读：方法导读摘要与分类。</p><p>定位：单片段克隆与多片段组装。</p><p>用于概念导航，具体组装机制配合原始研究引用。</p></details><details class="source-entry" id="ref-GF16"><summary>[GF16] Local fitness landscape of the green fluorescent protein.<br/><span class="journal">Nature · 2016 · 原始研究 / 方法与理论</span></summary><p>Sarkisyan KS, Bolotin DA, Meer MV, Usmanova DR, Mishin AS, Sharonov GV, Ivankov DN, Bozhanova NG, Baranov MS, Soylemez O, Bogatyreva NS, Vlasov PK, Egorov ES, Logacheva MD, Kondrashov AS, Chudakov DM, Putintseva EV, Mamedov IZ, Tawfik DS, Lukyanov KA, Kondrashov FA.</p><p><a href="https://doi.org/10.1038/nature17995" rel="noopener" target="_blank">DOI: 10.1038/nature17995</a></p><p>本轮核读：公开作者稿正文、主结果与主要图注定向阅读；未取得并逐项审查补充方法。</p><p>定位：主文：序列计数、对数尺度上位性、阈值拟合与计算稳定性。</p><p>表型非加和可与整体阈值联系；计算稳定性不是逐变体热力学实测。</p></details><details class="source-entry" id="ref-AL25"><summary>[AL25] Active learning-assisted directed evolution.<br/><span class="journal">Nature communications · 2025 · 原始研究 / 方法与理论</span></summary><p>Yang J, Lal RG, Bowden JC, Astudillo R, Hameedi MA, Kaur S, Hill M, Yue Y, Arnold FH.</p><p><a href="https://doi.org/10.1038/s41467-025-55987-8" rel="noopener" target="_blank">DOI: 10.1038/s41467-025-55987-8</a></p><p>本轮核读：实践实现、五位点体系、实验迭代、Discussion、建模方法及图注定向阅读；Figures 1–3 已查看。</p><p>定位：Sec3–5、Sec7、Sec19；Figures 1–3。</p><p>分开湿实验、完整景观模拟、初始随机抽样和指定序列测试；保留指标与误差条定义。</p></details><details class="source-entry" id="ref-CF25"><summary>[CF25] Accelerated enzyme engineering by machine-learning guided cell-free expression.<br/><span class="journal">Nature communications · 2025 · 原始研究 / 方法与理论</span></summary><p>Landwehr GM, Bogart JW, Magalhaes C, Hammarlund EG, Karim AS, Jewett MC.</p><p><a href="https://doi.org/10.1038/s41467-024-55399-0" rel="noopener" target="_blank">DOI: 10.1038/s41467-024-55399-0</a></p><p>本轮核读：摘要、Cell-free protein engineering、Discussion 与 Enzyme kinetics 方法定向阅读。</p><p>定位：Sec4、Sec7、Sec19。</p><p>线性表达模板与无细胞路线，以及 DMSO 对耦联检测和非米氏行为的实际限制；未复制其 NC-ND 图版。</p></details><details class="source-entry" id="ref-H94"><summary>[H94] Wavelength mutations and posttranslational autoxidation of green fluorescent protein.<br/><span class="journal">Proceedings of the National Academy of Sciences of the United States of America · 1994 · 原始研究 / 方法与理论</span></summary><p>Heim R, Prasher DC, Tsien RY.</p><p><a href="https://doi.org/10.1073/pnas.91.26.12501" rel="noopener" target="_blank">DOI: 10.1073/pnas.91.26.12501</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：GFP 色团形成的氧化步骤。</p><p>用于解释表达与荧光成熟的时间差。</p></details><details class="source-entry" id="ref-P17C"><summary>[P17C] Correction: Examining Sources of Error in PCR by Single-Molecule Sequencing.<br/><span class="journal">PloS one · 2017 · 勘误</span></summary><p>Potapov V, Ong JL.</p><p><a href="https://doi.org/10.1371/journal.pone.0181128" rel="noopener" target="_blank">DOI: 10.1371/journal.pone.0181128</a></p><p>本轮核读：勘误全文。</p><p>定位：正文：Figure 1A 的 PrimeSTAR GXL 与 KOD 标签交换。</p><p>更正涉及 Figure 1A，本材料采用的 Figure 4 不涉及该处交换。</p></details><details class="source-entry" id="ref-CL88"><summary>[CL88] Novel non-templated nucleotide addition reactions catalyzed by procaryotic and eucaryotic DNA polymerases.<br/><span class="journal">Nucleic acids research · 1988 · 原始研究 / 方法与理论</span></summary><p>Clark JM.</p><p><a href="https://doi.org/10.1093/nar/16.20.9677" rel="noopener" target="_blank">DOI: 10.1093/nar/16.20.9677</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：DNA 聚合酶的非模板末端添加。</p><p>支持讨论实际 PCR 末端性质；所用现代酶的结果仍随具体体系。</p></details><details class="source-entry" id="ref-CE15"><summary>[CE15] Quantifying cellular capacity identifies gene expression designs with reduced burden.<br/><span class="journal">Nature methods · 2015 · 原始研究 / 方法与理论</span></summary><p>Ceroni F, Algar R, Stan GB, Ellis T.</p><p><a href="https://doi.org/10.1038/nmeth.3339" rel="noopener" target="_blank">DOI: 10.1038/nmeth.3339</a></p><p>本轮核读：原始研究摘要。</p><p>定位：摘要：大肠杆菌细胞容量监测与表达负担。</p><p>作为宿主资源与构建设计相互作用的实例。</p></details></section></div><footer class="footer"><p>各图附作者、原图号与许可，并注明机制示意或实验数据。图版保持完整，三个参数工具可用于教学推算。</p><p>本地讨论版 · 2026-11-21 · 正文、核读范围和原图来源可在配套文件中继续查阅。</p></footer></main></div><button type="button" class="backtop" id="backtop" aria-label="回到顶部">↑</button><dialog class="figure-dialog" id="figureDialog" aria-label="论文图放大查看"><div class="dialog-tools"><span id="zoomTitle"></span><button type="button" id="zoomActual">按原图尺寸查看</button><button type="button" id="zoomClose">关闭 ×</button></div><div class="dialog-scroll" id="zoomScroll"><img id="zoomImage" alt="放大的原论文图"></div></dialog><script>'use strict';
+
+function coverageModel(M,N,target=.95,rareFactor=1){
+  if(!Number.isSafeInteger(M)||M<1||!Number.isSafeInteger(N)||N<0||!(target>0&&target<1)||!(rareFactor>0&&rareFactor<=1))throw new RangeError('请填写有效的整数规模与概率。');
+  if(M===1)return{M,N,fraction:N?1:0,unique:N?1:0,missing:N?0:1,allLower:N?1:0,nMean:1,nAll:1,rareSeen:rareFactor===1?(N?1:0):-Math.expm1(N*Math.log1p(-rareFactor)),ratio:N};
+  const logMiss=N*Math.log1p(-1/M),missing=M*Math.exp(logMiss);
+  const fraction=-Math.expm1(logMiss),nMean=Math.ceil(Math.log1p(-target)/Math.log1p(-1/M));
+  const nAll=Math.ceil(Math.log((1-target)/M)/Math.log1p(-1/M));
+  return{M,N,fraction,unique:M*fraction,missing,allLower:Math.max(0,1-missing),nMean,nAll,rareSeen:-Math.expm1(N*Math.log1p(-rareFactor/M)),ratio:N/M};
+}
+function poissonModel(lambda){
+  if(!Number.isFinite(lambda)||lambda<0)throw new RangeError('λ 应为非负数。');
+  const p0=Math.exp(-lambda),p1=lambda*p0,p2=lambda*lambda*p0/2;
+  return[p0,p1,p2,Math.max(0,1-p0-p1-p2)];
+}
+function rateModel({enzyme,soluble,active,kcat,km,substrate}){
+  if([enzyme,soluble,active,kcat,km,substrate].some(x=>!Number.isFinite(x)||x<0)||km<=0||soluble>1||active>1)throw new RangeError('请检查浓度、比例与动力学参数。');
+  const effective=enzyme*soluble*active;
+  return{effective,rate:effective*kcat*substrate/(km+substrate),specific:kcat*substrate/(km+substrate),fraction:substrate/(km+substrate)};
+}
+function dnaPmol(ng,bp){if(!(ng>=0&&bp>0))throw new RangeError('质量应非负，长度应大于零。');return ng*1000/(bp*660);}
+window.researchModels=Object.freeze({coverageModel,poissonModel,rateModel,dnaPmol});
+
+const $=s=>document.querySelector(s);
+const fmt=(x,d=2)=>Number(x).toLocaleString('zh-CN',{maximumFractionDigits:d});
+const pct=x=>(100*x).toFixed(2)+'%';
+function svgLine(points,color,width=2.5){return `<polyline fill="none" stroke="${color}" stroke-width="${width}" points="${points.map(p=>p.join(',')).join(' ')}"/>`;}
+function chartBase(xLabel,yLabel,xMax,yMax){
+  let out='<rect width="760" height="310" fill="white"/>';
+  for(let i=0;i<=4;i++){
+    const y=255-i*51;out+=`<line x1="66" x2="726" y1="${y}" y2="${y}" stroke="#e3e9e3"/><text x="55" y="${y+5}" text-anchor="end" font-size="12" fill="#5b7166">${fmt(yMax*i/4,2)}</text>`;
+  }
+  for(let i=0;i<=5;i++){const x=66+i*132;out+=`<text x="${x}" y="277" text-anchor="middle" font-size="12" fill="#5b7166">${fmt(xMax*i/5,1)}</text>`;}
+  return out+`<line x1="66" y1="51" x2="66" y2="255" stroke="#7a9184"/><line x1="66" y1="255" x2="726" y2="255" stroke="#7a9184"/><text x="395" y="302" text-anchor="middle" font-size="13" fill="#31594a">${xLabel}</text><text x="21" y="153" text-anchor="middle" transform="rotate(-90 21 153)" font-size="12" fill="#31594a">${yLabel}</text>`;
+}
+
+function renderCoverage(){
+  const M=Number($('#libraryM').value),N=Number($('#libraryN').value),rare=Number($('#rareFactor').value);
+  try{
+    const r=coverageModel(M,N,.95,rare);$('#coverageError').textContent='';
+    $('#meanCoverage').textContent=pct(r.fraction);$('#uniqueCount').textContent=fmt(r.unique,1);$('#missingCount').textContent=fmt(r.missing,1);$('#allLower').textContent=pct(r.allLower);
+    $('#meanRequired').textContent=fmt(r.nMean,0);$('#allRequired').textContent=fmt(r.nAll,0);
+    $('#rareSeen').textContent=pct(r.rareSeen);
+    $('#coverageSummary').textContent=`按均匀模型，抽 ${fmt(N,0)} 次，平均见到 ${fmt(r.unique,1)} 种，缺 ${fmt(r.missing,1)} 种。全部覆盖概率的保守下界是 ${pct(r.allLower)}，实际概率可以更高。指定成员另按 1/M 的 ${rare} 倍计算出现概率。`;
+    const xMax=Math.max(5,Math.min(40,Math.max(r.ratio*1.08,Math.log(M/.05)*1.15))),a=[],b=[];
+    for(let i=0;i<=180;i++){const ratio=i*xMax/180,n=Math.round(ratio*M),q=coverageModel(M,n);a.push([66+660*i/180,255-204*q.fraction]);b.push([66+660*i/180,255-204*q.allLower]);}
+    let content=chartBase('抽样次数 / 理论成员数 N/M','概率或期望覆盖比例',xMax,1)+svgLine(a,'#176c62')+svgLine(b,'#b66a37');
+    if(r.ratio<=xMax){const x=66+660*r.ratio/xMax;content+=`<line x1="${x}" x2="${x}" y1="51" y2="255" stroke="#56695e" stroke-dasharray="5 4"/><circle cx="${x}" cy="${255-204*r.fraction}" r="4" fill="#176c62"/>`;}
+    $('#coverageChart').innerHTML=content;
+  }catch(e){$('#coverageError').textContent=e.message;}
+}
+$('#libraryM').addEventListener('input',renderCoverage);$('#libraryN').addEventListener('input',renderCoverage);$('#rareFactor').addEventListener('change',renderCoverage);
+document.querySelectorAll('[data-cover]').forEach(b=>b.addEventListener('click',()=>{const M=32768;$('#libraryM').value=M;$('#libraryN').value=b.dataset.cover==='mean'?coverageModel(M,0).nMean:coverageModel(M,0).nAll;renderCoverage();}));
+
+function renderMutation(){
+  const lambda=Number($('#mutationLambda').value),m=Number($('#nnkSites').value),p=poissonModel(lambda);
+  $('#lambdaValue').textContent=lambda.toFixed(1);
+  p.forEach((v,i)=>{$('#poissonBar'+i).style.height=(100*v)+'%';$('#poissonValue'+i).textContent=pct(v);});
+  $('#mutationSummary').textContent=`按泊松近似，${pct(p[0])} 的成员没有替换，${pct(p[1])} 有一次替换。接着表达、测活，再看其中多少仍有功能、哪些表现更好。`;
+  $('#codonCount').textContent=fmt(32**m,0);$('#aminoCount').textContent=fmt(20**m,0);$('#noStop').textContent=pct((31/32)**m);$('#metProbability').textContent='1 / '+fmt(32**m,0);
+}
+$('#mutationLambda').addEventListener('input',renderMutation);$('#nnkSites').addEventListener('change',renderMutation);
+
+const assayKeys=['enzyme','soluble','active','kcat','km','substrate'];
+const assayBase={enzyme:1,soluble:.5,active:.8,kcat:10,km:100,substrate:50};
+function renderAssay(){
+  const p=Object.fromEntries(assayKeys.map(k=>[k,Number($('#assay-'+k).value)])),r=rateModel(p),base=rateModel(assayBase);
+  assayKeys.forEach(k=>$('#assay-'+k+'-value').textContent=['soluble','active'].includes(k)?pct(p[k]):fmt(p[k],2));
+  $('#activeEnzyme').textContent=fmt(r.effective,3)+' μM';$('#initialRate').textContent=fmt(r.rate,3)+' μM/s';$('#specificRate').textContent=fmt(r.specific,3)+' s⁻¹';$('#rateFold').textContent=fmt(r.rate/base.rate,2)+' 倍';
+  $('#assaySummary').textContent=`当前有效酶量是 ${fmt(r.effective,3)} μM，每单位有效酶的初速系数为 ${fmt(r.specific,3)} s⁻¹，总初速为 ${fmt(r.rate,3)} μM/s。可以分别试表达量和 kcat 加倍：总初速都能提高，再测有效酶量，就更容易分清原因。`;
+  const xMax=1000,yMax=Math.max(base.effective*assayBase.kcat,r.effective*p.kcat,1),a=[],b=[];
+  for(let i=0;i<=150;i++){const substrate=i*xMax/150;const br=rateModel({...assayBase,substrate}).rate,cr=rateModel({...p,substrate}).rate;a.push([66+660*i/150,255-204*br/yMax]);b.push([66+660*i/150,255-204*cr/yMax]);}
+  const x=66+660*p.substrate/xMax;
+  $('#assayChart').innerHTML=chartBase('底物浓度 [S]（μM）','初速（μM/s）',xMax,yMax)+svgLine(a,'#919b8d',2)+svgLine(b,'#176c62')+`<circle cx="${x}" cy="${255-204*r.rate/yMax}" r="4" fill="#a45f39"/>`;
+}
+assayKeys.forEach(k=>$('#assay-'+k).addEventListener('input',renderAssay));
+document.querySelectorAll('[data-assay]').forEach(b=>b.addEventListener('click',()=>{const p={...assayBase};if(b.dataset.assay==='expression')p.enzyme*=2;if(b.dataset.assay==='catalysis')p.kcat*=2;assayKeys.forEach(k=>$('#assay-'+k).value=p[k]);renderAssay();}));
+
+const decisionContent={
+  pcr:{text:'先看已知阳性和空白，再核对目标序列。样本作受控稀释或加入合适内参后恢复扩增，可以接着查抑制；反应本身正常，再比较引物结合、变性和延伸条件。',why:'把模板来源、循环负担和这次改动一起记下，下一次就知道该从哪项条件继续。',cell:'cDNA 模板再确认转录本和剪接背景，起始 RNA 的状态也会影响目标是否扩得出来。',evolution:'混合库同时看成员比例和起始分子数，了解多少独立成员被保留下来。',refs:['A11','K15']},
+  clone:{text:'先把插入、方向和接头对回设计图谱，再用覆盖目标区域的测序确认。缺插入或缺有效末端的对照，可以帮助查骨架自连和亲本携带。',why:'菌落总数、目标构型比例和序列正确率分别记录，后面就容易找到损失发生在哪一步。',cell:'把接头一起翻译，看看标签、终止密码子和定位相关区域是否接得合适。',evolution:'抽样记下亲本、正确插入和独特序列各占多少，再估计可用文库有多大。',refs:['E08','I16']},
+  expression:{text:'比较 RNA、全长蛋白和可溶部分，再顺着结果查表达、折叠、成熟或周转。把同义改写、边界、标签与宿主的改动也放在旁边看。',why:'编码与细胞条件能让同一氨基酸序列产生不同表达量，先找出差异出现的位置。',cell:'把表达量与内源水平、定位和功能恢复放在一起比较，再决定是否做到内源标记。',evolution:'低表达成员的信息也留下来。目标若是单位培养体积的产量，表达改善就可能有用。',refs:['K09','P15','SF06','M18']},
+  cell:{text:'先在接近的表达量下比较位置与功能，再看具体互作或催化。标签位置比较、野生型救援和相应参照，可以帮助检查构建方式的影响。',why:'量、位置和分子作用都能改变细胞表现，按眼下的数据选下一项比较。',cell:'外源水平已经影响系统时，可以比较可调表达或内源编辑，并检查标签背景。',evolution:'用细胞信号初筛以后，再复核候选的目标蛋白功能。',refs:['O22','SF06','M18']},
+  library:{text:'从扩增、组装、转化到培养，分别查看成员比例。把理论设计数、起始克隆规模、正确比例、实际频率和已测基因型数记在一起。',why:'稀有成员按实际频率安排抽样；上游已经丢失的成员，则回到更早的材料重新建立。',cell:'混合细胞群里，表达和生长选择也会逐渐改变比例。',evolution:'预算有限时，缩小位点、减少密码子冗余，或逐个构建需要比较的变体。',refs:['K15','BA05','K13']},
+  hit:{text:'把候选重新构建到相同骨架，转入新鲜宿主并独立表达。亲本与候选同批比较，再换成实际底物、直接测目标产物。',why:'这样可以检查改善是否跟着目标序列转移，再按用途比较表达量和单位酶表现。最初那一孔的提升能重复多少，也在独立复测中重新估计。',cell:'接着在相关细胞背景中测功能能否恢复。',evolution:'把活性、处理后保持能力和选择性放在一起，按预定目标保留下一轮亲本。',refs:['C93','SF06','CF25']},
+  combination:{text:'把 WT、A、B、AB 放齐，约定线性或对数尺度，做独立重复。先比较蛋白量与状态，再查界面、稳定性阈值或催化步骤。',why:'先有一个独立预期，才好看组合偏离多少。整体蛋白状态的变化，也能产生表型互作。',cell:'把定位和伙伴相遇的条件一起比较，并确认组合序列。',evolution:'留下各背景的结果，再决定下一轮要探索哪些多位点组合。',refs:['GF16','B06','AL25']},
+  model:{text:'先整理序列、样本身份、测量标签和批次，失败样本也保留。模型推荐出来后，与同预算的随机或简单策略并列测试，再看新一轮或新背景的表现。',why:'初始数据覆盖哪里、候选能否做出来，都会影响这条路线能省多少实验。',cell:'记录细胞表型时，把表达和定位条件一起记入，保留不同状态的区别。',evolution:'组合背景重要、测量也可靠时，可以从小规模主动学习试起，再按后续实验结果决定投入。',refs:['R13','W19','AL25']}
+};
+function renderDecision(){
+  const d=decisionContent[$('#currentProblem').value],context=$('#researchContext').value;
+  const ps=[d.text,d.why];if(context!=='routine')ps.push(d[context]);
+  $('#decisionOutput').innerHTML=ps.map(s=>`<p>${s}</p>`).join('')+'<p class="small">相关原始研究：'+d.refs.map(id=>`<a class="citation" href="#ref-${id}">[${id}]</a>`).join(' ')+'</p>';
+}
+$('#currentProblem').addEventListener('change',renderDecision);$('#researchContext').addEventListener('change',renderDecision);
+
+function openAncestors(el){for(let p=el;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;}
+document.addEventListener('click',e=>{
+  const link=e.target.closest('a[href^="#"]');if(!link)return;
+  const target=document.getElementById(decodeURIComponent(link.getAttribute('href').slice(1)));if(!target)return;openAncestors(target);
+  if(link.closest('.nav')){$('.sidebar').classList.remove('menu-open');$('#mobileMenu').setAttribute('aria-expanded','false');}
+});
+$('#expandAll').addEventListener('click',()=>document.querySelectorAll('details').forEach(d=>d.open=true));
+$('#collapseAll').addEventListener('click',()=>document.querySelectorAll('details').forEach(d=>d.open=false));
+$('#mobileMenu').addEventListener('click',()=>{const open=$('.sidebar').classList.toggle('menu-open');$('#mobileMenu').setAttribute('aria-expanded',String(open));});
+$('#backtop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+$('#printGuide').addEventListener('click',()=>window.print());
+let printStates=[];window.addEventListener('beforeprint',()=>{printStates=[...document.querySelectorAll('details')].map(d=>[d,d.open]);printStates.forEach(([d])=>d.open=true);});window.addEventListener('afterprint',()=>printStates.forEach(([d,open])=>d.open=open));
+
+const searchTargets=[...document.querySelectorAll('.chapter p,.chapter h3,.chapter h4,.chapter summary,.figure-reading p')];
+let searchTimer;
+$('#guideSearch').addEventListener('input',()=>{clearTimeout(searchTimer);searchTimer=setTimeout(()=>{
+  document.querySelectorAll('.search-hit').forEach(el=>el.classList.remove('search-hit'));$('#searchResults').replaceChildren();
+  const query=$('#guideSearch').value.trim().toLowerCase();if(query.length<2){$('#searchStatus').textContent=query?'输入至少两个字或字符':'';return;}
+  const found=searchTargets.filter(el=>el.textContent.toLowerCase().includes(query));$('#searchStatus').textContent=`找到 ${found.length} 处，显示前 12 处`;
+  found.slice(0,12).forEach(el=>{const b=document.createElement('button');b.type='button';b.textContent=el.textContent.trim().slice(0,85)+'…';b.addEventListener('click',()=>{openAncestors(el);document.querySelectorAll('.search-hit').forEach(x=>x.classList.remove('search-hit'));el.classList.add('search-hit');el.scrollIntoView({behavior:'smooth',block:'center'});});$('#searchResults').append(b);});
+},180);});
+
+const dialog=$('#figureDialog'),zoomImage=$('#zoomImage');let lastZoomTrigger=null;
+document.querySelectorAll('.zoom-trigger').forEach(b=>b.addEventListener('click',()=>{lastZoomTrigger=b;const im=b.querySelector('img');zoomImage.src=im.src;zoomImage.alt=im.alt;$('#zoomTitle').textContent=b.closest('figure').querySelector('h4').textContent;$('#zoomScroll').classList.remove('natural');$('#zoomActual').textContent='按原图尺寸查看';dialog.showModal();}));
+$('#zoomClose').addEventListener('click',()=>dialog.close());$('#zoomActual').addEventListener('click',()=>{const natural=$('#zoomScroll').classList.toggle('natural');$('#zoomActual').textContent=natural?'适应窗口':'按原图尺寸查看';if(natural){zoomImage.style.width=zoomImage.naturalWidth+'px';zoomImage.style.height=zoomImage.naturalHeight+'px';}else{zoomImage.style.width='';zoomImage.style.height='';}});
+dialog.addEventListener('close',()=>{zoomImage.style.width='';zoomImage.style.height='';lastZoomTrigger?.focus({preventScroll:true});});
+dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
+
+const observer=new IntersectionObserver(entries=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);if(!visible.length)return;document.querySelectorAll('.nav a.active').forEach(a=>a.classList.remove('active'));document.querySelector(`.nav a[href="#${visible[0].target.id}"]`)?.classList.add('active');},{rootMargin:'-10% 0px -60% 0px',threshold:[0,.1,.5]});
+document.querySelectorAll('.chapter').forEach(c=>observer.observe(c));
+window.addEventListener('scroll',()=>{const max=document.documentElement.scrollHeight-innerHeight;$('#pageProgress').style.width=(max>0?scrollY/max*100:0)+'%';},{passive:true});
+renderCoverage();renderMutation();renderAssay();renderDecision();
+</script></body></html>

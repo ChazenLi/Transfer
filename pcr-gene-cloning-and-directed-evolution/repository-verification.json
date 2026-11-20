@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-21",
+  "html_sha256": "efb669771b6d3e6ed25ad7aece55e9122763cfb3df282a9d84a294d0843a3751",
+  "structure": {
+    "chapters": 26,
+    "sources": 42,
+    "images": 10,
+    "brokenAnchors": []
+  },
+  "localMarkdownLinks": 27,
+  "markdownReferenceLinks": 178,
+  "markdownReferenceAnchors": 42,
+  "matchedImageHashes": 10,
+  "zoom": true,
+  "coverage": "95.00%",
+  "citation": true,
+  "mobile": {
+    "width": 390,
+    "viewport": 390
+  },
+  "errors": [],
+  "externalNetworkRequests": [],
+  "failures": []
+}

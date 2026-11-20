@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-21",
+  "standalone_html_sha256": "fda1d0b00be09a828cf75a0fae0c0020d7caf796a4dbb5b26fc9d06ac59f2e2f",
+  "repository_html_sha256": "efb669771b6d3e6ed25ad7aece55e9122763cfb3df282a9d84a294d0843a3751",
+  "repository_html_bytes": 168710,
+  "paper_figures": 10,
+  "references": 42,
+  "transformation": "HTML replaces embedded image data with identical shared files; Markdown adds reference anchors and removes renderer-only heading attributes.",
+  "files": {
+    ".gitattributes": "937804d44588c8cc5bc62bea9bc1fa7ac109c0089191f55eeca1956faebbdc22",
+    "figure-credits.json": "db2a2b5cd15392d4149b16dd6fa59111e8b4b37770aa823f7d3ced27fe30a97e",
+    "FIGURE-SOURCES.md": "db9660b173b98f41bcce3d27695bb11cf6548a865e10a54c40233ce5aedda915",
+    "figures/A11-figure-1.jpg": "050c392f8b50fb955d7f44a373940c6614fa1d1f0b9bd304714b1d90843be441",
+    "figures/A11-figure-2.jpg": "dc27cfb45cb161188e4df3494233914ae6804f2adf4c524093fc460965e437f0",
+    "figures/AL25-figure-1.png": "e1b21359af788de1154442b7f69da403f3ca373db2a6b5400cc752bbef63ff62",
+    "figures/AL25-figure-2.png": "334472bacb017a0477a7fb5d55914b89e5002a761bcb57687320546ed3002d30",
+    "figures/AL25-figure-3.png": "51fdc779ee47142e8935b5daa654ff13ab6ce39dd05d13e3c3382f8f669401ff",
+    "figures/E08-figure-1.png": "47ca0dab174d6545be69fef5239dfe16afba9488e99a550caca8b487187b829c",
+    "figures/E08-figure-2.png": "a1c972c4db7c83087b0a33c8dbdd1fdcc8bd5294f7eb80afcb34bb19ee60ead8",
+    "figures/I16-figure-2.jpg": "e3a3bf4d8bad00278b81d2b9d11335360677f0fae809be7e6ead28bcefeb53c1",
+    "figures/I16-figure-3.jpg": "ba34b65494f4fcf091a097963167bb92c6a2e868b52844de359fd4d28d6801a8",
+    "figures/P17-figure-4.png": "da753b19704ca2bca42af94a4445618b3036b47d1a22ad36d5d2d4120c58f1b7",
+    "MATERIAL-AUDIT.md": "5b691bb559964a8151415dd3a80e9fa3c20bf890058059b7e1355e829a8b99fa",
+    "pcr-gene-cloning-directed-evolution-research-foundation.html": "efb669771b6d3e6ed25ad7aece55e9122763cfb3df282a9d84a294d0843a3751",
+    "pcr-gene-cloning-directed-evolution-research-foundation.md": "ad531747fb5af986619dfe2036d5491fd4c19bec1a642c925a725875f3f35eb8",
+    "README.md": "c6c6255c3737eda92d1be61c084afc618d6118923377afd46b4e2f79420abd7a",
+    "repository-verification.json": "209a5415912cfb5f4f67f14ed2c2651e43e7eb24975b7350ada8de07184ed52d",
+    "research-sources.json": "50e37a07562bb380ce74faa6b8d949a3ee54b734cb1be0bc0aaac6ce67de4907",
+    "standalone-verification.json": "8155fb12476b2eee6760ad60658c46cfd61419ab13d8ddb360f863600399a08a",
+    "VERIFICATION.md": "805e6b079abba640e258b11651ed036abdae21570a7c28d0f675b8ff55e965a3"
+  },
+  "text_encoding": "UTF-8 with LF line endings; topic .gitattributes preserves this format"
+}
