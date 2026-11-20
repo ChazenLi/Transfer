@@ -1,0 +1,178 @@
+[
+  {
+    "id": "R01",
+    "authors": "Rommens et al.",
+    "year": 1989,
+    "venue": "Science",
+    "title": "Identification of the cystic fibrosis gene: chromosome walking and jumping",
+    "doi": "10.1126/science.2772657",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/2772657/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "基因组位置与连续区域的建立。"
+  },
+  {
+    "id": "R02",
+    "authors": "Riordan et al.",
+    "year": 1989,
+    "venue": "Science",
+    "title": "Identification of the cystic fibrosis gene: cloning and characterization of complementary DNA",
+    "doi": "10.1126/science.2475911",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/2475911/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "从定位区域接到转录本与编码信息。"
+  },
+  {
+    "id": "R03",
+    "authors": "Caterina et al.",
+    "year": 1997,
+    "venue": "Nature",
+    "title": "The capsaicin receptor: a heat-activated ion channel in the pain pathway",
+    "doi": "10.1038/39807",
+    "url": "https://www.nature.com/articles/39807",
+    "scope": "全文中的表达克隆段、相关方法和摘要；未逐图复评电生理与热响应数据。",
+    "use": "表达克隆的来源、宿主、读出与阳性池拆分。"
+  },
+  {
+    "id": "R04",
+    "authors": "Caterina et al.",
+    "year": 2000,
+    "venue": "Science",
+    "title": "Impaired nociception and pain sensation in mice lacking the capsaicin receptor",
+    "doi": "10.1126/science.288.5464.306",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/10764638/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "区分异源系统能力与原系统作用。"
+  },
+  {
+    "id": "R05",
+    "authors": "McKemy, Neuhausser & Julius",
+    "year": 2002,
+    "venue": "Nature",
+    "title": "Identification of a cold receptor reveals a general role for TRP channels in thermosensation",
+    "doi": "10.1038/nature719",
+    "url": "https://www.nature.com/articles/nature719",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "刺激、来源与功能读出的关联。"
+  },
+  {
+    "id": "R06",
+    "authors": "Peier et al.",
+    "year": 2002,
+    "venue": "Cell",
+    "title": "A TRP channel that senses cold stimuli and menthol",
+    "doi": "10.1016/S0092-8674(02)00652-9",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/11893340/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "以家族线索与功能测试组织候选验证的参照。"
+  },
+  {
+    "id": "R07",
+    "authors": "Gibson et al.",
+    "year": 2009,
+    "venue": "Nature Methods",
+    "title": "Enzymatic assembly of DNA molecules up to several hundred kilobases",
+    "doi": "10.1038/nmeth.1318",
+    "url": "https://www.nature.com/articles/nmeth.1318",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "重叠序列组织片段组装。"
+  },
+  {
+    "id": "R08",
+    "authors": "Engler, Kandzia & Marillonnet",
+    "year": 2008,
+    "venue": "PLOS ONE",
+    "title": "A one pot, one step, precision cloning method with high throughput capability",
+    "doi": "10.1371/journal.pone.0003647",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2574415/",
+    "scope": "摘要、方法原理及内部BsaI位点相关正文；未逐图重评效率数据。",
+    "use": "模块接口、内部识别位点与构建体选择。"
+  },
+  {
+    "id": "R09",
+    "authors": "Hartley, Temple & Brasch",
+    "year": 2000,
+    "venue": "Genome Research",
+    "title": "DNA cloning using in vitro site-specific recombination",
+    "doi": "10.1101/gr.143000",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC310948/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "入口克隆复用与载体转换。"
+  },
+  {
+    "id": "R10",
+    "authors": "Yang et al.",
+    "year": 2011,
+    "venue": "Nature Methods",
+    "title": "A public genome-scale lentiviral expression library of human ORFs",
+    "doi": "10.1038/nmeth.1638",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3234135/",
+    "scope": "摘要、建库、测序与亚集合注释正文；未逐项核对补充数据。",
+    "use": "现成克隆也要核查单克隆序列与注释。"
+  },
+  {
+    "id": "R11",
+    "authors": "Ellington & Szostak",
+    "year": 1990,
+    "venue": "Nature",
+    "title": "In vitro selection of RNA molecules that bind specific ligands",
+    "doi": "10.1038/346818a0",
+    "url": "https://www.nature.com/articles/346818a0",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "随机序列与小分子结合选择的起点。"
+  },
+  {
+    "id": "R12",
+    "authors": "Tuerk & Gold",
+    "year": 1990,
+    "venue": "Science",
+    "title": "Systematic evolution of ligands by exponential enrichment: RNA ligands to bacteriophage T4 DNA polymerase",
+    "doi": "10.1126/science.2200121",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/2200121/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "把局部变体选择与更大随机空间选择区分。"
+  },
+  {
+    "id": "R13",
+    "authors": "Shangguan et al.",
+    "year": 2006,
+    "venue": "PNAS",
+    "title": "Aptamers evolved from live cells as effective molecular probes for cancer study",
+    "doi": "10.1073/pnas.0602615103",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1567664/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "天然表面环境与后续靶点鉴定。"
+  },
+  {
+    "id": "R14",
+    "authors": "Wang et al.",
+    "year": 2014,
+    "venue": "Angewandte Chemie International Edition",
+    "title": "Particle display: a quantitative screening method for generating high-affinity aptamers",
+    "doi": "10.1002/anie.201309334",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4065591/",
+    "scope": "摘要；另在公开原文核对流程偏好与颗粒筛选的说明，未复分析图表。",
+    "use": "群体富集与候选性质定量筛选的区别。"
+  },
+  {
+    "id": "R15",
+    "authors": "Rondon et al.",
+    "year": 2000,
+    "venue": "Applied and Environmental Microbiology",
+    "title": "Cloning the soil metagenome: a strategy for accessing the genetic and functional diversity of uncultured microorganisms",
+    "doi": "10.1128/AEM.66.6.2541-2547.2000",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC110579/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "环境DNA来源、大片段保存与异源功能呈现。"
+  },
+  {
+    "id": "R16",
+    "authors": "Frohman, Dush & Martin",
+    "year": 1988,
+    "venue": "PNAS",
+    "title": "Rapid production of full-length cDNAs from rare transcripts: amplification using a single gene-specific oligonucleotide primer",
+    "doi": "10.1073/pnas.85.23.8998",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC282649/",
+    "scope": "摘要与书目信息；本轮未取得并完整核读主文及补充材料。",
+    "use": "把部分cDNA候选接到转录本末端与完整编码区。"
+  }
+]
